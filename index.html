@@ -1,0 +1,1703 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="夏目漱石・森鷗外・芥川龍之介の時代の小説・随想に出てくる当て字・漢語・慣用句・文語の名残・暮らしの言葉を引ける辞典。暗記カード・四択テスト・復習の予定つき。">
+<meta name="theme-color" content="#27466F">
+<title>近代語辞典</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F2F2EE; --surface:#FBFBF8; --surface-2:#E9EAE4;
+  --ink:#17202A; --ink-2:#4A5560; --ink-3:#7B848D;
+  --rule:#D6D8D0; --rule-2:#C3C6BD;
+  --ai:#27466F; --ai-soft:#E1E8F1;
+  --shu:#B0442C; --shu-soft:#F4E2DD;
+  --yama:#8C6A10; --yama-soft:#F0E8D1;
+  --tokiwa:#2F6B4F; --tokiwa-soft:#DFEAE2;
+  --c-ateji:#8A2E2A; --c-kango:#2D4A6B; --c-wago:#3F6B45;
+  --c-bunmatsu:#7A5A12; --c-kurashi:#6A3F74;
+  --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(23,32,42,.06),0 8px 24px -12px rgba(23,32,42,.18);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12161A; --surface:#1A1F25; --surface-2:#232A31;
+    --ink:#E7E9E4; --ink-2:#AEB6BD; --ink-3:#7E878F;
+    --rule:#2C343B; --rule-2:#3A434B;
+    --ai:#8FB0D8; --ai-soft:#1D293A;
+    --shu:#E08265; --shu-soft:#38231C;
+    --yama:#D5AC4F; --yama-soft:#332913;
+    --tokiwa:#7FBE9A; --tokiwa-soft:#183026;
+    --c-ateji:#E08A80; --c-kango:#8FB0D8; --c-wago:#8CC596;
+  --c-bunmatsu:#D9B45C; --c-kurashi:#C39BD0;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12161A; --surface:#1A1F25; --surface-2:#232A31;
+  --ink:#E7E9E4; --ink-2:#AEB6BD; --ink-3:#7E878F;
+  --rule:#2C343B; --rule-2:#3A434B;
+  --ai:#8FB0D8; --ai-soft:#1D293A;
+  --shu:#E08265; --shu-soft:#38231C;
+  --yama:#D5AC4F; --yama-soft:#332913;
+  --tokiwa:#7FBE9A; --tokiwa-soft:#183026;
+  --c-ateji:#E08A80; --c-kango:#8FB0D8; --c-wago:#8CC596;
+  --c-bunmatsu:#D9B45C; --c-kurashi:#C39BD0;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+img{max-width:100%}
+[hidden]:not([hidden=until-found]){display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  font-feature-settings:"palt" 1;}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3{margin:0;text-wrap:balance}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+:focus-visible{outline:2px solid var(--ai);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ── 柱 ── */
+.masthead{display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;padding:34px 0 16px;border-bottom:2px solid var(--ink)}
+.brand h1{font-family:var(--serif);font-weight:700;font-size:clamp(27px,4.6vw,40px);
+  line-height:1.2;letter-spacing:.04em}
+.brand p{margin:6px 0 0;font-size:12px;letter-spacing:.16em;color:var(--ink-3);
+  text-transform:uppercase}
+.mast-right{display:flex;align-items:center;gap:14px;padding-bottom:6px}
+.count{font-size:12.5px;color:var(--ink-2);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.count b{font-family:var(--serif);font-size:19px;color:var(--ai);font-weight:700}
+.theme-btn{border:1px solid var(--rule-2);border-radius:999px;padding:5px 13px;
+  font-size:12px;color:var(--ink-2);background:var(--surface)}
+.theme-btn:hover{border-color:var(--ai);color:var(--ai)}
+
+/* ── 爪索引 ── */
+.tabs{display:flex;gap:3px;margin-top:-1px;flex-wrap:wrap}
+.tab{position:relative;padding:11px 20px 10px;font-size:14px;font-weight:500;
+  color:var(--ink-2);background:var(--surface-2);
+  border-radius:0 0 4px 4px;border:1px solid var(--rule);border-top:none;
+  box-shadow:inset 0 -3px 0 transparent}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--ai);font-weight:700;
+  box-shadow:inset 0 -3px 0 var(--ai)}
+.tab .tnum{font-size:11px;color:var(--ink-3);margin-left:7px;font-variant-numeric:tabular-nums}
+.tab[aria-selected="true"] .tnum{color:var(--ai)}
+
+.panel{padding-top:26px}
+.panel[hidden]{display:none!important}
+
+/* ── 検索・絞り込み ── */
+.filters{display:flex;flex-direction:column;gap:13px;padding-bottom:18px;
+  border-bottom:1px solid var(--rule)}
+.searchbox{position:relative}
+.searchbox input{width:100%;padding:11px 14px 11px 38px;font:inherit;font-size:15px;
+  color:var(--ink);background:var(--surface);border:1px solid var(--rule-2);border-radius:3px}
+.searchbox input::placeholder{color:var(--ink-3)}
+.searchbox input:focus{border-color:var(--ai);outline:none;box-shadow:0 0 0 3px var(--ai-soft)}
+.searchbox svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;stroke:var(--ink-3);fill:none;stroke-width:1.8}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;font-size:12.5px;
+  color:var(--ink-2);background:var(--surface);border:1px solid var(--rule);border-radius:999px}
+.chip:hover{border-color:var(--rule-2);color:var(--ink)}
+.chip .dot{width:8px;height:8px;border-radius:2px;background:var(--dotc,var(--ink-3))}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip[aria-pressed="true"] .dot{background:var(--paper)}
+.seg{display:flex;flex-wrap:wrap;gap:1px;padding:1px;border:1px solid var(--rule);
+  border-radius:3px;background:var(--rule)}
+.seg button{padding:5px 13px;font-size:12.5px;color:var(--ink-2);white-space:nowrap;
+  background:var(--surface);flex:1 0 auto}
+.seg button[aria-pressed="true"]{background:var(--ai-soft);color:var(--ai);font-weight:700}
+.seg .sn{font-size:11px;color:var(--ink-3);margin-left:5px;font-variant-numeric:tabular-nums}
+.seg button[aria-pressed="true"] .sn{color:var(--ai)}
+.filter-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.hint{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* ── 見出し語欄 ── */
+.entries{display:flex;flex-direction:column}
+.entry{display:grid;grid-template-columns:3px 1fr;gap:0 18px;
+  padding:20px 0 20px 0;border-bottom:1px solid var(--rule)}
+.entry .spine{background:var(--cat,var(--ink-3));border-radius:2px;opacity:.85}
+.entry-body{min-width:0}
+.e-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.yomi{display:block;font-size:11.5px;letter-spacing:.14em;color:var(--ink-3);margin-bottom:1px}
+.word{font-family:var(--serif);font-weight:700;font-size:25px;line-height:1.3;letter-spacing:.02em}
+.catlab{font-size:11px;letter-spacing:.1em;color:var(--cat,var(--ink-3))}
+.mean{margin:9px 0 0;max-width:62ch}
+.ex{margin:9px 0 0;padding-left:14px;border-left:2px solid var(--shu);
+  font-size:13.5px;color:var(--ink-2);max-width:62ch}
+.ex b{color:var(--shu);font-weight:500;font-size:11px;letter-spacing:.12em;
+  display:block;margin-bottom:1px}
+.rel{margin-top:9px;font-size:12.5px;color:var(--ink-2)}
+.rel span{background:var(--surface-2);border-radius:3px;padding:2px 8px;margin-right:6px;
+  display:inline-block;color:var(--ink-2)}
+.e-foot{display:flex;justify-content:flex-end;margin-top:10px}
+.marks{display:inline-flex;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.marks button{padding:4px 12px;font-size:11.5px;color:var(--ink-3);border-right:1px solid var(--rule)}
+.marks button:last-child{border-right:none}
+.marks button:hover{background:var(--surface-2)}
+.marks button[aria-pressed="true"][data-lv="1"]{background:var(--shu-soft);color:var(--shu);font-weight:700}
+.marks button[aria-pressed="true"][data-lv="2"]{background:var(--yama-soft);color:var(--yama);font-weight:700}
+.marks button[aria-pressed="true"][data-lv="3"]{background:var(--tokiwa-soft);color:var(--tokiwa);font-weight:700}
+.empty{padding:60px 0;text-align:center;color:var(--ink-3);font-size:14px}
+.empty b{display:block;font-family:var(--serif);font-size:20px;color:var(--ink-2);margin-bottom:6px}
+
+@keyframes flash{0%,35%{background:var(--ai-soft)}100%{background:transparent}}
+.entry.flash{animation:flash 2.6s ease-out}
+
+/* ── 暗記カード ── */
+.study{display:flex;flex-direction:column;gap:20px;align-items:center}
+.study-bar{width:100%;display:flex;align-items:center;gap:14px;justify-content:space-between;
+  flex-wrap:wrap}
+.progline{flex:1;min-width:160px;height:3px;background:var(--surface-2);border-radius:2px;overflow:hidden}
+.progline i{display:block;height:100%;background:var(--ai);transition:width .3s}
+.card{width:100%;max-width:620px;min-height:330px;background:var(--surface);
+  border:1px solid var(--rule);border-left:4px solid var(--cat,var(--ai));border-radius:4px;
+  box-shadow:var(--shadow);padding:38px 34px;display:flex;flex-direction:column;
+  justify-content:center;text-align:center;gap:16px;cursor:pointer}
+.card:hover{border-color:var(--rule-2);border-left-color:var(--cat,var(--ai))}
+.card .c-yomi{font-size:12.5px;letter-spacing:.2em;color:var(--ink-3)}
+.card .c-word{font-family:var(--serif);font-weight:700;font-size:clamp(34px,7vw,52px);
+  line-height:1.25;letter-spacing:.06em}
+.card .c-tap{font-size:12px;color:var(--ink-3);letter-spacing:.1em}
+.card .c-mean{font-size:16px;line-height:1.85;max-width:46ch;margin:0 auto;text-align:left}
+.card .c-ex{font-size:13.5px;color:var(--ink-2);text-align:left;max-width:46ch;margin:0 auto;
+  border-left:2px solid var(--shu);padding-left:13px}
+.card .c-rel{font-size:12.5px;color:var(--ink-3)}
+.card .divider{width:44px;height:1px;background:var(--rule-2);margin:0 auto}
+.answers{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.ans{padding:11px 26px;border-radius:3px;font-size:14px;font-weight:500;border:1px solid}
+.ans[data-lv="1"]{color:var(--shu);border-color:var(--shu);background:var(--shu-soft)}
+.ans[data-lv="2"]{color:var(--yama);border-color:var(--yama);background:var(--yama-soft)}
+.ans[data-lv="3"]{color:var(--tokiwa);border-color:var(--tokiwa);background:var(--tokiwa-soft)}
+.ans:hover{filter:brightness(.96)}
+.mini{font-size:12.5px;color:var(--ink-2);border:1px solid var(--rule-2);
+  border-radius:3px;padding:5px 13px;background:var(--surface)}
+.mini:hover{border-color:var(--ai);color:var(--ai)}
+
+/* ── 四択 ── */
+.quiz{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.q-meta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;
+  color:var(--ink-3);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.q-stem{background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:26px 24px;text-align:center}
+.q-label{font-size:11px;letter-spacing:.16em;color:var(--ink-3);margin-bottom:10px}
+.q-text{font-family:var(--serif);font-size:clamp(20px,3.6vw,27px);font-weight:700;
+  line-height:1.6;letter-spacing:.03em}
+.q-text.small{font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.8;
+  letter-spacing:0;text-align:left}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{text-align:left;padding:14px 16px;border:1px solid var(--rule-2);border-radius:3px;
+  background:var(--surface);display:flex;gap:13px;align-items:flex-start;line-height:1.7}
+.opt:hover:not(:disabled){border-color:var(--ai);background:var(--ai-soft)}
+.opt:disabled{cursor:default}
+.opt .n{font-size:12px;color:var(--ink-3);font-weight:700;padding-top:3px;min-width:14px}
+.opt.correct{border-color:var(--tokiwa);background:var(--tokiwa-soft);color:var(--tokiwa);font-weight:500}
+.opt.correct .n{color:var(--tokiwa)}
+.opt.wrong{border-color:var(--shu);background:var(--shu-soft);color:var(--shu)}
+.opt.wrong .n{color:var(--shu)}
+.q-feedback{border-left:3px solid var(--ai);background:var(--surface);padding:14px 16px;
+  font-size:14px;border-radius:0 3px 3px 0}
+.q-feedback .fw{font-family:var(--serif);font-weight:700;font-size:17px;margin-bottom:4px}
+.result{text-align:center;background:var(--surface);border:1px solid var(--rule);
+  border-radius:4px;padding:40px 24px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.score{font-family:var(--serif);font-size:60px;font-weight:700;line-height:1;color:var(--ai);
+  font-variant-numeric:tabular-nums}
+.score small{font-size:22px;color:var(--ink-3)}
+.result .misses{margin-top:14px;text-align:left;width:100%;max-width:420px;
+  border-top:1px solid var(--rule);padding-top:14px}
+.result .misses h4{margin:0 0 8px;font-size:11px;letter-spacing:.16em;color:var(--shu);font-weight:700}
+.result .misses li{font-size:13.5px;color:var(--ink-2);margin-bottom:4px}
+.result .misses b{font-family:var(--serif);color:var(--ink);font-size:15px}
+
+/* ── 進捗 ── */
+.prog{display:flex;flex-direction:column;gap:28px}
+.tally{display:flex;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;
+  background:var(--surface)}
+.tally div{flex:1;padding:18px 14px;text-align:center;border-right:1px solid var(--rule)}
+.tally div:last-child{border-right:none}
+.tally .n{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.tally .l{font-size:11.5px;letter-spacing:.12em;color:var(--ink-3);margin-top:4px}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar-row{display:grid;grid-template-columns:minmax(126px,auto) 1fr auto;gap:14px;align-items:center}
+.bar-row .nm{font-size:13px;color:var(--ink-2)}
+.track{height:9px;background:var(--surface-2);border-radius:2px;overflow:hidden;display:flex}
+.track i{display:block;height:100%}
+.track .l3{background:var(--tokiwa)} .track .l2{background:var(--yama)} .track .l1{background:var(--shu)}
+.bar-row .pc{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;min-width:42px;text-align:right}
+.sect-h{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:.06em;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);margin-bottom:14px}
+.weak{display:flex;flex-wrap:wrap;gap:8px}
+.weak a{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--serif);font-size:16px;
+  font-weight:500;color:var(--ink);background:var(--shu-soft);border:1px solid var(--shu);
+  border-radius:3px;padding:5px 12px;text-decoration:none}
+.weak a small{font-family:var(--sans);font-size:11px;color:var(--shu);font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-3)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;
+  vertical-align:-1px}
+.danger{border:1px solid var(--shu);color:var(--shu);border-radius:3px;padding:7px 15px;
+  font-size:12.5px;align-self:flex-start;background:transparent}
+.danger:hover{background:var(--shu-soft)}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:560px){
+  .entry{grid-template-columns:3px 1fr;gap:0 13px}
+  .word{font-size:22px}
+  .tally{flex-wrap:wrap}
+  .tally div{flex:1 1 44%;border-bottom:1px solid var(--rule)}
+  .bar-row{grid-template-columns:1fr;gap:5px}
+  .bar-row .pc{text-align:left}
+}
+
+/* ── 範囲の持ち出し（リンク・紙のテスト） ── */
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.sheet-form{display:flex;flex-direction:column;gap:14px}
+.sheet-form label{font-size:12.5px;letter-spacing:.1em;color:var(--ink-3);display:block;
+  margin-bottom:5px}
+.sheet-form .seg{margin:0}
+
+/* 紙のテスト。画面では隠し、印刷のときだけ本文と入れ替える */
+#sheet{display:none}
+@media print{
+  body>*:not(#sheet){display:none!important}
+  #sheet{display:block!important;background:#fff;color:#000;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:11pt;line-height:1.9}
+  @page{size:A4;margin:16mm 14mm}
+  #sheet h1{font-size:16pt;letter-spacing:.08em;line-height:1.3;margin:0 0 3mm;font-weight:700}
+  #sheet .s-meta{font-family:"Hiragino Sans","Yu Gothic",sans-serif;font-size:8.5pt;
+    color:#444;line-height:1.4;display:flex;justify-content:space-between;gap:6mm;flex-wrap:wrap;
+    border-bottom:.4mm solid #000;padding-bottom:1.5mm;margin-bottom:2.5mm}
+  #sheet .s-name{font-family:"Hiragino Sans","Yu Gothic",sans-serif;font-size:9pt;line-height:1.6;
+    display:flex;gap:4mm;align-items:flex-end;margin-bottom:4mm}
+  #sheet .s-name i{display:inline-block;border-bottom:.3mm solid #000;font-style:normal}
+  #sheet .s-dir{font-size:10pt;line-height:1.5;margin:0 0 3mm}
+  #sheet ol{margin:0;padding-left:8mm}
+  #sheet .qs li{margin-bottom:2mm;line-height:1.45;break-inside:avoid}
+  #sheet .qs .qw{font-size:13pt;font-weight:700;letter-spacing:.06em}
+  #sheet .qs .qr{font-family:"Hiragino Sans","Yu Gothic",sans-serif;font-size:7.5pt;
+    color:#555;margin-left:2mm}
+  #sheet .qs .qm{font-size:10.5pt;line-height:1.55}
+  #sheet .qs .blank{display:block;border-bottom:.25mm solid #999;height:5.5mm;margin-top:.5mm}
+  #sheet .qs .blank.short{width:52mm}
+  #sheet .s-ans{break-before:page;padding-top:2mm}
+  #sheet .s-ans h2{font-size:13pt;letter-spacing:.1em;margin:0 0 3mm}
+  #sheet .s-ans li{font-size:9.5pt;line-height:1.75;margin-bottom:1.6mm;break-inside:avoid}
+  #sheet .s-ans .aw{font-weight:700}
+}
+
+/* ── 今日の復習 ── */
+.today{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;
+  margin-top:20px;padding:13px 17px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ai);border-radius:0 4px 4px 0}
+.today[data-tone="calm"]{border-left-color:var(--tokiwa)}
+.today .t-txt{font-size:13.5px;color:var(--ink-2);min-width:0}
+.today .t-txt b{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ai);
+  margin:0 3px;font-variant-numeric:tabular-nums}
+.today[data-tone="calm"] .t-txt b{color:var(--tokiwa)}
+.today .t-act{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ── 復習予定・書き出し ── */
+.plan{display:flex;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;
+  background:var(--surface)}
+.plan div{flex:1;padding:13px 10px;text-align:center;border-right:1px solid var(--rule)}
+.plan div:last-child{border-right:none}
+.plan .n{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.2;
+  font-variant-numeric:tabular-nums;color:var(--ai)}
+.plan .l{font-size:11px;letter-spacing:.08em;color:var(--ink-3);margin-top:2px;white-space:nowrap}
+.io{display:flex;flex-direction:column;gap:10px}
+.io-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.io textarea{width:100%;min-height:76px;font-family:ui-monospace,SFMono-Regular,monospace;
+  font-size:11.5px;line-height:1.6;padding:10px;border:1px solid var(--rule-2);border-radius:3px;
+  background:var(--surface);color:var(--ink);resize:vertical}
+.io-note{font-size:12px;color:var(--ink-3);line-height:1.8;margin:0}
+.io-msg{font-size:12.5px;color:var(--tokiwa)}
+.io-msg[data-err="1"]{color:var(--shu)}
+.box-tag{font-size:10.5px;letter-spacing:.08em;color:var(--ink-3);
+  border:1px solid var(--rule);border-radius:999px;padding:1px 9px;white-space:nowrap}
+.box-tag[data-now="1"]{color:var(--shu);border-color:var(--shu);background:var(--shu-soft)}
+.e-foot{justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* ── 使い方 ── */
+.help-btn{border:1px solid var(--rule-2);border-radius:999px;padding:5px 13px;
+  font-size:12px;color:var(--ink-2);background:var(--surface)}
+.help-btn:hover{border-color:var(--ai);color:var(--ai)}
+a.help-btn{text-decoration:none;display:inline-block;line-height:1.75}
+dialog#help{padding:0;border:1px solid var(--rule-2);border-radius:6px;
+  background:var(--surface);color:var(--ink);box-shadow:var(--shadow);
+  max-width:560px;width:calc(100% - 32px)}
+dialog#help[open]{display:flex;flex-direction:column;max-height:min(82vh,760px)}
+dialog#help::backdrop{background:rgba(23,32,42,.5)}
+.help-head{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:18px 22px 14px;border-bottom:1px solid var(--rule)}
+.help-head h2{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.06em}
+.help-x{font-size:21px;line-height:1;color:var(--ink-3);padding:1px 7px;border-radius:3px}
+.help-x:hover{background:var(--surface-2);color:var(--ink)}
+.help-body{padding:18px 22px;overflow-y:auto}
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;
+  display:flex;flex-direction:column;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:22px 1fr;gap:0 12px;
+  font-size:13.5px;line-height:1.75;color:var(--ink-2)}
+.steps li::before{content:counter(s);font-family:var(--serif);font-weight:700;font-size:12.5px;
+  color:var(--ai);background:var(--ai-soft);border-radius:50%;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;margin-top:4px}
+.steps .st{min-width:0}
+.steps b{display:block;color:var(--ink);font-size:14.5px;font-weight:700;margin-bottom:1px}
+.steps em{font-style:normal;color:var(--ink);font-weight:500}
+.help-note{margin-top:16px;padding:12px 14px;background:var(--surface-2);border-radius:4px;
+  font-size:12.5px;line-height:1.8;color:var(--ink-2)}
+.help-note b{display:block;color:var(--ink);font-size:11px;letter-spacing:.12em;margin-bottom:3px}
+.help-foot{padding:14px 22px 18px;border-top:1px solid var(--rule);
+  display:flex;justify-content:flex-end}
+.help-start{background:var(--ai);color:var(--paper);border-radius:3px;
+  padding:9px 28px;font-size:14px;font-weight:700}
+.help-start:hover{filter:brightness(1.08)}
+@media(max-width:560px){
+  .help-head,.help-body,.help-foot{padding-left:16px;padding-right:16px}
+  dialog#help{width:calc(100% - 20px)}
+}
+
+/* ==== 近代文章道場 追加分 ==== */
+.ex{margin:9px 0 0;padding-left:14px;border-left:2px solid var(--shu);
+  font-size:13.5px;color:var(--ink-2);line-height:1.85}
+.ex-l{margin:0;display:grid;grid-template-columns:4.6em 1fr;gap:0 8px}
+.ex-l b{font-size:11px;letter-spacing:.08em;color:var(--ink-3);font-weight:500;
+  font-family:var(--sans);padding-top:.35em}
+.ex-q{font-family:var(--serif);font-size:15px;color:var(--ink);letter-spacing:.03em}
+.ex-q cite{display:block;font-style:normal;font-family:var(--sans);font-size:11.5px;color:var(--ink-3);
+  text-align:right;letter-spacing:.04em}
+.ex-q cite::before{content:"―― "}
+.ex-t{color:var(--ink-3)}
+.fb-ex .ex{border-left-color:var(--rule-2);margin-top:8px}
+.c-ex .ex{text-align:left;border-left-color:var(--rule-2)}
+nav.sister{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+nav.sister a{font-size:12.5px;padding:6px 14px;border-radius:999px;border:1px solid var(--rule);
+  color:var(--ink-2);text-decoration:none;background:var(--surface)}
+nav.sister a[aria-current]{background:var(--ai);border-color:var(--ai);color:var(--paper);font-weight:700}
+@media print{nav.sister{display:none}}
+/* ==== 近代文章道場の装い: 大正の原稿用紙、海老茶と矢絣（辞典の配色を上書き） ==== */
+:root{
+  --paper:#F3EEE3; --surface:#FDFBF6; --surface-2:#EAE3D4;
+  --ink:#2A2320; --ink-2:#554A44; --ink-3:#877B72;
+  --rule:#DCD2C1; --rule-2:#C9BCA6;
+  --ai:#6E2C2A; --ai-soft:#F0E1DC;
+  --shu:#A8453B; --shu-soft:#F4E0D9;
+  --masu:#EBD5CC; --yagasuri-a:#6E2C2A; --yagasuri-b:#F3EEE3;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#18141A; --surface:#211B22; --surface-2:#2B242C;
+    --ink:#EDE6DD; --ink-2:#C1B7AC; --ink-3:#8E847B;
+    --rule:#3A3139; --rule-2:#4A4049;
+    --ai:#E3A79B; --ai-soft:#3A2427;
+    --shu:#E08A7C; --shu-soft:#3B2220;
+    --masu:#231D24; --yagasuri-a:#9A4B45; --yagasuri-b:#18141A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#18141A; --surface:#211B22; --surface-2:#2B242C;
+  --ink:#EDE6DD; --ink-2:#C1B7AC; --ink-3:#8E847B;
+  --rule:#3A3139; --rule-2:#4A4049;
+  --ai:#E3A79B; --ai-soft:#3A2427;
+  --shu:#E08A7C; --shu-soft:#3B2220;
+  --masu:#231D24; --yagasuri-a:#9A4B45; --yagasuri-b:#18141A;
+}
+/* 原稿用紙の升目 */
+body{background-image:
+  linear-gradient(var(--masu) 1px,transparent 1px),
+  linear-gradient(90deg,var(--masu) 1px,transparent 1px);
+  background-size:26px 26px}
+/* 見出しの下に矢絣の帯 */
+.masthead{border-bottom:none;position:relative;padding-bottom:18px}
+.masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9px;
+  background:repeating-linear-gradient(115deg,var(--yagasuri-a) 0 7px,var(--yagasuri-b) 7px 9px,
+    var(--yagasuri-a) 9px 11px,var(--yagasuri-b) 11px 18px);opacity:.9}
+.brand h1{font-family:"Shippori Mincho B1",var(--serif);font-weight:800;letter-spacing:.1em}
+.brand h1::after{content:"近";display:inline-block;margin-left:.4em;width:1.5em;height:1.5em;line-height:1.5em;
+  text-align:center;font-size:.48em;vertical-align:.5em;color:var(--paper);background:var(--ai);
+  border-radius:50%;letter-spacing:0}
+@media (max-width:560px){
+  .ex-l{grid-template-columns:4.2em 1fr}
+  .ex-q{font-size:14.5px}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&display=swap">
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand">
+      <h1>近代語辞典</h1>
+      <p>漱石・鷗外の時代の言葉を引く</p>
+    </div>
+    <div class="mast-right">
+      <span class="count">収録 <b id="totalCount">0</b> 項目</span>
+      <a class="help-btn" href="enshu.html">入試演習</a>
+      <a class="help-btn" href="haikei.html">時代の背景</a>
+      <button class="help-btn" id="helpBtn" type="button">使い方</button>
+      <button class="theme-btn" id="themeBtn" type="button">表示切替</button>
+    </div>
+  </header>
+
+  <nav class="sister" aria-label="道場の切り替え">
+    <a href="https://upopotennis-gif.github.io/kokugo-dojo/">国語道場トップ</a>
+    <a href="./" aria-current="page">近代語辞典</a>
+    <a href="enshu.html">入試演習</a>
+    <a href="haikei.html">時代の背景</a>
+  </nav>
+
+  <nav class="tabs" role="tablist" aria-label="学習モード">
+    <button class="tab" role="tab" id="tab-dict" aria-controls="p-dict" aria-selected="true">辞典<span class="tnum" id="tn-dict"></span></button>
+    <button class="tab" role="tab" id="tab-card" aria-controls="p-card" aria-selected="false">暗記カード</button>
+    <button class="tab" role="tab" id="tab-quiz" aria-controls="p-quiz" aria-selected="false">四択テスト</button>
+    <button class="tab" role="tab" id="tab-prog" aria-controls="p-prog" aria-selected="false">進捗<span class="tnum" id="tn-prog"></span></button>
+  </nav>
+
+  <div class="today" id="today" hidden>
+    <p class="t-txt" id="todayTxt" style="margin:0"></p>
+    <div class="t-act" id="todayAct"></div>
+  </div>
+
+  <!-- 辞典 -->
+  <section class="panel" id="p-dict" role="tabpanel" aria-labelledby="tab-dict">
+    <div class="filters">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+        <input type="search" id="q" placeholder="語・読み・意味で検索（例：矢張、はんもん、書生、〜ぬ）" aria-label="近代語を検索">
+      </div>
+      <div class="chips" id="catChips" role="group" aria-label="分野で絞り込む"></div>
+      <div class="filter-row">
+        <div class="seg" id="statusSeg" role="group" aria-label="習得状況で絞り込む">
+          <button type="button" data-st="all" aria-pressed="true">すべて</button>
+          <button type="button" data-st="due" aria-pressed="false">要復習<span class="sn" id="sn-due">0</span></button>
+          <button type="button" data-st="ng" aria-pressed="false">苦手<span class="sn" id="sn-ng">0</span></button>
+          <button type="button" data-st="1" aria-pressed="false">まだ</button>
+          <button type="button" data-st="2" aria-pressed="false">あいまい</button>
+          <button type="button" data-st="3" aria-pressed="false">覚えた</button>
+          <button type="button" data-st="0" aria-pressed="false">未仕分け</button>
+        </div>
+        <span class="hint" id="dictHint"></span>
+      </div>
+      <div class="tools">
+        <button class="mini" id="shareBtn" type="button">この範囲のリンクをコピー</button>
+        <button class="mini" id="printBtn" type="button">この範囲で紙のテストを作る</button>
+        <span class="io-msg" id="shareMsg"></span>
+      </div>
+    </div>
+    <div class="entries" id="entries"></div>
+  </section>
+
+  <!-- 暗記カード -->
+  <section class="panel" id="p-card" role="tabpanel" aria-labelledby="tab-card" hidden>
+    <div class="study">
+      <div class="study-bar">
+        <span class="hint" id="deckPos">1 / 1</span>
+        <div class="progline"><i id="deckBar" style="width:0%"></i></div>
+        <button class="mini" id="reshuffle" type="button">この条件で組み直す</button>
+      </div>
+      <div class="card" id="card" tabindex="0" role="button" aria-label="カードをめくる"></div>
+      <div class="answers" id="cardAns" hidden>
+        <button class="ans" data-lv="1" type="button">まだ</button>
+        <button class="ans" data-lv="2" type="button">あいまい</button>
+        <button class="ans" data-lv="3" type="button">覚えた</button>
+      </div>
+      <span class="hint">カードをクリック（またはスペース）で語義を表示。仕分けは辞典の絞り込み条件に従います。</span>
+    </div>
+  </section>
+
+  <!-- 四択 -->
+  <section class="panel" id="p-quiz" role="tabpanel" aria-labelledby="tab-quiz" hidden>
+    <div class="quiz" id="quiz"></div>
+  </section>
+
+  <!-- 進捗 -->
+  <section class="panel" id="p-prog" role="tabpanel" aria-labelledby="tab-prog" hidden>
+    <div class="prog" id="prog"></div>
+  </section>
+
+  <footer>
+    <span>学習状況はこの端末のブラウザにのみ保存されます（進捗タブから書き出せます）。</span>
+    <span>大学入試 近代の小説・随想 ／ 言葉と背景</span>
+  </footer>
+</div>
+
+<section id="sheet" aria-hidden="true"></section>
+
+<dialog id="sheetDlg" aria-labelledby="sheetTitle">
+  <div class="help-head">
+    <h2 id="sheetTitle">紙のテストを作る</h2>
+    <button class="help-x" id="sheetClose" type="button" aria-label="閉じる">&times;</button>
+  </div>
+  <div class="help-body">
+    <div class="sheet-form">
+      <div>
+        <label id="sheetRangeLab">出題範囲</label>
+        <p class="io-note" id="sheetRange" style="margin:0"></p>
+      </div>
+      <div>
+        <label for="sheetNum">問題数</label>
+        <div class="seg" id="sheetNum" role="group" aria-labelledby="sheetNumLab">
+          <button type="button" data-n="10" aria-pressed="false">10 問</button>
+          <button type="button" data-n="15" aria-pressed="true">15 問</button>
+          <button type="button" data-n="20" aria-pressed="false">20 問</button>
+          <button type="button" data-n="30" aria-pressed="false">30 問</button>
+        </div>
+      </div>
+      <div>
+        <label>出題の向き</label>
+        <div class="seg" id="sheetMode" role="group" aria-label="出題の向き">
+          <button type="button" data-m="w2m" aria-pressed="true">語 → 意味</button>
+          <button type="button" data-m="m2w" aria-pressed="false">意味 → 語</button>
+          <button type="button" data-m="mix" aria-pressed="false">交互</button>
+        </div>
+      </div>
+      <div>
+        <label>解答</label>
+        <div class="seg" id="sheetAns" role="group" aria-label="解答をつけるか">
+          <button type="button" data-a="1" aria-pressed="true">つける</button>
+          <button type="button" data-a="0" aria-pressed="false">つけない</button>
+        </div>
+      </div>
+      <div class="help-note" style="margin:0">
+        <b>印刷について</b>
+        解答は最後のページに付きます。生徒に配る分は「つけない」で刷ってください。
+        A4 縦・等倍を想定しています。1 ページに収めたいときは 15 問までが目安です。
+      </div>
+    </div>
+  </div>
+  <div class="help-foot">
+    <button class="help-start" id="sheetPrint" type="button">印刷する</button>
+  </div>
+</dialog>
+
+<dialog id="help" aria-labelledby="helpTitle">
+  <div class="help-head">
+    <h2 id="helpTitle">使い方</h2>
+    <button class="help-x" id="helpClose" type="button" aria-label="閉じる">&times;</button>
+  </div>
+  <div class="help-body">
+    <ol class="steps">
+      <li><div class="st"><b>「今日の復習」から始める</b>タブのすぐ下の帯に、その日に解き直すべき語の数が出ます。何からやるか迷ったら、ここのボタンを押すだけで構いません。</div></li>
+      <li><div class="st"><b>辞典で引く</b>検索欄には、表記・読み・意味のどれを入れても引けます。「矢張」でも「やはり」でも構いません。分野のボタンを押すと、その分野だけが残ります。</div></li>
+      <li><div class="st"><b>用例は本物の文章</b>「用例」は漱石・鷗外・芥川などの作品から、そのまま引いています。語が実際にどんな文の中で使われるかを見てから、意味を確かめてください。「作例」は説明のために作った文です。</div></li>
+      <li><div class="st"><b>自分の状態を仕分ける</b>各語の右下にある<em>まだ／あいまい／覚えた</em>を押して記録します。<em>覚えた</em>を重ねるたびに次に出す間隔が 1 → 2 → 4 → 7 → 14 日と延び、<em>まだ</em>や誤答はその日のうちに戻ってきます。</div></li>
+      <li><div class="st"><b>四択テストで確かめる</b>10問。語→意味と意味→語が交互に出ます。誤答の選択肢は同じ分野から選ばれるので、似た語の区別が試されます。<em>1 〜 4</em> のキーでも答えられます。</div></li>
+      <li><div class="st"><b>本文の中で解く</b>見出しの下の<em>入試演習</em>では、実際の作品の一節に引いた傍線部の意味を、入試の形で解けます。<em>時代の背景</em>は、明治・大正の学生・家・お金・文学をまとめて読むページです。</div></li>
+    </ol>
+    <div class="help-note">
+      <b>覚えておくと便利</b>
+      辞典で設定した絞り込み（検索語・分野・習得状況）は、暗記カードと四択テストにもそのまま効きます。<em>要復習</em>や<em>苦手</em>に絞ってから暗記カードを開けば、いま手を入れるべき語だけを繰り返せます。
+    </div>
+    <div class="help-note">
+      <b>保存について</b>
+      学習状況は、いま見ている端末のブラウザにだけ保存されます。機種を変えるときや、学校と自宅で使い分けたいときは、<em>進捗</em>の一番下にある「学習状況の持ち出し」から書き出して、移した先で読み込んでください。
+    </div>
+  </div>
+  <div class="help-foot">
+    <button class="help-start" id="helpStart" type="button">はじめる</button>
+  </div>
+</dialog>
+
+<script>
+const CATS=[
+ {id:"ateji", name:"当て字・難読語", v:"--c-ateji"},
+ {id:"kango", name:"漢語", v:"--c-kango"},
+ {id:"wago", name:"和語・慣用句", v:"--c-wago"},
+ {id:"bunmatsu", name:"文語の名残", v:"--c-bunmatsu"},
+ {id:"kurashi", name:"明治・大正の暮らし", v:"--c-kurashi"}
+];
+const W=[
+["矢張", "やはり", "前と変わらず。依然として。また、思ったとおり・結局は、の意にも使う。", "「うん」と云いつつも、僕は矢張女の事を思っている。｜鷗外『雁』｜送りがなの「り」が無い書き方も多い。", "やっぱり", "ateji", "副詞"],
+["兎に角", "とにかく", "ほかの事はひとまずおいて。いずれにしても。話を先へ進めるときに使う。", "兎に角一度会って話を聞いてみることにした。｜｜「兎角（とかく）」と字が似るので注意。", "兎角・兎も角", "ateji", "副詞"],
+["兎角", "とかく", "ともすると。どうかすると。好ましくない方へ傾きがちな様子を表す。", "人は兎角他人の欠点ばかりに目が行くものだ。｜｜「とにかく」ではない。「とかく〜しがち」と覚える。", "兎に角", "ateji", "副詞"],
+["流石", "さすが", "評判や予想どおりに。また「流石の〜も」で、あれほどの〜でも、の意。", "流石の彼もこの時ばかりは黙ってしまった。｜｜「りゅうせき」と読まない。", "矢張", "ateji", "副詞"],
+["頗る", "すこぶる", "たいそう。非常に。程度がはなはだしい様子。", "彼はいつも話す通り頗る強情な男でしたけれども｜漱石『こころ』｜「少し」の意ではない。「すこし」と読み違えない。", "甚だ", "ateji", "副詞"],
+["所謂", "いわゆる", "世間でよく言われている。俗に言う。一般の呼び名を借りて示す。", "又偶々所謂興味ある病症を見ても、それを研究して書いて置いて｜鷗外『カズイスチカ』｜「しょい」と読まない。", "謂わば", "ateji", "副詞"],
+["寧ろ", "むしろ", "二つを比べて、どちらかといえば。かえってこちらの方が。", "その間を流れる千曲川は大河というよりも寧ろ大きな谿流に近い。｜藤村『千曲川のスケッチ』｜「AよりもむしろB」の形で、Bの方に重心がある。", "却って", "ateji", "副詞"],
+["却って", "かえって", "予想や期待とは反対に。逆に。", "お玉の所へ末造の来る度数は、時の立つに連れて少くはならないで、却って多くなった。｜鷗外『雁』｜「却下」の連想で「しりぞけて」と取らない。", "寧ろ", "ateji", "副詞"],
+["悉く", "ことごとく", "すべて。残らず。一つ残らずそうなる様子。", "梅、李、桜、欅、銀杏なぞの霜葉は、その一日で悉く落ちた。｜藤村『千曲川のスケッチ』｜", "皆", "ateji", "副詞"],
+["漸く", "ようやく", "やっとのことで。また、だんだんと・しだいに、の意もある。", "山上の雲は漸く白く成って行った。｜藤村『千曲川のスケッチ』｜ここは「しだいに」。「やっと」と決めつけない。", "漸次・到頭", "ateji", "副詞"],
+["可成", "かなり", "相当に。ずいぶん。なお「なるべく」と読む用法もあり、文脈で分ける。", "私達は可成深い松林の中へ来た。｜藤村『千曲川のスケッチ』｜「可成深い」は、なかなか深い。", "余程", "ateji", "副詞"],
+["一寸", "ちょっと", "少し。わずかな間。軽く。数量や時間・程度が小さい様子。", "末造は一寸好いと思って、敷金と家賃と差配の名とを、手帳に書き留めて出た。｜鷗外『雁』｜長さの単位なら「いっすん」（約3cm）。", "一寸（いっすん）", "ateji", "副詞"],
+["屹度", "きっと", "必ず。確かに。強く見込んだり、決意したりする気持ちを表す。", "明日は屹度伺いますと言って帰って行った。｜｜", "必ず", "ateji", "副詞"],
+["如何にも", "いかにも", "本当に。まったく。また「いかにも〜らしい」と様子を強める。", "その弟は健三から見ると如何にも生意気であった。｜漱石『道草』｜「如何」だけなら「いかが・いかに」。", "如何", "ateji", "副詞"],
+["何時", "いつ", "どの時。いつか。「何時まで」は、いつまでも。", "土塀に映る林檎や柿の樹影は何時まで見ていても飽きないほど面白味がある。｜藤村『千曲川のスケッチ』｜時刻を問うときは「なんじ」と読む。", "何時（なんじ）", "ateji", "副詞"],
+["滅多に", "めったに", "打消と組んで、ほとんど〜ない。まれにしか〜ない。", "喜いちゃんは、これがために滅多に表へ出て遊んだ事がない。｜漱石『永日小品』｜「滅多な事」は、むやみな・軽はずみな事。", "無暗に", "ateji", "副詞"],
+["無暗に", "むやみに", "分別なく。やたらに。度を越してしきりに。", "あなたはお可哀想だ、不仕合だと無暗に云うものだから｜漱石『坊っちゃん』｜「無闇」とも書く。", "滅多に", "ateji", "副詞"],
+["稍", "やや", "少し。いくらか。程度がわずかな様子。", "この時家の主人らしい稍年上の女が、慌ただしげに｜鷗外『雁』｜「稍々」と重ねて書くこともある。", "聊か", "ateji", "副詞"],
+["聊か", "いささか", "少し。わずかに。控えめに程度を示す。", "私は物足りないというよりも、聊か拍子抜けの気味であった。｜漱石『こころ』｜「聊かも〜ない」は、少しも〜ない。", "稍", "ateji", "副詞"],
+["仮令", "たとい", "仮に〜としても。たとえ。後ろに「ても・とも」が来る。", "己の悪くない事は、仮令あの男に解っていなくっても、己には能く解っている｜漱石『道草』｜「たとえ」とも読む。", "縦令", "ateji", "副詞"],
+["所詮", "しょせん", "結局のところ。どうせ。あきらめの気持ちを含むことが多い。", "欲しいと云う望みと、それを買うことは所詮企て及ばぬと云う諦め｜鷗外『雁』｜", "必竟", "ateji", "副詞"],
+["必竟", "ひっきょう", "つまるところ。結局。いろいろ考えた末の結論を示す。", "必竟やくざだから遊んでいるのだと結論しているらしかった。｜漱石『こころ』｜「畢竟」の当て字。意味は同じ。", "畢竟・所詮", "ateji", "副詞"],
+["到底", "とうてい", "打消と組んで、どうやっても〜ない。とても〜ない。", "医者に見せると到底癒らないという診断でした。｜漱石『こころ』｜「到達」の連想で「ついに」と取らない。", "迚も", "ateji", "副詞"],
+["一向", "いっこう", "打消と組んで、少しも〜ない。まったく〜ない。", "野だは時々山嵐に話しかけるが、山嵐は一向応じない。｜漱石『坊っちゃん』｜「一方に向く」意ではない。", "少しも", "ateji", "副詞"],
+["兼て", "かねて", "前々から。以前から。「兼てから」とも言う。", "兼て好い刀が一腰欲しいと心掛けていたので｜鷗外『じいさんばあさん』｜「兼ねる（両方する）」と混同しない。", "予て", "ateji", "副詞"],
+["頻りに", "しきりに", "何度も繰り返して。また、熱心に・むやみに。", "気のたしかな時は頻りに淋しがる病人にもそれが希望らしく見えた。｜漱石『こころ』｜", "度々", "ateji", "副詞"],
+["殊更", "ことさら", "わざわざ。意図して。また、とりわけ・特に、の意もある。", "それが丁度いつも自分の殊更に見て通る家の前であった｜鷗外『雁』｜ここは「わざと気にかけて」。", "態と", "ateji", "副詞"],
+["丸で", "まるで", "まったく。すっかり。また「まるで〜のようだ」とたとえを導く。", "纏っても自然界に存するものとは丸で趣を異にする場合がある。｜漱石『草枕』｜ここは「まったく」。たとえではない。", "丁度", "ateji", "副詞"],
+["丁度", "ちょうど", "ぴったり。また「丁度〜のような」で、あたかも、とたとえる。", "丁度、鶏の脚のような、骨と皮ばかりの腕である。｜芥川『羅生門』｜ここは「あたかも」。たとえを導く。", "恰も・丸で", "ateji", "副詞"],
+["大方", "おおかた", "たぶん。おそらく。「〜だろう」と組んで推量する。", "私は大方叔母さんの所だろうと答えました。｜漱石『こころ』｜名詞なら「大部分・世間の人々」。", "多分", "ateji", "副詞"],
+["余程", "よほど", "かなり。相当に。また「余程〜しようと思った」は、もう少しで〜しかけた。", "お玉はこの時もう余程落ち着いていた。｜鷗外『雁』｜「よっぽど」とも言う。", "可成", "ateji", "副詞"],
+["忽ち", "たちまち", "すぐに。またたく間に。急に事態が変わる様子。", "先生は忽ち手で私を遮った。｜漱石『こころ』｜", "直ぐ", "ateji", "副詞"],
+["愈", "いよいよ", "ますます。いっそう。また、とうとう・いよいよその時が来た、の意。", "それからお玉が末造を遇することは愈厚くなって、お玉の心は愈末造に疎くなった。｜鷗外『雁』｜ここは「ますます」。「愈々」とも書く。", "益", "ateji", "副詞"],
+["生憎", "あいにく", "都合の悪いことに。折あしく。期待に反して残念な様子。", "出入のものを呼んで戸締りを直そうと思ったら生憎、暮で用が立て込んでいて来られない。｜漱石『永日小品』｜「生」「憎」から意味を推さない。", "折悪しく", "ateji", "副詞"],
+["固より", "もとより", "言うまでもなく。もちろん。また、はじめから・もともと。", "病の重かった時は、固よりその日その日に生きていた。｜漱石『思い出す事など』｜「素より」とも書く。「固い」とは無関係。", "勿論", "ateji", "副詞"],
+["一層（いっそ）", "いっそ", "思い切って。いっそのこと。中途半端よりはむしろ、と極端な方を選ぶ。", "汚れたのを用いるくらいなら、一層始めから色の着いたものを使うが好い。｜漱石『こころ』｜「いっそう（さらに）」と読むと意味が通らない。", "一層（いっそう）", "ateji", "副詞"],
+["中々", "なかなか", "打消と組んで、簡単には〜ない。肯定では、かなり・相当に。", "そうして夜は中々明けなかった。｜漱石『思い出す事など』｜「却々」と書くこともある。", "容易に", "ateji", "副詞"],
+["敢て", "あえて", "無理を押して。わざわざ。「敢てしない」は、進んではしない。", "しかしその子供の前にわが非を自白する事は敢てし得なかった。｜漱石『道草』｜", "態と", "ateji", "副詞"],
+["碌に", "ろくに", "打消と組んで、十分には〜ない。まともに〜ない。", "これが琴を浚うのに声さえ碌に出せなかったあの女かしらと疑われるくらい｜漱石『こころ』｜「碌な〜ない」は、まともな〜ない。", "碌々", "ateji", "副詞"],
+["成程", "なるほど", "確かに。本当に。人の話や予想が当たっていると納得する気持ち。", "さて二度目に茹でた鼻を出して見ると、成程、いつになく短くなっている。｜芥川『鼻』｜", "果して", "ateji", "副詞"],
+["可笑しい", "おかしい", "こっけいで笑いたくなる。また、変だ・怪しい。どちらかは文脈で決める。", "少しも破傷風らしい処が無かったのを思い出して、心の中に可笑しく思った。｜鷗外『カズイスチカ』｜ここは「こっけいだ」。", "滑稽", "ateji", "状態・様子"],
+["呑気", "のんき", "のんびりして気楽な様子。心配や苦労を気にかけない性質。", "米国へ渡ってもやはり人の顔が間延びがして呑気に見えた。｜寅彦『電車と風呂』｜「暢気」とも書く。", "長閑", "ateji", "状態・様子"],
+["長閑", "のどか", "静かでのんびりしている様子。天気が穏やかで、気持ちがゆったりする。", "そんな長閑な日には、庭の梅の樹に鶯が来て啼くような気持もした。｜漱石『硝子戸の中』｜「ちょうかん」と読まない。", "呑気", "ateji", "状態・様子"],
+["莫迦に", "ばかに", "ひどく。むやみに。程度が並外れている様子を表す。", "寒い日があるかと思うと、また莫迦に暖い日がある。｜藤村『千曲川のスケッチ』｜人をあざける意ではない。「やけに暖かい」。", "馬鹿", "ateji", "状態・様子"],
+["出鱈目", "でたらめ", "筋道の立たない、いいかげんなこと。根拠のない言動。", "けれども彼自身の頭で批判すると、全くの出鱈目に過ぎなかった。｜漱石『道草』｜", "無暗", "ateji", "状態・様子"],
+["温和しい", "おとなしい", "穏やかで落ち着いている。素直で出しゃばらない。", "気を負えば百人の男子を物の数とも思わぬ勢の下から温和しい情けが吾知らず湧いて出る。｜漱石『草枕』｜「おんわ」と読むと別の語になる。", "", "ateji", "状態・様子"],
+["極りが悪い", "きまりがわるい", "人の目が気になって恥ずかしい。気まずい。", "奥さんは大方極りが悪いのだろうといって、ちょっと私の顔を見ました。｜漱石『こころ』｜「決まり（規則）」の話ではない。", "間が悪い", "ateji", "状態・様子"],
+["勿体ない", "もったいない", "おそれ多い。身分に過ぎて申し訳ない。また、むだにするのが惜しい。", "勿体ない話だが、天子さまのご病気も、お父さんのとまあ似たものだろうな｜漱石『こころ』｜ここは天皇と比べることへの恐縮。", "畏れ多い", "ateji", "状態・様子"],
+["厭", "いや", "好ましくない。不快だ。したくない。", "厭なら私だけ外に待っていろというのです。｜漱石『こころ』｜「厭世（えんせい）」の厭と同じ字。", "嫌", "ateji", "状態・様子"],
+["所為", "せい", "ある結果を招いた原因。多く悪い結果について言う。", "先生に和服を着せたのも美禰子の所為とみえる。｜漱石『三四郎』｜「しょい」と読むと「しわざ・行い」の意。", "所為（しょい）", "ateji", "名詞・その他"],
+["己", "おれ", "男性の自称で「おれ」。文脈によっては「おのれ（自分）」と読む。", "何しろ己とお母さんだけなんだからね。｜漱石『こころ』｜ここは父の言葉なので「おれ」。", "僕・余", "ateji", "名詞・その他"],
+["此所", "ここ", "この場所。また、この点・この時。", "健三の記憶は此所でぷつりと切れていた。｜漱石『道草』｜「其所」はそこ、「何所」はどこ。", "其所・何所", "ateji", "名詞・その他"],
+["彼方此方", "あちこち", "あちらこちら。ほうぼう。", "いろいろの野菜が彼方此方に積んで並べてある。｜独歩『武蔵野』｜「彼方」一語なら「かなた・あちら」。", "彼方", "ateji", "名詞・その他"],
+["余所行", "よそゆき", "外出のときの改まった身なり。晴れ着。また、改まった態度。", "まだ自分で余所行の着物を拵えるというほどの分別は出なかったのです。｜漱石『こころ』｜「余所」はよそ・ほかの所。", "普段着", "ateji", "名詞・その他"],
+["贔屓", "ひいき", "気に入った人を特に目をかけて引き立てること。", "母は兄ばかり贔屓にしていた。｜漱石『坊っちゃん』｜「贔屓の引き倒し」は、ひいきが逆に迷惑になること。", "依怙贔屓", "ateji", "名詞・その他"],
+["胡坐", "あぐら", "両足を組んで楽に座ること。改まらない、くつろいだ座り方。", "おれは洋服だから、かしこまるのが窮屈だったから、すぐ胡坐をかいた。｜漱石『坊っちゃん』｜正座（かしこまる）の反対。", "正座", "ateji", "名詞・その他"],
+["筈", "はず", "当然そうなるという道理や見込み。また、そうなる予定。", "ふだんなら、勿論、主人の家へ帰る可き筈である。｜芥川『羅生門』｜「可き筈」は、当然〜するはず。", "訳", "ateji", "名詞・その他"],
+["儘", "まま", "そのままの状態。また、思いどおり。「儘ならぬ」は思うようにならない。", "つくづく世の中の儘ならぬを、じれったくも思うのである。｜鷗外『雁』｜「我儘（わがまま）」の儘。", "我儘", "ateji", "名詞・その他"],
+["然し", "しかし", "前の事がらに反する事を続ける。けれども。", "勝手に驚けとは至極面白い言葉である、然し決して勝手に驚けないのです。｜独歩『牛肉と馬鈴薯』｜「併し」とも書く。", "併し・而して", "ateji", "接続・つなぎ"],
+["而して", "しこうして", "そうして。そして。前を受けて次を加える、改まった言い方。", "あの左伝の、目迎えて而してこれを送ると云う文句だねえ。｜鷗外『雁』｜漢文訓読から来た語。「しかして」とも。", "然し", "ateji", "接続・つなぎ"],
+["従って", "したがって", "前の事がらを理由として、次の結果を導く。だから。", "その結果として自然に他人のする事が愚かに見え従って自分がだれよりも賢い｜寅彦『科学者とあたま』｜", "故に", "ateji", "接続・つなぎ"],
+["尤も", "もっとも", "ただし。とはいうものの。前の話に補足や例外をつける。", "尤もきみ子はあの家の歴史を書いていなかった。｜鷗外『カズイスチカ』｜「尤もな話」は、道理にかなった話。", "尤もらしい", "ateji", "接続・つなぎ"],
+["拵える", "こしらえる", "作る。整える。また、話や言い訳を作り上げる。", "私は色々の弁護を自分の胸で拵えてみました。｜漱石『こころ』｜ここは言い訳を心の中で作ること。", "誂える", "ateji", "動詞"],
+["誂える", "あつらえる", "注文して、自分の望みどおりに作らせる。", "老人は直に谷中へ行って、亡妻のために立派な石碑を誂えた。｜漱石『永日小品』｜「あしらう」と混同しない。「お誂え向き」は好都合。", "拵える", "ateji", "動詞"],
+["拘泥る", "こだわる", "ささいな事に心がとらわれる。「拘泥らない」は、わだかまりがない。", "私はこの穏やかな父の前に拘泥らない頭を下げた。｜漱石『こころ』｜漢語で読めば「こうでい（する）」。", "拘泥（こうでい）", "ateji", "動詞"],
+["草臥れる", "くたびれる", "疲れる。また、物が古びてみすぼらしくなる。", "お前もさぞ草臥れるだろう｜漱石『こころ』｜", "疲れる", "ateji", "動詞"],
+["呉れる", "くれる", "相手がこちらに物を与える。「呉れろ」は、よこせ・ください。", "奥さんにお嬢さんを呉れろと明白な談判を開こうかと考えたのです。｜漱石『こころ』｜ここは結婚を申し込むこと。", "遣る", "ateji", "動詞"],
+["遣る", "やる", "与える。行かせる。また、する・行う。", "どうせ遣っつけるなら塊めて、うんと遣っつける方がいい。｜漱石『坊っちゃん』｜「つかわす」と読む場合もある。", "呉れる", "ateji", "動詞"],
+["了う", "しまう", "終わらせる。「〜て了う」で、すっかり〜する・〜してしまう。", "生も死も、宇宙万般の現象も尋常茶番となって了う。｜独歩『牛肉と馬鈴薯』｜「仕舞う」とも書く。", "仕舞う", "ateji", "動詞"],
+["煩い（わずらい）", "わずらい", "心配ごと。心を悩ませる苦労のたね。", "住みにくき世から、住みにくき煩いを引き抜いて｜漱石『草枕』｜「うるさい」と読むと別の語になる。", "煩い（うるさい）", "ateji", "動詞"],
+["焦燥ぐ", "はしゃぐ", "浮かれて騒ぐ。調子に乗ってにぎやかにふるまう。", "それでも時々は気が済まなかったのでしょう、発作的に焦燥ぎ廻って彼らを驚かした事もあります。｜漱石『こころ』｜漢語「焦燥（しょうそう）」とは意味が違う。", "燥ぐ", "ateji", "動詞"],
+["煩悶", "はんもん", "あれこれ思い悩んで苦しむこと。心の中で解決がつかずにもだえる。", "そうして多くの卑怯な人と同じ程度において煩悶したのです。｜漱石『こころ』｜「悶」は、もだえる", "懊悩・苦悶", "kango", "心情"],
+["懊悩", "おうのう", "悩みもだえること。出口が見えないまま長く苦しみ続ける。", "私は多年の間懊悩した結果ようやく自分の鶴嘴をがちりと鉱脈に掘り当てたような気がしたのです｜漱石『私の個人主義』｜「煩悶」とほぼ同じ", "煩悶", "kango", "心情"],
+["忸怩", "じくじ", "自分の行いを深く恥じ入るさま。多く「忸怩たる」の形で使う。", "佐藤は黙って聴診してしまって、忸怩たるものがあった。｜鷗外『カズイスチカ』｜内心、恥ずかしく思っている", "×残念でならない・×腹立たしい", "kango", "心情"],
+["悄然", "しょうぜん", "元気をなくして、しょんぼりしているさま。", "彼はいつもにも似ない悄然とした口調で｜漱石『こころ』｜しょんぼりと", "意気消沈・対：昂然", "kango", "心情"],
+["憮然", "ぶぜん", "失望したりあきれたりして、ぼんやりしているさま。", "三四郎は憮然として読まないと答えた。｜漱石『三四郎』｜がっかり・あっけにとられた様子", "×腹を立てる（よくある取り違え）", "kango", "心情"],
+["茫然", "ぼうぜん", "気が抜けてぼんやりするさま。あっけにとられて我を忘れる。", "私は二人の後に茫然として取り残されました。｜漱石『こころ』｜", "呆然", "kango", "心情"],
+["愕然", "がくぜん", "思いがけないことに、ひどく驚くさま。", "愕然として仮寐の夢から覚めた時｜漱石『道草』｜はっと驚いて", "驚愕", "kango", "心情"],
+["狼狽", "ろうばい", "不意をつかれてうろたえ、あわてふためくこと。", "三四郎は赤面するばかりに狼狽した。｜漱石『三四郎』｜うろたえる", "周章狼狽", "kango", "心情"],
+["躊躇", "ちゅうちょ", "決心がつかず、ためらうこと。", "庭からはいるべきのか、玄関から回るべきのか、三四郎は少しく躊躇していた。｜漱石『三四郎』｜ためらう", "逡巡・「躊躇う」（ためらう）は当て字", "kango", "心情"],
+["逡巡", "しゅんじゅん", "決断できずに、ぐずぐずとためらうこと。しりごみすること。", "私にはとても勤まりかねるからと逡巡したくらいでした｜漱石『私の個人主義』｜しりごみ", "躊躇", "kango", "心情"],
+["倦怠", "けんたい", "物事に飽きて、いやになること。また、心身がだるいこと。", "コムトは倦怠をもって社会の進歩を促がす原因と見たくらいである。｜漱石『思い出す事など』｜飽き飽きした気分", "倦む（うむ）", "kango", "心情"],
+["厭世", "えんせい", "世の中や人生を、いやなもの・価値のないものと考えること。", "奥さんは最初世の中を見る先生の眼が厭世的だから｜漱石『こころ』｜「厭」は、いとう（嫌う）", "対：楽天・ペシミズム", "kango", "心情"],
+["無聊", "ぶりょう", "することがなく退屈なこと。心が満たされず、気が晴れないこと。", "その時の私は屈托がないというよりむしろ無聊に苦しんでいた。｜漱石『こころ』｜退屈で", "×無礼・所在ない", "kango", "心情"],
+["沈鬱", "ちんうつ", "気分が沈んで、晴れ晴れしないさま。", "その上技巧で愉快を買った後には、きっと沈鬱な反動があるのです。｜漱石『こころ』｜", "陰鬱・憂鬱", "kango", "心情"],
+["焦燥", "しょうそう", "思うように進まず、いらいらとあせること。", "ただ焦燥に焦燥ってばかりいる今の自分が｜漱石『道草』｜後ろは「焦燥って（あせって）」", "焦慮", "kango", "心情"],
+["屈託", "くったく", "ひとつのことが気にかかって、くよくよすること。", "屈托がねえから、自然に口が達者になる訳ですかね｜漱石『草枕』｜本文は「屈托」。「屈託がない」はのんき", "屈托とも書く", "kango", "心情"],
+["懸念", "けねん", "先のことを気にかけて、心配すること。", "この時もしかすると火事じゃないかという懸念が起った。｜漱石『硝子戸の中』｜気がかり", "危惧・×念じる", "kango", "心情"],
+["辟易", "へきえき", "うんざりして嫌になること。相手の勢いに押されて、しりごみすること。", "インスピレーションには辟易する。｜漱石『三四郎』｜うんざりする", "閉口", "kango", "心情"],
+["閉口", "へいこう", "どうにも手に負えず、困り果てること。", "ただおやじが小遣いをくれないには閉口した。｜漱石『坊っちゃん』｜まいった、お手上げ", "×口を閉じて黙る（字面の誤読）", "kango", "心情"],
+["恍惚", "こうこつ", "何かに心を奪われて、うっとりするさま。", "恍惚とこの稿を書き終るのである。｜漱石『硝子戸の中』｜うっとりと", "陶酔", "kango", "心情"],
+["寂寞", "せきばく", "ひっそりとして、さびしいさま。心が満たされないさびしさ。", "私は寂寞でした。｜漱石『こころ』｜「じゃくまく」とも読む", "寂寥", "kango", "心情"],
+["怪訝", "けげん", "わけが分からず、不思議そうにするさま。", "健三は怪訝な顔をしてそれを受取った。｜漱石『道草』｜ふしぎそうな", "いぶかる", "kango", "心情"],
+["慇懃", "いんぎん", "礼儀正しく、ていねいなさま。", "遅刻致しましたと慇懃に狸に挨拶をした。｜漱石『坊っちゃん』｜ていねいに", "慇懃無礼（うわべだけ丁寧）", "kango", "態度・性格"],
+["鷹揚", "おうよう", "小さなことにこだわらず、ゆったりと落ち着いているさま。", "宅には相当の財産があったので、むしろ鷹揚に育てられました。｜漱石『こころ』｜おっとりと", "おおらか・×威張る", "kango", "態度・性格"],
+["超然", "ちょうぜん", "世間のことにかかわらず、何ものにもとらわれずにいるさま。", "一定の時刻に超然として来て、また超然と帰って行った。｜漱石『こころ』｜", "超俗", "kango", "態度・性格"],
+["闊達", "かったつ", "心が広く、小さなことにこだわらないさま。", "闊達な叔父とはよほどの懸隔がありました。｜漱石『こころ』｜", "自由闊達・豁達", "kango", "態度・性格"],
+["磊落", "らいらく", "気持ちが大きく、細かいことにこだわらないさま。", "世の中には磊落なように見えても、淡泊なように見えても｜漱石『坊っちゃん』｜", "豪放磊落", "kango", "態度・性格"],
+["偏屈", "へんくつ", "性質がねじけていて、人と素直に打ちとけないさま。", "一人で置くとますます人間が偏屈になるばかりだからといいました。｜漱石『こころ』｜へそ曲がり", "頑固", "kango", "態度・性格"],
+["横着", "おうちゃく", "楽をしようとして、なすべきことを怠けるさま。ずうずうしいさま。", "何もしないで生きていようというのは横着な了簡だからね。｜漱石『こころ』｜", "不精", "kango", "態度・性格"],
+["殊勝", "しゅしょう", "心がけや態度が感心なさま。けなげで、しおらしいさま。", "先生の来るのを待っていた時の心持ちはじつに殊勝なものであった。｜漱石『三四郎』｜感心な", "×特にすぐれている", "kango", "態度・性格"],
+["神妙", "しんみょう", "おとなしく素直なさま。かしこまって従うさま。", "神妙に彼のいう事を聴いている多くの青年の上に落ちた。｜漱石『道草』｜おとなしく", "×不思議な（「神」からの誤読）", "kango", "態度・性格"],
+["無頓着", "むとんちゃく", "物事を気にかけず、こだわらないさま。", "女が毛糸にはまるで無頓着でいるので控えた。｜漱石『三四郎』｜気にしない", "頓着（とんちゃく）＝気にかけること", "kango", "態度・性格"],
+["淡泊", "たんぱく", "欲や執着が少なく、あっさりしているさま。", "こんなところに極めて淡泊な小供らしい心を見せた。｜漱石『こころ』｜", "淡白・対：執拗", "kango", "態度・性格"],
+["迂闊", "うかつ", "注意が足りず、うっかりしているさま。事情にうといさま。", "私は女というものに深い交際をした経験のない迂闊な青年であった。｜漱石『こころ』｜", "不用意", "kango", "態度・性格"],
+["真率", "しんそつ", "飾り気がなく、まじめで正直なさま。", "単純や真率が笑われる世の中じゃ仕様がない。｜漱石『坊っちゃん』｜", "率直", "kango", "態度・性格"],
+["泰然", "たいぜん", "落ち着いていて、物事に動じないさま。", "しかも泰然と取り澄ましている。｜漱石『三四郎』｜", "泰然自若・悠然", "kango", "態度・性格"],
+["悠然", "ゆうぜん", "ゆったりと落ち着いて、少しも急がないさま。", "掘崩した土の上に悠然と峙って｜漱石『草枕』｜", "泰然", "kango", "態度・性格"],
+["放蕩", "ほうとう", "酒や女遊びにふけって、身持ちが悪いこと。", "この兄は大の放蕩もので｜漱石『硝子戸の中』｜", "道楽・放埒", "kango", "態度・性格"],
+["漫然", "まんぜん", "はっきりした目的や意識もなく、なんとなく物事をするさま。", "ただ漫然と魂の抜殻のように生きている未来を想像すると｜漱石『硝子戸の中』｜なんとなく", "漠然", "kango", "様子・状態"],
+["漠然", "ばくぜん", "ぼんやりしていて、はっきりしないさま。", "ただ漠然と夢みていたに過ぎなかった。｜漱石『こころ』｜", "漫然・対：判然", "kango", "様子・状態"],
+["索然", "さくぜん", "興味や味わいが失われて、おもしろみのないさま。", "索然として物足りない。｜漱石『草枕』｜", "興味索然", "kango", "様子・状態"],
+["零落", "れいらく", "落ちぶれること。身分や暮らしむきが以前より下がること。", "瓦解のときに零落して、つい奉公までするようになったのだと聞いている。｜漱石『坊っちゃん』｜「瓦解」は幕府の崩壊", "落魄・没落", "kango", "様子・状態"],
+["落魄", "らくはく", "落ちぶれて、みじめな境遇になること。", "此落魄のうちに、彼は三千代を引張り廻さなければならなかつた。｜漱石『それから』｜", "零落", "kango", "様子・状態"],
+["朦朧", "もうろう", "ぼんやりかすんで、はっきりしないさま。意識や意味がはっきりしない。", "先生のいう罪悪という意味は朦朧としてよく解らなかった。｜漱石『こころ』｜", "模糊", "kango", "様子・状態"],
+["模糊", "もこ", "ぼんやりとして、はっきり見えないさま。", "弁天の朱塗の祠が模糊として靄の中に見える頃であった。｜鷗外『雁』｜", "曖昧模糊", "kango", "様子・状態"],
+["曖昧", "あいまい", "はっきりせず、どちらとも取れるさま。", "自分にも何とも訳の分らない曖昧な返事をして｜漱石『こころ』｜", "不得要領", "kango", "様子・状態"],
+["判然", "はんぜん", "はっきりと分かるさま。明らかなさま。", "まじめだか冗談だか、判然と区別しにくいような話し方である。｜漱石『三四郎』｜「判然しない」ははっきりしない", "対：漠然", "kango", "様子・状態"],
+["不得要領", "ふとくようりょう", "要点がつかめず、何を言いたいのかはっきりしないさま。", "先生の談話は時として不得要領に終った。｜漱石『こころ』｜要領を得ない", "×手際が悪い", "kango", "様子・状態"],
+["荒涼", "こうりょう", "荒れ果てて、ものさびしいさま。", "荒涼とした原の中には、蕎麦なぞを蒔いたところもあって｜藤村『千曲川のスケッチ』｜", "蕭条", "kango", "様子・状態"],
+["殺風景", "さっぷうけい", "趣や飾り気がなく、味わいに欠けるさま。", "殺風景を極めたその室の中には生憎額も掛物も掛っていなかった。｜漱石『道草』｜", "無風流", "kango", "様子・状態"],
+["剣呑", "けんのん", "危なっかしいさま。不安で気が許せないさま。", "そんな剣呑な思いまでして借りる必要もあるまいからね｜漱石『道草』｜あぶない", "険呑とも書く・物騒", "kango", "様子・状態"],
+["物騒", "ぶっそう", "何が起こるか分からず、危険な感じがするさま。", "途中が物騒だというので、用心のため、下男がきっと供をして行ったそうである。｜漱石『硝子戸の中』｜", "剣呑・不穏", "kango", "様子・状態"],
+["露骨", "ろこつ", "感情や意図を隠さず、むき出しに表すさま。", "しかし私はそんな露骨な問題を先生の前に持ち出すのをぶしつけとばかり思っていつでも控えていた。｜漱石『こころ』｜あからさま", "対：婉曲", "kango", "様子・状態"],
+["陳腐", "ちんぷ", "ありふれていて古くさく、つまらないさま。", "この女はどんな陳腐なものを見ても珍しそうな目つきをするように思われる。｜漱石『三四郎』｜", "月並み・対：斬新", "kango", "様子・状態"],
+["仔細", "しさい", "くわしいこと。また、こみいった事情やわけ。", "それらの小さな魚を注意して仔細に観察していると｜寅彦『柿の種』｜「仔細ぶる」はもったいぶる", "子細・委細", "kango", "様子・状態"],
+["委細", "いさい", "くわしい事情のすべて。「委細かまわず」は事情に構わずの意。", "委細かまわず着手してみると存外指摘された難関は楽に始末がついて｜寅彦『科学者とあたま』｜", "仔細", "kango", "様子・状態"],
+["無造作", "むぞうさ", "手間をかけず、気軽にするさま。深く考えずに扱うさま。", "と野々宮さんが無造作に言った。｜漱石『三四郎』｜あっさりと", "無雑作とも書く", "kango", "様子・状態"],
+["閑却", "かんきゃく", "いいかげんにして、放っておくこと。なおざりにすること。", "自分の存在を閑却された心持ちになって、初手から冷淡にかまえる。｜漱石『三四郎』｜ほうっておかれる", "等閑視", "kango", "行為・はたらき"],
+["斟酌", "しんしゃく", "相手の事情や気持ちをくみとって、手加減すること。", "どうかその辺をご斟酌になって｜漱石『坊っちゃん』｜事情をくんで", "忖度・酌量", "kango", "行為・はたらき"],
+["周旋", "しゅうせん", "間に立って、世話をしたり取り持ったりすること。", "卒業したから、地位の周旋をしてやろうという人ではなかった。｜漱石『こころ』｜就職の世話", "斡旋", "kango", "行為・はたらき"],
+["奔走", "ほんそう", "物事がうまくいくように、あちこち駆け回って努力すること。", "いろいろ奔走したができないんだからしかたがない。｜漱石『三四郎』｜", "東奔西走", "kango", "行為・はたらき"],
+["邂逅", "かいこう", "思いがけなく出会うこと。めぐりあい。", "学生どもが稀に唐桟ずくめの末造に邂逅して、びっくりすることのあったのは｜鷗外『雁』｜ばったり出会う", "遭遇", "kango", "行為・はたらき"],
+["一瞥", "いちべつ", "ちらりと見ること。", "遠くにいるあなたにこんな一瞥を与えただけでした。｜漱石『こころ』｜", "瞥見", "kango", "行為・はたらき"],
+["逐一", "ちくいち", "一つ一つ順を追って。細かいところまで残らず。", "彼は火鉢に手を翳しながら友達の前に逐一事情を話した。｜漱石『道草』｜", "一部始終", "kango", "行為・はたらき"],
+["放擲", "ほうてき", "投げ出して、かえりみないこと。途中でやめてしまうこと。", "私はもう少しで、あなたに対する私のこの義務を放擲するところでした。｜漱石『こころ』｜", "放棄", "kango", "行為・はたらき"],
+["吹聴", "ふいちょう", "言いふらすこと。あちこちに言い広めること。", "今に学校を卒業すると麹町辺へ屋敷を買って役所へ通うのだなどと吹聴した事もある。｜漱石『坊っちゃん』｜", "×息を吹きかける", "kango", "行為・はたらき"],
+["標榜", "ひょうぼう", "主義や主張をはっきり掲げて示すこと。", "何しろそれは国家主義を標榜したやかましい会でした。｜漱石『私の個人主義』｜看板に掲げる", "掲げる", "kango", "行為・はたらき"],
+["容喙", "ようかい", "横から口出しをすること。", "私の容喙する限りではないが｜漱石『坊っちゃん』｜喙（くちばし）を容れる", "差し出口", "kango", "行為・はたらき"],
+["嘲弄", "ちょうろう", "あざけり、からかうこと。ばかにしてなぶること。", "済みませんという言葉が一種の嘲弄のように健三の耳に響いた。｜漱石『道草』｜", "愚弄・揶揄", "kango", "行為・はたらき"],
+["軽侮", "けいぶ", "軽く見て、あなどること。", "それだから軽侮の裏に、何となく人に縋りたい景色が見える。｜漱石『草枕』｜", "軽蔑", "kango", "行為・はたらき"],
+["邪推", "じゃすい", "他人の言動を、悪い方に推測すること。", "あるいはそうした訳からじゃないかしらという邪推もあった。｜漱石『こころ』｜勘ぐり", "猜疑", "kango", "行為・はたらき"],
+["述懐", "じゅっかい", "心の中の思いや思い出を述べること。また、その思い。", "彼女と話をした後の健三の胸には何時でもこういう述懐が起った。｜漱石『道草』｜", "×弁明", "kango", "行為・はたらき"],
+["執着", "しゅうちゃく", "ある物事に心がとらわれて、離れられないこと。", "いかに根強く我々が生の一字に執着して｜漱石『硝子戸の中』｜「しゅうじゃく」とも読む", "執心", "kango", "行為・はたらき"],
+["得心", "とくしん", "十分に理解して、納得すること。", "先生はようやく得心したらしい様子であった。｜漱石『こころ』｜", "合点・会得", "kango", "行為・はたらき"],
+["合点", "がてん", "事情や理由がのみこめること。「合点がいかない」は納得できない。", "三四郎にはほとんど合点がいかない。｜漱石『三四郎』｜「がってん」とも読む", "得心", "kango", "行為・はたらき"],
+["蹉跌", "さてつ", "つまずくこと。物事が途中でうまくいかず失敗すること。", "程遠からぬ所で、蹉跌して仕舞つた。｜漱石『それから』｜", "挫折", "kango", "行為・はたらき"],
+["料簡", "りょうけん", "考え。気持ちの持ち方。「料簡が狭い」のように心の持ち方をいう。", "十一月二十五日が来るまでは構うまいという横着な料簡を起して｜漱石『私の個人主義』｜", "了簡・了見とも書く", "kango", "考え・抽象"],
+["分別", "ふんべつ", "物事の道理をわきまえて、正しく判断する力。", "私には知識もなく、経験もなく、また分別もありませんでした。｜漱石『こころ』｜「ぶんべつ」（分けること）と別", "無分別", "kango", "考え・抽象"],
+["観念", "かんねん", "物事についての考えや意識。また、あきらめて覚悟すること。", "他は頼りにならないものだという観念が｜漱石『こころ』｜「観念する」はあきらめる", "覚悟", "kango", "考え・抽象"],
+["存外", "ぞんがい", "思っていたのとは違うさま。予想以上に。", "東京という所も存外不便な所である。｜寅彦『柿の種』｜思いのほか", "案外・意外", "kango", "考え・抽象"],
+["大儀", "たいぎ", "疲れなどで、何かをするのがおっくうなさま。面倒なさま。", "下人は、大きな嚔をして、それから、大儀そうに立上った。｜芥川『羅生門』｜だるそうに", "億劫・×大義（正しい道）", "kango", "考え・抽象"],
+["億劫", "おっくう", "面倒で気が進まないさま。", "けれども、どう考えても、寒くて億劫で、火鉢から手を離す事ができない。｜漱石『永日小品』｜もとは非常に長い時間", "大儀", "kango", "考え・抽象"],
+["不精", "ぶしょう", "面倒がって、身なりや物事をきちんとしないさま。", "たいてい不精な髭をはやしている。｜漱石『三四郎』｜", "無精・出不精", "kango", "考え・抽象"],
+["懸隔", "けんかく", "かけ離れていること。大きな隔たり。", "自分が二十の時、三十の人を見れば大変に懸隔があるように思いながら｜漱石『思い出す事など』｜", "隔絶", "kango", "考え・抽象"],
+["刹那", "せつな", "きわめて短い時間。一瞬。", "三四郎はたしかに女の黒目の動く刹那を意識した。｜漱石『三四郎』｜「刹那的」はその場限り", "瞬間", "kango", "考え・抽象"],
+["徒労", "とろう", "苦労したことが報われず、むだになること。", "けれどもすべては徒労に帰した。｜漱石『門』｜", "骨折り損", "kango", "考え・抽象"],
+["端倪", "たんげい", "物事の始めと終わり。「端倪すべからざる」で推し量れない意。", "要するに端倪すべからざる空談である。｜漱石『それから』｜見当がつかない", "計り知れない", "kango", "考え・抽象"],
+["物憂い", "ものうい", "なんとなく気が晴れず、何をするのもおっくうなさま。", "物憂く室の中に呻吟しつつ暮していた。｜漱石『思い出す事など』｜だるく気が進まない", "気だるい", "wago", "心情"],
+["心もとない", "こころもとない", "頼りにならず、不安で気がかりなさま。", "三四郎はなんだか心もとなく思った。｜漱石『三四郎』｜", "心許ない・覚束ない", "wago", "心情"],
+["覚束ない", "おぼつかない", "うまくいくか疑わしいさま。はっきりせず頼りないさま。", "覚束ない私の判断に縋り付こうとした。｜漱石『こころ』｜あやふやな", "×覚えられない・心もとない", "wago", "心情"],
+["いたたまれない", "いたたまれない", "それ以上その場にじっとしていられないほど、つらいさま。", "頭が淋しくって、いたたまれなくなるばかりであった。｜漱石『門』｜", "居たたまれない", "wago", "心情"],
+["歯痒い", "はがゆい", "思うようにならず、もどかしく、いらだたしいさま。", "私自身が何層倍歯痒い思いを重ねて来たか知れないくらいです。｜漱石『こころ』｜", "じれったい", "wago", "心情"],
+["苦々しい", "にがにがしい", "不愉快で、いまいましく思うさま。", "そうして心のうちで、非常に苦々しい気分を経験した。｜漱石『硝子戸の中』｜", "×苦しい・つらい", "wago", "心情"],
+["忌々しい", "いまいましい", "腹立たしく、しゃくにさわるさま。", "ある時は自分を理解しない細君を心から忌々しく思った。｜漱石『道草』｜", "癪に障る", "wago", "心情"],
+["じれったい", "じれったい", "思うようにならず、いらいらするさま。", "お玉はそれをひどくじれったく思った。｜鷗外『雁』｜", "焦れったい・歯痒い", "wago", "心情"],
+["疚しい", "やましい", "良心に恥じるところがあり、後ろめたいさま。", "自ら疚しい心もちだつたのに違ひない。｜芥川『枯野抄』｜", "後ろめたい", "wago", "心情"],
+["やるせない", "やるせない", "思いを晴らす方法がなく、せつないさま。", "別れた友の手紙を読み返しては、やるせない思いに沈んだ。｜｜", "遣る瀬ない", "wago", "心情"],
+["味気ない", "あじけない", "おもしろみや張り合いがなく、つまらないさま。", "一人きりの食事は、どうにも味気ない。｜｜", "あじきない", "wago", "心情"],
+["面映ゆい", "おもはゆい", "面と向かうのがきまり悪く、照れくさいさま。", "皆の前でほめられて、面映ゆい気がした。｜｜", "×まぶしい・×晴れがましい", "wago", "心情"],
+["いぶかる", "いぶかる", "不審に思う。あやしんで、疑わしく思う。", "急に親切になった友人を、彼はいぶかった。｜｜", "怪訝（けげん）", "wago", "態度・ふるまい"],
+["うそぶく", "うそぶく", "そらとぼけて知らないふりをする。また、大きなことを言う。", "「そんな約束はした覚えがない」と彼はうそぶいた。｜｜", "×嘘をつく", "wago", "態度・ふるまい"],
+["窘める", "たしなめる", "よくない言動を、穏やかに注意する。", "ただＫは私を窘めるには余りに正直でした。｜漱石『こころ』｜", "×好む（「嗜む」と別）", "wago", "態度・ふるまい"],
+["あしらう", "あしらう", "相手をいいかげんに扱う。適当に応対する。", "与次郎がいいかげんにあしらっているうちに｜漱石『三四郎』｜", "鼻であしらう", "wago", "態度・ふるまい"],
+["憚る", "はばかる", "差しさわりを考えて遠慮する。気がねしてためらう。", "しかし子としての我々はそれを言葉の上に表わすのを憚かった。｜漱石『こころ』｜", "憚りながら", "wago", "態度・ふるまい"],
+["見縊る", "みくびる", "相手の力や価値を低く見て、軽く扱う。", "健三は父の言葉に疑を挟むほど、彼の才能を見縊っていなかった。｜漱石『道草』｜", "侮る・高を括る", "wago", "態度・ふるまい"],
+["取り合わない", "とりあわない", "相手の言うことを本気にせず、問題にしない。", "と答えるぎりで、取り合わなかった。｜漱石『こころ』｜", "取り付く島もない", "wago", "態度・ふるまい"],
+["取り繕う", "とりつくろう", "その場をうまくごまかして、体裁をととのえる。", "御米の手前もやはり病気だと取り繕った。｜漱石『門』｜", "言いつくろう", "wago", "態度・ふるまい"],
+["ひやかす", "ひやかす", "からかう。また、買う気もないのに店の品物を見て回る。", "いつも古本屋をひやかすのが目的でしたが｜漱石『こころ』｜ここは「見て回るだけ」の意", "冷やかす・茶化す", "wago", "態度・ふるまい"],
+["茶化す", "ちゃかす", "まじめな話をまぜ返して、冗談にしてしまう。", "真面目な顔をして他を茶化すから｜漱石『それから』｜", "ひやかす", "wago", "態度・ふるまい"],
+["ほのめかす", "ほのめかす", "はっきり言わず、それとなく言葉や態度に表して示す。", "おのが身の素性をほのめかしている。｜漱石『草枕』｜", "仄めかす・におわせる", "wago", "態度・ふるまい"],
+["空とぼける", "そらとぼける", "知っているのに、わざと知らないふりをする。", "代助は笑ひながら御父さんはゐるんですかと空とぼけた。｜漱石『それから』｜", "しらを切る", "wago", "態度・ふるまい"],
+["生返事", "なまへんじ", "気の乗らない、いいかげんな返事。", "と三四郎は生返事をした。｜漱石『三四郎』｜", "×元気な返事", "wago", "態度・ふるまい"],
+["よそよそしい", "よそよそしい", "他人に対するようで、親しみのないさま。", "よそよそしく仕向けて来た弟の態度が｜漱石『門』｜", "水くさい", "wago", "態度・ふるまい"],
+["ぶっきらぼう", "ぶっきらぼう", "言葉や態度に愛想がなく、そっけないさま。", "三四郎の答はすこぶるぶっきらぼうである。｜漱石『三四郎』｜", "つっけんどん", "wago", "態度・ふるまい"],
+["素気ない", "そっけない", "思いやりや愛想がなく、冷ややかなさま。", "言葉を惜しがる人のように、素気ない挨拶ばかりしていました。｜漱石『こころ』｜", "すげない・にべもない", "wago", "態度・ふるまい"],
+["ずうずうしい", "ずうずうしい", "人の迷惑を気にかけず、厚かましいさま。", "よくまああんなにずうずうしく出来るものだ。｜漱石『坊っちゃん』｜", "図々しい", "wago", "態度・ふるまい"],
+["したり顔", "したりがお", "うまくやったと、得意そうにする顔つき。", "花房はしたり顔に父の顔を見た。｜鷗外『カズイスチカ』｜", "得意顔・心得顔", "wago", "態度・ふるまい"],
+["さもしい", "さもしい", "心がいやしく、欲が見え透いて品がないさま。", "受け合った事を裏へ廻って反古にするようなさもしい了見はもってるもんか。｜漱石『坊っちゃん』｜", "卑しい", "wago", "態度・ふるまい"],
+["居丈高", "いたけだか", "相手を押さえつけるように、威圧的な態度をとるさま。", "店員の小さな失敗に、客は居丈高にどなった。｜｜", "高飛車", "wago", "態度・ふるまい"],
+["ぬけぬけと", "ぬけぬけと", "あつかましく平気で。恥ずかしげもなく。", "約束を破っておいて、ぬけぬけと顔を出した。｜｜", "しゃあしゃあと", "wago", "態度・ふるまい"],
+["気色ばむ", "けしきばむ", "怒りの気持ちを顔に表す。むっとする。", "意見を否定されて、彼は少し気色ばんだ。｜｜", "×景色がよくなる", "wago", "態度・ふるまい"],
+["鼻白む", "はなじろむ", "気勢をそがれて、興ざめした顔をする。", "自慢話に冷たい反応が返り、彼は鼻白んだ。｜｜", "×照れて赤くなる", "wago", "態度・ふるまい"],
+["なおざり", "なおざり", "物事を軽く見て、いいかげんに放っておくさま。", "忙しさにかまけて、手紙の返事をなおざりにしていた。｜｜", "等閑・おざなりと区別", "wago", "態度・ふるまい"],
+["おざなり", "おざなり", "その場しのぎに、いいかげんに物事をすますさま。", "おざなりな謝罪では、相手の気持ちはおさまらない。｜｜", "なおざりと区別", "wago", "態度・ふるまい"],
+["したたか", "したたか", "程度がはなはだしいさま。ひどく。また、手ごわいさま。", "したたかその顔を打った。｜芥川『鼻』｜近代文では「ひどく」が多い", "×ずる賢く", "wago", "様子"],
+["まんじりともしない", "まんじりともしない", "少しも眠らない。一睡もしない。", "翌る朝までまんじりともしない様子であった。｜漱石『硝子戸の中』｜", "×身じろぎもしない", "wago", "様子"],
+["やにわに", "やにわに", "いきなり。その場ですぐに。", "やにわに大きな掛声をかけて、鼓をかんと一つ打った。｜漱石『永日小品』｜", "突然・×ゆっくり", "wago", "様子"],
+["徒らに", "いたずらに", "役に立たず、むだに。これといった理由もなく。", "徒らに皆なの意見に反対するのだとばかり考えた。｜漱石『道草』｜", "×いたずらをして", "wago", "様子"],
+["そぞろ", "そぞろ", "これという理由もなく、なんとなく。気持ちが落ち着かないさま。", "私は論文をよそにして、そぞろに口を開いた。｜漱石『こころ』｜「気もそぞろ」は落ち着かない", "漫然", "wago", "様子"],
+["手持無沙汰", "てもちぶさた", "することがなく、間がもたなくて困るさま。", "手持無沙汰な彼は、やむをえず二人の顔を見比べながら｜漱石『道草』｜", "所在ない", "wago", "様子"],
+["取り留めもない", "とりとめもない", "まとまりがなく、これといった中心のないさま。", "そうして取り留めもない世間話をわざと彼に仕向けました。｜漱石『こころ』｜", "他愛ない", "wago", "様子"],
+["他愛ない", "たあいない", "取るに足りない。張り合いがない。しっかりしていない。", "彼は力めて門野を相手にして他愛ない雑談に耽つた。｜漱石『それから』｜", "他愛もない", "wago", "様子"],
+["あっけない", "あっけない", "予想より簡単に終わって、物足りないさま。", "またあっけない不足もなく｜漱石『思い出す事など』｜", "呆気ない", "wago", "様子"],
+["しめやか", "しめやか", "ひっそりと静かなさま。しんみりと、もの悲しいさま。", "持ち切れぬ雨の糸を、しめやかに落し出して｜漱石『草枕』｜", "×華やか", "wago", "様子"],
+["なまじい", "なまじい", "中途半端に。しなくてもよいのに、なまじっか。", "なまじい保護を受ければこそ、こんな兄に頭を下げなければならない。｜漱石『坊っちゃん』｜", "なまじ・なまじっか", "wago", "様子"],
+["一方ならぬ", "ひとかたならぬ", "ひととおりでない。普通の程度をこえている。", "一方ならぬ心配をしたものらしかった。｜漱石『思い出す事など』｜", "×一方的な", "wago", "様子"],
+["所在ない", "しょざいない", "することがなく、退屈なさま。", "雨で外にも出られず、所在ない一日を過ごした。｜｜", "手持無沙汰・無聊", "wago", "様子"],
+["こともなげ", "こともなげ", "何事もないかのように、平気なさま。", "難しい問題を、彼はこともなげに解いてみせた。｜｜", "事も無げ", "wago", "様子"],
+["気が置けない", "きがおけない", "遠慮や気づかいをする必要がなく、打ちとけられる。", "気が置けない仲間と、夜遅くまで語り合った。｜｜", "×油断できない", "wago", "慣用句"],
+["手を拱く", "てをこまぬく", "何もせずに、ただ見ている。傍観する。", "私はそうかといって手を拱いでいる訳にゆきません。｜漱石『こころ』｜「こまねく」とも言う", "傍観", "wago", "慣用句"],
+["肩身が狭い", "かたみがせまい", "世間に対して引け目を感じ、堂々としていられない。", "おれも肩身が狭いから｜漱石『こころ』｜", "対：肩身が広い", "wago", "慣用句"],
+["あっけに取られる", "あっけにとられる", "思いがけないことに驚きあきれて、ぼんやりする。", "芸者はあまり乱暴な声なので、あっけに取られて返事もしない。｜漱石『坊っちゃん』｜", "呆気", "wago", "慣用句"],
+["きまりが悪い", "きまりがわるい", "恥ずかしくて、その場にいづらい。体裁が悪い。", "三四郎はこの男に見られた時、なんとなくきまりが悪かった。｜漱石『三四郎』｜", "極りが悪い・ばつが悪い", "wago", "慣用句"],
+["腑に落ちない", "ふにおちない", "納得がいかない。合点がいかない。", "時々腑に落ちないところが出てくると｜漱石『硝子戸の中』｜", "腑＝はらわた", "wago", "慣用句"],
+["眉を顰める", "まゆをひそめる", "心配や不快な気持ちから、眉のあたりにしわを寄せる。", "彼は独り言のようにこう囁やいて、眉を顰めた。｜漱石『道草』｜", "顔をしかめる", "wago", "慣用句"],
+["気を揉む", "きをもむ", "あれこれ心配して、落ち着かない。", "と御米が気を揉んで玄関へ出た。｜漱石『門』｜", "やきもき", "wago", "慣用句"],
+["高を括る", "たかをくくる", "たいしたことはないと見くびる。安易に予想する。", "この上にいる者は、死人ばかりだと高を括っていた。｜芥川『羅生門』｜", "見縊る", "wago", "慣用句"],
+["足元を見る", "あしもとをみる", "相手の弱みにつけこむ。", "いざとなると足元を見て踏み倒される恐れがあるので｜漱石『こころ』｜", "弱みにつけこむ", "wago", "慣用句"],
+["途方に暮れる", "とほうにくれる", "どうしたらよいか分からず、困り果てる。", "宗助も途方に暮れて、発作の治まるのを穏やかに待っていた。｜漱石『門』｜", "思案に暮れる", "wago", "慣用句"],
+["癪に障る", "しゃくにさわる", "腹が立つ。気に入らなくて、いらいらする。", "さっきは別に腹も立たなかったが今度は癪に障った。｜漱石『坊っちゃん』｜", "気に障る", "wago", "慣用句"],
+["虫が好かない", "むしがすかない", "はっきりした理由はないが、なんとなく気にくわない。", "ここへ来た最初から赤シャツは何だか虫が好かなかった。｜漱石『坊っちゃん』｜", "反りが合わない", "wago", "慣用句"],
+["気が咎める", "きがとがめる", "悪いことをしたように感じて、心がやましい。", "心のうちで気が咎めるような不安を感ずるので｜漱石『門』｜", "気が引ける", "wago", "慣用句"],
+["上の空", "うわのそら", "ほかのことに気を取られて、目の前のことに注意が向かないさま。", "いつでも上の空で素通りをする｜漱石『門』｜", "×空の上", "wago", "慣用句"],
+["身も蓋もない", "みもふたもない", "露骨すぎて、味わいも含みもない。", "努力しても無駄だと言っては、身も蓋もない。｜｜", "にべもない", "wago", "慣用句"],
+["にべもない", "にべもない", "愛想がなく、そっけない。まったく取り合わない。", "頼みに行ったが、にべもなく断られた。｜｜「にべ」は魚から作る接着剤", "取り付く島もない", "wago", "慣用句"],
+["二の足を踏む", "にのあしをふむ", "思い切れずに、ためらう。しりごみする。", "費用を聞いて、入会に二の足を踏んだ。｜｜", "躊躇", "wago", "慣用句"],
+["水を向ける", "みずをむける", "相手が話し出すように、それとなく誘いかける。", "留学の話に水を向けると、彼は急に口数が多くなった。｜｜", "×冷や水を浴びせる", "wago", "慣用句"],
+["襟を正す", "えりをただす", "気持ちを引き締めて、まじめな態度をとる。", "恩師の言葉を思い出し、襟を正して机に向かった。｜｜", "居住まいを正す", "wago", "慣用句"],
+["取り付く島もない", "とりつくしまもない", "頼りにしてすがる手がかりもない。相手が冷たく話にならない。", "相談しようとしたが、取り付く島もない態度だった。｜｜", "にべもない", "wago", "慣用句"],
+["〜ぬ（打消）", "ぬ", "「〜ない」と訳す打消。完了の「ぬ」（〜てしまった）と取り違えない。", "新年を迎える用意もしなければならぬが、何を買ってどうするものやらわからぬ。｜寅彦『どんぐり』｜「ならぬ」＝ならない、「わからぬ」＝わからない。", "〜ず・〜ませぬ", "bunmatsu", "打消"],
+["〜ず（打消）", "ず", "「〜ない・〜ないで」と訳す打消。「知らず識らず」は、気づかないうちに。", "知らず識らずの間にその影響を受けていた為めもあるだろう｜鷗外『雁』｜文末でも文中でも「ない」と置き換えて読む。", "〜ぬ・〜ずに", "bunmatsu", "打消"],
+["〜ずに", "ずに", "「〜ないで」と訳す。その動作をしないまま次へ続ける。", "こっちでも声を出さずにそう言ってやった。｜寅彦『柿の種』｜", "〜ないで", "bunmatsu", "打消"],
+["〜ざる", "ざる", "打消「ず」の連体形。「〜ない（もの・こと）」と名詞にかかる。", "ただしそれが「詐らざるうそ」「腹から出たうそ」でないと困るかもしれない。｜寅彦『柿の種』｜「詐らざる」＝いつわらない。", "〜ぬ", "bunmatsu", "打消"],
+["〜ざるを得ない", "ざるをえない", "「〜しないわけにはいかない」。どうしても〜してしまう、の意。", "私は心の中で疑らざるを得なかった。｜漱石『こころ』｜「〜できない」と逆に取らない。疑ってしまった。", "〜ずにはいられない", "bunmatsu", "打消"],
+["〜ずにはいられない", "ずにはいられない", "自然に〜してしまう。気持ちを抑えきれない様子を表す。", "三四郎は野々宮君の態度と視線とを注意せずにはいられなかった。｜漱石『三四郎』｜", "〜ざるを得ない", "bunmatsu", "打消"],
+["〜ねばならぬ", "ねばならぬ", "「〜なければならない」。「ねば」は打消「ず」の已然形＋「ば」。", "我ら新時代の青年は偉大なる心の自由を説かねばならぬ時運に際会したと信ずる。｜漱石『三四郎』｜「ねば」＝なければ。「寝れば」ではない。", "〜べし", "bunmatsu", "打消"],
+["〜べからず", "べからず", "「〜してはならない」という禁止。掲示や戒めの決まり文句。", "黒板に湯の中で泳ぐべからずと書いてある｜漱石『坊っちゃん』｜", "〜べからざる", "bunmatsu", "打消"],
+["〜べからざる", "べからざる", "「〜できない・〜してはならない」の連体形。「欠くべからざる」は、ないと困る。", "衣服や住居の成立に欠くべからざる品物ともちがう。｜寅彦『読書の今昔』｜「欠くことのできない」と言い換える。", "〜べからず", "bunmatsu", "打消"],
+["〜にあらず", "にあらず", "「〜ではない」。「AにあらずB」で、AではなくBだと対比する。", "舌の講義にあらず、心の講義なり。｜漱石『三四郎』｜", "〜なり（断定）", "bunmatsu", "打消"],
+["〜ぬばかり", "ぬばかり", "口には出さないが、今にも〜と言いそうな様子。態度に表れている。", "これでがまんなさいといわぬばかりである。｜漱石『三四郎』｜「言わぬ」は言わない。「言わんばかり」とも。", "〜とばかりに", "bunmatsu", "打消"],
+["〜まい（打消推量）", "まい", "「〜ないだろう」。打消の推量。主語が他人・物事のときに多い。", "どうせ碌な所ではあるまい。｜漱石『坊っちゃん』｜「あるまい」＝ないだろう。", "〜なかろう", "bunmatsu", "推量・意志"],
+["〜まい（打消意志）", "まい", "「〜しないようにしよう」。打消の意志。「〜まいと」の形に多い。", "濁流に押し流されまいと戦っているようなのもある。｜寅彦『柿の種』｜推量か意志かは、主語と文脈で見分ける。", "〜まい（打消推量）", "bunmatsu", "推量・意志"],
+["〜なかろう", "なかろう", "「〜ないだろう」。形容詞「ない」の推量の形。", "砲丸投げほど力のいるものはなかろう。｜漱石『三四郎』｜", "〜まい（打消推量）", "bunmatsu", "推量・意志"],
+["〜であろう", "であろう", "「〜だろう」の改まった形。断定を避け、控えめに推し量る。", "不快に感ずる人はきっとうらやむべきすぐれた頭のいい学者であろう｜寅彦『科学者とあたま』｜評論文の筆者の見解は、ここに出やすい。", "〜に相違ない", "bunmatsu", "推量・意志"],
+["〜んとする", "んとする", "「今にも〜しようとする」。「ん」は推量・意志の「む」で、打消ではない。", "生理上彼の病のまさに至らんとする予言である。｜漱石『思い出す事など』｜打消の「〜ん（〜ない）」と取り違えない。", "〜ようとする", "bunmatsu", "推量・意志"],
+["〜べき", "べき", "「当然〜するはずの・〜するのがよい・〜するに値する」。", "驚くべき非音楽的な耳もあるものだと思う。｜寅彦『柿の種』｜「驚くべき」＝驚くほどの。", "〜べし", "bunmatsu", "推量・意志"],
+["〜べし", "べし", "「〜するのがよい・〜せよ・〜はずだ」。改まった言い切りの形。", "哲学の講義はここに至ってはじめて聞くべし。｜漱石『三四郎』｜ここは「聞くがよい」。", "〜べき", "bunmatsu", "推量・意志"],
+["〜に相違ない", "にそういない", "「きっと〜だ」と強く推定する。違いがない、つまり間違いない。", "それは現在のわれわれの想像を超越したものであるに相違ない。｜寅彦『柿の種』｜", "〜に違いない", "bunmatsu", "推量・意志"],
+["〜と見える", "とみえる", "「〜らしい・〜ようだ」。様子から推し量る。「目に見える」意ではない。", "ちょっとなでつけるのかと思ったら自分で新たに巻き直すと見える。｜寅彦『どんぐり』｜", "〜らしい", "bunmatsu", "推量・意志"],
+["〜ものか", "ものか", "「決して〜ない」。強く打ち消す反語。疑問として訳さない。", "困ったって負けるものか。｜漱石『坊っちゃん』｜「負けるものか」＝絶対に負けない。", "〜ではないか", "bunmatsu", "推量・意志"],
+["〜ではないか", "ではないか", "打消の形だが「〜だろう」と自分の考えを示す。問いかけ・主張にも使う。", "まだわれわれの夢にも知らないようなものが、いくらでもあるのではないか。｜寅彦『柿の種』｜「ない」と否定に取ると筆者の主張を逆にする。", "〜ものか", "bunmatsu", "推量・意志"],
+["〜ごとく", "ごとく", "「〜のように」と訳す比況。「如く」とも書く。言い切りは「ごとし」。", "天網のごとく、夢魔のごとく、運命の神のごとく恐ろしいものは絹蒲団である。｜寅彦『柿の種』｜", "〜ごとき", "bunmatsu", "断定・比況"],
+["〜ごとき", "ごとき", "「〜のような」。人に付くと「〜なんか」と見下す気持ちを帯びる。", "与次郎のごときにいたるとその最たるものだ。｜漱石『三四郎』｜ここは「与次郎なんかになると」。", "〜ごとく", "bunmatsu", "断定・比況"],
+["〜なり（断定）", "なり", "「〜である」。文語の断定。口語の文中ではかしこまった調子を出す。", "十分立って次の教場へ出ると一つ天麩羅四杯なり。｜漱石『坊っちゃん』｜生徒が黒板に文語調で書いてからかっている。", "〜にあらず", "bunmatsu", "断定・比況"],
+["〜なる（連体）", "なる", "断定「なり」の連体形。「〜である（名詞）」「〜な（名詞）」。", "僕はまだまだ大なる願、深い願、熱心なる願を以ています。｜独歩『牛肉と馬鈴薯』｜「熱心なる願」＝熱心な願い。", "〜たる", "bunmatsu", "断定・比況"],
+["〜たる", "たる", "「〜である（名詞）」。漢語に付く断定「たり」の連体形。", "何だか不愉快な煮え切らない漠然たるものが｜漱石『私の個人主義』｜「漠然たる」＝漠然とした。", "〜なる（連体）", "bunmatsu", "断定・比況"],
+["〜たり（断定）", "たり", "「〜である」。漢語に付く文語の断定。完了の「たり」とは別物。", "風強く秋声野にみつ、浮雲変幻たり｜独歩『武蔵野』｜「変幻たり」＝変化してやまない。", "〜たる", "bunmatsu", "断定・比況"],
+["〜じゃ", "じゃ", "「〜だ・〜である」。「である」が縮んだ形。老人や上方の話し言葉に多い。", "この髪を抜いてな、この髪を抜いてな、鬘にしようと思うたのじゃ。｜芥川『羅生門』｜老婆の言葉。「思うた」は「思った」。", "〜である", "bunmatsu", "断定・比況"],
+["〜のである", "のである", "前の内容の理由・事情を説明してまとめる。筆者の結論や強調を示す。", "つまり、これが人間界の「現象」なのである。｜寅彦『津浪と人間』｜「つまり〜のである」は要旨の目印。", "〜である", "bunmatsu", "断定・比況"],
+["〜に過ぎぬ", "にすぎぬ", "「〜でしかない」。それ以上ではないと小さく見る言い方。", "茶の量は三四滴に過ぎぬが、茶碗はすこぶる大きい。｜漱石『草枕』｜「度を越す」の「過ぎる」ではない。", "〜に過ぎない", "bunmatsu", "断定・比況"],
+["〜とて", "とて", "「〜といっても・〜だからといって」。「さりとて」は、そうかといって。", "さりとて肉とか薯とかいう嗜好にも従うことが出来ません｜独歩『牛肉と馬鈴薯』｜", "〜とはいえ", "bunmatsu", "助詞・つなぎ"],
+["〜ながら（逆接）", "ながら", "「〜のに・〜けれども」。同時進行（〜しつつ）とは文脈で見分ける。", "心得ていながら、変にいらいらし出すのです。｜漱石『こころ』｜ここは「分かっているのに」。", "〜つつ", "bunmatsu", "助詞・つなぎ"],
+["〜といえども", "といえども", "「〜であっても」。「雖も」と書く。取り立てて逆接につなぐ。", "科学といえども人間の産んだ愛児の中の愛児である。｜寅彦『柿の種』｜", "〜とて", "bunmatsu", "助詞・つなぎ"],
+["〜すら", "すら", "「〜さえ」。極端な例を挙げ、ほかは言うまでもないと示す。", "拾い読みにする余裕すら覚束なかった。｜漱石『こころ』｜", "〜だに", "bunmatsu", "助詞・つなぎ"],
+["〜ともなく", "ともなく", "はっきり〜というわけでなく。「どこからともなく」は、どこからとも知れず。", "水が出るとか出たとか云う声がどこからともなく耳に響いた。｜漱石『思い出す事など』｜", "〜となく", "bunmatsu", "助詞・つなぎ"],
+["〜を以て", "をもって", "「〜で・〜によって」。手段・理由・態度を表す改まった言い方。", "少なくとも好意を以て一般の人類に接する事の出来ない己れを怒った。｜漱石『道草』｜漢文訓読から来た言い方。", "〜にて", "bunmatsu", "助詞・つなぎ"],
+["〜かしら", "かしら", "「〜だろうか」と自分に問いかける。「か知らん」がつまった形。", "あしたから、こんな運動をするのはもうやめにしようかしら。｜漱石『三四郎』｜この時代は男性も使う。", "〜かな", "bunmatsu", "助詞・つなぎ"],
+["〜給え", "たまえ", "「〜しなさい」。同輩や目下に使う親しみのある命令。尊敬の「給う」から。", "やあ君が新任の人か、ちと遊びに来給えアハハハと云った。｜漱石『坊っちゃん』｜", "〜なさい", "bunmatsu", "敬語・丁寧"],
+["〜御座る", "ござる", "「ある・いる」の丁寧語。武士言葉のような古めかしい響きがある。", "哲学で候うの科学で御座るのと言って｜独歩『牛肉と馬鈴薯』｜ここは大げさな口ぶりをまねて皮肉っている。", "〜候う", "bunmatsu", "敬語・丁寧"],
+["〜ております", "ております", "「〜ています」の改まった形。「おる」は「いる」の謙譲・丁重語。", "お墓のなかで坊っちゃんの来るのを楽しみに待っておりますと云った。｜漱石『坊っちゃん』｜", "〜ています", "bunmatsu", "敬語・丁寧"],
+["〜まする", "まする", "「〜ます」の古い形。老人や改まった場面の話し言葉に残る。", "それでこの池を今でも鏡が池と申しまする｜漱石『草枕』｜", "〜ませぬ", "bunmatsu", "敬語・丁寧"],
+["〜ませぬ", "ませぬ", "「〜ません」の古い形。「ませ」＋打消「ぬ」。", "どうも恐ろしくて不気味で勤まりませぬと妙な事を言う。｜寅彦『どんぐり』｜", "〜まする", "bunmatsu", "敬語・丁寧"],
+["〜なさる", "なさる", "「する」の尊敬語。「〜なさる」は〜される・お〜になる。", "養生はしなさるけれども、強情でねえ。｜漱石『こころ』｜ここは父が母のことを、やや持ち上げて言う。", "〜遊ばす", "bunmatsu", "敬語・丁寧"],
+["〜遊ばす", "あそばす", "「する」の最も丁寧な尊敬語。「お〜遊ばせ」で、〜なさいませ。", "お庭へぶらんこをおこしらえ遊ばせ｜漱石『坊っちゃん』｜「遊ぶ」の意ではない。", "〜なさる", "bunmatsu", "敬語・丁寧"],
+["書生", "しょせい", "学問をする若者。とくに他人の家に住み込み、雑用をしながら学校に通う青年。事務の書記ではない。", "家族の外に五人の下女と二人の書生が住んでいた。｜漱石『道草』｜書生を置く家＝裕福な家、の目印でもある", "下宿・学資", "kurashi", "学び・立身"],
+["下宿", "げしゅく", "よその家の部屋を借り、食事つきで暮らすこと。地方出身の学生や独身の勤め人のふつうの住まい方。", "僕がいい下宿を周旋してやるから｜漱石『坊っちゃん』｜今のアパートより「食事つき寮」に近い", "素人下宿・書生", "kurashi", "学び・立身"],
+["素人下宿", "しろうとげしゅく", "下宿屋を商売にしていない一般の家が、部屋を貸して下宿人を置くこと。家族との距離が近い。", "すると上さんがまた、「素人下宿じゃいけませんか」と聞くのです。｜漱石『こころ』｜『こころ』の先生が住んだのは軍人の未亡人の家", "下宿", "kurashi", "学び・立身"],
+["高等遊民", "こうとうゆうみん", "高い教育を受けながら職に就かず、親や財産に頼って暮らす人。怠け者というより余裕ある知識人。", "三十になつて遊民として、のらくらしてゐるのは、如何にも不体裁だな｜漱石『それから』｜働かずに暮らせる＝財産がある、と読む", "財産・遺産", "kurashi", "学び・立身"],
+["帝国大学", "ていこくだいがく", "国がつくった最高学府。明治には東京（のち京都なども）にあり、卒業生は官吏や学者の道が開けた。", "相手は東京帝国大学学生だよ｜漱石『三四郎』｜入れる人はごく少数の特別な存在", "学士・高等学校", "kurashi", "学び・立身"],
+["学士", "がくし", "大学を卒業した人の称号。文学士・法学士・医学士など。当時は数が少なく、世間から一目置かれた。", "文学士と云えば大学の卒業生だからえらい人なんだろう。｜漱石『坊っちゃん』｜赤シャツが威張れるのは「文学士」だから", "帝国大学", "kurashi", "学び・立身"],
+["卒業論文", "そつぎょうろんぶん", "大学を出るために書く論文。明治の大学生にとっても卒業を左右する大仕事だった。", "私は今まで幾度か手を着けようとしては手を引っ込めた卒業論文を、いよいよ本式に書き始めなければならないと思い出した。｜漱石『こころ』｜", "学士", "kurashi", "学び・立身"],
+["洋行", "ようこう", "欧米へ行くこと。留学や視察を指す。行けるのはごく一部で、出世と箔付けにつながる出来事だった。", "岡田は卒業の期を待たずに洋行することに極まって｜鷗外『雁』｜「洋行帰り」＝新知識を持つ人", "留学", "kurashi", "学び・立身"],
+["学資", "がくし", "学校に通うための費用。月謝・下宿代・生活費を含む。多くは国の親から月々送られた。", "十分な学資を月々もらっていながら、ただ不足だからといって請求するわけにはゆかない。｜漱石『三四郎』｜今の「仕送り」とほぼ同じ", "為替", "kurashi", "学び・立身"],
+["国元", "くにもと", "その人の生まれ故郷。実家のある地方。「国」だけでも同じ意味で使い、国家の意味ではない。", "国元の母から手紙が来た。｜漱石『三四郎』｜「国へ帰る」＝郷里へ帰る", "", "kurashi", "学び・立身"],
+["中学校", "ちゅうがっこう", "旧制の中学校。小学校の上にある男子の学校で、進学できる者は限られた。今の中高にあたる年齢。", "それは伊予の松山にある中学校です。｜漱石『私の個人主義』｜坊っちゃんが赴任したのも旧制中学", "高等学校", "kurashi", "学び・立身"],
+["高等学校", "こうとうがっこう", "旧制の高等学校。中学の上にあり、帝国大学へ進むための学校。今の高校とは別物のエリート校。", "私は東京へ来て高等学校へはいりました。｜漱石『こころ』｜今の大学教養課程に近い", "帝国大学・中学校", "kurashi", "学び・立身"],
+["立身出世", "りっしんしゅっせ", "学問や仕事で身を立て、社会的な地位を高めること。明治の若者と親が強く求めた生き方。", "清はおれをもって将来立身出世して立派なものになると思い込んでいた。｜漱石『坊っちゃん』｜家の期待を背負う、という重さがある", "学士", "kurashi", "学び・立身"],
+["徴兵検査", "ちょうへいけんさ", "兵役の義務のため、満二十歳の男子が受けた身体検査。合格すると軍隊に入ることがあった。", "徴兵検査に合格して入営したぎり｜漱石『門』｜入営＝兵営に入って軍務につく", "日露戦争", "kurashi", "学び・立身"],
+["家督", "かとく", "家を継ぐ者が受け継ぐ地位と財産。原則として長男がひとりで相続した。", "一月二十七日に祖父が死んで、七月四日に家督が落ち着いたのだそうである。｜寅彦『柿の種』｜次男以下には財産がほとんど行かない", "戸主・養子", "kurashi", "家と結婚"],
+["戸主", "こしゅ", "家の長として戸籍に記された人。家族の結婚や住む場所に同意する権利を持った。", "いつの間にか戸主に改めた彼の印形を濫用して金を借り散らした｜漱石『道草』｜今の「世帯主」よりずっと強い立場", "家督", "kurashi", "家と結婚"],
+["許嫁", "いいなずけ", "親どうしなどが決めた、結婚の約束をした相手。本人の恋愛より家の都合で決まることが多かった。", "しかし自分の許嫁が他人に心を移したのは、なお情ないだろう。｜漱石『坊っちゃん』｜うらなりとマドンナの関係", "縁談・見合い", "kurashi", "家と結婚"],
+["見合い", "みあい", "結婚を考える男女が、仲立ちの人を通して会うこと。結婚の多くはこうした家どうしの話で決まった。", "見合いの時に頭から虱が出たので縁談の破れた女の話｜寅彦『柿の種』｜「顔を見合わせる」の見合いとは別", "縁談", "kurashi", "家と結婚"],
+["縁談", "えんだん", "結婚の話。本人より親や親類が進めるのがふつうで、家柄や財産も大きな条件だった。", "よし子に縁談の口がある。｜漱石『三四郎』｜「口がある」＝話が来ている", "見合い・許嫁", "kurashi", "家と結婚"],
+["勘当", "かんどう", "親が子との縁を切り、家から追い出すこと。家を頼れなくなるので、生活の道を失うことを意味した。", "おやじがおれを勘当すると言い出した。｜漱石『坊っちゃん』｜『こころ』のKも養家と実家から見放される", "養子", "kurashi", "家と結婚"],
+["養子", "ようし", "他家に入ってその家の子となる人。家を絶やさないため、跡継ぎとして迎えることが多かった。", "家を継ぐべき養子として、当時十八歳の父が迎えられる事になった｜寅彦『柿の種』｜『道草』の健三も幼いころ養子に出された", "家督", "kurashi", "家と結婚"],
+["妾", "めかけ", "妻の外に、男が生活費を出して囲っておく女性。経済的に弱い女性が選ばざるをえない立場でもあった。", "最初は妾になるのはいやだと云っていた｜鷗外『雁』｜「わたし」の意の「妾（わらわ）」と区別", "旦那", "kurashi", "家と結婚"],
+["細君", "さいくん", "妻のこと。自分の妻にも他人の妻にも使う。「細い」「君主」の意味は無い。", "機嫌のよくない時は、いくら話したい事があっても、細君に話さないのが彼の癖であった。｜漱石『道草』｜『道草』では健三の妻を一貫して「細君」と呼ぶ", "旦那", "kurashi", "家と結婚"],
+["旦那", "だんな", "一家の主人、妻から見た夫、店の客や奉公人から見た主人。妾を囲う男を指すこともある。", "御作さんの旦那は九時を聞いて、今床の上に起き直ったところである。｜漱石『永日小品』｜誰から見た「旦那」かで意味が変わる", "細君・妾", "kurashi", "家と結婚"],
+["遺産", "いさん", "死んだ人が残した財産。田畑や家屋敷、公債など。誰がどう受け継ぐかで親族の争いの種になった。", "父は先祖から譲られた遺産を大事に守って行く篤実一方の男でした。｜漱石『こころ』｜先生は叔父に遺産をごまかされる", "財産・家督", "kurashi", "家と結婚"],
+["財産", "ざいさん", "土地・家・金・公債などの持ち物。働かずに暮らせるかどうかを決める、生活の土台。", "「突然だが、君の家には財産がよっぽどあるんですか」｜漱石『こころ』｜先生が財産にこだわる理由は遺書で分かる", "遺産・高等遊民", "kurashi", "家と結婚"],
+["士族", "しぞく", "明治になって、もとの武士の家に与えられた身分の呼び名。暮らしに困る家も多かった。", "ここの夫婦はいか銀とは違って、もとが士族だけに双方共上品だ。｜漱石『坊っちゃん』｜「貧乏士族」という言い方もある", "瓦解", "kurashi", "家と結婚"],
+["円", "えん", "お金の単位。明治後期の一円は、比べ方で幅があるが、今のおよそ数千円から二万円ほどの目安。", "月給は二十五円で、家賃は六円だ。｜漱石『坊っちゃん』｜「一円」を百円玉の感覚で読まない", "銭", "kurashi", "お金と仕事"],
+["銭", "せん", "お金の単位。一円の百分の一。小さな買い物や電車賃、湯銭などに使う額。", "そのうちから二十五銭の月謝と、二円の食料と｜漱石『永日小品』｜「銭」は「ぜに」でなく「せん」と読む", "円", "kurashi", "お金と仕事"],
+["月給", "げっきゅう", "毎月受け取る給料。明治では月給で暮らす勤め人はまだ少なく、額が身分や学歴を映した。", "月給は四十円だが、行ってはどうだという相談である。｜漱石『坊っちゃん』｜額から人物の立場を読み取る", "円", "kurashi", "お金と仕事"],
+["官吏", "かんり", "国の役所に勤める役人。明治では身分が安定し、社会的な地位も高い職業とみなされた。", "来年から一般に官吏の増俸があると云う話じゃありませんか｜漱石『門』｜宗助も役所勤めの下級官吏", "腰弁", "kurashi", "お金と仕事"],
+["腰弁", "こしべん", "腰に弁当を下げて毎日勤めに出る人。薄給の下級役人や勤め人を、自分でへりくだって言う語。", "おれみたような腰弁は、殺されちゃ厭だが｜漱石『門』｜今の「しがない勤め人」", "官吏", "kurashi", "お金と仕事"],
+["奉公", "ほうこう", "他人の家や店に住み込んで働くこと。給金は安く、主人の家の一員として仕えた。", "瓦解のときに零落して、つい奉公までするようになった｜漱石『坊っちゃん』｜清は元は由緒ある家の出", "下女・女中・小僧", "kurashi", "お金と仕事"],
+["下女", "げじょ", "家に住み込んで炊事や掃除などをする女性の使用人。中流の家でも置くのがふつうだった。", "十年来召し使っている清という下女が｜漱石『坊っちゃん』｜差別的な響きがあり、のちに「女中」と言うようになる", "女中・奉公", "kurashi", "お金と仕事"],
+["女中", "じょちゅう", "家や宿屋・料理屋で働く女性の使用人。「下女」よりやわらかい言い方。武家の奥勤めの女性も指す。", "その同じ日に宅の女中が電車の中へだいじの包みを置き忘れて来たのである。｜寅彦『藤の実』｜「御殿女中」は大名家などの奥勤め", "下女", "kurashi", "お金と仕事"],
+["小僧", "こぞう", "商店に住み込んで働く少年。見習いとして雑用をこなした。いたずらな子どもを指すこともある。", "小僧はどれになさいますと催促した。｜漱石『三四郎』｜店の小僧→手代→番頭と上がっていく", "奉公", "kurashi", "お金と仕事"],
+["質屋", "しちや", "品物を預かり、それを担保に金を貸す店。期限までに返せないと品物は流れる。貧しい暮らしの頼り。", "彼自身いまだ質屋の暖簾を潜った事のない彼は｜漱石『道草』｜「質に入れる」＝品物を預けて金を借りる", "", "kurashi", "お金と仕事"],
+["金の無心", "かねのむしん", "遠慮なく金をねだること。親類や知人に借金や援助を頼むこと。", "すぐ母の手紙の話をして、金の無心を申し出た。｜漱石『こころ』｜『道草』は無心され続ける男の話", "", "kurashi", "お金と仕事"],
+["利子", "りし", "預けたり貸したりした金に付く割り増しの金。財産があれば、利子だけで暮らすこともできた。", "実をいうと私はそれから出る利子の半分も使えませんでした。｜漱石『こころ』｜先生が働かずに暮らせたしくみ", "財産・高等遊民", "kurashi", "お金と仕事"],
+["家賃", "やちん", "借りた家に毎月払う代金。「店賃」「屋賃」とも書く。月給との比べ方で暮らしの苦しさが見える。", "月給は二十五円で、家賃は六円だ。｜漱石『坊っちゃん』｜月給の四分の一ほどが家賃に消える", "借家・円", "kurashi", "お金と仕事"],
+["借家", "しゃくや", "人から借りて住む家。明治の都市では、中流の家庭でも持ち家より借家住まいが多かった。", "今まで借家住居をしていた人が、自分の住宅を新築でもしようということは｜寅彦『柿の種』｜", "家賃・長屋", "kurashi", "住まい・道具・服装"],
+["長屋", "ながや", "一棟を壁で区切り、何軒も並べた住まい。庶民の借家。屋敷内の使用人の住まいもこう呼んだ。", "その時は浅い生垣の間から、よく裏の長屋を覗き込む。｜漱石『永日小品』｜「邸内の長屋」は使用人の住まい", "借家", "kurashi", "住まい・道具・服装"],
+["座敷", "ざしき", "畳を敷いた部屋。とくに客を通す、家でいちばん改まった部屋。", "座敷とは云いながら客を通すからそう名づけるまでで、実は書斎とか居間とか云う方が穏当である。｜漱石『門』｜", "茶の間・床の間", "kurashi", "住まい・道具・服装"],
+["茶の間", "ちゃのま", "家族がふだん食事をしたりくつろいだりする部屋。長火鉢が置かれ、主婦のいる場所でもあった。", "座敷のうしろが茶の間で、茶の間の向こうが勝手、下女部屋と順に並んでいる。｜漱石『三四郎』｜勝手＝台所", "座敷・長火鉢", "kurashi", "住まい・道具・服装"],
+["床の間", "とこのま", "座敷の奥の一段高い所。掛け軸や花を飾る。その前が客や主人の上座になる。", "一輪挿に山梔の花を活けた床の間を背にして座を占め｜鷗外『雁』｜床の間を背にする＝上座に座る", "座敷", "kurashi", "住まい・道具・服装"],
+["縁側", "えんがわ", "座敷の外側に張り出した板敷きの通路。日なたぼっこや、客との気軽な話にも使った。", "縁側へ坐蒲団を持ち出して、日当りの好さそうな所へ気楽に胡坐をかいて｜漱石『門』｜「椽側」とも書く", "", "kurashi", "住まい・道具・服装"],
+["襖", "ふすま", "部屋と部屋を仕切る、紙や布を張った引き戸。鍵がなく、隣の声や気配が伝わる。", "すると襖の陰で「あなた、あなた」という奥さんの声が二度聞こえた。｜漱石『こころ』｜『羅生門』の「紺の襖」は衣服（あお）", "", "kurashi", "住まい・道具・服装"],
+["火鉢", "ひばち", "灰の中に炭火を入れて手や部屋を暖める道具。暖房の中心で、人はその周りに集まった。", "堅くなって火鉢のそばへすわって寒い寒いと言う。｜漱石『三四郎』｜", "長火鉢", "kurashi", "住まい・道具・服装"],
+["長火鉢", "ながひばち", "引き出しのついた箱形の長い火鉢。茶の間に置き、湯を沸かしたり燗をつけたりした。", "茶の間には綺麗な長火鉢に鉄瓶が鳴っていた。｜漱石『こころ』｜長火鉢の向こう＝家の主婦の座", "火鉢・茶の間", "kurashi", "住まい・道具・服装"],
+["行灯", "あんどん", "木や竹の枠に紙を張り、中で油を燃やす明かり。暗く、古風な暮らしの印象を与える。", "廊下伝いに自分の部屋へ帰ると行灯がぼんやり点っている｜漱石『夢十夜』｜", "洋灯", "kurashi", "住まい・道具・服装"],
+["洋灯", "らんぷ", "石油を燃やす西洋式の明かり。行灯より明るく、明治の家庭の夜を照らした。", "座敷の戸を閉てて、洋灯を点けてちょうだい。｜漱石『門』｜「洋燈」とも書く。電灯はまだ一部", "行灯", "kurashi", "住まい・道具・服装"],
+["袴", "はかま", "着物の上から腰に着ける、ひだのある衣服。学生や教師の通学・通勤の服で、改まった姿でもある。", "与次郎はやがて、袴をはいて、改まって出て来て｜漱石『三四郎』｜袴をはく＝外向きの身なりをする", "小倉", "kurashi", "住まい・道具・服装"],
+["小倉", "こくら", "小倉織。木綿の丈夫な厚地の布で、学生の袴や制服によく使われた。地名の小倉ではない。", "小倉の袴をつけてまた出掛けた。｜漱石『坊っちゃん』｜「小倉の袴」＝学生・教師の質素な身なり", "袴", "kurashi", "住まい・道具・服装"],
+["蝙蝠傘", "こうもりがさ", "布張りの洋傘。開いた形が蝙蝠に似ていることから。和傘（番傘）に対する新しい品だった。", "ズックの革鞄と毛繻子の蝙蝠傘を提げてるからだ｜漱石『坊っちゃん』｜今のふつうの傘のこと", "洋服", "kurashi", "住まい・道具・服装"],
+["洋服", "ようふく", "西洋式の服。明治では勤め先や学校で着る外向きの服で、家に帰ると和服に着替えるのがふつう。", "細君に扶けられながら洋服を和服に改めた。｜漱石『道草』｜洋服＝勤めの顔、和服＝家の顔", "和服・袴", "kurashi", "住まい・道具・服装"],
+["人力車", "じんりきしゃ", "人が引いて走る二輪の乗り物。明治の町で広く使われた、今のタクシーにあたる交通手段。", "母衣を掛けた人力車を見ながら｜鷗外『雁』｜「俥」「車」とも書く", "俥・車夫", "kurashi", "町・乗り物・通信"],
+["俥", "くるま", "人力車のこと。人が引く車を一字で表した字。「車」と書いてあっても人力車を指すことが多い。", "御茶の水で電車を降りて、すぐ俥に乗った。｜漱石『三四郎』｜自動車と取り違えない", "人力車・車夫", "kurashi", "町・乗り物・通信"],
+["車夫", "しゃふ", "人力車を引くことを仕事にする人。家で雇っておく「抱え車夫」は、ゆとりのある家の印だった。", "抱車夫を邸内の長屋に住まわして、楽に暮していた｜漱石『門』｜運転手ではなく「車を引く人」", "人力車・俥", "kurashi", "町・乗り物・通信"],
+["電車", "でんしゃ", "明治の終わりごろから東京の街中を走った路面電車。混雑や事故が、新しい都会の象徴として描かれる。", "電車に乗ると大抵満員――それが日本特有の満員で｜寅彦『電車と風呂』｜多くは道路の上を走る市電", "汽車", "kurashi", "町・乗り物・通信"],
+["汽車", "きしゃ", "蒸気機関車が引く列車。都市と地方を結び、上京や帰省、別れの場面の舞台になる。", "横浜から船に乗る人が、朝八時半の汽車で新橋を立つのはその頃の習慣であった。｜漱石『こころ』｜", "停車場・電車", "kurashi", "町・乗り物・通信"],
+["停車場", "ていしゃば", "鉄道の駅。「ていしゃじょう」とも読む。人を送り迎えする場所として物語によく出てくる。", "私はすぐ俥を停車場へ急がせた。｜漱石『こころ』｜バス停のことではない", "汽車", "kurashi", "町・乗り物・通信"],
+["電報", "でんぽう", "電信で短い文を送り、紙に書いて届けるしくみ。急ぎの知らせに使い、受け取ると家中が緊張した。", "洋服を着た人を見ると犬が吠えるような所では、一通の電報すら大事件であった｜漱石『こころ』｜電報が来る＝危篤などの急報を予感", "", "kurashi", "町・乗り物・通信"],
+["為替", "かわせ", "現金を直接送らず、証書で金を届けるしくみ。学生の仕送りは郵便為替で送られることが多かった。", "月々国から送ってくれる為替と共に来る簡単な手紙は｜漱石『こころ』｜今の銀行振込にあたる", "学資", "kurashi", "町・乗り物・通信"],
+["銭湯", "せんとう", "料金を払って入る公衆浴場。家に風呂のない人が多く、町の人が毎日のように通った。", "銭湯の湯船の中で見る顔には帝国主義もなければ社会主義もない。｜寅彦『電車と風呂』｜「湯屋」「湯」とも言う", "", "kurashi", "町・乗り物・通信"],
+["寄席", "よせ", "落語や講談、娘義太夫などを聞かせる小さな演芸場。町の人の身近な娯楽だった。", "この豆腐屋の隣に寄席が一軒あったのを、私は夢幻のようにまだ覚えている。｜漱石『硝子戸の中』｜", "縁日", "kurashi", "町・乗り物・通信"],
+["縁日", "えんにち", "神社や寺にゆかりのある日。参道に露店が並び、植木や小物を買いに人が集まった。", "妻は下女を連れて下谷摩利支天の縁日へ出かけた。｜寅彦『どんぐり』｜", "寄席", "kurashi", "町・乗り物・通信"],
+["芸者", "げいしゃ", "酒席で歌や踊り、三味線で客をもてなす女性。「芸者遊び」は金のかかる道楽とされた。", "マドンナと云うのは何でも赤シャツの馴染の芸者の渾名か何かに違いないと思った。｜漱石『坊っちゃん』｜坊っちゃんの推測は外れている", "待合", "kurashi", "町・乗り物・通信"],
+["待合", "まちあい", "芸者を呼んで遊興する客に座敷を貸す店。「待合室」とは別で、品行の悪さを連想させた。", "細君にも夫の姉の亭主が待合へ小金を貸したという事実が不調和に見えた。｜漱石『道草』｜「待合所」「待合室」と区別する", "芸者", "kurashi", "町・乗り物・通信"],
+["肺病", "はいびょう", "肺結核のこと。明治・大正には若者の命を多く奪い、治る見込みの薄い病として恐れられた。", "するとその熱が必ず肺病の前兆でなければならないように彼を脅かした。｜漱石『道草』｜治療薬が普及するのは戦後", "転地・咯血", "kurashi", "病と体"],
+["咯血", "かっけつ", "肺などから血を吐くこと。「喀血」とも書く。結核の重い症状として恐れられた。", "明治二十二年の五月に始めて咯血した。｜子規『墨汁一滴』｜脚気（かっけ）と混同しない", "肺病", "kurashi", "病と体"],
+["転地", "てんち", "病気を治すため、空気のよい海辺や山地などに移って暮らすこと。「転地療養」とも。", "医者は少し呼吸器を冒されているようだからと云って、切に転地を勧めた。｜漱石『門』｜今の「転勤」の意味ではない", "肺病・養生", "kurashi", "病と体"],
+["養生", "ようじょう", "体をいたわり、病気を治したり健康を保ったりすること。薬が乏しい時代の治療の中心だった。", "無理をして月給の寿命を長くするか、養生をして免職の時期を早めるか｜漱石『道草』｜", "転地", "kurashi", "病と体"],
+["腸窒扶斯", "ちょうちふす", "腸チフス。高熱が続く感染症で、家族が次々にうつって亡くなることもあった。", "実をいうと、父の病気は恐るべき腸窒扶斯でした。｜漱石『こころ』｜先生は両親を相次いでこの病で失う", "肺病", "kurashi", "病と体"],
+["看護婦", "かんごふ", "病人の世話をする職業の女性。明治に生まれた新しい職業で、家に来てもらう付き添いもあった。", "その医者の周旋で、町の病院から看護婦を一人頼む事にした｜漱石『こころ』｜今の看護師", "", "kurashi", "病と体"],
+["病牀", "びょうしょう", "病人の寝床。長く病気で寝たきりの暮らしそのものを指すこともある。「病床」とも書く。", "病牀で絵の写生の稽古するには、モデルにする者はそこらにある小い器か｜子規『墨汁一滴』｜子規は寝たまま随筆を書き続けた", "写生", "kurashi", "病と体"],
+["開化", "かいか", "西洋の文明を取り入れて世の中が新しくなること。「文明開化」の略。明治の流行語だった。", "何の雑作もなくただ現今の日本の開化と云う、こういう簡単なものです。｜漱石『現代日本の開化』｜漱石は「外発的」な開化と批判した", "瓦解", "kurashi", "文学と文化"],
+["瓦解", "がかい", "組織がくずれること。明治の年配者は、江戸幕府が倒れた明治維新のことをこう呼んだ。", "瓦解のときに零落して、つい奉公までするようになった｜漱石『坊っちゃん』｜幕府側から見た「維新」の言い方", "士族", "kurashi", "文学と文化"],
+["日清戦争", "にっしんせんそう", "明治二十七〜二十八年（一八九四〜九五）、日本と清国（中国）との戦争。", "主人は何でも日清戦争の時か何かに死んだのだと上さんがいいました。｜漱石『こころ』｜下宿の奥さんは軍人の未亡人", "日露戦争", "kurashi", "文学と文化"],
+["日露戦争", "にちろせんそう", "明治三十七〜三十八年（一九〇四〜〇五）、日本とロシアとの戦争。勝って一等国を自負した。", "いくら日露戦争に勝って、一等国になってもだめですね｜漱石『三四郎』｜広田先生の「滅びるね」につながる", "日清戦争", "kurashi", "文学と文化"],
+["明治の精神", "めいじのせいしん", "明治という時代を生きた人々の心のあり方。『こころ』の先生が自分の生き方をこう結びつける。", "その時私は明治の精神が天皇に始まって天皇に終ったような気がしました。｜漱石『こころ』｜明治天皇の死が先生の決断を後押しする", "殉死", "kurashi", "文学と文化"],
+["殉死", "じゅんし", "主君の死を追って家来が自ら死ぬこと。明治天皇の大葬の日に乃木希典夫妻が殉死した。", "私は殉死という言葉をほとんど忘れていました。｜漱石『こころ』｜すでに古い時代の言葉とされていた", "明治の精神", "kurashi", "文学と文化"],
+["言文一致", "げんぶんいっち", "話し言葉に近い形で文章を書くこと。明治に起こり、今の書き言葉のもとになった。", "紅葉山人のような作者ですら雅俗折衷の文体と言文一致の間を往来した。｜藤村『千曲川のスケッチ』｜「だ・である」「です・ます」の文", "自然主義", "kurashi", "文学と文化"],
+["写生", "しゃせい", "見たものをありのままに写すこと。子規が俳句や短歌、文章の革新の中心にすえた考え方。", "今まで久しく写生の話も聞くし｜子規『墨汁一滴』｜絵の写生から文章の方法へ広げた", "病牀", "kurashi", "文学と文化"],
+["文壇", "ぶんだん", "作家や批評家たちがつくる世界。誰が評判か、どんな主張が流行るかが論じられる場。", "文壇は急転直下の勢いでめざましい革命を受けている。｜漱石『三四郎』｜与次郎の大げさな口ぶりに注意", "", "kurashi", "文学と文化"],
+["自然主義", "しぜんしゅぎ", "人間や社会の醜い面も飾らずありのままに書こうとした文学の流れ。明治の末に盛んになった。", "自然主義もやられる、社会主義も叩かれる。｜漱石『思い出す事など』｜「自然を愛する」主義ではない", "私小説", "kurashi", "文学と文化"],
+["私小説", "ししょうせつ", "作者自身の生活や心の動きを、ほぼそのまま題材にした小説。大正期に広く書かれた。", "作者が自分の家庭の苦しみをそのまま書いた私小説｜｜「わたくし小説」とも読む", "自然主義", "kurashi", "文学と文化"],
+["白樺派", "しらかばは", "雑誌『白樺』に集まった作家たち。武者小路実篤・志賀直哉らで、人間の善意や個性を重んじた。", "白樺派の作家は、自己を生かすことを何より大切にした。｜｜植物の白樺とは関係ない", "自然主義", "kurashi", "文学と文化"],
+["新聞小説", "しんぶんしょうせつ", "新聞に毎日少しずつ連載された小説。漱石の多くの作品は新聞に連載された。", "第一流の新聞あるいは雑誌に連載されていた続きもの｜寅彦『柿の種』｜毎回山場を作る書き方になる", "文壇", "kurashi", "文学と文化"],
+];
+
+const DATA=W.map(function(a,i){return{id:i,w:a[0],r:a[1],m:a[2],e:a[3],k:a[4],c:a[5],g:a[6]};});
+const CATBY={}; CATS.forEach(function(c){CATBY[c.id]=c;});
+const KEY="kindai-dojo-v1";
+const KEY_OLD="kindai-dojo-v1";
+const KEY_THEME="kindai-dojo-theme";
+const KEY_SEEN="kindai-dojo-seen";
+const LV={1:"まだ",2:"あいまい",3:"覚えた"};
+
+/* 復習箱（ライトナー式）。box 0〜5 に対して、次に出すまでの日数。
+   「まだ」や誤答は box 0 に戻り、その日のうちにまた出る。 */
+const INT=[0,1,2,4,7,14];
+
+/* ── 学習状況（見出し語をキーに保存。語の増減・並べ替えに強い） ──
+   1語ぶんの記録は {lv:仕分け, ok:正答数, ng:誤答数, box:復習箱, due:次回の日, t:最後に出題した時刻} */
+var store={};
+try{
+  var raw=localStorage.getItem(KEY) || localStorage.getItem(KEY_OLD);  /* v2 からは自動で引き継ぐ */
+  if(raw) store=JSON.parse(raw)||{};
+}catch(e){store={};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+
+/* 端末の時計での「今日」を通し番号で表す（日付をまたいだかだけが分かればよい） */
+function today(){var d=new Date();return Math.floor((d.getTime()-d.getTimezoneOffset()*6e4)/864e5);}
+
+function kOf(id){return DATA[id].w;}
+function rec(id){var k=kOf(id);return store[k]||(store[k]={lv:0,ok:0,ng:0,box:0,due:0,t:0});}
+function lvOf(id){var r=store[kOf(id)];return (r&&r.lv)||0;}
+/* 出題しただけの語は「手をつけた」に数えない（t だけが入っている状態） */
+function touched(id){var r=store[kOf(id)];return !!(r&&(r.lv||r.ok||r.ng));}
+function isDue(id){var r=store[kOf(id)];return !!(r&&r.due&&touched(id)&&r.due<=today());}
+function isWeak(id){var r=store[kOf(id)];return !!(r&&(r.lv===1||(r.ng||0)>(r.ok||0)));}
+function dueIn(id){var r=store[kOf(id)];return (r&&r.due&&touched(id))?r.due-today():null;}
+function schedule(r,box){r.box=Math.max(0,Math.min(5,box));r.due=today()+INT[r.box];}
+function setLv(id,lv){
+  var r=rec(id); r.lv=lv;
+  if(lv===3)      schedule(r,(r.box||0)+1);   /* 覚えた → 箱を一つ上げて先送り */
+  else if(lv===2) schedule(r,1);              /* あいまい → 明日また */
+  else if(lv===1) schedule(r,0);              /* まだ → 今日のうちにまた */
+  else { r.box=0; r.due=0; }                  /* 仕分けの取り消し */
+  save(); refreshCounters(); refreshToday(); refreshSeg();
+}
+
+/* ── 絞り込み ── */
+var filter={q:"",cats:[],st:"all"};
+function matchSt(id,st){
+  if(st==="all") return true;
+  if(st==="due") return isDue(id);
+  if(st==="ng")  return isWeak(id);
+  return lvOf(id)===Number(st);
+}
+/* ignoreSt=true で「分野・検索だけ効かせた母集団」を返す（絞り込みボタンの語数表示用） */
+function pool(ignoreSt){
+  var q=filter.q.trim().toLowerCase();
+  return DATA.filter(function(d){
+    if(filter.cats.length&&filter.cats.indexOf(d.c)<0) return false;
+    if(!ignoreSt&&!matchSt(d.id,filter.st)) return false;
+    if(q){
+      var hay=(d.w+d.r+d.m+d.e+d.k).toLowerCase();
+      if(hay.indexOf(q)<0) return false;
+    }
+    return true;
+  });
+}
+/* filter の中身をそのまま画面のボタンに反映する */
+function syncFilterUI(){
+  document.getElementById("q").value=filter.q;
+  document.querySelectorAll("#catChips .chip").forEach(function(x){
+    x.setAttribute("aria-pressed",String(filter.cats.indexOf(x.dataset.cat)>=0));});
+  document.querySelectorAll("#statusSeg button").forEach(function(x){
+    x.setAttribute("aria-pressed",String(x.dataset.st===filter.st));});
+}
+/* 絞り込みの一括変更（今日の復習バーと重点復習リストから呼ぶ） */
+function applyFilter(st){
+  filter.st=st; filter.q=""; filter.cats=[];
+  syncFilterUI(); renderDict(); buildDeck(); resetQuiz(); refreshSeg();
+}
+function catColor(c){return "var("+CATBY[c].v+")";}
+function dueTag(id){
+  var n=dueIn(id);
+  if(n===null) return "<span></span>";
+  if(n<=0) return '<span class="box-tag" data-now="1">今日の復習</span>';
+  return '<span class="box-tag">次の復習まで '+n+' 日</span>';
+}
+/* ── 例文の表示 ──
+   例文は「本文からの引用｜作者『作品名』｜ひとこと」。作例のときは出典が空。 */
+function exHTML(e){
+  var a=String(e).split("｜");
+  /* 中身は必ず <span> ひとつに包む（grid の中に直に置くと、別のセルへ飛んで改行される） */
+  return '<div class="ex"><p class="ex-l ex-q"><b>'+(a[1]?'用例':'作例')+'</b><span>'+escRaw(a[0])+
+    (a[1]?'<cite>'+escRaw(a[1])+'</cite>':'')+'</span></p>'+
+    (a[2]?'<p class="ex-l ex-t"><b>ひとこと</b><span>'+escRaw(a[2])+'</span></p>':'')+'</div>';
+}
+function escRaw(s){return String(s).replace(/[&<>"]/g,function(m){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m];});}
+function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m];});}
+
+/* ── 辞典 ── */
+var entriesEl=document.getElementById("entries"),
+    dictHint=document.getElementById("dictHint");
+function refreshSeg(){
+  var base=pool(true);   /* 分野・検索だけ効かせた母集団の中で数える */
+  document.getElementById("sn-due").textContent=base.filter(function(d){return isDue(d.id);}).length;
+  document.getElementById("sn-ng").textContent=base.filter(function(d){return isWeak(d.id);}).length;
+}
+function renderDict(){
+  var list=pool();
+  dictHint.textContent=list.length+" 語を表示中（全 "+DATA.length+" 語）";
+  document.getElementById("tn-dict").textContent=list.length;
+  if(!list.length){
+    entriesEl.innerHTML='<div class="empty"><b>該当する語がありません</b>検索語や絞り込みを見直してください。</div>';
+    return;
+  }
+  entriesEl.innerHTML=list.map(function(d){
+    var lv=lvOf(d.id), cc=catColor(d.c);
+    return '<article class="entry" style="--cat:'+cc+'" id="e'+d.id+'">'+
+      '<div class="spine"></div><div class="entry-body">'+
+      '<div><span class="yomi">'+esc(d.r)+'</span>'+
+      '<div class="e-head"><h3 class="word">'+esc(d.w)+'</h3>'+
+      '<span class="catlab">'+esc(CATBY[d.c].name)+'／'+esc(d.g)+'</span></div></div>'+
+      '<p class="mean">'+esc(d.m)+'</p>'+
+      exHTML(d.e)+
+      '<p class="rel"><span>'+esc(d.k)+'</span></p>'+
+      '<div class="e-foot">'+dueTag(d.id)+
+      '<div class="marks" role="group" aria-label="'+esc(d.w)+'の習得状況">'+
+        [1,2,3].map(function(n){
+          return '<button type="button" data-id="'+d.id+'" data-lv="'+n+'" aria-pressed="'+(lv===n)+'">'+LV[n]+'</button>';
+        }).join("")+
+      '</div></div></div></article>';
+  }).join("");
+}
+entriesEl.addEventListener("click",function(ev){
+  var b=ev.target.closest(".marks button"); if(!b) return;
+  var id=Number(b.dataset.id), lv=Number(b.dataset.lv);
+  setLv(id, lvOf(id)===lv?0:lv);
+  renderDict();
+});
+
+/* ── 分野チップ ── */
+var chipsEl=document.getElementById("catChips");
+chipsEl.innerHTML=CATS.map(function(c){
+  var n=DATA.filter(function(d){return d.c===c.id;}).length;
+  return '<button class="chip" type="button" data-cat="'+c.id+'" aria-pressed="false" style="--dotc:var('+c.v+')">'+
+    '<i class="dot"></i>'+c.name+' <span style="opacity:.6">'+n+'</span></button>';
+}).join("");
+chipsEl.addEventListener("click",function(ev){
+  var b=ev.target.closest(".chip"); if(!b) return;
+  var id=b.dataset.cat, i=filter.cats.indexOf(id);
+  if(i<0) filter.cats.push(id); else filter.cats.splice(i,1);
+  b.setAttribute("aria-pressed", i<0?"true":"false");
+  renderDict(); buildDeck(); resetQuiz(); refreshSeg();
+});
+document.getElementById("statusSeg").addEventListener("click",function(ev){
+  var b=ev.target.closest("button"); if(!b) return;
+  filter.st=b.dataset.st;
+  this.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});
+  renderDict(); buildDeck(); resetQuiz();
+});
+document.getElementById("q").addEventListener("input",function(){
+  filter.q=this.value; renderDict(); buildDeck(); resetQuiz(); refreshSeg();
+});
+
+/* ── 暗記カード ── */
+var deck=[],pos=0,flipped=false;
+var cardEl=document.getElementById("card"),ansEl=document.getElementById("cardAns"),
+    deckPos=document.getElementById("deckPos"),deckBar=document.getElementById("deckBar");
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function buildDeck(){deck=shuffle(pool().slice());pos=0;flipped=false;renderCard();}
+function renderCard(){
+  if(!deck.length){
+    cardEl.style.setProperty("--cat","var(--ink-3)");
+    cardEl.innerHTML='<div class="c-tap">この条件に当てはまる語がありません</div>';
+    ansEl.hidden=true; deckPos.textContent="0 / 0"; deckBar.style.width="0%"; return;
+  }
+  if(pos>=deck.length){
+    cardEl.style.setProperty("--cat","var(--tokiwa)");
+    cardEl.innerHTML='<div class="c-word" style="font-size:34px">一巡しました</div>'+
+      '<div class="divider"></div><div class="c-tap">'+deck.length+' 語すべてに目を通しました</div>';
+    ansEl.hidden=true; deckPos.textContent=deck.length+" / "+deck.length; deckBar.style.width="100%"; return;
+  }
+  var d=deck[pos];
+  cardEl.style.setProperty("--cat",catColor(d.c));
+  deckPos.textContent=(pos+1)+" / "+deck.length;
+  deckBar.style.width=(pos/deck.length*100)+"%";
+  if(!flipped){
+    cardEl.innerHTML='<div class="c-yomi">'+esc(CATBY[d.c].name)+'</div>'+
+      '<div class="c-word">'+esc(d.w)+'</div>'+
+      '<div class="c-tap">クリックして意味を見る</div>';
+    ansEl.hidden=true;
+  }else{
+    cardEl.innerHTML='<div class="c-yomi">'+esc(d.r)+'</div>'+
+      '<div class="c-word" style="font-size:32px">'+esc(d.w)+'</div>'+
+      '<div class="divider"></div>'+
+      '<p class="c-mean">'+esc(d.m)+'</p>'+
+      '<div class="c-ex">'+exHTML(d.e)+'</div>'+
+      '<div class="c-rel">'+esc(d.k)+'</div>';
+    ansEl.hidden=false;
+  }
+}
+function flip(){ if(!deck.length||pos>=deck.length) return; flipped=!flipped; renderCard(); }
+cardEl.addEventListener("click",flip);
+cardEl.addEventListener("keydown",function(ev){
+  if(ev.key===" "||ev.key==="Enter"){ev.preventDefault();flip();}
+});
+ansEl.addEventListener("click",function(ev){
+  var b=ev.target.closest(".ans"); if(!b) return;
+  setLv(deck[pos].id,Number(b.dataset.lv));
+  pos++; flipped=false; renderCard();
+});
+document.getElementById("reshuffle").addEventListener("click",buildDeck);
+
+/* ── 四択テスト ── */
+var quizEl=document.getElementById("quiz");
+var quiz=null;
+/* 出題の優先度。復習の期限が来た語 → まだ一度も出していない語 → 苦手 → それ以外 */
+function qWeight(id){
+  if(isDue(id)) return 4;
+  var r=store[kOf(id)];
+  if(!r||!r.t) return 3;
+  if(isWeak(id)) return 2;
+  return 1;
+}
+function makeQuiz(){
+  var p=pool().slice();
+  if(p.length<4) return null;
+  var n=Math.min(10,p.length);
+
+  /* 期限の来た語は取りこぼさない。シャッフルの対象に混ぜると入らないことがあるため、
+     まず期限の古い順に確保してしまう。「まだ」や誤答がその日のうちに戻るのはここ。 */
+  var due=p.filter(function(d){return isDue(d.id);}).sort(function(a,b){
+    var ra=store[kOf(a.id)]||{}, rb=store[kOf(b.id)]||{};
+    return (ra.due||0)-(rb.due||0) || (ra.t||0)-(rb.t||0);
+  });
+  var pick=due.slice(0,n);
+
+  /* 残りは、まだ出していない語・苦手な語を先に、かつ最後に出題してから間の空いた順に
+     並べ、その上位（必要数の2倍）をシャッフルして埋める。直前に出た語が続けて出るのを
+     防ぎつつ、毎回まったく同じ組にもならないようにするための二段構え。 */
+  if(pick.length<n){
+    var need=n-pick.length;
+    var rest=p.filter(function(d){return !isDue(d.id);}).sort(function(a,b){
+      var w=qWeight(b.id)-qWeight(a.id); if(w) return w;
+      return ((store[kOf(a.id)]||{}).t||0)-((store[kOf(b.id)]||{}).t||0);
+    });
+    var head=rest.slice(0,Math.min(rest.length,need*2));
+    shuffle(head);
+    pick=pick.concat(head.slice(0,need));
+  }
+  shuffle(pick);
+
+  var now=Date.now();
+  var qs=pick.map(function(d,i){
+    rec(d.id).t=now;   /* 出題時刻を控える。次回の既出除外はこれを見る */
+    var mode=i%2===0?"w2m":"m2w";
+    var same=DATA.filter(function(x){return x.c===d.c&&x.id!==d.id;});
+    var src=same.length>=3?same:DATA.filter(function(x){return x.id!==d.id;});
+    var opts=shuffle(src.slice()).slice(0,3).concat([d]);
+    return {d:d,mode:mode,opts:shuffle(opts)};
+  });
+  save();
+  /* 解答の有無は各設問の chosen で持つ。こうしておくと、別のタブに移って
+     戻ってきたときも「答えたあとの画面」をそのまま描き直せる。 */
+  return {qs:qs,i:0,score:0,miss:[]};
+}
+function resetQuiz(){quiz=null; if(!document.getElementById("p-quiz").hidden) renderQuiz();}
+function renderQuiz(){
+  if(!quiz){
+    quiz=makeQuiz();
+    if(!quiz){
+      quizEl.innerHTML='<div class="empty"><b>出題できません</b>絞り込みを広げて、4 語以上を対象にしてください。</div>';
+      return;
+    }
+  }
+  if(quiz.i>=quiz.qs.length){
+    var n=quiz.qs.length;
+    if(!quiz.tk){ quiz.tk=1; if(window.Tsukumo) Tsukumo.finish(n,quiz.score); }   /* 結果は描き直されることがあるので1回だけ */
+    quizEl.innerHTML='<div class="result">'+
+      '<div class="q-label">結果</div>'+
+      '<div class="score">'+quiz.score+'<small> / '+n+'</small></div>'+
+      '<p style="color:var(--ink-2);margin:6px 0 0">'+
+        (quiz.score===n?"全問正解です。次は範囲を広げてみましょう。":
+         quiz.score>=n*0.7?"よく取れています。取りこぼした語を辞典で確認しましょう。":
+         "まずは間違えた語を暗記カードで繰り返しましょう。")+'</p>'+
+      (quiz.miss.length?'<div class="misses"><h4>取りこぼした語</h4><ul style="margin:0;padding-left:0;list-style:none">'+
+        quiz.miss.map(function(d){return '<li><b>'+esc(d.w)+'</b>（'+esc(d.r)+'）　'+esc(d.m)+'</li>';}).join("")+
+        '</ul></div>':'')+
+      '<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px">'+
+        '<button class="mini" id="again" type="button">もう一度 10 問</button>'+
+        (quiz.miss.length?'<button class="mini" id="missCard" type="button">取りこぼした語をカードで</button>':'')+
+      '</div></div>';
+    document.getElementById("again").onclick=function(){quiz=null;renderQuiz();};
+    if(quiz.miss.length) document.getElementById("missCard").onclick=function(){
+      applyFilter("ng"); show("card");
+    };
+    return;
+  }
+  var q=quiz.qs[quiz.i], d=q.d, w2m=q.mode==="w2m";
+  quizEl.innerHTML='<div class="q-meta"><span>第 '+(quiz.i+1)+' 問 / '+quiz.qs.length+'</span>'+
+      '<span>正解 '+quiz.score+'</span></div>'+
+    '<div class="q-stem"><div class="q-label">'+(w2m?"次の語の意味として最も適当なものは":"次の意味に当たる語は")+'</div>'+
+      '<div class="q-text'+(w2m?"":" small")+'">'+esc(w2m?d.w:d.m)+'</div></div>'+
+    '<div class="opts" id="opts">'+
+      q.opts.map(function(o,i){
+        return '<button class="opt" type="button" data-id="'+o.id+'"><span class="n">'+(i+1)+'</span><span>'+
+          esc(w2m?o.m:o.w+"（"+o.r+"）")+'</span></button>';
+      }).join("")+
+    '</div><span class="hint" style="text-align:center">1 〜 4 のキーでも選べます</span>'+
+    '<div id="fb"></div>';
+  if(q.chosen!=null) markAnswered(q,false);   /* 別のタブから戻ってきた場合 */
+  document.getElementById("opts").addEventListener("click",function(ev){
+    var b=ev.target.closest(".opt"); if(!b||q.chosen!=null) return;
+    q.chosen=Number(b.dataset.id);
+    if(window.Tsukumo) Tsukumo.answer(q.chosen===d.id);   /* 付喪神（道場共通/tsukumo） */
+    var r=rec(d.id);
+    if(q.chosen===d.id){ quiz.score++; r.ok++; schedule(r,(r.box||0)+1); if(r.lv<3) r.lv=r.lv===2?3:2; }
+    /* 誤答しても「覚えた」から一気に「まだ」へは落とさない。一段だけ下げる */
+    else { r.ng++; quiz.miss.push(d); schedule(r,0); r.lv=(r.lv===3?2:1); }
+    save(); refreshCounters(); refreshToday(); refreshSeg();
+    markAnswered(q,true);
+  });
+}
+/* 解答後の見た目と解説。設問の chosen だけを見て組み立てるので、何度呼んでも同じになる */
+function markAnswered(q,focus){
+  var d=q.d;
+  quizEl.querySelectorAll(".opt").forEach(function(x){
+    x.disabled=true;
+    var id=Number(x.dataset.id);
+    if(id===d.id) x.classList.add("correct");
+    else if(id===q.chosen) x.classList.add("wrong");
+  });
+  document.getElementById("fb").innerHTML='<div class="q-feedback">'+
+    '<div class="fw">'+esc(d.w)+'<span style="font-family:var(--sans);font-size:12px;color:var(--ink-3);font-weight:400;margin-left:8px">'+esc(d.r)+'</span></div>'+
+    esc(d.m)+'<div class="fb-ex">'+exHTML(d.e)+'</div>'+
+    '<button class="mini" style="margin-top:12px" id="next" type="button">次の問題へ</button></div>';
+  var nx=document.getElementById("next");
+  nx.onclick=function(){quiz.i++;renderQuiz();};
+  if(focus) nx.focus();
+}
+
+window.addEventListener("keydown",function(ev){
+  if(document.getElementById("p-quiz").hidden) return;
+  if(ev.metaKey||ev.ctrlKey||ev.altKey) return;
+  var t=document.activeElement;
+  if(t&&/^(INPUT|TEXTAREA)$/.test(t.tagName)) return;
+  if(ev.key<"1"||ev.key>"4") return;
+  var b=quizEl.querySelectorAll(".opt")[Number(ev.key)-1];
+  if(b&&!b.disabled){ev.preventDefault();b.click();}
+});
+
+/* ── 今日の復習（タブ直下の案内） ── */
+var todayEl=document.getElementById("today"),
+    todayTxt=document.getElementById("todayTxt"),
+    todayAct=document.getElementById("todayAct");
+function refreshToday(){
+  var due =DATA.filter(function(d){return isDue(d.id);}).length;
+  var weak=DATA.filter(function(d){return isWeak(d.id);}).length;
+  var fresh=DATA.filter(function(d){return lvOf(d.id)===0;}).length;
+  var txt,acts=[],tone="";
+  if(due){
+    txt='今日の復習が <b>'+due+'</b> 語あります。';
+    acts=[["カードで復習","due","card"],["四択で確かめる","due","quiz"]];
+  }else if(fresh===DATA.length){
+    txt='まだ記録がありません。暗記カードを 1 枚めくるところから始めましょう。';
+    acts=[["暗記カードを始める","all","card"]];
+  }else{
+    tone="calm";
+    txt='今日ぶんの復習は終わりました。';
+    if(weak)  { txt+='苦手な語が <b>'+weak+'</b> 語。';  acts.push(["苦手を復習","ng","card"]); }
+    if(fresh) { txt+='未仕分けが <b>'+fresh+'</b> 語。'; acts.push(["未仕分けをカードで","0","card"]); }
+  }
+  todayEl.hidden=false;
+  if(tone) todayEl.setAttribute("data-tone",tone); else todayEl.removeAttribute("data-tone");
+  todayTxt.innerHTML=txt;
+  todayAct.innerHTML=acts.map(function(a){
+    return '<button class="mini" type="button" data-st="'+a[1]+'" data-v="'+a[2]+'">'+a[0]+'</button>';
+  }).join("");
+}
+todayAct.addEventListener("click",function(ev){
+  var b=ev.target.closest("button"); if(!b) return;
+  applyFilter(b.dataset.st); show(b.dataset.v);
+});
+
+/* ── 学習状況の持ち出し ── */
+function exportText(){
+  return JSON.stringify({app:"kindai-dojo",v:1,at:new Date().toISOString(),data:store});
+}
+/* 書き出した全体 {app,v,at,data} でも、data の中身だけでも受け取る */
+function parseImport(txt){
+  var o=JSON.parse(txt);
+  if(!o||typeof o!=="object") throw new Error("形式が違います");
+  var d=(o.data&&typeof o.data==="object")?o.data:(o.app?null:o);
+  if(!d) throw new Error("学習状況が入っていません");
+  var keys=Object.keys(d);
+  if(!keys.length) throw new Error("記録が 1 語も入っていません");
+  keys.forEach(function(k){
+    var r=d[k];
+    if(!r||typeof r!=="object") throw new Error("「"+k+"」の記録が壊れています");
+  });
+  return d;
+}
+function refreshAll(){
+  refreshCounters(); refreshToday(); refreshSeg();
+  renderDict(); buildDeck(); resetQuiz(); renderProg();
+}
+
+/* ── 範囲の持ち出し ── */
+const ST_LABEL={all:"すべて",due:"要復習",ng:"苦手","0":"未仕分け","1":"まだ","2":"あいまい","3":"覚えた"};
+function rangeLabel(){
+  var a=[filter.cats.length?filter.cats.map(function(x){return CATBY[x].name;}).join("・"):"全分野"];
+  if(filter.st!=="all") a.push(ST_LABEL[filter.st]);
+  if(filter.q.trim()) a.push("「"+filter.q.trim()+"」を含む語");
+  return a.join(" ／ ")+"（"+pool().length+" 語）";
+}
+/* いまの絞り込みをそのまま開けるURL。授業で範囲を配るのに使う */
+function rangeURL(){
+  var base=location.href.split("#")[0].split("?")[0];
+  var p=[];
+  if(filter.cats.length) p.push("c="+encodeURIComponent(filter.cats.join(",")));
+  if(filter.st!=="all")  p.push("st="+encodeURIComponent(filter.st));
+  if(filter.q.trim())    p.push("q="+encodeURIComponent(filter.q.trim()));
+  return base+(p.length?"?"+p.join("&"):"");
+}
+var shareMsg=document.getElementById("shareMsg");
+document.getElementById("shareBtn").addEventListener("click",function(){
+  var u=rangeURL();
+  function fallback(){ window.prompt("このURLをコピーしてください",u); shareMsg.textContent=""; }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(u).then(function(){
+      shareMsg.textContent="コピーしました（"+rangeLabel()+"）";
+    },fallback);
+  }else fallback();
+});
+
+/* ── 紙のテスト ── */
+var sheetDlg=document.getElementById("sheetDlg"),
+    sheetEl=document.getElementById("sheet");
+var sheetOpt={n:15,m:"w2m",a:true};
+function openSheet(){
+  document.getElementById("sheetRange").textContent=rangeLabel();
+  if(typeof sheetDlg.showModal==="function") sheetDlg.showModal(); else sheetDlg.setAttribute("open","");
+}
+function closeSheet(){
+  if(typeof sheetDlg.close==="function") sheetDlg.close(); else sheetDlg.removeAttribute("open");
+}
+document.getElementById("printBtn").addEventListener("click",openSheet);
+document.getElementById("sheetClose").addEventListener("click",closeSheet);
+sheetDlg.addEventListener("click",function(ev){ if(ev.target===sheetDlg) closeSheet(); });
+["sheetNum","sheetMode","sheetAns"].forEach(function(id){
+  document.getElementById(id).addEventListener("click",function(ev){
+    var b=ev.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});
+    if(id==="sheetNum")      sheetOpt.n=Number(b.dataset.n);
+    else if(id==="sheetMode") sheetOpt.m=b.dataset.m;
+    else                      sheetOpt.a=b.dataset.a==="1";
+  });
+});
+function buildSheet(){
+  var list=shuffle(pool().slice()).slice(0,sheetOpt.n);
+  if(!list.length){ sheetEl.innerHTML=""; return 0; }
+  var d=new Date();
+  var qs=list.map(function(x,i){
+    var w2m = sheetOpt.m==="mix" ? i%2===0 : sheetOpt.m==="w2m";
+    return w2m
+      ? '<li><span class="qw">'+esc(x.w)+'</span><span class="qr">'+esc(x.r)+'</span>'+
+        '<span class="blank"></span></li>'
+      : '<li><span class="qm">'+esc(x.m)+'</span><span class="blank short"></span></li>';
+  }).join("");
+  var as=list.map(function(x,i){
+    var w2m = sheetOpt.m==="mix" ? i%2===0 : sheetOpt.m==="w2m";
+    return w2m
+      ? '<li>'+esc(x.m)+'</li>'
+      : '<li><span class="aw">'+esc(x.w)+'</span>（'+esc(x.r)+'）</li>';
+  }).join("");
+  var dir = sheetOpt.m==="w2m" ? "次の語の意味を書きなさい。"
+          : sheetOpt.m==="m2w" ? "次の意味に当たる語を書きなさい。"
+          : "次の語の意味、または意味に当たる語を書きなさい。";
+  sheetEl.innerHTML=
+    '<h1>近代語　確認テスト</h1>'+
+    '<div class="s-meta"><span>'+esc(rangeLabel())+'</span>'+
+      '<span>'+d.getFullYear()+' 年 '+(d.getMonth()+1)+' 月 '+d.getDate()+' 日</span></div>'+
+    '<div class="s-name"><span>組</span><i style="width:12mm"></i><span>番</span>'+
+      '<i style="width:12mm"></i><span>氏名</span><i style="width:46mm"></i></div>'+
+    '<p class="s-dir">'+dir+'</p>'+
+    '<ol class="qs">'+qs+'</ol>'+
+    (sheetOpt.a?'<section class="s-ans"><h2>解答</h2><ol>'+as+'</ol></section>':'');
+  return list.length;
+}
+document.getElementById("sheetPrint").addEventListener("click",function(){
+  if(!buildSheet()){ alert("この範囲には出題できる語がありません。絞り込みを見直してください。"); return; }
+  closeSheet();
+  /* ダイアログが閉じきってから印刷に入る */
+  setTimeout(function(){ window.print(); },120);
+});
+
+/* ── 進捗 ── */
+function refreshCounters(){
+  var done=DATA.filter(function(d){return lvOf(d.id)===3;}).length;
+  document.getElementById("tn-prog").textContent=done+"/"+DATA.length;
+}
+function renderProg(){
+  var n=DATA.length, c1=0,c2=0,c3=0;
+  DATA.forEach(function(d){var l=lvOf(d.id); if(l===1)c1++; else if(l===2)c2++; else if(l===3)c3++;});
+  var untouched=n-c1-c2-c3;
+  var rows=CATS.map(function(c){
+    var g=DATA.filter(function(d){return d.c===c.id;});
+    var a=[0,0,0,0]; g.forEach(function(d){a[lvOf(d.id)]++;});
+    var pct=Math.round(a[3]/g.length*100);
+    return '<div class="bar-row"><span class="nm">'+c.name+'</span>'+
+      '<div class="track">'+
+        '<i class="l3" style="width:'+(a[3]/g.length*100)+'%"></i>'+
+        '<i class="l2" style="width:'+(a[2]/g.length*100)+'%"></i>'+
+        '<i class="l1" style="width:'+(a[1]/g.length*100)+'%"></i>'+
+      '</div><span class="pc">'+pct+'%</span></div>';
+  }).join("");
+  var p0=0,p1=0,p7=0,p8=0;
+  DATA.forEach(function(d){
+    var k=dueIn(d.id); if(k===null) return;
+    if(k<=0) p0++; else if(k===1) p1++; else if(k<=7) p7++; else p8++;
+  });
+  var weak=DATA.filter(function(d){return isWeak(d.id);})
+    .sort(function(a,b){return ((store[b.w]&&store[b.w].ng)||0)-((store[a.w]&&store[a.w].ng)||0);});
+  document.getElementById("prog").innerHTML=
+    '<div class="tally">'+
+      '<div><div class="n" style="color:var(--tokiwa)">'+c3+'</div><div class="l">覚えた</div></div>'+
+      '<div><div class="n" style="color:var(--yama)">'+c2+'</div><div class="l">あいまい</div></div>'+
+      '<div><div class="n" style="color:var(--shu)">'+c1+'</div><div class="l">まだ</div></div>'+
+      '<div><div class="n" style="color:var(--ink-3)">'+untouched+'</div><div class="l">未仕分け</div></div>'+
+    '</div>'+
+    '<div><h2 class="sect-h">復習の予定</h2>'+
+      '<div class="plan">'+
+        '<div><div class="n">'+p0+'</div><div class="l">今日</div></div>'+
+        '<div><div class="n">'+p1+'</div><div class="l">明日</div></div>'+
+        '<div><div class="n">'+p7+'</div><div class="l">7 日以内</div></div>'+
+        '<div><div class="n">'+p8+'</div><div class="l">その先</div></div>'+
+      '</div>'+
+      '<p class="io-note" style="margin-top:10px">「覚えた」と四択の正解で、次に出題する日が 1 → 2 → 4 → 7 → 14 日と延びます。'+
+      '「まだ」と誤答はその日のうちに戻ります。</p>'+
+    '</div>'+
+    '<div><h2 class="sect-h">分野別の習得率</h2>'+
+      '<div class="bars">'+rows+'</div>'+
+      '<div class="legend" style="margin-top:16px">'+
+        '<span><i style="background:var(--tokiwa)"></i>覚えた</span>'+
+        '<span><i style="background:var(--yama)"></i>あいまい</span>'+
+        '<span><i style="background:var(--shu)"></i>まだ</span>'+
+        '<span><i style="background:var(--surface-2)"></i>未仕分け</span>'+
+      '</div></div>'+
+    '<div><h2 class="sect-h">重点復習リスト'+(weak.length?'（'+weak.length+' 語）':'')+'</h2>'+
+      (weak.length?'<div class="io-row" style="margin-bottom:12px">'+
+        '<button class="mini" id="weakCard" type="button">この '+weak.length+' 語をカードで</button>'+
+        (weak.length>=4?'<button class="mini" id="weakQuiz" type="button">四択で確かめる</button>':'')+
+      '</div>':'')+
+      (weak.length?'<div class="weak">'+weak.map(function(d){
+        var r=store[d.w]||{};
+        return '<a href="#e'+d.id+'" data-id="'+d.id+'">'+esc(d.w)+(r.ng?'<small>誤答'+r.ng+'</small>':'')+'</a>';
+      }).join("")+'</div>':'<p style="color:var(--ink-3);font-size:13.5px;margin:0">「まだ」に仕分けした語や、四択で誤答した語がここに集まります。</p>')+
+    '</div>'+
+    '<div><h2 class="sect-h">学習状況の持ち出し</h2>'+
+      '<div class="io">'+
+        '<p class="io-note">この辞典の記録は、いま見ている端末のブラウザにしか残りません。'+
+        '機種を変えるときや、学校と自宅で使い分けるときは、ここで持ち出してください。</p>'+
+        '<div class="io-row">'+
+          '<button class="mini" id="expFile" type="button">ファイルに書き出す</button>'+
+          '<button class="mini" id="expCopy" type="button">文字列をコピー</button>'+
+          '<button class="mini" id="impFile" type="button">ファイルから読み込む</button>'+
+          '<span class="io-msg" id="ioMsg"></span>'+
+        '</div>'+
+        '<input type="file" id="impInput" accept="application/json,.json" hidden>'+
+        '<label class="io-note" for="impText">コピーした文字列は、移した先の端末でここに貼り付けます。</label>'+
+        '<textarea id="impText" spellcheck="false" placeholder="ここに貼り付け"></textarea>'+
+        '<div class="io-row"><button class="mini" id="impPaste" type="button">貼り付けから読み込む</button></div>'+
+        '<p class="io-note">読み込むと、この端末にいま入っている学習状況は置き換わります。</p>'+
+      '</div>'+
+    '</div>'+
+    '<button class="danger" id="resetAll" type="button">学習状況をすべて消去</button>';
+  var ioMsg=document.getElementById("ioMsg");
+  function msg(t,err){ioMsg.textContent=t; if(err) ioMsg.setAttribute("data-err","1"); else ioMsg.removeAttribute("data-err");}
+  function load(txt){
+    var d;
+    try{ d=parseImport(txt); }catch(e){ msg("読み込めません（"+e.message+"）",1); return; }
+    var n=Object.keys(d).length;
+    if(!confirm(n+" 語ぶんの記録を読み込み、この端末の学習状況を置き換えます。よろしいですか？")) return;
+    store=d; save(); refreshAll();
+    /* renderProg で作り直されるため、描き直したあとの要素にメッセージを出す */
+    document.getElementById("ioMsg").textContent=n+" 語ぶんを読み込みました。";
+  }
+  document.getElementById("expFile").onclick=function(){
+    var d=new Date(), ymd=d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0");
+    var url=URL.createObjectURL(new Blob([exportText()],{type:"application/json"}));
+    var a=document.createElement("a");
+    a.href=url; a.download="kindai-progress-"+ymd+".json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    msg("書き出しました。");
+  };
+  document.getElementById("expCopy").onclick=function(){
+    var t=exportText(), ta=document.getElementById("impText");
+    /* クリップボードが使えない環境（古い端末・file:// など）では、欄に出して選択させる */
+    function fallback(){ta.value=t;ta.focus();ta.select();msg("この欄をコピーしてください。");}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){msg("コピーしました。");},fallback);
+    }else fallback();
+  };
+  document.getElementById("impFile").onclick=function(){document.getElementById("impInput").click();};
+  document.getElementById("impInput").onchange=function(){
+    var f=this.files&&this.files[0]; if(!f) return;
+    var fr=new FileReader();
+    fr.onload=function(){load(String(fr.result));};
+    fr.onerror=function(){msg("ファイルを読めませんでした。",1);};
+    fr.readAsText(f);
+  };
+  document.getElementById("impPaste").onclick=function(){
+    var v=document.getElementById("impText").value.trim();
+    if(!v){msg("貼り付け欄が空です。",1);return;}
+    load(v);
+  };
+  document.getElementById("resetAll").onclick=function(){
+    if(confirm("すべての学習状況を消去します。よろしいですか？")){
+      store={}; save(); refreshAll();
+    }
+  };
+  if(document.getElementById("weakCard"))
+    document.getElementById("weakCard").onclick=function(){applyFilter("ng");show("card");};
+  if(document.getElementById("weakQuiz"))
+    document.getElementById("weakQuiz").onclick=function(){applyFilter("ng");show("quiz");};
+  document.querySelector("#prog .weak")&&document.querySelector("#prog .weak").addEventListener("click",function(ev){
+    var a=ev.target.closest("a"); if(!a) return;
+    ev.preventDefault();
+    applyFilter("all"); show("dict");
+    var el=document.getElementById("e"+a.dataset.id);
+    if(el){el.scrollIntoView({behavior:"smooth",block:"center"});}
+  });
+}
+
+/* ── タブ ── */
+var VIEWS=["dict","card","quiz","prog"];
+function show(v){
+  VIEWS.forEach(function(x){
+    document.getElementById("tab-"+x).setAttribute("aria-selected",String(x===v));
+    document.getElementById("p-"+x).hidden=(x!==v);
+  });
+  if(v==="card"&&!deck.length) buildDeck();
+  if(v==="quiz") renderQuiz();
+  if(v==="prog") renderProg();
+}
+VIEWS.forEach(function(v){document.getElementById("tab-"+v).addEventListener("click",function(){show(v);});});
+
+/* ── 表示切替 ── */
+var themeBtn=document.getElementById("themeBtn");
+themeBtn.addEventListener("click",function(){
+  var cur=document.documentElement.getAttribute("data-theme");
+  var next=cur==="dark"?"light":(cur==="light"?null:"dark");
+  if(next) document.documentElement.setAttribute("data-theme",next);
+  else document.documentElement.removeAttribute("data-theme");
+  try{localStorage.setItem(KEY_THEME,next||"");}catch(e){}
+});
+try{var t=localStorage.getItem(KEY_THEME); if(t) document.documentElement.setAttribute("data-theme",t);}catch(e){}
+
+/* ── 使い方 ── */
+var helpDlg=document.getElementById("help");
+function openHelp(){
+  if(typeof helpDlg.showModal==="function") helpDlg.showModal();
+  else helpDlg.setAttribute("open","");
+}
+function markSeen(){try{localStorage.setItem(KEY_SEEN,"1");}catch(e){}}
+function closeHelp(){
+  markSeen();
+  if(typeof helpDlg.close==="function") helpDlg.close();
+  else helpDlg.removeAttribute("open");
+}
+document.getElementById("helpBtn").addEventListener("click",openHelp);
+document.getElementById("helpClose").addEventListener("click",closeHelp);
+document.getElementById("helpStart").addEventListener("click",closeHelp);
+helpDlg.addEventListener("close",markSeen);          /* Esc で閉じた場合 */
+helpDlg.addEventListener("keydown",function(ev){      /* <dialog> 非対応環境の保険 */
+  if(ev.key==="Escape"){ev.preventDefault();closeHelp();}
+});
+helpDlg.addEventListener("click",function(ev){        /* 外側をクリック */
+  if(ev.target===helpDlg) closeHelp();
+});
+var helpSeen=""; try{helpSeen=localStorage.getItem(KEY_SEEN)||"";}catch(e){}
+if(!helpSeen) openHelp();   /* 初回だけ自動で開く */
+
+/* ── URLで渡された範囲（授業で配るときに使う） ──
+   ?c=分野,分野 / ?st=all|due|ng|0|1|2|3 / ?q=検索語 / ?v=dict|card|quiz|prog */
+var startView="dict", jumpWord="";
+(function(){
+  var p=new URLSearchParams(location.search);
+  var c=p.get("c");
+  if(c) filter.cats=c.split(",").filter(function(x){return !!CATBY[x];});
+  var st=p.get("st"); if(st&&ST_LABEL[st]) filter.st=st;
+  var q=p.get("q");   if(q) filter.q=q;
+  var v=p.get("v");   if(v&&VIEWS.indexOf(v)>=0) startView=v;
+  jumpWord=p.get("w")||"";   /* ?w=見出し語 で辞典のその項目へ飛ぶ（学習ガイドから使う） */
+  syncFilterUI();
+})();
+
+/* オフラインで開けるようにする。manifest を置いていない版（Claude Artifact）では
+   そもそも登録しない。file:// でも登録できないため、失敗は黙って捨てる。 */
+if(document.querySelector('link[rel="manifest"]')&&"serviceWorker" in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
+
+document.getElementById("totalCount").textContent=DATA.length;
+refreshCounters();
+refreshToday();
+refreshSeg();
+renderDict();
+buildDeck();
+show(startView);
+if(jumpWord){
+  var hit=DATA.filter(function(d){return d.w===jumpWord;})[0];
+  if(hit){
+    if(!document.getElementById("e"+hit.id)) applyFilter("all");  /* 絞り込みで隠れていれば解く */
+    show("dict");
+    var el=document.getElementById("e"+hit.id);
+    if(el){ el.classList.add("flash"); setTimeout(function(){el.scrollIntoView({block:"center"});},80); }
+  }
+}
+</script>
+<script src="tsukumo.js" data-subject="gendai"></script>
+<script src="riyou.js" data-site="kindai"></script>
+</body>
+</html>

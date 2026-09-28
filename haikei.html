@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="漱石・鷗外の時代の学生・家と結婚・お金と暮らし・近代文学の流れ・文章の読み方を読み物としてまとめたページ。近代の小説・随想を読む前提になる知識を押さえられる。">
+<title>明治・大正の背景</title>
+<style>
+  :root{
+    --ai:#6e2c2a;
+    --ai-deep:#4a1b1a;
+    --yamabuki:#a8453b;
+    --yamabuki-deep:#7d2e27;
+    --wakatake:#3f8a63;
+    --wakatake-bg:#e6f0e8;
+    --kobai:#b8483f;
+    --kobai-bg:#f6e6e2;
+    --bg:#f3eee3;
+    --surface:#fdfbf6;
+    --surface-2:#eae3d4;
+    --ink:#2a2320;
+    --ink-soft:#6a5e56;
+    --line:#d8cdbb;
+    --shadow:rgba(31,34,38,0.12);
+    --focus:#7d2e27;
+    --shu:#a8453b;
+    --shu-ink:#fff8f2;
+    --kaisen:#ebd5cc;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ai:#e3a79b;
+      --ai-deep:#f3cfc6;
+      --yamabuki:#e08a7c;
+      --yamabuki-deep:#f0b3a8;
+      --wakatake:#7fc39e;
+      --wakatake-bg:#1c3329;
+      --kobai:#e2938c;
+      --kobai-bg:#3a2320;
+      --bg:#18141a;
+      --surface:#211b22;
+      --surface-2:#2b242c;
+      --ink:#ede6dd;
+      --ink-soft:#aa9f96;
+      --line:#3d3440;
+      --shadow:rgba(0,0,0,0.45);
+      --focus:#e08a7c;
+      --shu:#e08a7c;
+      --shu-ink:#1a0b08;
+      --kaisen:#231d24;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ai:#e3a79b;
+    --ai-deep:#f3cfc6;
+    --yamabuki:#e08a7c;
+    --yamabuki-deep:#f0b3a8;
+    --wakatake:#7fc39e;
+    --wakatake-bg:#1c3329;
+    --kobai:#e2938c;
+    --kobai-bg:#3a2320;
+    --bg:#18141a;
+    --surface:#211b22;
+    --surface-2:#2b242c;
+    --ink:#ede6dd;
+    --ink-soft:#aa9f96;
+    --line:#3d3440;
+    --shadow:rgba(0,0,0,0.45);
+    --focus:#e08a7c;
+    --shu:#e08a7c;
+    --shu-ink:#1a0b08;
+    --kaisen:#231d24;
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .stage{
+    max-width:680px;
+    margin:0 auto;
+    padding:28px 18px 60px;
+    position:relative;
+  }
+  .stage::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 0);
+    background-size:16px 16px;
+    opacity:.22;
+    mix-blend-mode:multiply;
+    pointer-events:none;
+    z-index:0;
+  }
+  :root:not([data-theme="light"]) .stage::before{ mix-blend-mode:screen; opacity:.10; }
+  :root[data-theme="dark"] .stage::before{ mix-blend-mode:screen; opacity:.10; }
+
+  .stage > *{ position:relative; z-index:1; }
+
+  .rod{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 auto;
+  }
+  .rod::before,.rod::after{
+    content:'';
+    flex:1;
+    height:5px;
+    border-radius:3px;
+    background:var(--ai-deep);
+  }
+  .rod .knob{
+    width:14px; height:14px; border-radius:50%;
+    background:var(--yamabuki);
+    box-shadow:0 0 0 2px var(--surface);
+    flex:none;
+  }
+
+  header.masthead{ text-align:center; padding:6px 0 22px; }
+  header.masthead .rod{ margin-bottom:16px; }
+  h1{
+    font-family:'Shippori Mincho', serif;
+    font-weight:800;
+    font-size:clamp(1.6rem, 1.1rem + 3vw, 2.3rem);
+    letter-spacing:.03em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  header.masthead p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:.92rem;
+    line-height:1.75;
+  }
+
+  section{ display:block; }
+  section[hidden]{ display:none !important; }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px 20px;
+    box-shadow:0 3px 14px var(--shadow);
+  }
+  .card + .card{ margin-top:16px; }
+
+  .steps{
+    list-style:none;
+    margin:0 0 20px;
+    padding:0;
+    display:grid;
+    gap:8px;
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+  .steps li{ display:flex; gap:10px; align-items:baseline; }
+  .steps .num{
+    font-family:'Shippori Mincho',serif;
+    color:var(--yamabuki-deep);
+    font-weight:700;
+    flex:none;
+    width:1.4em;
+  }
+
+  label.field-label{
+    display:block;
+    font-weight:700;
+    margin-bottom:4px;
+    font-size:.95rem;
+  }
+  .field-hint{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+
+  .unit-group{ margin-bottom:18px; }
+  .unit-group:last-child{ margin-bottom:0; }
+  .unit-group h3{
+    font-family:'Shippori Mincho',serif;
+    font-size:.95rem;
+    font-weight:700;
+    color:var(--ai);
+    margin:0 0 8px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    border:1.5px solid var(--line);
+    background:var(--bg);
+    color:var(--ink);
+    border-radius:999px;
+    padding:8px 14px;
+    font-size:.84rem;
+    line-height:1.4;
+    cursor:pointer;
+    font-family:'Zen Maru Gothic',sans-serif;
+    text-align:left;
+  }
+  .chip:hover{ border-color:var(--ai); }
+  .chip.active{ background:var(--ai); color:var(--surface); border-color:var(--ai); font-weight:700; }
+
+  .selected-unit-box{
+    margin-top:18px;
+    padding:12px 14px;
+    background:var(--surface-2);
+    border-radius:8px;
+    font-size:.88rem;
+  }
+  .selected-unit-box strong{
+    font-family:'Shippori Mincho',serif;
+    color:var(--ai);
+  }
+
+  textarea:focus-visible, button:focus-visible, .choice:focus-visible, .chip:focus-visible, input:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  .actions{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:20px;
+  }
+  button.btn{
+    font-family:'Zen Maru Gothic',sans-serif;
+    font-weight:700;
+    font-size:1.02rem;
+    padding:15px 18px;
+    border-radius:10px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .12s ease, filter .12s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ button.btn{ transition:none; } }
+  button.btn:active{ transform:translateY(1px); }
+  button.btn:disabled{ opacity:.5; cursor:not-allowed; transform:none; }
+  .btn-primary{
+    background:var(--yamabuki);
+    color:#2a1c04;
+    box-shadow:0 3px 0 var(--yamabuki-deep);
+  }
+  :root:not([data-theme="light"]) .btn-primary{ color:#241a02; }
+  :root[data-theme="dark"] .btn-primary{ color:#241a02; }
+  .btn-primary:hover:not(:disabled){ filter:brightness(1.04); }
+  .btn-secondary{
+    background:transparent;
+    color:var(--ai);
+    border-color:var(--ai);
+  }
+  .btn-secondary:hover:not(:disabled){ background:var(--surface-2); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink-soft);
+    border:none;
+    text-decoration:underline;
+    padding:8px;
+    font-size:.9rem;
+  }
+
+  #error-banner[hidden]{ display:none !important; }
+  #error-banner{
+    background:var(--kobai-bg);
+    border:1px solid var(--kobai);
+    color:var(--kobai);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:.88rem;
+    margin-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:flex-start;
+  }
+  #error-banner button{
+    background:none; border:none; color:inherit; font-weight:700; cursor:pointer; font-size:1rem; line-height:1;
+  }
+
+  .quiz-progress{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:6px;
+    font-family:'Shippori Mincho',serif;
+  }
+  .quiz-progress .count{ font-size:1.1rem; font-weight:700; font-variant-numeric:tabular-nums; }
+  .quiz-progress .score{ font-size:.85rem; color:var(--ink-soft); font-family:'Zen Maru Gothic',sans-serif; }
+  .quiz-unit{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .passage-box{
+    background:var(--surface-2);
+    border-radius:8px;
+    padding:14px 16px;
+    margin:0 0 18px;
+  }
+  .passage-box .label{
+    font-weight:700;
+    color:var(--ai);
+    display:block;
+    margin-bottom:6px;
+    font-size:.78rem;
+    letter-spacing:.04em;
+  }
+  .passage-box p{
+    font-family:'Shippori Mincho',serif;
+    font-size:.98rem;
+    line-height:1.9;
+    margin:0;
+    white-space:pre-wrap;
+  }
+  .dots{ display:flex; gap:5px; margin-bottom:18px; flex-wrap:wrap; }
+  .dots span{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+  .dots span.done-correct{ background:var(--wakatake); }
+  .dots span.done-wrong{ background:var(--kobai); }
+  .dots span.current{ background:var(--yamabuki); }
+
+  .question-text{
+    font-family:'Shippori Mincho',serif;
+    font-size:clamp(1.05rem, .9rem + 1vw, 1.3rem);
+    line-height:1.85;
+    margin:0 0 20px;
+    text-wrap:balance;
+  }
+
+  .choices{ display:grid; gap:10px; }
+  .choice{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-align:left;
+    width:100%;
+    background:var(--bg);
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    font-family:'Zen Maru Gothic',sans-serif;
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .choice:hover:not(:disabled){ border-color:var(--ai); }
+  .choice .badge{
+    flex:none;
+    width:28px; height:28px;
+    border-radius:50%;
+    background:var(--surface-2);
+    color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:.85rem;
+    font-family:'Shippori Mincho',serif;
+  }
+  .choice:disabled{ cursor:default; }
+  .choice.correct{ background:var(--wakatake-bg); border-color:var(--wakatake); }
+  .choice.correct .badge{ background:var(--wakatake); color:#fff; }
+  .choice.incorrect{ background:var(--kobai-bg); border-color:var(--kobai); }
+  .choice.incorrect .badge{ background:var(--kobai); color:#fff; }
+
+  .feedback{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+  }
+  .feedback .verdict{
+    font-family:'Shippori Mincho',serif;
+    font-weight:800;
+    font-size:1.15rem;
+    margin:0 0 10px;
+  }
+  .feedback .verdict.correct{ color:var(--wakatake); }
+  .feedback .verdict.incorrect{ color:var(--kobai); }
+  .feedback .explanation{ font-size:.95rem; line-height:1.8; margin:0 0 12px; }
+  .feedback .translation{
+    background:var(--surface-2);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:.9rem;
+    line-height:1.8;
+  }
+  .feedback .translation .label{
+    font-weight:700;
+    color:var(--ai);
+    display:block;
+    margin-bottom:4px;
+    font-size:.78rem;
+    letter-spacing:.04em;
+  }
+
+  .result-head{ text-align:center; padding:8px 0 22px; }
+  .stamp{
+    width:118px; height:118px;
+    margin:0 auto 16px;
+    border-radius:50%;
+    border:3px solid var(--kobai);
+    box-shadow:inset 0 0 0 3px var(--surface), 0 3px 10px var(--shadow);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transform:rotate(-5deg);
+    color:var(--kobai);
+    font-family:'Shippori Mincho',serif;
+  }
+  .stamp .frac{ font-size:1.7rem; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; }
+  .stamp .of{ font-size:.7rem; margin-top:2px; }
+  .result-message{ font-size:.98rem; line-height:1.8; color:var(--ink-soft); max-width:32em; margin:0 auto; }
+
+  .guide-content{
+    font-size:.98rem;
+    line-height:1.95;
+  }
+  .guide-content h1,.guide-content h2,.guide-content h3{
+    font-family:'Shippori Mincho',serif;
+    margin:1.2em 0 .5em;
+    line-height:1.5;
+  }
+  .guide-content h1{ font-size:1.25rem; }
+  .guide-content h2{ font-size:1.12rem; }
+  .guide-content h3{ font-size:1.02rem; }
+  .guide-content p{ margin:0 0 .9em; }
+  .guide-content ul,.guide-content ol{ margin:0 0 1em; padding-left:1.4em; }
+  .guide-content li{ margin-bottom:.4em; }
+  .guide-content strong{ color:var(--ai); }
+  .guide-content code{ background:var(--surface-2); padding:.1em .3em; border-radius:4px; }
+  .thinking{ color:var(--ink-soft); }
+
+  footer{
+    text-align:center;
+    font-size:.75rem;
+    color:var(--ink-soft);
+    margin-top:34px;
+    line-height:1.7;
+  }
+
+
+/* ==== 記録機能 追加分 ==== */
+.sub-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+.stat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:22px; }
+.stat-tile{ border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--bg); }
+.stat-tile .k{ display:block; font-size:.74rem; color:var(--ink-soft); letter-spacing:.06em; }
+.stat-tile .v{ display:block; font-size:1.5rem; font-weight:700; color:var(--ai); font-variant-numeric:tabular-nums; margin-top:2px; }
+.stat-tile .v small{ font-size:.8rem; font-weight:400; color:var(--ink-soft); margin-left:2px; }
+.stats-empty{ color:var(--ink-soft); padding:18px 0; }
+.stat-table{ width:100%; border-collapse:collapse; font-size:.9rem; }
+.stat-table th{ text-align:left; font-size:.72rem; letter-spacing:.08em; color:var(--ink-soft); border-bottom:1px solid var(--line); padding:6px 8px; font-weight:700; }
+.stat-table td{ border-bottom:1px solid var(--line); padding:8px; vertical-align:middle; }
+.stat-table td.num{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.rate-bar{ display:block; position:relative; height:8px; border-radius:4px; background:var(--line); min-width:70px; }
+.rate-bar i{ position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:var(--wakatake); }
+.rate-bar i.low{ background:var(--kobai); }
+.rate-bar i.mid{ background:var(--yamabuki); }
+.cal{ display:grid; grid-template-columns:repeat(7,1fr); gap:4px; max-width:330px; }
+.cal span{ aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:.74rem;
+  border-radius:6px; color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+.cal span.head{ color:var(--ink-soft); font-size:.68rem; aspect-ratio:auto; padding-bottom:2px; }
+.cal span.on{ background:var(--wakatake); color:#fff; font-weight:700; }
+.cal span.today{ outline:2px solid var(--yamabuki); outline-offset:-2px; }
+.stats-section-title{ font-size:.95rem; font-weight:700; margin:26px 0 10px; color:var(--ai); }
+.wrongbox-line{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; }
+.privacy-note{ font-size:.76rem; color:var(--ink-soft); margin-top:26px; line-height:1.7; }
+
+/* ==== 狭い画面（スマホ）の調整 ==== */
+@media (max-width:400px){
+  h1{ font-size:1.5rem; letter-spacing:.01em; }
+  .stage{ padding:20px 14px 48px; }
+  .card{ padding:18px 15px; }
+  .chip{ font-size:.82rem; padding:8px 12px; }
+  .stat-grid{ grid-template-columns:repeat(2,1fr); }
+}
+#btn-next-question{ scroll-margin-bottom:24px; }
+
+/* ==== 道場の切り替え ==== */
+nav.sister{ display:flex; justify-content:center; gap:6px; flex-wrap:wrap; margin:0 0 18px; }
+nav.sister a{ font-size:.82rem; padding:6px 14px; border-radius:999px; border:1px solid var(--line);
+  color:var(--ink-soft); text-decoration:none; background:var(--surface); }
+nav.sister a:hover{ border-color:var(--ai); color:var(--ai); }
+nav.sister a[aria-current]{ background:var(--ai); border-color:var(--ai); color:var(--surface); font-weight:700; }
+
+/* ==== 近代文章道場の装い: 大正の原稿用紙、海老茶と矢絣 ==== */
+.stage::before,
+:root:not([data-theme="light"]) .stage::before,
+:root[data-theme="dark"] .stage::before{
+  background-image:linear-gradient(var(--kaisen) 1px, transparent 1px),
+    linear-gradient(90deg, var(--kaisen) 1px, transparent 1px);
+  background-size:26px 26px;
+  opacity:1; mix-blend-mode:normal;
+}
+.rod{ gap:0; }
+.rod::before,.rod::after{
+  height:9px; border-radius:0;
+  background:repeating-linear-gradient(115deg,var(--ai) 0 7px,var(--bg) 7px 9px,var(--ai) 9px 11px,var(--bg) 11px 18px);
+  opacity:.9;
+}
+.rod .knob{ display:none; }
+header.masthead h1{ font-family:'Shippori Mincho B1','Shippori Mincho',serif; font-weight:800; letter-spacing:.1em; }
+header.masthead h1::after{ content:"近"; display:inline-block; margin-left:.4em; width:1.5em; height:1.5em; line-height:1.5em;
+  text-align:center; font-size:.48em; vertical-align:.5em; color:var(--bg); background:var(--ai); border-radius:50%; letter-spacing:0; }
+.card{ border-radius:6px; }
+.btn-primary,
+:root:not([data-theme="light"]) .btn-primary,
+:root[data-theme="dark"] .btn-primary{
+  background:var(--ai); color:var(--surface); box-shadow:0 3px 0 var(--ai-deep);
+}
+.dots span.current{ background:var(--shu); }
+.stamp{
+  border-radius:50%; transform:rotate(-6deg);
+  background:transparent; color:var(--shu); border:3px double var(--shu);
+}
+.unit-group h3{ border-bottom-style:dashed; }
+.cal span.today{ outline-color:var(--shu); }
+/* 本文の抜き出しは長いので、明朝でゆったり読ませる */
+.question-text{ font-family:'Shippori Mincho B1','Shippori Mincho',serif; font-size:1.02rem; line-height:2.05; letter-spacing:.02em; }
+.question-text .bosen{ text-decoration-color:var(--shu); }
+.question-text .maeoki{ display:block; font-family:'Zen Maru Gothic',sans-serif; font-size:.8rem; line-height:1.7;
+  color:var(--ink-soft); background:var(--surface-2); border-radius:4px; padding:6px 10px; margin:0 0 10px; letter-spacing:0; }
+
+
+.wraph{max-width:820px;margin:0 auto;padding:28px 20px 64px}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 30px}
+.toc h2{font-size:.85rem;letter-spacing:.1em;color:var(--ink-soft);margin:0 0 10px;font-family:var(--sans,inherit)}
+.toc ol{margin:0;padding-left:1.4em}
+.toc li{margin:5px 0}
+.toc a{color:var(--ai);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.chap{margin:0 0 46px;scroll-margin-top:16px}
+.chap>h2:first-child{font-size:1.5rem;border-bottom:2px solid var(--ai);padding-bottom:8px;margin:0 0 18px}
+.chap h2{font-family:'Shippori Mincho',serif;font-size:1.25rem;margin:34px 0 12px}
+.chap h3{font-size:1.02rem;margin:22px 0 8px;color:var(--ai)}
+.chap p{line-height:1.95;margin:0 0 1em}
+.chap ul{line-height:1.9;padding-left:1.3em}
+.chap table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.7;margin:0 0 1.2em}
+.chap th,.chap td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.chap th{background:var(--surface-2,rgba(0,0,0,.04));font-size:.82rem;color:var(--ink-soft)}
+.chap blockquote{margin:0 0 1.2em;padding:2px 0 2px 16px;border-left:3px solid var(--yamabuki,#B8860B);
+  color:var(--ink-soft);font-family:'Shippori Mincho',serif}
+.chap a{color:var(--ai)}
+.chap figure.ex{margin:0 0 1.3em;padding:12px 16px;background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--shu);border-radius:4px}
+.chap figure.ex blockquote{border:none;margin:0;padding:0;color:var(--ink);font-family:'Shippori Mincho B1','Shippori Mincho',serif;
+  line-height:2}
+.chap figure.ex figcaption{text-align:right;font-size:.78rem;color:var(--ink-soft);margin-top:4px}
+.backtop{display:block;text-align:right;font-size:.8rem;color:var(--ink-soft);text-decoration:none;margin-top:-30px}
+nav.sister{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:0 0 22px}
+nav.sister a{font-size:.82rem;padding:6px 14px;border-radius:999px;border:1px solid var(--line);
+  color:var(--ink-soft);text-decoration:none;background:var(--surface)}
+nav.sister a[aria-current]{background:var(--ai);border-color:var(--ai);color:var(--surface);font-weight:700}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap">
+</head>
+<body>
+<div class="stage"><div class="wraph" id="top">
+  <header class="masthead">
+    <div class="rod"><span class="knob"></span><span class="knob"></span></div>
+    <h1>明治・大正の背景</h1>
+    <p>漱石・鷗外の時代の小説や随想を読む前に知っておきたいことを、順番にまとめました。色のついた語を押すと、近代語辞典のその語が開きます。</p>
+    <div class="rod" style="margin-top:16px"><span class="knob"></span><span class="knob"></span></div>
+  </header>
+  <nav class="sister" aria-label="道場の切り替え"><a href="https://upopotennis-gif.github.io/kokugo-dojo/">国語道場トップ</a><a href="./">近代語辞典</a><a href="enshu.html">入試演習</a><a href="haikei.html" aria-current="page">時代の背景</a></nav>
+  <nav class="toc" aria-label="目次"><h2>目次</h2><ol><li><a href="#gakusei">学生と立身出世 — 書生・下宿・帝大・高等遊民</a></li><li><a href="#ie">家と結婚 — 戸主・家督・許嫁・女性の立場</a></li><li><a href="#kurashi">お金と暮らし — 月給・物価の目安・女中・病</a></li><li><a href="#bungaku">近代文学の流れ — 言文一致から私小説まで</a></li><li><a href="#yomikata">近代の文章の読み方 — 当て字・文語の名残・長い一文・随想</a></li></ol></nav>
+<section class="chap" id="gakusei"><h2>学生と立身出世 — 書生・下宿・帝大・高等遊民</h2>
+<p>明治・大正の小説には、学生がたくさん出てきます。『三四郎』の三四郎、『こころ』の「私」とＫ、『雁』の岡田。『坊っちゃん』の赤シャツも、大学を出た元学生です。けれども、当時の「学生」は今の大学生とはかなり立場が違いました。数がとても少なく、家の期待を背負い、卒業すれば世の中の上の方へ進んでいく人たちでした。この章では、学生がどこに住み、どうやってお金を得て、何を目指していたのかを押さえます。ここが分かると、登場人物の焦りや見栄が、ぐっと読みやすくなります。</p>
+<h2>学校の階段は細く、高かった</h2>
+<p>明治の後半、男子が学問で身を立てる道は、おおよそ次のような階段になっていました。</p>
+<table><thead><tr><th>段階</th><th>今でいうと</th><th>小説での出方</th></tr></thead><tbody><tr><td>小学校</td><td>小学校</td><td>ほとんどの人はここまで</td></tr><tr><td><a href="./?w=%E4%B8%AD%E5%AD%A6%E6%A0%A1">中学校</a>（旧制・5年）</td><td>中学〜高校の年齢</td><td>坊っちゃんが教えに行く学校</td></tr><tr><td><a href="./?w=%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1">高等学校</a>（旧制・3年）</td><td>大学の教養課程に近い</td><td>三四郎が熊本で通った学校</td></tr><tr><td><a href="./?w=%E5%B8%9D%E5%9B%BD%E5%A4%A7%E5%AD%A6">帝国大学</a></td><td>今の大学・大学院の頂点</td><td>三四郎・『こころ』の「私」が通う</td></tr></tbody></table>
+<p>上に行くほど人数は急に少なくなります。高等学校は今の「高校」ではなく、帝国大学に進むためのエリート校です。「高等学校の生徒」と出てきたら、「高校生」ではなく「将来の大学生」と読みかえてください。</p>
+<p>大学を出た人は<a href="./?w=%E5%AD%A6%E5%A3%AB">学士</a>と呼ばれました。文学士・法学士・医学士などです。数が少ないので、それだけで世間は一目置きました。</p>
+<figure class="ex"><blockquote>文学士と云えば大学の卒業生だからえらい人なんだろう。</blockquote><figcaption>―― 漱石『坊っちゃん』</figcaption></figure>
+<p>坊っちゃんは物理学校出で、教頭の赤シャツは文学士です。学歴の差が、職場の上下や月給の差になっています。坊っちゃんが赤シャツに感じる反発には、「肩書きでえらそうにする人」への反発が混じっている、と読めます。</p>
+<h2>上京は人生の大事件</h2>
+<p>地方の若者にとって、東京の大学へ進むことは、生まれ育った土地を離れて別の世界へ入ることでした。『三四郎』の三四郎は、熊本の高等学校を出て、汽車で東京へ向かいます。東京に着いた三四郎がまず驚いたのは、「電車のちんちん鳴る」ことでした。乗り降りする人の多さにも、どこまで行っても東京が終わらないことにも驚きます。</p>
+<p>この驚きは、ただのおのぼりさんの笑い話ではありません。三四郎の前には、<a href="./?w=%E5%9B%BD%E5%85%83">国元</a>の母が代表する古い世界と、東京の大学や女性たちが代表する新しい世界があり、彼はそのあいだで揺れ続けます。上京の場面は、この二つの世界の境目として読むことができます。</p>
+<p>学生は身なりでもそれと分かりました。袴をはき、制帽をかぶるのが学生の姿です。『こころ』の先生は遺書の中で、学生時代に「大学の制帽」をかぶっていたことをわざわざ書きとめています。制帽は、社会から特別な目で見られる若者であることの印でもありました。</p>
+<h2>住まいは「下宿」、お金は「学資」</h2>
+<p>地方から出てきた学生は、たいてい<a href="./?w=%E4%B8%8B%E5%AE%BF">下宿</a>に住みました。今のアパートと違い、よその家の一室を借りて、食事も出してもらう暮らしです。家の人と顔を合わせる距離が近いのがポイントです。</p>
+<ul><li><b>下宿</b>：下宿屋を商売にしている家に住む。『三四郎』『雁』の学生はこちら</li><li><b><a href="./?w=%E7%B4%A0%E4%BA%BA%E4%B8%8B%E5%AE%BF">素人下宿</a></b>：商売ではない一般の家が部屋を貸す。『こころ』の先生（学生時代）が住んだのは、軍人の未亡人と娘が暮らす家でした</li><li><b><a href="./?w=%E6%9B%B8%E7%94%9F">書生</a></b>：他人の家に住み込み、雑用を手伝いながら学校に通う。家賃の代わりに働くかたち</li></ul>
+<p>『こころ』の下の巻で、先生とＫと「お嬢さん」の三角関係が生まれるのは、この素人下宿という、家族と同じ屋根の下の暮らしがあったからです。今の感覚で「アパートの隣人」と読むと、距離感を取り違えます。</p>
+<p>生活費は国元の親から月々送られる<a href="./?w=%E5%AD%A6%E8%B3%87">学資</a>でした。送り方は為替が一般的です。『三四郎』では、三四郎が母から送られた金を友人の与次郎に貸してしまい、困る場面があります。親の金で暮らしている若者の、気楽さと後ろめたさが同時に描かれていると読めます。</p>
+<blockquote>この常識を知らないと……「学資を友だちに貸した」をただのお人よしの話と読み、母に言えない気まずさを読み落とします。</blockquote>
+<h2>目指すのは「立身出世」</h2>
+<p>学問は、家のため、自分のために<a href="./?w=%E7%AB%8B%E8%BA%AB%E5%87%BA%E4%B8%96">立身出世</a>する手段でした。</p>
+<figure class="ex"><blockquote>清はおれをもって将来立身出世して立派なものになると思い込んでいた。</blockquote><figcaption>―― 漱石『坊っちゃん』</figcaption></figure>
+<p>清の期待は、坊っちゃん本人よりずっと大きいのです。大学を出たら役所に入って<a href="./?w=%E5%AE%98%E5%90%8F">官吏</a>になる、<a href="./?w=%E6%B4%8B%E8%A1%8C">洋行</a>して新しい学問を持ち帰る、というのが典型的な出世の道でした。『雁』の岡田は、ドイツ人教授に雇われて卒業前に洋行することが決まります。この「洋行」は、ただの海外旅行ではなく、人生の大きな転機です。</p>
+<p>『こころ』の「私」の父は、大学を出たら月給百円くらいは取れるだろうと言われ、息子を早くしかるべき職に就かせたがっています。卒業した息子に「いい地位」を求める親と、すぐには動かない息子のずれが、中の巻の緊張をつくっています。</p>
+<h2>働かない知識人「高等遊民」</h2>
+<p>大学を出ても職に就かず、財産や親の援助で暮らす人を<a href="./?w=%E9%AB%98%E7%AD%89%E9%81%8A%E6%B0%91">高等遊民</a>と呼びました。怠け者という意味より、「教育も余裕もあるが、社会に出ていない人」というニュアンスです。</p>
+<figure class="ex"><blockquote>三十になつて遊民として、のらくらしてゐるのは、如何にも不体裁だな</blockquote><figcaption>―― 漱石『それから』</figcaption></figure>
+<p>『それから』の代助は、三十になっても父の金で暮らし、父からこう責められます。『こころ』の先生も、大学を出ながら仕事をせず、静かに暮らしています。先生がそうできるのは、郷里の財産を処分したお金があるからです。</p>
+<blockquote>この常識を知らないと……「先生はなぜ働かないのか」を性格だけで説明してしまい、遺書で語られる財産と叔父の話との結びつきを見落とします。</blockquote>
+<h2>入試で気をつけること</h2>
+<ul><li>「書生」は事務の書記ではなく、住み込みで学ぶ若者（または学生一般）</li><li>「高等学校」は今の高校ではなく、大学へ進むためのエリート校</li><li>学生の暮らしは親の学資に支えられている。金の話が出たら、親子関係の話でもある</li><li>働かずに暮らす人物がいたら、まず「財産があるのか」を確かめる</li></ul>
+<a class="backtop" href="#top">↑ 目次へ</a></section>
+<section class="chap" id="ie"><h2>家と結婚 — 戸主・家督・許嫁・女性の立場</h2>
+<p>近代の小説で人物を動かしている大きな力のひとつが「家」です。今の私たちは、結婚は本人どうしが決めるもの、親の財産はきょうだいで分けるもの、と考えます。けれども明治・大正の人々が生きていたのは、それとはかなり違うしくみの中でした。この章では、家のしくみと、その中での結婚、そして女性の立場を押さえます。人物の「なぜそんなことで悩むのか」が見えてきます。</p>
+<h2>家には「長」がいた</h2>
+<p>明治の民法は、人を「家」の一員としてとらえました。家の長を<a href="./?w=%E6%88%B8%E4%B8%BB">戸主</a>といい、家族の結婚や住む場所に同意する権利を持っていました。今の「世帯主」は届け出の上の代表にすぎませんが、戸主はずっと強い立場です。</p>
+<p>戸主の地位と財産をまとめて受け継ぐことを<a href="./?w=%E5%AE%B6%E7%9D%A3">家督</a>相続といいます。原則として長男がひとりで受け継ぎました。次男や三男は、財産をほとんど受け取れないかわりに、学問で身を立てたり、他家の<a href="./?w=%E9%A4%8A%E5%AD%90">養子</a>になったりしました。</p>
+<table><thead><tr><th>語</th><th>今の感覚</th><th>当時の意味</th></tr></thead><tbody><tr><td>戸主</td><td>世帯主</td><td>家族の結婚や住まいに口を出せる家の長</td></tr><tr><td>家督</td><td>相続</td><td>家の地位と財産をひとりで受け継ぐこと</td></tr><tr><td>養子</td><td>事情があって迎える子</td><td>家を絶やさないための跡継ぎ。珍しくない</td></tr><tr><td><a href="./?w=%E5%8B%98%E5%BD%93">勘当</a></td><td>親子げんか</td><td>親が縁を切り、家から追い出す。生活の道を失う</td></tr></tbody></table>
+<p>このしくみは、戦後の民法の改正でなくなりました。</p>
+<h2>養子に出る、家から切られる</h2>
+<p>『こころ』のＫは寺の次男で、医者の家に養子に出されます。養家はＫを医者にするつもりで東京へ出したのに、Ｋはそれを裏切って別の道を選びます。そのことが知れると、養家からも実家からも見放されます。</p>
+<figure class="ex"><blockquote>昔の言葉でいえば、まあ勘当なのでしょう。</blockquote><figcaption>―― 漱石『こころ』</figcaption></figure>
+<p>勘当された学生は<a href="./?w=%E5%AD%A6%E8%B3%87">学資</a>が止まります。Ｋが追いつめられていく背景には、心の問題だけでなく、家から切られて頼るものがなくなった、という現実があります。</p>
+<p>『道草』の健三も、幼いころに島田という人の養子に出され、のちに実家へ戻っています。大人になった健三のもとへ、島田がたびたび金を求めてやって来ます。</p>
+<figure class="ex"><blockquote>いつの間にか戸主に改めた彼の印形を濫用して金を借り散らした</blockquote><figcaption>―― 漱石『道草』</figcaption></figure>
+<p>養父だった島田は、幼い健三を戸主にしたうえで、その印を使って借金をしていた、という書付が出てきます。戸主という地位が、金と結びついていたことが分かる場面です。</p>
+<blockquote>この常識を知らないと……『道草』の島田を「昔の知り合い」程度に読み、健三が縁を切れずに苦しむ理由が見えなくなります。</blockquote>
+<h2>兄は弟の面倒をみる</h2>
+<p>家督を継いだ長男には、家族の暮らしを支える務めもついてきました。『門』の宗助は、父が亡くなったあと、家の始末を叔父にまかせたために、残るはずの<a href="./?w=%E8%B2%A1%E7%94%A3">財産</a>の多くを失います。そのうえで、年の離れた弟の小六の学資を、自分の少ない月給の中から工面しなければならなくなります。</p>
+<p>今なら「兄が弟の学費を出す」のは特別な親切に見えるかもしれません。けれども当時は、家を継いだ者が家族の面倒をみるのは当然の務めでした。宗助が小六の件で悩み続けるのは、この務めを果たしきれない負い目があるからです。</p>
+<h2>身分が消えても、暮らしは続く</h2>
+<p>明治になると、武士の家は<a href="./?w=%E5%A3%AB%E6%97%8F">士族</a>と呼ばれるようになりましたが、暮らしに困る家も少なくありませんでした。年配の人は、幕府が倒れた明治維新のことを<a href="./?w=%E7%93%A6%E8%A7%A3">瓦解</a>と呼びました。『坊っちゃん』の清は、もとは由緒ある家の出でしたが、瓦解のときに落ちぶれて<a href="./?w=%E5%A5%89%E5%85%AC">奉公</a>に出たと語られます。清が坊っちゃんの家柄や出世にこだわるのは、自分が失った「家」への思いが重なっているからだとも読めます。</p>
+<h2>結婚は家どうしの話</h2>
+<p>結婚の多くは、本人の恋愛ではなく、親や親類が進める<a href="./?w=%E7%B8%81%E8%AB%87">縁談</a>で決まりました。仲立ちの人を通して会う<a href="./?w=%E8%A6%8B%E5%90%88%E3%81%84">見合い</a>や、早くから結婚の約束をしておく<a href="./?w=%E8%A8%B1%E5%AB%81">許嫁</a>もふつうのことでした。</p>
+<p>『坊っちゃん』のうらなりには許嫁のマドンナがいましたが、マドンナは教頭の赤シャツの方へ心を移したとうわさされます。下宿の婆さんの話では、うらなりの父が亡くなって家の暮らし向きが苦しくなり、婚礼が延びていたところへ、<a href="./?w=%E5%AD%A6%E5%A3%AB">学士</a>の赤シャツが割りこんできたのだといいます。結婚が家の財産や、相手の肩書きと結びついていたことが分かります。</p>
+<p>『こころ』の先生は、両親を亡くしたあと、叔父から叔父の娘（先生の従妹）との結婚を強く勧められます。のちに先生は、叔父が<a href="./?w=%E9%81%BA%E7%94%A3">遺産</a>をごまかしていたことを知ります。結婚の勧めと財産の管理がつながっていたのではないか、という疑いが、先生の人間不信の出発点です。</p>
+<blockquote>この常識を知らないと……叔父の縁談をただのお節介と読み、先生が「財産」と「信用」にこだわり続ける理由を取り違えます。</blockquote>
+<h2>女性の立場</h2>
+<p>明治の民法のもとで、妻は夫の許しなしに大事な契約をすることができないとされていました。女性が就ける仕事も限られ、女中・下女として働く、看護婦や教員になる、などが主な道でした。家の外で自立して暮らすのは簡単ではありません。</p>
+<p>そうした中で、生活のために妾という立場を選ぶ女性もいました。妾は、妻とは別に、男が生活費を出して囲っておく女性です。</p>
+<figure class="ex"><blockquote>最初は妾になるのはいやだと云っていた</blockquote><figcaption>―― 鷗外『雁』</figcaption></figure>
+<p>『雁』のお玉は、貧しい父親を楽にさせたいという思いから、高利貸の末造の妾になります。末造は自分を立派な実業家のように見せかけていました。お玉が学生の岡田にひかれていくのは、恋心と同時に、囲われた身から抜け出したいという願いでもあります。</p>
+<ul><li><b>細君</b>：妻のこと。「細い」の意味はない</li><li><b>旦那</b>：主人・夫。店や奉公人から見た主人。妾を囲う男を指すこともある</li><li>呼び方は、誰から見た言い方かに注意する</li></ul>
+<h2>入試で気をつけること</h2>
+<ul><li>次男・三男、養子、勘当が出てきたら、その人物は家を頼れない立場にある</li><li>結婚の話には、ほぼ必ず家と財産の話が重なっている</li><li>女性の選択は、今よりずっと狭い道の中での選択として読む</li><li>「旦那」「細君」などの呼び名から、話し手と相手の関係をつかむ</li></ul>
+<a class="backtop" href="#top">↑ 目次へ</a></section>
+<section class="chap" id="kurashi"><h2>お金と暮らし — 月給・物価の目安・女中・病</h2>
+<p>小説の中には、お金の額、使用人、病気の話がよく出てきます。どれも、話の筋を動かす大事な材料です。ところが今の感覚で読むと、「四十円の月給」が多いのか少ないのか分からない、「下女」がなぜどの家にもいるのか分からない、ということが起こります。この章では、明治・大正の暮らしの手ざわりを、お金・人手・病の三つから押さえます。</p>
+<h2>お金の単位と「目安」</h2>
+<p>お金の単位は<a href="./?w=%E5%86%86">円</a>・<a href="./?w=%E9%8A%AD">銭</a>・厘の三つです。</p>
+<table><thead><tr><th>単位</th><th>関係</th><th>使われ方の例</th></tr></thead><tbody><tr><td>円</td><td>基本の単位</td><td>月給、家賃、学資</td></tr><tr><td>銭</td><td>一円の百分の一</td><td>電車賃、湯銭、氷水</td></tr><tr><td>厘</td><td>一銭の十分の一</td><td>ごくわずかな額のたとえ</td></tr></tbody></table>
+<p>では一円は今のいくらか。これは何で比べるか（米の値段か、給料か）で大きく変わります。明治の後半なら、<b>およそ今の数千円から二万円ほど</b>というのがひとつの目安です。幅がとても大きいので、入試の読解では、今の円に直すよりも、<b>同じ作品の中のほかの金額と比べる</b>のが確実です。</p>
+<h2>月給から人物の立場を読む</h2>
+<p>『坊っちゃん』は、金額がはっきり書かれている作品です。</p>
+<ul><li>四国の<a href="./?w=%E4%B8%AD%E5%AD%A6%E6%A0%A1">中学校</a>に赴任したときの<a href="./?w=%E6%9C%88%E7%B5%A6">月給</a>は四十円</li><li>氷水の代金は一銭五厘。坊っちゃんは、山嵐におごられたこのわずかな額にこだわる</li><li>物語の最後、東京で街鉄の技手になってからは、月給二十五円</li></ul>
+<figure class="ex"><blockquote>月給は二十五円で、家賃は六円だ。</blockquote><figcaption>―― 漱石『坊っちゃん』</figcaption></figure>
+<p>月給のおよそ四分の一が<a href="./?w=%E5%AE%B6%E8%B3%83">家賃</a>です。四十円から二十五円に下がっても、坊っちゃんは清と暮らせることに満足しています。この淡々とした一文に、坊っちゃんが何を大事にしているかが表れています。</p>
+<p>一銭五厘の件も同じです。額は小さいのに、坊っちゃんは「裏表のある奴」におごられたままでは顔に関わると考えます。金額の小ささと、こだわりの強さの差が、坊っちゃんの人柄を示しています。</p>
+<blockquote>この常識を知らないと……「一銭五厘」を実際の損得の話と読み、坊っちゃんが守ろうとしている意地を読み落とします。</blockquote>
+<p>『門』の宗助は役所勤めの<a href="./?w=%E5%AE%98%E5%90%8F">官吏</a>で、自分を<a href="./?w=%E8%85%B0%E5%BC%81">腰弁</a>と呼びます。月給が五円上がっただけで、夫婦の暮らしにほっとした空気が流れます。ぎりぎりの暮らしをしている夫婦だということが、この五円から分かります。</p>
+<h2>財産で暮らす人、金をせびる人</h2>
+<p>月給で暮らす人がいる一方で、<a href="./?w=%E8%B2%A1%E7%94%A3">財産</a>から出る<a href="./?w=%E5%88%A9%E5%AD%90">利子</a>で暮らせる人もいました。</p>
+<ul><li>『こころ』の先生は、財産から出る利子の半分も使わずに暮らせた</li><li>『道草』の健三のもとには、昔の養父や親類が<a href="./?w=%E9%87%91%E3%81%AE%E7%84%A1%E5%BF%83">金の無心</a>にやって来る</li><li>困った人は質屋に品物を預けて金を借りた</li></ul>
+<p>『道草』は、外国から帰って教師として収入を得ている健三が、昔の養父や身内から次々に金を求められる話です。健三は断りきれず、しかし気持ちよく出すこともできません。「金」を通して、切っても切れない人間関係が描かれています。</p>
+<h2>家には使用人がいた</h2>
+<p>中流の家でも、<a href="./?w=%E4%B8%8B%E5%A5%B3">下女</a>や女中を置くのがふつうでした。電気の家電がない時代、水くみ・炊事・洗濯・火の番には人手が要ったからです。『三四郎』には、家の間取りがこう描かれています。</p>
+<ul><li>客を通す座敷の奥に、家族の茶の間</li><li>その向こうに台所（勝手）、そして下女部屋</li></ul>
+<p>町には人力車を引く車夫がいて、ゆとりのある家は車夫を抱えていました。『門』では、宗助の家がかつて車夫を邸内に住まわせていたことが語られ、いまの暮らしとの落差が示されます。</p>
+<blockquote>この常識を知らないと……下女のいる家を「お金持ち」と決めつけ、実は苦しい家計の話を読み違えます。下女がいること自体は、中流の家ではふつうでした。</blockquote>
+<h2>病は身近で、重かった</h2>
+<p>薬が乏しい時代、病気は今よりずっと身近で、命に直結していました。</p>
+<table><thead><tr><th>病・ことば</th><th>当時の受け取られ方</th></tr></thead><tbody><tr><td><a href="./?w=%E8%82%BA%E7%97%85">肺病</a></td><td>肺結核。若者の命を多く奪い、恐れられた</td></tr><tr><td>咯血</td><td>血を吐くこと。結核の重い症状</td></tr><tr><td>腸窒扶斯</td><td>高熱が続く感染症。家族にうつることも</td></tr><tr><td><a href="./?w=%E8%BB%A2%E5%9C%B0">転地</a></td><td>空気のよい土地に移って療養すること</td></tr><tr><td>養生</td><td>体をいたわること。治療の中心だった</td></tr></tbody></table>
+<p>『こころ』の先生は、父を腸窒扶斯で亡くし、看病した母にもうつって、両親をほぼ同時に失います。『門』では、宗助の友人の安井が、医者に「呼吸器を冒されている」と言われて転地を勧められます。</p>
+<p>急な知らせは<a href="./?w=%E9%9B%BB%E5%A0%B1">電報</a>で届きました。『こころ』では、帰省中の「私」のもとで父の病状が重くなり、東京の先生とのあいだの手紙と電報が物語を動かします。電報が来ることは、それだけで家族を緊張させる出来事でした。</p>
+<p>正岡子規は、結核から脊椎カリエスを患い、長く寝たきりの病牀で文章を書き続けました。</p>
+<figure class="ex"><blockquote>明治二十二年の五月に始めて咯血した。</blockquote><figcaption>―― 子規『墨汁一滴』</figcaption></figure>
+<p>子規は明治三十五年（一九〇二）に亡くなるまで、新聞に随筆を連載しました。病床から見える小さなものを見つめる文章は、病の重さを知ったうえで読むと、その明るさの意味が変わって見えます。</p>
+<figure class="ex"><blockquote>無理をして月給の寿命を長くするか、養生をして免職の時期を早めるか</blockquote><figcaption>―― 漱石『道草』</figcaption></figure>
+<p>体をこわすことは、そのまま職と収入を失うことにつながりました。健康とお金は、切り離せない問題だったのです。</p>
+<h2>入試で気をつけること</h2>
+<ul><li>金額は、今の円に直すより、同じ文章のほかの金額と比べる</li><li>使用人がいることは中流の家ではふつう。それだけで裕福とは限らない</li><li>病名や転地が出てきたら、死や別れの予感が伴っていないか確かめる</li><li>「電報」は急な知らせ。受け取った人物の動揺を読み取る</li></ul>
+<a class="backtop" href="#top">↑ 目次へ</a></section>
+<section class="chap" id="bungaku"><h2>近代文学の流れ — 言文一致から私小説まで</h2>
+<p>入試に出る近代の文章は、明治の半ばから大正にかけて書かれたものが中心です。この五十年ほどのあいだに、日本の文章は大きく姿を変えました。書き言葉が話し言葉に近づき、何を書くべきかについての考え方も、何度も入れ替わりました。この章では、その流れを大づかみにします。文学史の暗記のためだけでなく、「この作者はなぜこういう書き方をするのか」を知ると、本文の読み方が安定します。</p>
+<h2>書き言葉を話し言葉に近づける</h2>
+<p>江戸時代までの文章は、話し言葉とはかけ離れた文語で書かれていました。明治になって、話し言葉に近い形で書こうとする動きが起こります。これを<a href="./?w=%E8%A8%80%E6%96%87%E4%B8%80%E8%87%B4">言文一致</a>といいます。</p>
+<table><thead><tr><th>時期</th><th>できごと</th><th>ポイント</th></tr></thead><tbody><tr><td>明治十年代の終わり</td><td>坪内逍遥『小説神髄』</td><td>人の心をありのままに写すのが小説だと説く</td></tr><tr><td>明治二十年ごろ</td><td>二葉亭四迷『浮雲』</td><td>言文一致の小説の早い例</td></tr><tr><td>明治二十年代</td><td>尾崎紅葉らの活躍</td><td>文語と口語をまぜた「雅俗折衷」の文体</td></tr><tr><td>明治三十年代以降</td><td>言文一致が広まる</td><td>今の書き言葉のもとになる</td></tr></tbody></table>
+<p>変化は一気には進みませんでした。人気作家でも、古い文体と新しい文体のあいだを行き来していたのです。</p>
+<figure class="ex"><blockquote>紅葉山人のような作者ですら雅俗折衷の文体と言文一致の間を往来した。</blockquote><figcaption>―― 藤村『千曲川のスケッチ』</figcaption></figure>
+<p>入試の近代文に「ぬ」「まい」「ねばならぬ」のような文語の名残が混じるのは、この移り変わりの途中の文章だからです。読み方は最後の章で扱います。</p>
+<h2>心の自由を歌う（浪漫主義）</h2>
+<p>明治二十年代から三十年代にかけて、個人の感情や恋愛、自由へのあこがれを大切にする流れが生まれました。これを浪漫主義といいます。</p>
+<ul><li>森鷗外『舞姫』：ドイツ留学の体験をもとに、若い官吏と異国の女性の恋を描く。文章は文語（雅文体）</li><li>北村透谷：恋愛や内面の価値を説いた評論で、若い書き手に影響を与えた</li><li>島崎藤村『若菜集』：西洋の詩にならった新しい形の詩（新体詩）で、青春の感情を歌った</li><li>与謝野晶子『みだれ髪』：恋の情熱を大胆に詠んだ短歌集</li></ul>
+<p>『舞姫』の主人公は、<a href="./?w=%E6%B4%8B%E8%A1%8C">洋行</a>した<a href="./?w=%E5%AE%98%E5%90%8F">官吏</a>です。家や国の期待と、自分の心とのあいだで引き裂かれるという主題は、のちの漱石の小説にも形を変えて受けつがれていきます。「家」と「個人」のぶつかりは、近代文学を通して繰り返し描かれるテーマだと覚えておきましょう。</p>
+<h2>「写生」と「自然主義」</h2>
+<p>明治の半ば、正岡子規は俳句と短歌の革新を進め、見たものをありのままに写す<a href="./?w=%E5%86%99%E7%94%9F">写生</a>を唱えました。この考えは文章にも広がり、身の回りのものを細かく描く「写生文」が生まれます。寺田寅彦の随筆や藤村の『千曲川のスケッチ』にも、その流れが見てとれます。</p>
+<p>国木田独歩の『武蔵野』は、郊外の自然と人の暮らしを言文一致の文章でみずみずしく描きました。</p>
+<p>明治の終わりごろ、文学の中心になったのが<a href="./?w=%E8%87%AA%E7%84%B6%E4%B8%BB%E7%BE%A9">自然主義</a>です。</p>
+<ul><li>島崎藤村『破戒』、田山花袋『蒲団』などが代表</li><li>人間や社会の醜い面、作者自身の恥ずかしい面も、飾らずに書こうとした</li><li>「自然を愛する」主義ではない。「ありのまま」の意味の「自然」</li></ul>
+<figure class="ex"><blockquote>自然主義もやられる、社会主義も叩かれる。</blockquote><figcaption>―― 漱石『思い出す事など』</figcaption></figure>
+<h2>漱石と鷗外は別の道を歩いた</h2>
+<p>夏目漱石と森鷗外は、自然主義とは違う立場から書きました。ありのままを暴くより、知識人の心の動きや、ものの見方そのものを描こうとしたのです。</p>
+<p>漱石は『吾輩は猫である』で評判を得たあと、大学の職を辞めて朝日新聞社に入り、以後の長編を新聞に連載しました。『三四郎』『それから』『門』『こころ』『道草』は、みな<a href="./?w=%E6%96%B0%E8%81%9E%E5%B0%8F%E8%AA%AC">新聞小説</a>です。</p>
+<figure class="ex"><blockquote>私がかつて朝日新聞の文芸欄を担任していた頃</blockquote><figcaption>―― 漱石『私の個人主義』</figcaption></figure>
+<p>新聞小説は毎日少しずつ読まれるので、一回ごとに区切りや山場があります。入試で一場面だけを切り取っても話がまとまりやすいのは、このためでもあります。</p>
+<p>鷗外は陸軍の軍医で、ドイツに留学した経験を持つ作家です。『雁』のような現代小説のほか、晩年には『高瀬舟』『じいさんばあさん』など、江戸時代の記録をもとにした歴史小説を書きました。</p>
+<h2>大正の作家たち</h2>
+<p>大正に入ると、さらにいくつもの流れが並びます。</p>
+<table><thead><tr><th>流れ</th><th>主な作家</th><th>特徴</th></tr></thead><tbody><tr><td><a href="./?w=%E7%99%BD%E6%A8%BA%E6%B4%BE">白樺派</a></td><td>武者小路実篤・志賀直哉・有島武郎</td><td>雑誌『白樺』に集まる。個性や人間の善意を重んじる</td></tr><tr><td>耽美派</td><td>永井荷風・谷崎潤一郎</td><td>美しさを何より大切にする</td></tr><tr><td>新思潮派</td><td>芥川龍之介・菊池寛</td><td>知的な構成で人間の心理を描く</td></tr></tbody></table>
+<p>芥川龍之介は、古い説話などに材料をとって、近代人の心を描きました。『鼻』は漱石に高く評価されたことで知られます。</p>
+<p>また、作者が自分の生活や心の動きをほぼそのまま書く<a href="./?w=%E7%A7%81%E5%B0%8F%E8%AA%AC">私小説</a>も、大正期に広く書かれました。自然主義の「ありのまま」の考えを受けついだ形です。</p>
+<h2>随想（随筆）の書き手</h2>
+<p>入試では小説だけでなく随想もよく出ます。この道場の本文で言えば、次のような書き手です。</p>
+<ul><li><b>寺田寅彦</b>：物理学者。熊本の高等学校で漱石に学んだ。科学者の目で日常を観察する</li><li><b>正岡子規</b>：<a href="./?w=%E7%97%85%E7%89%80">病牀</a>から、見たものと考えたことを短く書きつづる</li><li><b>漱石</b>：『硝子戸の中』『思い出す事など』で、身辺のことや病中の体験を書く</li></ul>
+<h2>入試で気をつけること</h2>
+<ul><li>文学史の問いでは、作家・作品・流れの三つを組にして覚える</li><li>「自然主義」の「自然」は、ありのまま・飾らないという意味</li><li>文語の名残が混じるのは、言文一致への移り変わりの途中の文章だから</li><li>新聞に連載された小説は、場面ごとに区切りと山場がある</li></ul>
+<a class="backtop" href="#top">↑ 目次へ</a></section>
+<section class="chap" id="yomikata"><h2>近代の文章の読み方 — 当て字・文語の名残・長い一文・随想</h2>
+<p>ここまでの章で、明治・大正の暮らしや家、文学の流れを見てきました。最後の章では、それを踏まえて、近代の文章を実際に読むときのコツをまとめます。近代文で止まってしまう原因は、たいてい「字が読めない」「言い回しが古い」「一文が長い」「話がどこへ向かうか分からない」の四つです。ひとつずつ、本文の例で確かめていきましょう。</p>
+<h2>当て字は「音」と「場所」で読む</h2>
+<p>明治の作家、とくに漱石は、漢字をその意味とは関係なく音だけで当てることがよくあります。</p>
+<table><thead><tr><th>本文の表記</th><th>読み</th><th>今の書き方</th></tr></thead><tbody><tr><td>八釜しく</td><td>やかましく</td><td>やかましく</td></tr><tr><td>六ずかしい</td><td>むずかしい</td><td>難しい</td></tr><tr><td>呑気</td><td>のんき</td><td>のんき</td></tr><tr><td>矢張</td><td>やはり</td><td>やはり</td></tr></tbody></table>
+<p>読むときのコツは二つです。</p>
+<ul><li><b>声に出してみる</b>：「八釜しい」は、字の意味（八つの釜）を考えず、音をつなげると「やかましい」になる</li><li><b>文の中の場所を見る</b>：後ろに「しい」「く」が付いていれば形容詞、「と」「に」が付いていれば副詞、と見当をつける</li></ul>
+<p>漱石の『こころ』には「急に八釜しく耳の底を掻き乱した」という一節があります。「八釜しく」が「掻き乱した」にかかっているので、音や声のようすを表す語だと分かります。意味が分かれば、字にこだわる必要はありません。</p>
+<h2>文語の名残は三つを押さえる</h2>
+<p>言文一致の途中の文章なので、文語の言い方が混じります。まず次の三つを確実にしましょう。</p>
+<table><thead><tr><th>形</th><th>意味</th><th>本文の例</th></tr></thead><tbody><tr><td>ぬ</td><td>打消し（〜ない）</td><td>月給の補いにもならぬこの景色</td></tr><tr><td>まい</td><td>打消しの推量・意志（〜ないだろう、〜ないつもりだ）</td><td>差支えあるまいと思って</td></tr><tr><td>ねばならぬ</td><td>〜なければならない</td><td>引き受けた以上は赴任せねばならぬ。</td></tr></tbody></table>
+<p>近代の文章の「ぬ」は、ほとんどが打消しです。「知らぬ間に」は「知らない間に」。「まい」は、「あるまい」なら「ないだろう」、「出すまいと思っても」なら「出さないようにしようと思っても」と、推量か意志かを文脈で決めます。</p>
+<blockquote>「ならぬ」を「なる」と読むと、意味が正反対になります。打消しの語を見落とさないことが、近代文の読み違いを防ぐいちばんの近道です。</blockquote>
+<h2>長い一文は、主語と述語で切る</h2>
+<p>近代の文章には、読点でつないだ長い一文がよく出てきます。次の文を見てください。</p>
+<figure class="ex"><blockquote>彼は書生として京都にいる時分、種々の口実の下に、父から臨時随意に多額の学資を請求して、勝手しだいに消費した昔をよく思い出して、今の身分と比較しつつ、しきりに因果の束縛を恐れた。</blockquote><figcaption>―― 漱石『門』</figcaption></figure>
+<p>手順は三つです。</p>
+<ul><li><b>1 主語と文末の述語を探す</b>：「彼は……恐れた」。これが文の骨組み</li><li><b>2 骨組みの間を、意味のまとまりに切る</b>：「京都にいる時分」「学資を請求して」「消費した昔をよく思い出して」「今の身分と比較しつつ」</li><li><b>3 まとまりどうしの関係を見る</b>：昔の自分（学資を好きに使った）と、今の身分（弟の学資を出せない）を比べて、報いを恐れている</li></ul>
+<p>こうすると、「彼」がなぜ恐れているのかが、一本の筋として見えてきます。<a href="./?w=%E6%9B%B8%E7%94%9F">書生</a>や<a href="./?w=%E5%AD%A6%E8%B3%87">学資</a>の意味を知っていれば、「親の金で気ままに暮らした若いころ」という場面もすぐに浮かびます。</p>
+<h2>随想は「話題→具体→考え」で追う</h2>
+<p>随想（随筆）は、筋のある物語ではないので、どこが大事なのか迷いがちです。多くの随想は、次の順に進みます。</p>
+<table><thead><tr><th>段階</th><th>何が書かれるか</th></tr></thead><tbody><tr><td>話題</td><td>筆者が気になったこと、見たこと</td></tr><tr><td>具体</td><td>体験・観察・例・人の説</td></tr><tr><td>考え</td><td>そこから筆者が言いたいこと</td></tr></tbody></table>
+<p>寺田寅彦の『電車と風呂』で確かめましょう。</p>
+<ul><li><b>話題</b>：<a href="./?w=%E9%9B%BB%E8%BB%8A">電車</a>の乗客の顔は、たいてい不愉快な表情をしている</li><li><b>具体</b>：外国から帰ったとき、泥道・砂ぼこり・満員電車に苦しんだ経験。外国の学者の説</li><li><b>考え</b>：<a href="./?w=%E9%8A%AD%E6%B9%AF">銭湯</a>では東京の人々の顔がゆるむ。顔の険しさは人の性質より、暮らしの条件から来るのではないか</li></ul>
+<figure class="ex"><blockquote>銭湯の湯船の中で見る顔には帝国主義もなければ社会主義もない。</blockquote><figcaption>―― 寅彦『電車と風呂』</figcaption></figure>
+<p>「具体」の部分は長く、面白い話が続きます。けれども設問が問うのは、たいてい「考え」の部分です。具体例を読んでいるあいだも、「この話は何を言うためのものか」と自分に問い続けてください。「しかし」「こう考える理由が一つある」のような語は、考えへ向かう合図です。</p>
+<h2>語句の問題は「辞書」と「文脈」の両方で選ぶ</h2>
+<p>入試の語句問題（本文中の意味を問う問題）では、正解はいつも次の二つを満たします。</p>
+<ul><li><b>辞書的な意味から外れていない</b></li><li><b>その文脈にも合っている</b></li></ul>
+<p>例えば「無心」という語は、二つの意味で使われます。</p>
+<table><thead><tr><th>本文</th><th>意味</th></tr></thead><tbody><tr><td><a href="./?w=%E9%87%91%E3%81%AE%E7%84%A1%E5%BF%83">金の無心</a>を申し出た（『こころ』）</td><td>遠慮なく金をねだること</td></tr><tr><td>無心な声で、子供らしい唄を歌った（『千曲川のスケッチ』）</td><td>邪念がなく、無邪気なこと</td></tr></tbody></table>
+<p>どちらも辞書にある意味です。同じ語でも、文脈によって正解が変わります。逆に、「文脈にはなんとなく合うが、辞書的な意味から外れている」選択肢は誤りです。書生を「会社の書記」と選んでしまうのは、今の感覚に引き寄せた誤読の典型です。</p>
+<p>選ぶ手順をまとめます。</p>
+<ul><li>まず辞書的な意味で、明らかに外れる選択肢を消す</li><li>残ったものを傍線部に当てはめ、前後の文と筋が通るか確かめる</li><li>当時の暮らしや制度の知識（<a href="./?w=%E4%B8%8B%E5%AE%BF">下宿</a>・学資・<a href="./?w=%E5%A6%BE">妾</a>など）が要るときは、今の感覚で決めつけない</li></ul>
+<h2>入試で気をつけること</h2>
+<ul><li>当て字は音で読み、文の中の場所で品詞の見当をつける</li><li>「ぬ」「まい」「ねばならぬ」の打消しを見落とさない</li><li>長い一文は、主語と文末の述語で骨組みをつかむ</li><li>随想は「話題→具体→考え」。設問は考えの部分を問う</li><li>語句問題は、辞書的な意味と文脈の両方を満たすものを選ぶ</li></ul>
+<a class="backtop" href="#top">↑ 目次へ</a></section>
+  <footer style="text-align:center;font-size:.8rem;color:var(--ink-soft);margin-top:40px;line-height:1.9">明治・大正の背景 — 本文はすべて独自に作成しています。<br>引用は青空文庫に収められた、著作権の切れた作品によります。</footer>
+</div></div>
+<script src="riyou.js" data-site="kindai"></script>
+</body>
+</html>

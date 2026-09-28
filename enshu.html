@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="夏目漱石・森鷗外・芥川龍之介・寺田寅彦などの小説・随想の一節で、語句の意味・時代背景・心情を入試の形で解く4択ドリル。">
+<title>近代文 入試演習</title>
+<style>
+  :root{
+    --ai:#6e2c2a;
+    --ai-deep:#4a1b1a;
+    --yamabuki:#a8453b;
+    --yamabuki-deep:#7d2e27;
+    --wakatake:#3f8a63;
+    --wakatake-bg:#e6f0e8;
+    --kobai:#b8483f;
+    --kobai-bg:#f6e6e2;
+    --bg:#f3eee3;
+    --surface:#fdfbf6;
+    --surface-2:#eae3d4;
+    --ink:#2a2320;
+    --ink-soft:#6a5e56;
+    --line:#d8cdbb;
+    --shadow:rgba(31,34,38,0.12);
+    --focus:#7d2e27;
+    --shu:#a8453b;
+    --shu-ink:#fff8f2;
+    --kaisen:#ebd5cc;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ai:#e3a79b;
+      --ai-deep:#f3cfc6;
+      --yamabuki:#e08a7c;
+      --yamabuki-deep:#f0b3a8;
+      --wakatake:#7fc39e;
+      --wakatake-bg:#1c3329;
+      --kobai:#e2938c;
+      --kobai-bg:#3a2320;
+      --bg:#18141a;
+      --surface:#211b22;
+      --surface-2:#2b242c;
+      --ink:#ede6dd;
+      --ink-soft:#aa9f96;
+      --line:#3d3440;
+      --shadow:rgba(0,0,0,0.45);
+      --focus:#e08a7c;
+      --shu:#e08a7c;
+      --shu-ink:#1a0b08;
+      --kaisen:#231d24;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ai:#e3a79b;
+    --ai-deep:#f3cfc6;
+    --yamabuki:#e08a7c;
+    --yamabuki-deep:#f0b3a8;
+    --wakatake:#7fc39e;
+    --wakatake-bg:#1c3329;
+    --kobai:#e2938c;
+    --kobai-bg:#3a2320;
+    --bg:#18141a;
+    --surface:#211b22;
+    --surface-2:#2b242c;
+    --ink:#ede6dd;
+    --ink-soft:#aa9f96;
+    --line:#3d3440;
+    --shadow:rgba(0,0,0,0.45);
+    --focus:#e08a7c;
+    --shu:#e08a7c;
+    --shu-ink:#1a0b08;
+    --kaisen:#231d24;
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .stage{
+    max-width:680px;
+    margin:0 auto;
+    padding:28px 18px 60px;
+    position:relative;
+  }
+  .stage::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 0);
+    background-size:16px 16px;
+    opacity:.22;
+    mix-blend-mode:multiply;
+    pointer-events:none;
+    z-index:0;
+  }
+  :root:not([data-theme="light"]) .stage::before{ mix-blend-mode:screen; opacity:.10; }
+  :root[data-theme="dark"] .stage::before{ mix-blend-mode:screen; opacity:.10; }
+
+  .stage > *{ position:relative; z-index:1; }
+
+  .rod{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0 auto;
+  }
+  .rod::before,.rod::after{
+    content:'';
+    flex:1;
+    height:5px;
+    border-radius:3px;
+    background:var(--ai-deep);
+  }
+  .rod .knob{
+    width:14px; height:14px; border-radius:50%;
+    background:var(--yamabuki);
+    box-shadow:0 0 0 2px var(--surface);
+    flex:none;
+  }
+
+  header.masthead{ text-align:center; padding:6px 0 22px; }
+  header.masthead .rod{ margin-bottom:16px; }
+  h1{
+    font-family:'Shippori Mincho', serif;
+    font-weight:800;
+    font-size:clamp(1.6rem, 1.1rem + 3vw, 2.3rem);
+    letter-spacing:.03em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  header.masthead p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:.92rem;
+    line-height:1.75;
+  }
+
+  section{ display:block; }
+  section[hidden]{ display:none !important; }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px 20px;
+    box-shadow:0 3px 14px var(--shadow);
+  }
+  .card + .card{ margin-top:16px; }
+
+  .steps{
+    list-style:none;
+    margin:0 0 20px;
+    padding:0;
+    display:grid;
+    gap:8px;
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+  .steps li{ display:flex; gap:10px; align-items:baseline; }
+  .steps .num{
+    font-family:'Shippori Mincho',serif;
+    color:var(--yamabuki-deep);
+    font-weight:700;
+    flex:none;
+    width:1.4em;
+  }
+
+  label.field-label{
+    display:block;
+    font-weight:700;
+    margin-bottom:4px;
+    font-size:.95rem;
+  }
+  .field-hint{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+
+  .unit-group{ margin-bottom:18px; }
+  .unit-group:last-child{ margin-bottom:0; }
+  .unit-group h3{
+    font-family:'Shippori Mincho',serif;
+    font-size:.95rem;
+    font-weight:700;
+    color:var(--ai);
+    margin:0 0 8px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    border:1.5px solid var(--line);
+    background:var(--bg);
+    color:var(--ink);
+    border-radius:999px;
+    padding:8px 14px;
+    font-size:.84rem;
+    line-height:1.4;
+    cursor:pointer;
+    font-family:'Zen Maru Gothic',sans-serif;
+    text-align:left;
+  }
+  .chip:hover{ border-color:var(--ai); }
+  .chip.active{ background:var(--ai); color:var(--surface); border-color:var(--ai); font-weight:700; }
+
+  .selected-unit-box{
+    margin-top:18px;
+    padding:12px 14px;
+    background:var(--surface-2);
+    border-radius:8px;
+    font-size:.88rem;
+  }
+  .selected-unit-box strong{
+    font-family:'Shippori Mincho',serif;
+    color:var(--ai);
+  }
+
+  textarea:focus-visible, button:focus-visible, .choice:focus-visible, .chip:focus-visible, input:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  .actions{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:20px;
+  }
+  button.btn{
+    font-family:'Zen Maru Gothic',sans-serif;
+    font-weight:700;
+    font-size:1.02rem;
+    padding:15px 18px;
+    border-radius:10px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .12s ease, filter .12s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ button.btn{ transition:none; } }
+  button.btn:active{ transform:translateY(1px); }
+  button.btn:disabled{ opacity:.5; cursor:not-allowed; transform:none; }
+  .btn-primary{
+    background:var(--yamabuki);
+    color:#2a1c04;
+    box-shadow:0 3px 0 var(--yamabuki-deep);
+  }
+  :root:not([data-theme="light"]) .btn-primary{ color:#241a02; }
+  :root[data-theme="dark"] .btn-primary{ color:#241a02; }
+  .btn-primary:hover:not(:disabled){ filter:brightness(1.04); }
+  .btn-secondary{
+    background:transparent;
+    color:var(--ai);
+    border-color:var(--ai);
+  }
+  .btn-secondary:hover:not(:disabled){ background:var(--surface-2); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink-soft);
+    border:none;
+    text-decoration:underline;
+    padding:8px;
+    font-size:.9rem;
+  }
+
+  #error-banner[hidden]{ display:none !important; }
+  #error-banner{
+    background:var(--kobai-bg);
+    border:1px solid var(--kobai);
+    color:var(--kobai);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:.88rem;
+    margin-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:flex-start;
+  }
+  #error-banner button{
+    background:none; border:none; color:inherit; font-weight:700; cursor:pointer; font-size:1rem; line-height:1;
+  }
+
+  .quiz-progress{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:6px;
+    font-family:'Shippori Mincho',serif;
+  }
+  .quiz-progress .count{ font-size:1.1rem; font-weight:700; font-variant-numeric:tabular-nums; }
+  .quiz-progress .score{ font-size:.85rem; color:var(--ink-soft); font-family:'Zen Maru Gothic',sans-serif; }
+  .quiz-unit{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .passage-box{
+    background:var(--surface-2);
+    border-radius:8px;
+    padding:14px 16px;
+    margin:0 0 18px;
+  }
+  .passage-box .label{
+    font-weight:700;
+    color:var(--ai);
+    display:block;
+    margin-bottom:6px;
+    font-size:.78rem;
+    letter-spacing:.04em;
+  }
+  .passage-box p{
+    font-family:'Shippori Mincho',serif;
+    font-size:.98rem;
+    line-height:1.9;
+    margin:0;
+    white-space:pre-wrap;
+  }
+  .dots{ display:flex; gap:5px; margin-bottom:18px; flex-wrap:wrap; }
+  .dots span{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+  .dots span.done-correct{ background:var(--wakatake); }
+  .dots span.done-wrong{ background:var(--kobai); }
+  .dots span.current{ background:var(--yamabuki); }
+
+  .question-text{
+    font-family:'Shippori Mincho',serif;
+    font-size:clamp(1.05rem, .9rem + 1vw, 1.3rem);
+    line-height:1.85;
+    margin:0 0 20px;
+    text-wrap:balance;
+  }
+
+  .choices{ display:grid; gap:10px; }
+  .choice{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-align:left;
+    width:100%;
+    background:var(--bg);
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    font-family:'Zen Maru Gothic',sans-serif;
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .choice:hover:not(:disabled){ border-color:var(--ai); }
+  .choice .badge{
+    flex:none;
+    width:28px; height:28px;
+    border-radius:50%;
+    background:var(--surface-2);
+    color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:.85rem;
+    font-family:'Shippori Mincho',serif;
+  }
+  .choice:disabled{ cursor:default; }
+  .choice.correct{ background:var(--wakatake-bg); border-color:var(--wakatake); }
+  .choice.correct .badge{ background:var(--wakatake); color:#fff; }
+  .choice.incorrect{ background:var(--kobai-bg); border-color:var(--kobai); }
+  .choice.incorrect .badge{ background:var(--kobai); color:#fff; }
+
+  .feedback{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+  }
+  .feedback .verdict{
+    font-family:'Shippori Mincho',serif;
+    font-weight:800;
+    font-size:1.15rem;
+    margin:0 0 10px;
+  }
+  .feedback .verdict.correct{ color:var(--wakatake); }
+  .feedback .verdict.incorrect{ color:var(--kobai); }
+  .feedback .explanation{ font-size:.95rem; line-height:1.8; margin:0 0 12px; }
+  .feedback .translation{
+    background:var(--surface-2);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:.9rem;
+    line-height:1.8;
+  }
+  .feedback .translation .label{
+    font-weight:700;
+    color:var(--ai);
+    display:block;
+    margin-bottom:4px;
+    font-size:.78rem;
+    letter-spacing:.04em;
+  }
+
+  .result-head{ text-align:center; padding:8px 0 22px; }
+  .stamp{
+    width:118px; height:118px;
+    margin:0 auto 16px;
+    border-radius:50%;
+    border:3px solid var(--kobai);
+    box-shadow:inset 0 0 0 3px var(--surface), 0 3px 10px var(--shadow);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transform:rotate(-5deg);
+    color:var(--kobai);
+    font-family:'Shippori Mincho',serif;
+  }
+  .stamp .frac{ font-size:1.7rem; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; }
+  .stamp .of{ font-size:.7rem; margin-top:2px; }
+  .result-message{ font-size:.98rem; line-height:1.8; color:var(--ink-soft); max-width:32em; margin:0 auto; }
+
+  .guide-content{
+    font-size:.98rem;
+    line-height:1.95;
+  }
+  .guide-content h1,.guide-content h2,.guide-content h3{
+    font-family:'Shippori Mincho',serif;
+    margin:1.2em 0 .5em;
+    line-height:1.5;
+  }
+  .guide-content h1{ font-size:1.25rem; }
+  .guide-content h2{ font-size:1.12rem; }
+  .guide-content h3{ font-size:1.02rem; }
+  .guide-content p{ margin:0 0 .9em; }
+  .guide-content ul,.guide-content ol{ margin:0 0 1em; padding-left:1.4em; }
+  .guide-content li{ margin-bottom:.4em; }
+  .guide-content strong{ color:var(--ai); }
+  .guide-content code{ background:var(--surface-2); padding:.1em .3em; border-radius:4px; }
+  .thinking{ color:var(--ink-soft); }
+
+  footer{
+    text-align:center;
+    font-size:.75rem;
+    color:var(--ink-soft);
+    margin-top:34px;
+    line-height:1.7;
+  }
+
+
+/* ==== 記録機能 追加分 ==== */
+.sub-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+.stat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:22px; }
+.stat-tile{ border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--bg); }
+.stat-tile .k{ display:block; font-size:.74rem; color:var(--ink-soft); letter-spacing:.06em; }
+.stat-tile .v{ display:block; font-size:1.5rem; font-weight:700; color:var(--ai); font-variant-numeric:tabular-nums; margin-top:2px; }
+.stat-tile .v small{ font-size:.8rem; font-weight:400; color:var(--ink-soft); margin-left:2px; }
+.stats-empty{ color:var(--ink-soft); padding:18px 0; }
+.stat-table{ width:100%; border-collapse:collapse; font-size:.9rem; }
+.stat-table th{ text-align:left; font-size:.72rem; letter-spacing:.08em; color:var(--ink-soft); border-bottom:1px solid var(--line); padding:6px 8px; font-weight:700; }
+.stat-table td{ border-bottom:1px solid var(--line); padding:8px; vertical-align:middle; }
+.stat-table td.num{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.rate-bar{ display:block; position:relative; height:8px; border-radius:4px; background:var(--line); min-width:70px; }
+.rate-bar i{ position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:var(--wakatake); }
+.rate-bar i.low{ background:var(--kobai); }
+.rate-bar i.mid{ background:var(--yamabuki); }
+.cal{ display:grid; grid-template-columns:repeat(7,1fr); gap:4px; max-width:330px; }
+.cal span{ aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:.74rem;
+  border-radius:6px; color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+.cal span.head{ color:var(--ink-soft); font-size:.68rem; aspect-ratio:auto; padding-bottom:2px; }
+.cal span.on{ background:var(--wakatake); color:#fff; font-weight:700; }
+.cal span.today{ outline:2px solid var(--yamabuki); outline-offset:-2px; }
+.stats-section-title{ font-size:.95rem; font-weight:700; margin:26px 0 10px; color:var(--ai); }
+.wrongbox-line{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; }
+.privacy-note{ font-size:.76rem; color:var(--ink-soft); margin-top:26px; line-height:1.7; }
+
+/* ==== 狭い画面（スマホ）の調整 ==== */
+@media (max-width:400px){
+  h1{ font-size:1.5rem; letter-spacing:.01em; }
+  .stage{ padding:20px 14px 48px; }
+  .card{ padding:18px 15px; }
+  .chip{ font-size:.82rem; padding:8px 12px; }
+  .stat-grid{ grid-template-columns:repeat(2,1fr); }
+}
+#btn-next-question{ scroll-margin-bottom:24px; }
+
+/* ==== 道場の切り替え ==== */
+nav.sister{ display:flex; justify-content:center; gap:6px; flex-wrap:wrap; margin:0 0 18px; }
+nav.sister a{ font-size:.82rem; padding:6px 14px; border-radius:999px; border:1px solid var(--line);
+  color:var(--ink-soft); text-decoration:none; background:var(--surface); }
+nav.sister a:hover{ border-color:var(--ai); color:var(--ai); }
+nav.sister a[aria-current]{ background:var(--ai); border-color:var(--ai); color:var(--surface); font-weight:700; }
+
+/* ==== 近代文章道場の装い: 大正の原稿用紙、海老茶と矢絣 ==== */
+.stage::before,
+:root:not([data-theme="light"]) .stage::before,
+:root[data-theme="dark"] .stage::before{
+  background-image:linear-gradient(var(--kaisen) 1px, transparent 1px),
+    linear-gradient(90deg, var(--kaisen) 1px, transparent 1px);
+  background-size:26px 26px;
+  opacity:1; mix-blend-mode:normal;
+}
+.rod{ gap:0; }
+.rod::before,.rod::after{
+  height:9px; border-radius:0;
+  background:repeating-linear-gradient(115deg,var(--ai) 0 7px,var(--bg) 7px 9px,var(--ai) 9px 11px,var(--bg) 11px 18px);
+  opacity:.9;
+}
+.rod .knob{ display:none; }
+header.masthead h1{ font-family:'Shippori Mincho B1','Shippori Mincho',serif; font-weight:800; letter-spacing:.1em; }
+header.masthead h1::after{ content:"近"; display:inline-block; margin-left:.4em; width:1.5em; height:1.5em; line-height:1.5em;
+  text-align:center; font-size:.48em; vertical-align:.5em; color:var(--bg); background:var(--ai); border-radius:50%; letter-spacing:0; }
+.card{ border-radius:6px; }
+.btn-primary,
+:root:not([data-theme="light"]) .btn-primary,
+:root[data-theme="dark"] .btn-primary{
+  background:var(--ai); color:var(--surface); box-shadow:0 3px 0 var(--ai-deep);
+}
+.dots span.current{ background:var(--shu); }
+.stamp{
+  border-radius:50%; transform:rotate(-6deg);
+  background:transparent; color:var(--shu); border:3px double var(--shu);
+}
+.unit-group h3{ border-bottom-style:dashed; }
+.cal span.today{ outline-color:var(--shu); }
+/* 本文の抜き出しは長いので、明朝でゆったり読ませる */
+.question-text{ font-family:'Shippori Mincho B1','Shippori Mincho',serif; font-size:1.02rem; line-height:2.05; letter-spacing:.02em; }
+.question-text .bosen{ text-decoration-color:var(--shu); }
+.question-text .maeoki{ display:block; font-family:'Zen Maru Gothic',sans-serif; font-size:.8rem; line-height:1.7;
+  color:var(--ink-soft); background:var(--surface-2); border-radius:4px; padding:6px 10px; margin:0 0 10px; letter-spacing:0; }
+
+
+/* ==== 単語道場・常識道場 追加分 ==== */
+nav.sister{ display:flex; justify-content:center; gap:6px; flex-wrap:wrap; margin:0 0 18px; }
+nav.sister a{ font-size:.82rem; padding:6px 14px; border-radius:999px; border:1px solid var(--line);
+  color:var(--ink-soft); text-decoration:none; background:var(--surface); }
+nav.sister a:hover{ border-color:var(--ai); color:var(--ai); }
+nav.sister a[aria-current]{ background:var(--ai); border-color:var(--ai); color:var(--surface); font-weight:700; }
+.q-prompt{ font-size:.84rem; color:var(--ink-soft); margin:0 0 8px; }
+.question-text .bosen, .translation .bosen{ text-decoration:underline; text-decoration-thickness:2px;
+  text-underline-offset:.3em; text-decoration-color:var(--yamabuki); font-weight:700; }
+.question-text.big{ font-size:clamp(1.6rem, 1.2rem + 2vw, 2.1rem); text-align:center; letter-spacing:.08em; }
+.q-source{ font-size:.8rem; color:var(--ink-soft); text-align:right; margin:-12px 0 18px; }
+.feedback .word-head{ font-family:'Shippori Mincho',serif; font-weight:700; color:var(--ai); margin:0 0 6px; }
+.feedback .explanation{ white-space:pre-line; }
+.feedback .meta-note{ font-size:.76rem; color:var(--ink-soft); margin:10px 0 0; }
+.range-box{ margin-top:18px; padding-top:16px; border-top:1px dashed var(--line); }
+.range-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.range-row input{ width:5.2em; font:inherit; font-size:1rem; padding:8px 10px; border-radius:8px;
+  border:1.5px solid var(--line); background:var(--bg); color:var(--ink); font-variant-numeric:tabular-nums; }
+.range-row .chip{ margin-left:4px; }
+.word-table{ width:100%; border-collapse:collapse; font-size:.9rem; line-height:1.6; }
+.word-table th{ text-align:left; font-size:.72rem; color:var(--ink-soft); border-bottom:1px solid var(--line); padding:6px; }
+.word-table td{ border-bottom:1px solid var(--line); padding:8px 6px; vertical-align:top; }
+.word-table td.no{ color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.word-table td.w{ font-family:'Shippori Mincho',serif; font-weight:700; width:8.5em; }
+.word-table td.w small{ display:block; font-weight:500; color:var(--ink-soft); font-size:.74rem; line-height:1.5; }
+.guide-content table{ border-collapse:collapse; font-size:.9rem; margin:0 0 1em; line-height:1.55; }
+.guide-content th, .guide-content td{ border:1px solid var(--line); padding:6px 8px; }
+.guide-content th{ background:var(--surface-2); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap">
+</head>
+<body>
+
+<div class="stage">
+  <header class="masthead">
+    <div class="rod"><span class="knob"></span><span class="knob"></span></div>
+    <h1>近代文 入試演習</h1>
+    <p>漱石・鷗外・芥川・寺田寅彦・正岡子規などの本文に傍線を引き、入試の形で10問ずつ解きます。言葉の意味から、時代の常識、心情の読み取りまで。アカウント登録は不要です。</p>
+    <div class="rod" style="margin-top:16px"><span class="knob"></span><span class="knob"></span></div>
+  </header>
+
+  <nav class="sister" aria-label="道場の切り替え"><a href="https://upopotennis-gif.github.io/kokugo-dojo/">国語道場トップ</a><a href="./">近代語辞典</a><a href="enshu.html" aria-current="page">入試演習</a><a href="haikei.html">時代の背景</a></nav>
+
+  <div id="error-banner" hidden>
+    <span id="error-text"></span>
+    <button type="button" id="error-close" aria-label="閉じる">×</button>
+  </div>
+
+  <main id="app">
+
+    <section id="view-setup">
+      <div class="card">
+        <ol class="steps">
+          <li><span class="num">一</span>単元を選ぶ（先に「学習ガイド」で要点を読むのがおすすめ）</li>
+          <li><span class="num">二</span>「クイズを始める」を押して4択に挑戦</li>
+        </ol>
+
+        <div id="unit-groups"></div>
+
+        
+
+        <div class="selected-unit-box" id="selected-unit-box" hidden>
+          選択中: <strong id="selected-unit-label"></strong>
+          <span id="selected-unit-count" style="color:var(--ink-soft)"></span>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-make-quiz" disabled>クイズを始める</button>
+          <button type="button" class="btn btn-secondary" id="btn-view-guide" disabled>学習ガイドを見る</button>
+        </div>
+
+        <div class="sub-actions">
+          <button type="button" class="btn btn-secondary" id="btn-wrongbox">苦手ボックスから10問</button>
+          <button type="button" class="btn btn-ghost" id="btn-stats">これまでの記録</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-quiz" hidden>
+      <div class="card">
+        <div class="quiz-progress">
+          <span class="count" id="quiz-count">問 1 / 10</span>
+          <span class="score" id="quiz-score">正解 0</span>
+        </div>
+        <p class="quiz-unit" id="quiz-unit"></p>
+        <div class="dots" id="quiz-dots"></div>
+        <p class="q-prompt" id="quiz-prompt" hidden></p>
+        <p class="question-text" id="quiz-question"></p>
+        <p class="q-source" id="quiz-source" hidden></p>
+        <div class="choices" id="quiz-choices"></div>
+
+        <div class="feedback" id="quiz-feedback" hidden>
+          <p class="verdict" id="feedback-verdict"></p>
+          <p class="word-head" id="feedback-head" hidden></p>
+          <p class="explanation" id="feedback-explanation"></p>
+          <div class="translation" id="feedback-translation" hidden>
+            <span class="label">現代語訳</span>
+            <span id="feedback-translation-text"></span>
+          </div>
+          <p class="meta-note" id="feedback-meta" hidden></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-next-question" hidden>次の問題へ</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-result" hidden>
+      <div class="card">
+        <div class="result-head">
+          <div class="stamp"><span class="frac" id="result-frac">0/10</span><span class="of">正解</span></div>
+          <p class="result-message" id="result-message"></p>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-wrong-only" hidden>間違えた問題だけもう一度</button>
+          <button type="button" class="btn btn-secondary" id="btn-retry-quiz">同じ問題にもう一度挑戦</button>
+          <button type="button" class="btn btn-secondary" id="btn-new-quiz">違う10問に挑戦する</button>
+          <button type="button" class="btn btn-secondary" id="btn-guide-from-result">学習ガイドを見る</button>
+          <button type="button" class="btn btn-ghost" id="btn-change-unit">別の単元を選ぶ</button>
+          <button type="button" class="btn btn-ghost" id="btn-stats-from-result">記録を見る</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-stats" hidden>
+      <div class="card">
+        <h2 class="card-title">これまでの記録</h2>
+        <div id="stats-body"></div>
+        <p class="privacy-note">
+          記録はこの端末のブラウザの中だけに保存されます。先生や他の人に送られることはありません。
+          ブラウザの履歴やサイトデータを消すと記録も消えます。
+        </p>
+        <div class="actions" style="margin-top:18px">
+          <button type="button" class="btn btn-secondary" id="btn-stats-back">単元選択に戻る</button>
+          <button type="button" class="btn btn-ghost" id="btn-stats-reset">記録を消す</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-guide" hidden>
+      <div class="card">
+        <div class="guide-content" id="guide-content"></div>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-guide-quiz">この範囲でクイズを始める</button>
+          <button type="button" class="btn btn-secondary" id="btn-guide-back">単元選択に戻る</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>近代文 入試演習 — 問題・解説はすべて独自に作成しています。<br>本文は青空文庫に収められた、著作権の切れた作品から引いています。</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var CONFIG = {"storeKey":"kindaiEnshu.v1","unitWord":"単元","lowScoreMessage":"まずは学習ガイドで要点を確かめ、分からなかった語を近代語辞典で引いてから、もう一度挑戦してみましょう。","maxNo":0};
+  var UNITS = [{"chapter":"言葉で止まらない","items":[{"id":"kango","label":"漢語の意味","hint":"字面や今の使い方で決めず、辞書的な意味と文脈の両方で確かめる。"},{"id":"wago","label":"和語・慣用句の意味","hint":"今の使い方や似た言い方と混ぜず、前後の具体的な描写で意味を確かめる。"},{"id":"ateji","label":"当て字・表記","hint":"ひらがなに直してから考える。読みが二つある字は、文が通る方を選ぶ。"},{"id":"bunmatsu","label":"文語の名残","hint":"「ぬ」「まい」「ん」は上の語の形と主語で決め、直訳して前後に戻す。"}]},{"chapter":"時代の常識で読む","items":[{"id":"gakusei","label":"学生と立身出世","hint":"書生・学資・洋行――学校を出て身を立てる道すじと、郷里の期待を読む。"},{"id":"ie","label":"家と結婚","hint":"戸主・相続・養子・許嫁――個人より先に「家」があった時代の結婚と財産。"},{"id":"kurashi","label":"お金と暮らし・病","hint":"月給・質屋・下女・人力車・肺病――懐具合と体の具合から人物の焦りを読む。"}]},{"chapter":"本文を読みきる","items":[{"id":"zuiso","label":"随想を読む","hint":"きっかけ→考え→結びの態度をたどり、謙遜や冗談の奥の本心を読む。"},{"id":"ichibun","label":"長い一文・指示語","hint":"述語から主語をたどり、指示語は候補を代入して、範囲の広さまで確かめる。"},{"id":"shinjo","label":"小説の心情（総合）","hint":"きっかけ・心の動き・ふるまいに分け、言葉と時代の常識を補って心情を読む。"}]}];
+  var POOL = [{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（三四郎は、年上の学者と並んで歩きながら空を見上げている。相手の話は知らないことばかりで、少しも話の相手になれない。）「あれは、みんな雪の粉ですよ。こうやって下から見ると、ちっとも動いていない。しかしあれで地上に起こる颶風以上の速力で動いているんですよ。――君ラスキンを読みましたか」三四郎は《憮然》として読まないと答えた。野々宮君はただ「そうですか」と言ったばかりである。","s":"漱石『三四郎』","c":["問いに気を悪くして、むっとしたさま","思うようにならず、気落ちしてぼんやりしたさま","読んでいないことを恥じて、赤くなったさま","問いの意図がつかめず、首をかしげたさま"],"a":1,"e":"「憮然」は、失望したり思いどおりにならなかったりして、ぼんやりするさま。知らない話ばかりが続いたうえにラスキンを読んだかと聞かれ、読んでいない三四郎は話の相手になれず、会話も「そうですか」で途切れてしまう。張り合いをなくした場面である。「むっとした」は現代によくある使い方だが本来の意味ではない。「恥じて赤くなった」は場面には合いそうだが語の意味から外れる。「首をかしげた」は語の意味にない。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（お玉は、ひそかに心を寄せる学生の岡田に近づきたいと思っている。）お玉は岡田に接近しようとするのに、若し第三者がいて観察したら、もどかしさに堪えまいと思われる程、《逡巡》していたが、けさ末造が千葉へ立つと云って暇乞に来てから、追手を帆に孕ませた舟のように、志す岸に向って走る気になった。","s":"鷗外『雁』","c":["人目を気にして、わざと相手を避けていた","機会が来るのを、じっと待ち続けていた","決心がつかず、ためらって先へ進めずにいた","同じ道を、行ったり来たりして歩いていた"],"a":2,"e":"「逡巡」は、決心がつかずにためらい、先へ進まないこと。「もどかしさに堪えまい」と見える様子や、後の「走る気になった」との対比から、ためらいが続いていたと分かる。「わざと避けていた」は、ためらいを意図的な行動と取り違えている。「じっと待ち続けていた」は、迷っていることを待つことに置き換えている。「行ったり来たり」は「巡」の字から考えた誤りである。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「私」は小諸の古城址で、同僚と弓の稽古をしている。）まだその外に、鶏を養う人なぞも住んでいる。この人は病身で、《無聊》に苦むところから、私達の矢場の方へ遊びに来る。そして、私達の弓が揃って引絞られたり、矢の羽が頬を摺ったりする後方に居て、奇警な批評を浴せかける。","s":"藤村『千曲川のスケッチ』","c":["話し相手がなく、さびしく心細いこと","働き口がなく、暮らしに困っていること","体が弱く、気分がすぐれないこと","することがなく、退屈でしかたがないこと"],"a":3,"e":"「無聊」は、することがなくて退屈なこと。病身で仕事も思うようにできない人が、暇をもてあまして矢場へ遊びに来るという流れに合う。「さびしく心細い」は孤独と混同したもので、語の中心は退屈である。「働き口がなく」は「無」の字から職が無いと考えた誤り。「気分がすぐれない」は直前の「病身」に引かれたもので、語の意味から外れる。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（青年の一人が、自分の願いを熱っぽく語っている。）どうにかしてこの古び果てた習慣の圧力から脱がれて、驚異の念を以てこの宇宙に俯仰介立したいのです。その結果がビフテキ主義となろうが、馬鈴薯主義となろうが、将た厭世の徒となってこの生命を咀うが、決して《頓着》しない！","s":"独歩『牛肉と馬鈴薯』","c":["気にかけてこだわる","一つの結論に落ち着く","先を予想して恐れる","あわてて考えを改める"],"a":0,"e":"「頓着」は、ある物事を気にかけ、こだわること（「とんちゃく」とも読む）。「結果が何主義になろうが」と並べ、結果がどうなってもかまわないと言っているので、「気にかけない」の意になる。「結論に落ち着く」は「着」の字から考えた誤り。「恐れる」は、結果を気にする気持ちを恐怖に言い換えすぎている。「あわてて」は「頓」を「にわかに」と読んだ字面の誤りである。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（新任教師の「おれ」は、赴任先の学校で同僚の数学教師に話しかけられた。）授業上の打ち合せが済んだら、君はいつまでこんな宿屋に居るつもりでもあるまい、僕がいい下宿を《周旋》してやるから移りたまえ。外のものでは承知しないが僕が話せばすぐ出来る。","s":"漱石『坊っちゃん』","c":["あちこち回って、自分で探してやる","間に立って世話をし、話をまとめてやる","代金を立て替えて、借りてやる","よい所を選んで、勧めてやる"],"a":1,"e":"「周旋」は、人と人との間に立って世話をし、話をまとめること。「僕が話せばすぐ出来る」とあり、下宿の主人に話をつけてやると言っている。「あちこち回って探す」は「周」「旋」（めぐる）の字から考えた誤り。「代金を立て替え」は語の意味にない。「よい所を選んで勧める」は推薦と取り違えたもので、話をまとめる仲立ちの意味が抜けている。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「先生」が、若いころの身の上を手紙に書いている。）私は二人の間にできたたった一人の男の子でした。宅には相当の財産があったので、むしろ《鷹揚》に育てられました。私は自分の過去を顧みて、あの時両親が死なずにいてくれたなら、少なくとも父か母かどっちか、片方で好いから生きていてくれたなら、私はあの鷹揚な気分を今まで持ち続ける事ができたろうにと思います。","s":"漱石『こころ』","c":["人に負けぬよう、誇り高く","わがまま放題に、甘やかされて","こせこせせず、おっとりと","しつけ正しく、礼儀を守って"],"a":2,"e":"「鷹揚」は、小さなことにこせこせせず、ゆったりと落ち着いているさま。財産があって暮らしに困らず、のびのびと育ったことを言う。「誇り高く」は「鷹」の字の印象から考えた誤り。「甘やかされて」は財産のある一人息子という状況に引かれたもので、語の意味から外れる。「しつけ正しく」は、よい育ち方という点だけを取った誤りである。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「先生」は、下宿の奥さんが、娘と自分を結びつけようとしているのではないかと疑っている。）しかしそれだけの矛盾ならいくら馬鹿でも私は大した苦痛も感ぜずに済んだのです。私の《煩悶》は、奥さんと同じようにお嬢さんも策略家ではなかろうかという疑問に会って始めて起るのです。二人が私の背後で打ち合せをした上、万事をやっているのだろうと思うと、私は急に苦しくって堪らなくなるのです。","s":"漱石『こころ』","c":["相手の本心を疑い、警戒すること","腹立たしく、不愉快に思うこと","自分の愚かさを、あざ笑うこと","あれこれと思い悩み、もだえ苦しむこと"],"a":3,"e":"「煩悶」は、あれこれと思い悩み、もだえ苦しむこと。お嬢さんまで策略家ではないかと思うと「苦しくって堪らなくなる」とあり、それが「私」の煩悶の中身である。「疑い、警戒する」は、煩悶のきっかけになった疑いの方を答えた誤り。「不愉快に思う」は、直後に「不愉快なのではありません」と否定されている。「あざ笑う」は前の「自分を嘲笑しました」に引かれたもので、語の意味から外れる。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（長い鼻を気に病む内供は、寺に出入りする人々に目を向けている。）内供はこう云う人々の顔を根気よく《物色》した。一人でも自分のような鼻のある人間を見つけて、安心がしたかったからである。","s":"芥川『鼻』","c":["多くの中から目当てのものを探した","一人一人の顔色をうかがった","見比べて、よしあしを決めた","見覚えがあるか、思い出そうとした"],"a":0,"e":"「物色」は、多くの中から目当ての人や物を探し求めること。次の文に「自分のような鼻のある人間を見つけて」とあり、長い鼻の人を探していたと分かる。「顔色をうかがった」は「色」の字から顔色と考えた誤り。「よしあしを決めた」は品定めと取り違えたもので、探す目的が抜けている。「見覚えがあるか」は語の意味にも文脈にも合わない。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"読書の選択やまた読書のしかたについて学生たちから質問を受けたことがたびたびある。これに対する自分の答えはいつも《不得要領》に終わるほかはなかった。いかなる人にいかなる恋をしたらいいかと聞かれるのとたいした相違はないような気がする。","s":"寅彦『読書の今昔』","c":["質問の意味が取れず、見当はずれである","要点がはっきりせず、つかみどころがない","手際が悪く、時間ばかりかかる","相手を納得させられず、反発される"],"a":1,"e":"「不得要領」は、要点がつかめず、何を言っているのかはっきりしないこと。どんな本をどう読むかは人によって違い、恋の相手を聞かれるのと同じで一言では答えられない、という文脈に合う。「見当はずれ」は、質問を理解できないことと取り違えている。「手際が悪い」は今の「要領が悪い」の意味に引き寄せた誤り。「反発される」は語の意味にない。"},{"g":"kango","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（画工の「余」は、山道を歩きながら景色を眺めている。）ただこの景色を一幅の画として観、一巻の詩として読むからである。画であり詩である以上は地面を貰って、開拓する気にもならねば、鉄道をかけて一儲けする《了見》も起らぬ。","s":"漱石『草枕』","c":["他人のしたことを許す、広い心","欲に目がくらんだ、あさましさ","そうしようという、考えやつもり","実行に必要な、見通しや知恵"],"a":2,"e":"「了見（了簡）」は、考え・思慮・つもりのこと。「開拓する気にもならねば」と対になっており、一儲けしようという考えも起こらない、の意。「許す広い心」は「了見してくれ（＝勘弁してくれ）」の用法で、辞書にはあるがこの文脈には合わない。「あさましさ」は「一儲け」に引かれて悪い意味を加えた誤り。「見通しや知恵」は「見」の字から考えた誤りである。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（宗助は、弟の世話を頼んでいる叔父の家を、たまに訪ねる。）しまいには時候の挨拶を済ますと、すぐ帰りたくなる事もあった。こう云う時には三十分と坐って、世間話に時間を繋ぐのにさえ骨が折れた。向うでも何だか《気が置けて》窮屈だと云う風が見えた。","s":"漱石『門』","c":["打ち解けられず、遠慮される","油断がならず、警戒される","気持ちが通い合い、くつろげる","話の種が尽きて、退屈させられる"],"a":0,"e":"「気が置ける」は、相手に気を遣って打ち解けられず、遠慮されること。後に「窮屈だ」と続くので、叔父の家の側も宗助に気がねしているのである。「油断がならず」は「気が置けない」を油断できない意味と誤解する、その裏返しの取り違え。「くつろげる」は「気が置けない（＝気楽だ）」と混同したもの。「退屈させられる」は前の「世間話」に引かれたもので、語句の意味から外れる。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「私」の家にもらわれて来た子犬を、物置に寝かせた夜のことである。）すると彼は宵の口から泣き出した。夜中には物置の戸を爪で掻き破って外へ出ようとした。彼は暗い所にたった独り寝るのが淋しかったのだろう、翌る朝まで《まんじりともしない》様子であった。","s":"漱石『硝子戸の中』","c":["少しもじっとしていない","少しも鳴きやまない","少しも眠らない","少しも気を許さない"],"a":2,"e":"「まんじり」は少しの間眠ること。「まんじりともしない」は、一睡もしないという意味である。独りで寝るのが淋しくて、朝まで眠れなかったのである。「じっとしていない」は、戸を掻き破る描写に引かれて「微動だにしない」などと混同したもの。「鳴きやまない」は前の「泣き出した」に引かれた誤り。「気を許さない」は場面の不安な気分から考えたもので、語句の意味から外れる。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（武蔵野の林の中の道を、知らずに歩いてゆく場合のことを述べている。）その時農家で尋ねてみたまえ、門を出るとすぐ往来ですよと、《すげなく》答えるだろう。農家の門を外に出てみるとはたして見覚えある往来、なるほどこれが近路だなと君は思わず微笑をもらす、その時初めて教えてくれた道のありがたさが解るだろう。","s":"独歩『武蔵野』","c":["よどみなく、すらすらと","面倒がらずに、親切に","わけ知り顔で、得意げに","愛想がなく、そっけなく"],"a":3,"e":"「すげない」は、愛想がなく冷淡であること。農家の人はそっけなく一言答えるだけだが、行ってみるとそれが近道で、後からありがたさが分かる、という流れである。「すらすらと」は「すげ」の音から「すんなり」と連想した誤り。「親切に」は、後の「ありがたさ」に引かれて意味を逆にしたもの。「得意げに」は語の意味にない。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（百貨店で季節はずれの品を求めたら、取り寄せに時間がかかると言われた。）もっとも、今ごろ本屋でスコットの「湖上の美人」やアーヴィングの「スケッチブック」やニーチェの「ツァラツーストラ」でも探すとしたらすぐに手に入るかどうか《心もとない》ような気がする。","s":"寅彦『柿の種』","c":["はっきりせず、不安に思われる","思いがけず、意外に感じられる","気が進まず、面倒に思われる","期待できそうで、楽しみに思われる"],"a":0,"e":"「心もとない」は、はっきりせず頼りなくて不安であること。昔よく読まれた本も、今探せばすぐ手に入るかどうか怪しい、という気持ちである。「意外に感じられる」は、この後に続く予想の話を驚きと取り違えている。「面倒に思われる」は、探す手間の話と読んだ誤り。「楽しみに」は「心」の字から前向きな意味を考えたもので、意味が逆である。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"このごろ、《よんどころない》必要から、リグヴェーダの中の一章句と称するもののドイツ訳を、ちょうどこんな調子で邦語に飜訳しなければならなかった。そうして実ははなはだ心もとない思いをしていた。","s":"寅彦『柿の種』","c":["どこから来たのかわからない、ふいの","ほかに方法のない、やむをえない","取るに足りない、ささいな","差し迫った、ひどく急ぎの"],"a":1,"e":"「よんどころない」は「よりどころ（拠り所）ない」から来た語で、ほかにどうしようもない、やむをえないという意味。慣れない翻訳を、断れない事情で引き受けたのである。「どこから来たのかわからない」は、根拠がないと字面どおりに読んだ誤り。「ささいな」は語の意味にない。「差し迫った」は「しなければならなかった」に引かれたもので、急ぎの意味は含まない。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"僕は人附合いの余り好くない性であったから、学校の構内で好く逢う人にでも、用事がなくては話をしない。……それが岡田と少し《心安く》なったのは、古本屋が媒をしたのである。","s":"鷗外『雁』","c":["安心して頼れる間柄に","気持ちの落ち着いた状態に","気がねなく話せる間柄に","互いに認め合う間柄に"],"a":2,"e":"「心安い」は、親しくて気がねがいらないこと。人付き合いの悪い「僕」が、古本屋で顔を合わせるうちに岡田と親しくなった、という文脈である。「安心して頼れる」は「安」の字から安心と読んだ誤り。「気持ちの落ち着いた状態」は「心が安らか」と字面どおりに読んだ誤り。「互いに認め合う」は親しさを尊敬と言い換えすぎたもので、語の意味から外れる。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（伊織は、自分の刀の披露の席で相番の下島と争いになり、刀を抜いた。逃げる下島を追おうとした時、友人の柳原に後ろから抱き止められた。）伊織は刀を柳原にわたして、《しおしおと》座に返った。そして黙って俯向いた。","s":"鷗外『じいさんばあさん』","c":["ゆっくりと、落ち着いて","静かに、足音を立てずに","悔しさに、涙ぐんで","元気なく、しょんぼりと"],"a":3,"e":"「しおしお（と）」は、元気をなくしてしょんぼりしているさま。刀を抜いた後に止められ、黙ってうつむく伊織の様子に合う。「落ち着いて」は、刀を渡しておとなしく戻る動作だけを見た誤り。「足音を立てずに」は「しずしず」と混同したもの。「涙ぐんで」は、この後に伊織が涙を浮かべる場面に引かれたもので、語の意味から外れる。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"その上、寒さもめっきり加わったので、老年の内供は寝つこうとしても寝つかれない。そこで床の中で《まじまじ》していると、ふと鼻がいつになく、むず痒いのに気がついた。","s":"芥川『鼻』","c":["目をこらして一点を見つめている","眠れずに目をさましたままでいる","寝返りを打って体を動かしている","あれこれと考えて思い悩んでいる"],"a":1,"e":"「まじまじ」には、目がさえて眠れないでいるさまの意味がある。直前の「寝つこうとしても寝つかれない」がその根拠である。「見つめている」は、今の「まじまじと見る」の意味に引き寄せた誤りで、床の中の暗がりという場面にも合わない。「寝返りを打って」は眠れない様子から考えたもので、語の意味から外れる。「思い悩んでいる」は、内供が鼻を気にしている人物であることに引かれた誤り。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"それで「どうだか分りません」と答えた。しかしにやにや笑っている先生の顔を見た時、私は急に《極りが悪く》なった。「先生は？」と聞き返さずにはいられなかった。","s":"漱石『こころ』","c":["なんとなく恥ずかしく、気まずく","ばかにされたと感じ、腹立たしく","どう答えるべきか、心が決まらなく","相手の本心が読めず、不安に"],"a":0,"e":"「極りが悪い」は、恥ずかしくて気まずいこと。考えもなく答えた自分を、先生が笑って見ていると感じて気恥ずかしくなり、話をそらすように聞き返したのである。「腹立たしく」は「にやにや」に引かれて怒りと読んだ誤り。「心が決まらなく」は「極り（決まり）」を決心と字面どおりに読んだ誤り。「不安に」は場面には合いそうだが、語の意味から外れる。"},{"g":"wago","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"おれの頭はあまりえらくないのだから、いつもなら、相手がこういう巧妙な弁舌を揮えば、おやそうかな、それじゃ、おれが間違ってたと恐れ入って引きさがるのだけれども、今夜はそうは行かない。ここへ来た最初から赤シャツは何だか《虫が好かなかった》。","s":"漱石『坊っちゃん』","c":["腹の底が読めず、気味が悪かった","調子が合わず、話が通じなかった","わけもなく、気に入らなかった","身勝手で、自分に都合がよかった"],"a":2,"e":"「虫が好かない」は、はっきりした理由はないが、なんとなく気に入らないこと。「何だか」とあるのも、理由のない嫌悪を表している。「腹の底が読めず」は「腹の虫」から腹黒さを考えた誤り。「話が通じなかった」は、弁舌をふるう相手という文脈に引かれたもので、語の意味から外れる。「身勝手で」は「虫がいい」と混同した取り違えである。"},{"g":"ateji","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「私」が、Kの矛盾を厳しく責めた場面である。）私がこういった時、背の高い彼は自然と私の前に萎縮して小さくなるような感じがしました。彼はいつも話す通り《頗る》強情な男でしたけれども、一方ではまた人一倍の正直者でしたから、自分の矛盾などをひどく非難される場合には、決して平気でいられない質だったのです。","s":"漱石『こころ』","c":["少しばかり","意外にも","非常に","根っから"],"a":2,"e":"「頗る」は「すこぶる」と読み、非常に・たいそうの意味。Kはふだんから大変な強情者だったが、正直者でもあるので、矛盾を突かれると平気でいられなかった、という文脈である。「少しばかり」は「すこぶる」を「すこし」と混同した誤りで、意味が逆になる。「意外にも」は、後の「けれども」に引かれた誤り。「根っから」は性格の話から考えたもので、語の意味にない。"},{"g":"ateji","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（夫に囲い者の女がいると知った妻が、夫を問いつめている。）「ひどいじゃありませんか。好くそんなにしらばっくれていられる事ね」夫の落ち着いているのが、《却って》強い刺戟のように利くので、上さんは声が切れ切れになって、湧いて来る涙を襦袢の袖でふいている。","s":"鷗外『雁』","c":["前にもまして","予想に反して","やっとのことで","たちどころに"],"a":1,"e":"「却って」は「かえって」と読み、予想や期待とは逆に、の意味。落ち着いた態度は本来なら相手を静めるはずなのに、逆に妻を強く刺激してしまった、という文脈である。「前にもまして」は程度が強まる意味と取り違えたもので、予想が裏返るという点が抜けている。「やっとのことで」「たちどころに」は時間の意味と取り違えた誤りで、語の意味にない。"},{"g":"ateji","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"それから学校の門を出て、すぐ宿へ帰ろうと思ったが、帰ったって仕方がないから、少し町を散歩してやろうと思って、《無暗》に足の向く方をあるき散らした。県庁も見た。古い前世紀の建築である。","s":"漱石『坊っちゃん』","c":["人目を避けて、こっそりと","日が暮れて、暗い中を","急ぎ足で、せかせかと","あてもなく、考えなしに"],"a":3,"e":"「無暗」は「むやみ」と読み、あとさきを考えずに・やたらに、の意味。「無闇」とも書く。帰っても仕方がないので、行き先も決めずに足の向くまま歩き回ったのである。「こっそりと」「暗い中を」は、どちらも「暗」の字の意味から考えた誤りで、「むやみ」は字の意味と関係がない。「せかせかと」は「あるき散らした」の勢いに引かれた誤りである。"},{"g":"ateji","p":"傍線部の読みとして正しいものを選べ。","q":"（内供の鼻は、長さが五、六寸もある。）そこで内供は弟子の一人を膳の向うへ坐らせて、飯を食う間中、広さ《一寸》長さ二尺ばかりの板で、鼻を持上げていて貰う事にした。","s":"芥川『鼻』","c":["ちょっと","いっすん","いちぶ","いっしゃく"],"a":1,"e":"「一寸」には、少しの意の当て字「ちょっと」と、長さの単位「いっすん」（約3センチ）の二つの読みがある。ここは「広さ一寸長さ二尺」と板の幅と長さを単位で並べているので「いっすん」と読む。「ちょっと」は近代の文章でよく見る当て字の読みに引かれた誤りで、「広さちょっと」では幅の寸法にならない。「いちぶ」（一分＝一寸の十分の一）と「いっしゃく」（一尺＝十寸）は、同じ尺貫法の別の単位と取り違えた誤りである。"},{"g":"ateji","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"伊織は京都でその年の夏を無事に勤めたが、秋風の立ち初める頃、或る日寺町通の刀剣商の店で、質流れだと云う好い古刀を見出した。《兼て》好い刀が一腰欲しいと心掛けていたので、それを買いたく思ったが、代金百五十両と云うのが、伊織の身に取っては容易ならぬ大金であった。","s":"鷗外『じいさんばあさん』","c":["以前から","同時に","ひそかに","いつかは"],"a":0,"e":"「兼て」は「かねて」と読み、以前から・前もって、の意味。今は「予て」と書くことが多い。伊織は前々からよい刀を一振り欲しいと思っていたので、古刀を見て買いたくなったのである。「同時に」は「兼任」の「兼ねる」の意味で読んだ字面の誤り。「ひそかに」は「心掛けていた」に引かれたもの。「いつかは」は、時の方向を未来に取り違えている。"},{"g":"ateji","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「私」は、教え子のＳの家のことを書きとめている。）近頃Ｓの家では牛乳屋を始めた。《可成》大きな百姓で父も兄も土地では人望がある。こういう田舎へ来ると七人や八人の家族を見ることは別にめずらしくない。","s":"藤村『千曲川のスケッチ』","c":["できるだけ","いくぶん","相当に","ようやく"],"a":2,"e":"「可成」は「かなり（相当に）」とも「なるべく（できるだけ）」とも読む当て字で、どちらかは文脈で決める。ここは「大きな百姓」を修飾し、人望もある相当に大きな農家だと言っているので「かなり」＝相当に。「できるだけ」はもう一つの読み「なるべく」の意味で、「できるだけ大きな百姓」では文が通らない。「いくぶん」は程度を弱く取り違えたもの。「ようやく」は語の意味にない。"},{"g":"ateji","p":"傍線部の読みとして正しいものを選べ。","q":"時にはわざわざ枕さえ出して本式に昼寝を貪ぼる事もあった。眼が覚めると、蝉の声を聞いた。うつつから続いているようなその声は、急に《八釜しく》耳の底を掻き乱した。","s":"漱石『こころ』","c":["せわしく","ものがなしく","わびしく","やかましく"],"a":3,"e":"「八釜しい」は「やかましい」の当て字で、「八」と「釜」の音を借りただけで、字の意味とは関係がない。「八（や）」「釜（かま）」の音と、送り仮名の「しく」をつなげれば読める。「せわしく」は蝉の鳴き方の印象から、「ものがなしく」「わびしく」は後の「悲しい思い」に引かれて、場面の気分で読みを考えた誤りで、どれも字の音と合わない。"},{"g":"ateji","p":"傍線部の読みとして正しいものを選べ。","q":"（叔母が、久しぶりに会う甥の宗助について、叔父に話している。）それが二三年見ないうちに、まるで別の人みたように老けちまって。今じゃあなたより御爺さん御爺さんしていますよ」と云う。「《真逆》」と叔父がまた答える。","s":"漱石『門』","c":["まさか","まぎゃく","しんぎゃく","さかしま"],"a":0,"e":"「真逆」は「まさか」と読み、そんなことはあるまい、と打ち消す気持ちを表す。年寄りの叔父より若い宗助の方が老けて見える、という叔母の言葉を、叔父が「まさか」と打ち消したのである。「まぎゃく」は、今の「正反対」の意味の語と取り違えた誤り。「しんぎゃく」は音読みで組み立てた誤り。「さかしま」は「逆」の訓から考えた誤りである。"},{"g":"ateji","p":"傍線部の本文中での読みとして正しいものを選べ。","q":"宗助は……清にちょっと上の坂井まで行ってくるからと告げて、不断着の上へ、袂の出る短いインヴァネスを纏って表へ出た。今まで陰気な室にいた《所為》か、通へ来ると急にからりと気が晴れた。","s":"漱石『門』","c":["しょい","せい","ゆえ","ところ"],"a":1,"e":"「所為」は、音読みの「しょい」なら「しわざ・行い」、当て字の読みの「せい」なら「原因・ため」の意味になる。ここは「陰気な室にいた」ことが、気が晴れた原因として示されているので「せい」と読む。「しょい」はもう一つの読みだが、しわざの意味では文が通らない。「ゆえ」は意味から当てた誤り。「ところ」は「所」の字の訓で読んだ誤りである。"},{"g":"ateji","p":"傍線部の本文中における意味として最も適当なものを選べ。","q":"（「自分」の家に泥棒が入り、翌日、刑事が話を聞きに来た。）話をして聞かせる刑事も心細い顔をしていた。出入のものを呼んで戸締りを直そうと思ったら《生憎》、暮で用が立て込んでいて来られない。そのうちに夜になった。","s":"漱石『永日小品』","c":["憎らしいことに","思ったとおり","都合の悪いことに","驚いたことに"],"a":2,"e":"「生憎」は「あいにく」と読み、期待や目的に合わず都合が悪いことに、の意味。戸締りを直したかったのに、年の暮れで職人が忙しく来られない、という不運を表している。「憎らしいことに」は「憎」の字から考えた誤りで、相手を憎む意味はない。「思ったとおり」は予想どおりの意味で、期待が外れる「あいにく」とは逆。「驚いたことに」は語の意味にない。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"（「自分」が渋谷村に住んでいたころの日記からの抜き書きである。）同二十日――「美しき朝。空は片雲なく、地は霜柱白銀のごとくきらめく。小鳥梢に囀ず。梢頭針のごとし」二月八日――「《梅咲きぬ》。月ようやく美なり」","s":"独歩『武蔵野』","c":["梅が咲かない","梅が咲いた","梅がきっと咲くだろう","梅が咲かなかった"],"a":1,"e":"「咲き」は「咲く」の連用形で、連用形につく「ぬ」は完了の助動詞である。したがって「梅が咲いた」の意味になる。冬の日記が続いたあと、二月に梅が開き、月も美しくなった、という春の訪れの記録である。「咲かない」「咲かなかった」は打消の「ぬ」と取り違えた誤りで、打消なら未然形について「咲かぬ」となる。「きっと咲くだろう」は、「ぬべし」「なむ」などの強意の用法と取り違えたもので、推量の語がないので当たらない。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"（和尚が、夜の庭で鳩を呼んでみようと言った。）和尚ははたと掌を拍つ。声は風中に死して一羽の鳩も《下りぬ》。「下りんかいな。下りそうなものじゃが」了念は余の顔を見て、ちょっと笑った。","s":"漱石『草枕』","c":["下りてきてしまった","下りてこない","下りてこないだろう","下りてきそうだ"],"a":1,"e":"「下り」は上二段活用で、未然形と連用形が同じ形なので、形だけでは「ぬ」が打消か完了か決まらない。そこで前後を見ると、手を打つ音は風に消え、和尚が「下りんかいな（下りないのかなあ）」と言っているので、鳩は一羽も下りてこなかったと分かる。よって打消。「下りてきてしまった」は完了と取り違えた誤り。「こないだろう」は推量と、「きそうだ」は様態と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"三四郎は母の言いつけどおり野々宮宗八を尋ねることにした。あくる日は平生よりも暑い日であった。休暇中だから理科大学を尋ねても野々宮君は《おるまい》と思ったが、母が宿所を知らせてこないから、聞き合わせかたがた行ってみようという気になって","s":"漱石『三四郎』","c":["いないようにしよう","いてはいけない","いないだろう","いなかった"],"a":2,"e":"「まい」には打消推量（〜ないだろう）と打消意志（〜ないようにしよう）がある。ここで「おる（いる）」の主語は他人の野々宮君で、三四郎が「休暇中だから」と理由を挙げて予想しているので打消推量である。「いないようにしよう」は打消意志と取り違えた誤りで、他人の行動について自分が決めることはできない。「いてはいけない」は禁止、「いなかった」は過去の打消と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"（「先生」は、親の財産をめぐって叔父に欺された。）しかし私は誘き寄せられるのが厭でした。他の手に乗るのは何よりも業腹でした。叔父に欺された私は、これから先どんな事があっても、人には《欺されまい》と決心したのです。","s":"漱石『こころ』","c":["欺されないだろう","欺されるはずがない","欺されずに済んだ","欺されないようにしよう"],"a":3,"e":"「まい」は、主語が自分で、自分のこれからの態度について言うときは打消意志（〜ないようにしよう）になる。ここは「決心した」と結ばれており、二度と人に欺されないようにしようという「私」の強い意志を表す。「欺されないだろう」は打消推量と取り違えた誤りで、決心の内容にならない。「はずがない」は当然の打消と、「済んだ」は完了と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"「思い出す事など」は忘れるから思い出すのである。ようやく生き残って東京に帰った余は、病に因って纔かに享けえたこの長閑な心持を早くも《失わんとし》つつある。","s":"漱石『思い出す事など』","c":["失わずにいようとし","失ってしまったと感じ","失いかけ","失うべきだと考え"],"a":2,"e":"「失わん」の「ん」は古文の「む」にあたる推量・意志の助動詞で、「〜んとす」は「〜しようとする」「〜しかける」の意味になる。病気のおかげで得たのどかな心持ちを、東京に帰って早くも失いかけている、という嘆きである。「失わずにいよう」は、「ん」を打消の「ぬ」と取り違えた誤り。「失ってしまった」は完了と、「失うべきだ」は当然と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"だから内供の眼には、紺の水干も白の帷子もはいらない。まして柑子色の帽子や、椎鈍の法衣なぞは、見慣れているだけに、《有れども無きが如く》である。内供は人を見ずに、ただ、鼻を見た。","s":"芥川『鼻』","c":["あっても無いのと同じよう","あるのに無いと言い張るよう","あったり無かったりするよう","あるならば無くてもよいよう"],"a":0,"e":"「ども」は逆接の確定条件（〜けれども）、「如く（ごとく）」は比況（〜のようだ）で、「あるけれども、無いのと同じようだ」という意味になる。鼻ばかり見ている内供には、見慣れた衣服など目に入らない、という文脈である。「言い張るよう」は、比況を人のふるまいと取り違えた誤り。「あったり無かったり」は逆接を並列と、「あるならば」は逆接の確定を仮定と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"鉢の土は袂屑のような塵に掩われているが、その青々とした色を見れば、無情な主人も折々水位《遣らずにはいられない》。","s":"鷗外『サフラン』","c":["どうしても遣る気になれない","遣らなければならない決まりだ","どうしても遣ってしまう","遣ることなど思いもよらない"],"a":2,"e":"「ずにはいられない」は、「〜しないでいることはできない」と打消が二つ重なった形で、「どうしても〜してしまう」という肯定の意味になる。ふだんは世話をしない「無情な主人」でも、青々とした葉を見ると、どうしても水ぐらいは遣ってしまうのである。「遣る気になれない」は打消を一つだけ読んだ誤り。「決まりだ」は、気持ちから自然にそうなる意味を、外から課された義務と取り違えたもの。「思いもよらない」は全体を否定と読んだ誤りである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"人の世を作ったものは神でもなければ鬼でもない。やはり向う三軒両隣りにちらちらするただの人である。ただの人が作った人の世が住みにくい《からとて》、越す国はあるまい。","s":"漱石『草枕』","c":["住みにくいからこそ","住みにくいからといって","住みにくい以上は","住みにくいのだから"],"a":1,"e":"「とて」は「と言って」がつまった助詞で、「からとて」は「からといって」の意味。後ろに「越す国はあるまい（ないだろう）」と打消が続き、人の世が住みにくいからといって、ほかに引っ越す国はない、という逆接的な関係になる。「からこそ」「以上は」は、理由を強めたり前提にしたりする意味で、後の打消とつながらない。「のだから」は「とて」を単なる理由と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"しかしこの「すれば」は、いつまでたっても、結局「すれば」であった。下人は、手段を選ばないという事を《肯定しながらも》、この「すれば」のかたをつけるために、当然、その後に来る可き「盗人になるよりほかに仕方がない」と云う事を、積極的に肯定するだけの、勇気が出ずにいたのである。","s":"芥川『羅生門』","c":["肯定すると同時に","肯定したうえで","肯定しているので","肯定してはいるものの"],"a":3,"e":"「ながら（も）」には、同時（〜しつつ）と逆接（〜けれども）がある。ここは、手段を選ばないことは認めているのに、盗人になるしかないと認める勇気は出ない、と前後が食い違っているので逆接である。「同時に」は同時の意味と取り違えた誤り。「肯定したうえで」は、前の事柄を前提にして次へ進む意味になり、食い違いが消える。「ので」は理由と取り違えたものである。"},{"g":"bunmatsu","p":"傍線部の意味（解釈）として最も適当なものを選べ。","q":"（「私」は、信州の山国の冬の寒さを書きとめている。）夜を越した手桶の水は、朝に成って見ると半分は氷だ。……沢庵も、菜漬も皆な凍って、噛めばザクザク音がする。時には漬物まで湯で《すすがねばならぬ》。","s":"藤村『千曲川のスケッチ』","c":["すすがなければならない","すすいではならない","すすがずにはいられない","すすがないので、だめになる"],"a":0,"e":"「ねば」は打消の助動詞「ず」の已然形「ね」に「ば」がついた形で「〜ないので」「〜なければ」、「ならぬ」は「ならない」。合わせて「すすがなければならない」となる。漬物まで凍るので、湯で洗って氷を落とさないと食べられないのである。「すすいではならない」は、「ならぬ」だけを読んで禁止と取り違えた誤り。「ずにはいられない」は、必要からする義務を、気持ちからくる衝動と取り違えたもの。「ないので、だめになる」は、已然形＋「ば」を確定条件（〜ので）と読み、「ならぬ」を「だめになる」と読んだ誤りである。"},{"g":"gakusei","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（大学を卒業して郷里に帰っていた「私」は、友人から知らされた地方の中学教員の口を断った。）私は返事を出した後で、父と母にその話をした。二人とも私の断った事に異存はないようであった。「そんな所へ行かないでも、まだ好い《口》があるだろう」","s":"漱石『こころ』","c":["紹介を頼める有力な知人","縁談の相手となる良い家","勤め先としての職や地位","暮らしの足しになるもうけ話"],"a":2,"e":"「口」はここでは勤め口の意味です。直前の「中学教員の口」を断った話を受け、両親はもっと条件の良い職があるだろうと言っています。「縁談の口」という使い方もありますが、この場面は就職の話なので合いません。「有力な知人」は職を世話する人と職そのものの取り違え、「もうけ話」は口を「うまい話」と字面で読んだ誤りです。"},{"g":"gakusei","p":"父が傍線部のように言うのはなぜか。その理由として最も適当なものを、次のうちから一つ選べ。","q":"「しかし卒業した以上は、少なくとも独立してやって行ってくれなくっちゃこっちも困る。人からあなたの所のご二男は、大学を卒業なすって何をしてお出ですかと聞かれた時に返事ができないようじゃ、《おれも肩身が狭いから》」","s":"漱石『こころ』","c":["大学までの学費を借金でまかなっており、息子が働いて返さなければ家の暮らしが立ち行かなくなるから","大学を出た者は相応の地位に就くと郷里では思われており、職がないままでは家の体面にかかわるから","家を継ぐべき息子が東京で自由に暮らしていることを、郷里の人々に責められるのを恐れているから","息子の勤め先を世話してやれないことで、父である自分の顔の狭さが郷里の人々に知れてしまうから"],"a":1,"e":"当時、大学を卒業できる者はごく一部で、郷里では「大学を出ればそれなりの地位と月給」が当然と考えられていました。父が気にしているのは、人に聞かれて答えられない「外聞」です。「借金で学費」は今の奨学金の感覚で読んだ誤り。「家を継ぐ」は、「私」が二男であることの読み落とし。「父の顔の狭さ」は、問われているのが息子の身の振り方であることを取り違えています。"},{"g":"gakusei","p":"傍線部から読み取れる「先生」の立場・状況として最も適当なものを、次のうちから一つ選べ。","q":"（「先生」は大学を出ているが、勤めには就いていない。暮らしは質素だが、物に困る様子はない。）その先生は私に国へ帰ったら父の生きているうちに早く財産を分けて貰えと勧める人であった。卒業したから、地位の周旋をしてやろうという人ではなかった。「その先生は何をしているのかい」と父が聞いた。「《何にもしていないんです》」と私が答えた。","s":"漱石『こころ』","c":["勤めには就かず、手元にある財産で暮らしを立てている","勤め先を失って、次の仕事が見つからずに困っている","病のために働けず、妻の実家の援助で暮らしている","世間の職には就かず、自宅で学問の著述に励んでいる"],"a":0,"e":"先生は「元は財産家」で「そのくらいの金はある」と語る人物で、手元の財産で暮らし、職に就いていません。こうした人は当時「高等遊民」とも呼ばれました。「勤め先を失って」は今の「無職＝失業」の感覚による誤り。「妻の実家の援助」は本文に根拠がありません。「学問の著述」は偉い人なら何か仕事をしているはずという父の見方に引きずられた読みで、「何にもしていない」と合いません。"},{"g":"gakusei","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（宗助は、家主の坂井に弟の小六の身の振り方を相談している。）主人はここでちょっと笑ったが、やがて、「どうです、私の所へ《書生》に寄こしちゃ、少しは社会教育になるかも知れない」と云った。主人の書生は彼の犬が病気で病院へ這入る一カ月前とかに、徴兵検査に合格して入営したぎり今では一人もいないのだそうであった。","s":"漱石『門』","c":["学校に籍を置いて、学問を修めている若者","役所や会社で、書類の作成を受け持つ若者","主人のそばに仕え、身の回りの雑用だけする若者","他人の家に住み込み、用を手伝いながら学ぶ若者"],"a":3,"e":"「書生」には①学生、②他人の家に住み込んで家の用をしながら勉強する若者、の二つの意味があります。「私の所へ書生に寄こしちゃ」と、主人の家に置く話をしているので②です。「学校に籍を置いて」は①の意味で、辞書にはあるが文脈に合いません。「書類の作成」は書生を書記と取り違えた今の感覚の誤り。「雑用だけ」は、学ぶための住み込みである点を落としています。"},{"g":"gakusei","p":"傍線部から読み取れる京都にいたころの宗助の立場・状況として最も適当なものを、次のうちから一つ選べ。","q":"彼の福岡生活は前後二年を通じて、なかなかの苦闘であった。彼は書生として京都にいる時分、種々の口実の下に、父から臨時随意に多額の《学資》を請求して、勝手しだいに消費した昔をよく思い出して、今の身分と比較しつつ、しきりに因果の束縛を恐れた。","s":"漱石『門』","c":["学ぶための金を人から借り、卒業後に働いて返すつもりで学生生活を送っていた","裕福な家の息子として、親の仕送りを思うままに受けて学生生活を送っていた","父の事業を手伝う見返りとして、学ぶ費用を出してもらい学生生活を送っていた","家を継ぐ長男の務めとして、父の命じるままに学問を修める学生生活を送っていた"],"a":1,"e":"学資は学ぶための費用で、当時は親や郷里からの仕送りでまかなうのが普通でした。宗助は「種々の口実」で「臨時随意に多額」を求め、「勝手しだいに消費」できたのですから、裕福な家の息子です。「人から借り」は今の奨学金の感覚による誤り。「事業を手伝う見返り」は本文に根拠がありません。「父の命じるままに」は、勝手に使っていたという本文と逆の人物像になっています。"},{"g":"gakusei","p":"清が傍線部のように語るのはなぜか。その理由として最も適当なものを、次のうちから一つ選べ。","q":"（「清」は、「おれ」の家に長く仕えてきた下女で、「おれ」をかわいがっている。）清はおれを前へ置いて、いろいろおれの自慢を甥に聞かせた。今に学校を卒業すると麹町辺へ屋敷を買って《役所へ通う》のだなどと吹聴した事もある。","s":"漱石『坊っちゃん』","c":["役所勤めは誰にでも務まる平凡な仕事なので、無鉄砲な「おれ」でも困らずに暮らせると考えているから","学校を出れば役所の技師になると決まっていると聞かされ、その話をそのまま甥に伝えているから","学校を出た者は役人となって出世するのが立派な道だと考え、「おれ」をその道に進む人と信じているから","自分の仕えてきた家の格の高さを甥に示し、奉公人としての自分の値打ちを誇りたいと思っているから"],"a":2,"e":"明治の世では、学校を出て官吏（役人）になり、屋敷を構えることが出世の代表的な姿でした。清は「おれ」をその道を歩む人物と信じ込み、自慢しています。「平凡な仕事」は、今の公務員の感覚で読んだ誤り。「技師になると決まっている」は本文に根拠がありません。「自分の値打ちを誇りたい」は、自慢の中心が「おれ」の将来であることを取り違えています。"},{"g":"gakusei","p":"傍線部から読み取れる三四郎の立場・状況として最も適当なものを、次のうちから一つ選べ。","q":"（三四郎は九州から東京へ向かう汽車の旅の途中、名古屋で降りた。）大きな行李は新橋まで預けてあるから心配はない。三四郎はてごろなズックの鞄と傘だけ持って改札場を出た。頭には高等学校の夏帽をかぶっている。《しかし卒業したしるしに徽章だけはもぎ取ってしまった。》","s":"漱石『三四郎』","c":["九州の高等学校を出て、東京の大学に入るために上京する途中である","九州の高等学校を出て、東京で勤めに就くために上京する途中である","九州の高等学校を追われ、そのしるしに徽章を外して上京する途中である","九州の高等学校の卒業前に、東京の大学の試験を受けに行く途中である"],"a":0,"e":"当時の高等学校は、帝国大学へ進むための学校で、今の高校とは違います。三四郎はそこを卒業し、東京の大学に入るため上京しています。「勤めに就く」は、今の「高校を出て就職」の感覚で読んだ誤り。「追われ」は徽章を取った理由を「卒業したしるし」から外れて読んだ誤り。「卒業前」は「卒業した」という本文と合いません。"},{"g":"gakusei","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"岡田は卒業の期を待たずに《洋行》することに極まって、もう外務省から旅行券を受け取り、大学へ退学届を出してしまった。それは東洋の風土病を研究しに来たドイツの Professor W. が、往復旅費四千マルクと、月給二百マルクを給して岡田を傭ったからである。","s":"鷗外『雁』","c":["外国人の学校へ移ること","西洋の学問の道に進むこと","外国人を案内して旅すること","西洋の国へ渡ること"],"a":3,"e":"「洋行」は西洋へ行くことで、明治の人にとっては留学や視察を意味する大きな出来事でした。旅行券（旅券）を受け取り、ドイツ人に雇われて行くという文脈にも合います。「西洋の学問の道」は、洋行の目的としてはありそうだが語の意味から外れています。「外国人の学校へ移る」は、大学に退学届を出したことからの推測で、渡航の意味が抜けています。「案内して旅する」は雇われた話からの取り違えです。"},{"g":"gakusei","p":"老人（島田）が傍線部のように言うのはなぜか。老人自身の考えとして最も適当なものを、次のうちから一つ選べ。","q":"（健三は西洋から帰り、学問で身を立てている。かつての養父の島田が、吉田という男を連れて健三を訪ねて来ている。）「こちらの先生も一つ御儲けになったら如何です」吉田は突然健三の方を向いた。健三は苦笑しない訳に行かなかった。仕方なしに「ええ儲けたいものですね」といって跋を合せた。「なに訳はないんです。《洋行まですりゃ》」　これは年寄の言葉であった。","s":"漱石『道草』","c":["外国で商売のやり方を見てきた者は、金もうけに長けているものと考えているから","西洋まで行って学問を仕上げた者は、高い地位と収入を得られるものと考えているから","洋行までした者は国から手当を受け続けられるので、働かずに得をするものと考えているから","洋行までした健三なら、学問を捨てて商売を始めてもすぐ成功するものと考えているから"],"a":1,"e":"当時の洋行は、学問を仕上げて地位や収入を得るための箔でした。老人は、洋行までした健三なら金もうけは簡単だと言っています。「商売のやり方」は、洋行を商用の旅と取り違えた誤り。「国から手当」は根拠のない思い込み。「学問を捨てて商売」は、学問を仕上げたからこそ得をするという老人の理屈を外しています。直後の「自分で学資でも出して…ように聞こえた」は健三の受け取り方で、老人の考えそのものではありません。"},{"g":"gakusei","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（「私」は若いころ、兄に連れられて芸者屋へ遊びに行き、咲松という芸者に会った。そのときの「私」は小倉の袴をはき、懐には一銭の小遣いもなかった。従兄の家では彼女を御作と呼んでいた。その後、御作は客に身請けされて芸者をやめたと聞いた。）ところがそれからだいぶ経って、私が例の達人といっしょに、芝の山内の勧工場へ行ったら、そこでまたぱったり御作に出会った。こちらの《書生姿》に引き易えて、彼女はもう品の好い奥様に変っていた。","s":"漱石『硝子戸の中』","c":["学業を終え、世に出たばかりの若者の身なり","役所に勤め、書類を扱う若者の身なり","まだ学生で、身の定まらない若者の身なり","芸者屋に通いなれた、遊び好きの若者の身なり"],"a":2,"e":"ここの「書生」は学生の意味です。小倉の袴に小遣いもない「私」はまだ学生で、身が定まっていません。それに対して御作は「品の好い奥様」になっていた、という対比です。「世に出たばかり」は、書生を卒業後の若者と取り違え、対比を弱めています。「書類を扱う」は書生を書記と取り違えた今の感覚の誤り。「遊び好き」は芸者屋の場面に引きずられた読みで、書生の意味から外れます。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（両親を亡くした「私」は、高等学校に入ったばかりの夏、郷里の家に帰った。その家には、留守を預かる叔父の一家が住んでいた。）彼らの主意は単簡でした。早く嫁を貰ってここの家へ帰って来て、亡くなった父の後を《相続しろ》というだけなのです。","s":"漱石『こころ』","c":["父の遺した預金を受け取って、自分の学資に充てよ","父の就いていた仕事を受け継いで、家業を始めよ","父の遺言を守って、叔父の決めた相手と結婚せよ","父に代わって家の主となり、家と財産を受け継げ"],"a":3,"e":"当時の「相続」は、家督相続、つまり戸主の地位と家の財産をまとめて受け継ぎ、家の主となることです。だから「嫁を貰って家へ帰って来て」とつながります。「預金を受け取って」は、相続をお金の遺産分けと考える今の感覚。「家業を始めよ」は、家を継ぐことを職業を継ぐことと取り違えています。「遺言を守って」は、結婚を勧められた場面に引きずられた読みで、語の意味から外れます。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（Ｋは寺の次男で、医者の家へ養子に行き、その養家の出す学資で東京へ出た。しかし養家の望む医学の道には進まなかった。）最後にＫはとうとう《復籍》に決しました。養家から出してもらった学資は、実家で弁償する事になったのです。その代り実家の方でも構わないから、これからは勝手にしろというのです。","s":"漱石『こころ』","c":["養子の縁を解いて、生まれた家の籍に戻ること","やめていた学校に、ふたたび籍を戻すこと","養家の籍のまま、実家に戻って暮らすこと","どちらの家も出て、自分だけの籍を作ること"],"a":0,"e":"「復籍」は、養子縁組などを解いて、もとの家の籍に戻ることです。だから養家の出した学資を実家が弁償することになります。「学校に籍を戻す」は「籍」を学籍と読んだ字面の誤り。「養家の籍のまま」は、籍と住む場所を取り違えています。「自分だけの籍を作る」は、実家が「勝手にしろ」と突き放した部分に引きずられた読みで、復籍の意味と逆です。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（「おれ」は、将棋の最中に兄とけんかをした。）あんまり腹が立ったから、手に在った飛車を眉間へ擲きつけてやった。眉間が割れて少々血が出た。兄がおやじに言付けた。おやじがおれを《勘当》すると言い出した。","s":"漱石『坊っちゃん』","c":["厳しく叱って、しばらく外出を禁じること","親子の縁を切って、家から追い出すこと","罰として、当分の小遣いを与えないこと","よその家へ養子に出して、遠ざけること"],"a":1,"e":"「勘当」は、親が子との縁を切り、家から追い出すことです。このあと下女の清が泣いて詫びてようやく許されるほどの、重い処分でした。「外出を禁じる」「小遣いを与えない」は、今の家庭の「罰」の感覚で軽く読んだ誤りです。「養子に出して」は、家から離すという点は似ていますが、縁を切ることとは違い、別の制度と混同しています。"},{"g":"ie","p":"「おれ」が傍線部のように言うのはなぜか。その理由として最も適当なものを、次のうちから一つ選べ。","q":"（父の死後、家を継いだ兄は、家屋敷を売り払って会社の転勤先の九州へ行くことになった。清はこの家に長く仕えてきた下女である。）清は十何年居たうちが人手に渡るのを大いに残念がったが、自分のものでないから、仕様がなかった。あなたがもう少し年をとっていらっしゃれば、ここがご相続が出来ますものをとしきりに口説いていた。もう少し年をとって相続が出来るものなら、今でも相続が出来るはずだ。《婆さんは何も知らないから年さえ取れば兄の家がもらえると信じている。》","s":"漱石『坊っちゃん』","c":["家屋敷がすでに売られて人手に渡ることを、清がまだ知らされておらず取り戻せると思っているから","兄が家を売った金を独り占めにし、弟には分ける気がないことを清が知らされていないから","家を継ぐのは年齢によらず長男と決まっており、次男の「おれ」にはもともと継ぐ立場がないから","奉公人の清には、主人の家の相続に口を出す資格がないことを、清がわきまえていないから"],"a":2,"e":"当時、家を継ぐ（家督相続する）のは原則として長男で、年齢は関係ありません。だから「年をとって相続が出来るものなら、今でも出来るはず」と言い、清の思い込みを笑っています。「知らされておらず」は、清が「人手に渡るのを大いに残念がった」という本文の読み落とし。「金を独り占め」は本文に根拠がありません。「口を出す資格」は、「何も知らない」の中身を取り違えています。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（宗助の父の死後、叔父が宗助の家屋敷を売った。その金のゆくえについて、叔母が亡き叔父の言い分を宗助に伝えている。）しかし宗助の邸宅を売って儲けたと云われては心持が悪いから、これは小六の名義で保管して置いて、小六の財産にしてやる。宗助はあんな事をして《廃嫡》にまでされかかった奴だから、一文だって取る権利はない。","s":"漱石『門』","c":["正式な妻の身分を取り上げて離縁すること","在籍していた学校から籍を除かれること","家の跡継ぎとしての資格を取り上げること","家の財産を売り払って残らず処分すること"],"a":2,"e":"「廃嫡」は、家の跡継ぎ（嫡子）の資格を取り上げることです。叔父は、宗助は跡継ぎの資格を失いかけた者だから家の財産を受け取る権利はない、と言っています。「妻の身分を取り上げる」は「嫡」を正妻の意味と取った字面の誤り。「学校から籍を除かれる」は、宗助が学業を捨てた事情に引きずられた読み。「財産を売り払う」は、場面の話題（家屋敷の売却）と語の意味を混同しています。"},{"g":"ie","p":"傍線部の人物について、本文から読み取れる立場として最も適当なものを、次のうちから一つ選べ。","q":"京都からすぐ広島へ行って、そこに半年ばかり暮らしているうちに父が死んだ。母は父よりも六年ほど前に死んでいた。だから後には二十五六になる《妾》と、十六になる小六が残っただけであった。……妾は相当の金をやってすぐ暇を出す事にきめた。","s":"漱石『門』","c":["正式な妻ではなく父のそばに置かれた女性で、家を受け継ぐ立場にない人","父が母の死後に正式に迎えた後妻で、小六にとっては継母にあたる人","住み込みで家の用をしていた奉公人の女性で、父の看病も任された人","父の遠縁にあたる娘で、小六の許嫁として家に引き取られていた人"],"a":0,"e":"「妾」は、正式な妻とは別に男が手当を出して囲う女性です。家族の一員として財産を受け継ぐ立場にはないので、父が死ぬと「相当の金をやってすぐ暇を出す」、つまり手切れの金を渡して去らせることになります。「後妻」は妾を妻と取り違えた誤りで、妻なら家族として残るはずです。「奉公人」は女中との混同。「許嫁」は、小六と並べて書かれていることからの思い込みです。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（健三は幼いころ島田の養子になり、のちに実家へ引き取られた。細君が、そのいきさつを書いた古い書付を読んでいる。）書付のしまいの方には、島田が健三の戸籍を元通りにして置いて実家へ返さないのみならず、いつの間にか《戸主》に改めた彼の印形を濫用して金を借り散らした例などが挙げてあった。","s":"漱石『道草』","c":["自分の金で家を建て、その土地と建物を持つ人","家族のために働いて、暮らしの費用を稼ぐ人","戸籍の届け出を、家の者に代わって行う人","家の長として、家の者を率い財産を管理する人"],"a":3,"e":"「戸主」は、明治の民法で定められた家の長で、家の者を率い、家の財産を管理する立場です。子どもの健三を戸主にしておけば、その名と印で金を借りることができたわけです。「土地と建物を持つ人」は、戸主を建物の持ち主と取り違えた誤り。「暮らしの費用を稼ぐ人」は、今の「世帯主＝稼ぎ手」の感覚です。「届け出を行う人」は、戸籍という言葉に引きずられた読みです。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（島田はかつて、健三と、後妻の御藤さんの娘である御縫さんとを一緒にさせようと考えたことがあった。健三と細君がその話をしている。）「だって御縫さんが今嫁いてる先は元からの《許嫁》なんでしょう」「許嫁でも場合によったら断る気だったんだろうよ」","s":"漱石『道草』","c":["本人どうしが思い合い、結婚を誓い合っていた相手","家どうしの間で、前から結婚を約束してあった相手","仲人を立て、式を挙げて正式に夫婦となった相手","親の決めた縁談を断り、本人が自ら選んだ相手"],"a":1,"e":"「許嫁」は、親や家どうしが前もって決めておいた結婚の相手です。だから「場合によったら断る気だった」、つまり家の都合次第で約束を変えることもありえた、という会話になります。「本人どうしが思い合い」は、今の婚約者の感覚で読んだ誤り。「式を挙げて正式に夫婦」は、「嫁いてる先」を許嫁の意味と混同しています。「自ら選んだ相手」は、許嫁の意味と逆です。"},{"g":"ie","p":"お玉が傍線部のように話を受け入れたのはなぜか。当時の事情をふまえて最も適当なものを、次のうちから一つ選べ。","q":"（高利貸の末造は、飴細工屋の老人の娘お玉を妾にしたいと考え、人を介して話を持ち込んだ。）そこで或る大きい商人が妾に欲しいと云うがどうだと、人を以て掛け合うと、最初は妾になるのはいやだと云っていたが、おとなしい女だけに、《とうとう親の為めだと云うので》、松源で檀那にお目見えをすると云う処まで話が運んだ。","s":"鷗外『雁』","c":["妾になれば旦那の正式な妻として迎えられるので、貧しい父を楽にさせられると考えたから","妾になれば旦那の家に住み込んで働けるので、その給金で父を楽にさせられると考えたから","妾になれば父も旦那の店で雇ってもらえるので、貧しい父を楽にさせられると考えたから","妾になれば旦那から暮らしの手当が出るので、貧しい父を楽にさせられると考えたから"],"a":3,"e":"妾は正式な妻ではありませんが、旦那から住まいや暮らしの手当を受けます。お玉は、貧しい父の暮らしを楽にするために、いやな話を受け入れました。「正式な妻として迎えられる」は、妾と妻を取り違えた誤り。「住み込んで働ける」は、妾を女中（奉公人）と混同し、給金で暮らすものと考えた誤り。「父も店で雇ってもらえる」は、本文に根拠がなく、手当を受けるという妾の立場を外しています。"},{"g":"ie","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（「私」の幼いころ、近所に寄席があった。その席亭の主人の娘の話である。）そこにまた御藤さんという娘があって、その人の容色がよく家のものの口に上った事も、まだ私の記憶を離れずにいる。後には《養子》を貰ったが、","s":"漱石『硝子戸の中』","c":["娘の夫として家に迎え入れ、家の跡を継がせる男性","身寄りのない子を引き取り、わが子として育てる男児","家の商売を手伝わせるため、住み込みで雇った男性","娘と夫婦になったのち、妻の家を出て一家を構えた男性"],"a":0,"e":"年ごろの娘のいる家が「養子を貰った」とあれば、娘の夫として家に入り跡を継ぐ「婿養子」です。跡継ぎの息子がない家では、娘に婿養子を迎えて家を続けるのが普通でした。本文でもこのあと、その養子は口髭を生やした立派な男だったと書かれています。「身寄りのない子」は、今の「養子＝幼い子を育てる」の感覚。「住み込みで雇った」は奉公人との混同。「妻の家を出て」は、婿入りと嫁取りを逆に取り違えています。"},{"g":"kurashi","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（「私」は夏休みに鎌倉の宿に泊まり、毎日海水浴に出かけている。）宿は鎌倉でも辺鄙な方角にあった。玉突きだのアイスクリームだのというハイカラなものには長い畷を一つ越さなければ手が届かなかった。《車》で行っても二十銭は取られた。","s":"漱石『こころ』","c":["燃料で走り客を運ぶ四輪の車","人が引いて客を運ぶ二輪の車","馬が引いて大勢を運ぶ乗合の車","線路の上を走る路面電車の車"],"a":1,"e":"明治・大正の小説で客が乗る「車」とあれば、多くは人力車です。車夫が引いて一人か二人を運び、距離に応じて代金を払いました。「燃料で走る四輪の車」は、今の「車＝自動車」の感覚で読んだ誤りです。「馬が引く乗合の車」は乗合馬車、「路面電車」は電車のことで、どちらも当時あった乗り物ですが、「車」一語で呼ぶのは人力車です。"},{"g":"kurashi","p":"奥さんが傍線部のようにしたのはなぜか。その理由として最も適当なものを、次のうちから一つ選べ。","q":"（大学を卒業した日の晩、「私」は先生の家の夕食に招かれた。）飯になった時、奥さんは傍に坐っている下女を次へ立たせて、《自分で給仕の役をつとめた》。……始めの一、二回は私も窮屈を感じたが、度数の重なるにつけ、茶碗を奥さんの前へ出すのが、何でもなくなった。","s":"漱石『こころ』","c":["下女は家族の一員なので、祝いの席では主人夫婦と同じように客と食卓を囲ませたかったから","下女の給仕は作法が行き届かず、卒業祝いという改まった席にふさわしくないと考えたから","下女を雇い続ける余裕がなくなり、客のもてなしも自分でしなければならなくなったから","気の置けない親しい客には、奉公人を介さず主婦みずからもてなすのがこの家の習わしだったから"],"a":3,"e":"当時は中流の家でも下女（住み込みの奉公人）を置き、食事の給仕をさせるのが普通でした。奥さんがあえて下女を下がらせて自分で給仕するのは、内輪の親しい客への扱いで、「度数の重なるにつけ」とあるように、この家で繰り返されてきた習わしです。「家族の一員」は、下女を家族と取り違えた今の感覚。「改まった席にふさわしくない」は、何度も同じようにもてなされている本文と合いません。「雇う余裕がない」は、下女が傍に坐っている本文と合いません。"},{"g":"kurashi","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"実をいうと三四郎はこのあいだ与次郎に二十円貸した。二週間後には文芸時評社から原稿料が取れるはずだから、それまで立替えてくれろと言う。事理を聞いてみると、気の毒であったから、国から送ってきたばかりの《為替》を五円引いて、余りはことごとく貸してしまった。","s":"漱石『三四郎』","c":["郷里の銀行に預けておいた自分の貯え","郷里の知人から借りて受け取ったお金","郷里の家から郵便で送られてきたお金","郷里の役場から学生に出される手当金"],"a":2,"e":"「為替」は、現金の代わりに証書などで送るお金のことで、ここでは郷里（国）の家から送られてきた仕送りです。地方出身の学生は、こうした仕送りで下宿代や学費をまかないました。「自分の貯え」は「送ってきた」と合いません。「知人から借りた」は、与次郎に貸す場面に引きずられた読み。「役場からの手当」は、今の奨学金や給付金の感覚で読んだ誤りです。"},{"g":"kurashi","p":"健三が傍線部のように感じるのはなぜか。その理由として最も適当なものを、次のうちから一つ選べ。","q":"（健三の家は収入が足りず、毎月の暮らしが苦しい。細君は、自分の着物と帯を質に入れたことを健三に打ち明けた。）健三はその先を訊かなかった。夫が碌な着物一枚さえ拵えてやらないのに、細君が自分の宅から持ってきたものを質に入れて、家計の足にしなければならないというのは、《夫の恥に相違なかった》。","s":"漱石『道草』","c":["妻が実家から持ってきた品まで質に入れさせて暮らすのは、一家を養う夫の務めを果たせていない証拠だから","質屋に通うのは法に触れる行いであり、世間に知られれば夫の勤め口まで失うことになりかねないから","妻の着物は夫が買い与えたものなのに、断りもなく質に入れられたのは夫が軽んじられた証拠だから","質に入れた品は二度と戻らないので、妻の実家に知られれば離縁を言い渡されることになりかねないから"],"a":0,"e":"質屋は品物を預けて金を借りる所で、期限内に返せば品物は戻ります。法に触れることではありませんが、人目をはばかる、貧しさの表れでした。まして妻が実家から持ってきた着物を質に入れて家計を支えるのは、一家を養うべき夫の不甲斐なさを示すので「恥」なのです。「法に触れる」は誤った思い込み。「夫が買い与えた」は本文と逆。「二度と戻らない」は、質を売却と取り違えています。"},{"g":"kurashi","p":"健三の兄が傍線部のように恐れるのはなぜか。その理由として最も適当なものを、次のうちから一つ選べ。","q":"（健三の兄は役所に勤め、一晩おきに泊まり込んで夜通し働いている。）「何しろ夜寐ないんだから、身体に障ってね」彼はよく風邪を引いて咳嗽をした。ある時は熱も出た。するとその熱が必ず《肺病の前兆でなければならないように彼を脅かした》。","s":"漱石『道草』","c":["肺病は手術で治せる病だが、入院すれば長く勤めを休むことになり職を失うから","肺病は命にかかわらない病だが、人にうつるのを恐れて周りから避けられるから","肺病は命を落とすことの多い病で、兄はすでに医者から肺病と告げられているから","肺病は特効薬がなく命を落とすことの多い病で、かかれば勤めも続けられなくなるから"],"a":3,"e":"肺病（肺結核）は、当時は特効薬がなく、若い人も多く命を落とす病でした。熱や咳が出るたびにそれを疑って怯えるのは、そのためです。病身で働き続けるしかない兄にとって、発病は命と暮らしの両方を失うことでした。「手術で治せる」は今の医療の感覚で、病の重さを取り違えています。「命にかかわらない」は、肺病を軽い病と見た誤り。「すでに告げられている」は、熱を「前兆」ではないかと恐れている本文の読み落としで、まだ診断は下っていません。"},{"g":"kurashi","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（宗助は役所に勤めている。官吏の増俸に伴って人員の整理が行われたが、宗助は勤めを続けられ、月給も五円上がった。）「原則通り二割五分増さないでも仕方があるまい。《休められた人》も、元給のままでいる人もたくさんあるんだから」と云った宗助は、この五円に自己以上の価値をもたらし帰ったごとく満足の色を見せた。","s":"漱石『門』","c":["体をこわして、自分から休みを願い出た人","増俸の順番を待ち、昇給を先送りされた人","整理の対象となり、勤めを離れさせられた人","役所の休日に、交代で出勤を免じられた人"],"a":2,"e":"役所の人員整理で「休められた」とは、休職を命じられ、勤めから外されたということです。宗助は整理を免れたうえに月給も上がったので、少ない増額にも満足しています。「自分から休みを願い出た」は、今の「休む＝休暇」の感覚で読んだ誤り。「昇給を先送り」は、並べて書かれた「元給のままでいる人」と区別できていません。「交代で出勤を免じられた」は、整理の文脈を読み落としています。"},{"g":"kurashi","p":"傍線部「質屋の金」の説明として最も適当なものを、次のうちから一つ選べ。","q":"（お玉は、自分を囲っている末造が高利貸であることを知った。）お玉も高利貸は厭なもの、こわいもの、世間の人に嫌われるものとは、仄かに聞き知っているが、父親が《質屋の金》しか借りたことがなく、","s":"鷗外『雁』","c":["品物を売り渡して、その代わりに受け取る金","品物を預けて、その値打ちの範囲で借りる金","品物を預けずに、証文だけで高利で借りる金","品物を預けて、利子なしで知人から借りる金"],"a":1,"e":"質屋は品物（質草）を預かり、その値打ちの範囲で金を貸す所です。期限までに利子をつけて返せば品物は戻ります。お玉の父は貧しくとも、この質屋の金しか借りたことがないので、高利貸の恐ろしさを身にしみて知らないのです。「売り渡して」は、質を売買と取り違えた誤り。「証文だけで高利で」は、本文で質屋と対比されている高利貸の貸し方です。「知人から利子なし」は、質屋が商売であることを落としています。"},{"g":"kurashi","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（筆者は重い病で寝たきりとなり、自宅で家族の看護を受けている。）我々の家族は生れてから田舎に生活した者であつて、勿論教育抔は受けた事がない。……それでも《お三どん》の仕事をするやうな事はむしろ得意であるから、平日はそれでよしとして別に備はるを求めなかつたが、","s":"子規『病牀六尺』","c":["下女が受け持つような、台所の煮炊きなどの家事","朝昼晩の三度の食事を、家族で分け持つ家事","病人の枕元について、身の回りの世話をする仕事","女学校で教わるような、裁縫や作法などの家事"],"a":0,"e":"「お三どん」は、もとは台所働きの下女を呼ぶ言葉で、そこから台所仕事そのものも指します。筆者は、家族は煮炊きなどの家事は得意だが、看護の工夫はできないと述べています。当時、病人は多く自宅で療養し、世話は家の女性が担いました。「三度の食事」は「三」の字からの字面の誤り。「病人の世話」は、この文がまさに家事と看護を分けていることの読み落とし。「女学校で教わる」は、教育を受けていないという前文と合いません。"},{"g":"kurashi","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"その時はもう仕方がないと観念して先方の云う通り勘当されるつもりでいたら、十年来召し使っている清という《下女》が、泣きながらおやじに詫まって、ようやくおやじの怒りが解けた。","s":"漱石『坊っちゃん』","c":["家に同居している、親類の年下の女性","家に住み込み、家事をして仕える奉公人の女性","家の中で低い立場に置かれた、妾の女性","入り用のときだけ通って手伝う雇いの女性"],"a":1,"e":"「下女」は、住み込みで家事をして主人の家に仕える奉公人の女性です。後の時代の「女中」とほぼ同じです。清は「十年来召し使っている」とあり、長く住み込みで仕えてきたことが分かります。「親類の年下の女性」は、家族の一員と取り違えた誤り。「妾の女性」は、家の中の女性という点だけで混同しています。「通って手伝う」は、今の家事代行の感覚で、「十年来召し使っている」と合いません。"},{"g":"kurashi","p":"傍線部の語の、この時代における意味として最も適当なものを、次のうちから一つ選べ。","q":"（筆者は旅先の伊豆の修善寺で大量に血を吐き、危うい病状になった。東京から医師が駆けつけて診察した。）余は平常の心持で苦痛なくその夜を明したのである。――話がつい外れてしまった。杉本さんは東京へ帰るや否や、自分で電話を《看護婦会》へかけて、","s":"漱石『思い出す事など』","c":["看護婦が集まって、看護の技術を学び合う会合","看護婦を育て、資格を与える病院付きの学校","看護婦が集まり、待遇の改善を求める組合","看護婦を抱え、求めに応じて病人のもとへ送る組織"],"a":3,"e":"当時は、看護婦を抱えておき、依頼に応じて病人の家や旅先へ派遣する「看護婦会」がありました。本文でもこのあと、看護婦を二人「出先へ送るように」頼んだと続きます。「学び合う会合」は「会」を集まりと読んだ字面の誤り。「病院付きの学校」は、看護婦を育てる所と送る所を取り違えています。「組合」は今の「会＝団体」の感覚で、病人のために医師が電話をかける先としては合いません。"},{"g":"zuiso","p":"傍線部に表れた筆者の心情（態度）の説明として最も適当なものを選べ。","q":"（連載随筆の最終回。筆者は、これまで他人のことと自分のことを書いてきたが、自分の欠点はつい書かずにしまった、と振り返っている。）私の罪は、――もしそれを罪と云い得るならば、――すこぶる明るいところからばかり写されていただろう。そこに或人は一種の不快を感ずるかも知れない。しかし私自身は今その不快の上に跨がって、一般の人類をひろく見渡しながら微笑しているのである。今までつまらない事を書いた自分をも、同じ眼で見渡して、あたかもそれが他人であったかの感を抱きつつ、《やはり微笑しているのである》。","s":"漱石『硝子戸の中』","c":["書いたものの足りない所も含めて、書いてきた自分を他人のように離れて眺め、穏やかに受け入れている。","取るに足りない文章しか書けなかった自分の力不足を恥じ、読者に向かって自嘲の笑いを浮かべている。","自分の文章に不快を感じる読者を、人間の真実を知らない者として、高い所から冷ややかに笑っている。","自分の罪をすべて書き尽くして懺悔を終えたことに満足し、心の重荷を下ろした安らぎに浸っている。"],"a":0,"e":"筆者は自分の書き方の偏り（明るい所ばかり写した）を認めつつ、自分をも「他人であったかの感」で見渡して微笑しています。正解はこの距離を置いた穏やかさです。「つまらない事を書いた」は謙遜の言い方で、本心から恥じて自嘲しているのではありません。微笑を読者への冷笑と取るのも誤りです。また筆者は直前で「私の書いたものは懺悔ではない」と述べており、懺悔を終えた安らぎとするのは本文に反します。"},{"g":"zuiso","p":"傍線部に表れた筆者の心情（態度）の説明として最も適当なものを選べ。","q":"（筆者の家の猫は皮膚病で毛が抜けていた。筆者は自分も病気で寝込み、その間は猫を見ることがなかった。）私は退屈な病後の眼を絶えず彼の上に注いでいた。すると私の衰弱がだんだん回復するにつれて、彼の毛もだんだん濃くなって来た。それが平生の通りになると、今度は以前より肥え始めた。私は自分の病気の経過と彼の病気の経過とを比較して見て、時々そこに何かの因縁があるような暗示を受ける。そうしてすぐその後から《馬鹿らしいと思って微笑する》。","s":"漱石『硝子戸の中』","c":["猫の毛が元どおりに生えそろい、以前より肥えてきたのを見て、思わず嬉しさがこみ上げ、笑みをこぼしている。","猫と自分の間に因縁などあるはずがないと悟り、猫の回復にもう何の関心も持たなくなった自分を笑っている。","自分と猫の回復を結びつけたくなる気持ちを、根拠のない思いつきだと打ち消しながら、そう考えた自分をおかしく思っている。","自分と猫の回復には因縁があると本気で信じながら、人に笑われるのを恐れて、冗談めかして笑っている。"],"a":2,"e":"「因縁があるような暗示を受ける」→「すぐその後から馬鹿らしいと思う」という流れです。迷信めいた思いつきを自分で打ち消し、そんなことを考えた自分をおかしく思う照れの混じった笑いが正解です。猫の回復が嬉しくて笑ったとするのは、きっかけの取り違えです。「馬鹿らしい」を言葉どおり取り、関心を失ったとするのは言いすぎです。因縁を本気で信じて照れ隠しに笑うとするのは、「馬鹿らしいと思って」という打ち消しを読み落としています。"},{"g":"zuiso","p":"傍線部で筆者が言おうとしていることとして最も適当なものを選べ。","q":"（大病をして入院した筆者が、医師や看護婦、見舞いの人々から受けた世話を振り返っている。）けれども義務とは仕事に忠実なる意味で、人間を相手に取った言葉でも何でもない。したがって義務の結果に浴する自分は、ありがたいと思いながらも、義務を果した先方に向って、感謝の念を起し悪い。それが好意となると、相手の所作が一挙一動ことごとく自分を目的にして働いてくるので、活物の自分にその一挙一動がことごとく応える。そこに互を繋ぐ暖い糸があって、器械的な世を頼母しく思わせる。《電車に乗って一区を瞬く間に走るよりも、人の背に負われて浅瀬を越した方が情が深い》。","s":"漱石『思い出す事など』","c":["便利な電車のような近代の文明よりも、人の力に頼る昔ながらの暮らしのほうが、人間らしく温かいものだということ。","仕事として手早く果たされる世話よりも、自分に向けられた好意による世話のほうが、身にしみてありがたく感じられるということ。","目的地に早く着くことよりも、時間をかけて道のりを味わうことのほうが、人生をより豊かにしてくれるということ。","報酬を受けて働く医師や看護婦よりも、何も受け取らずに世話をする家族のほうが、心から信頼できるということ。"],"a":1,"e":"電車は「義務」（仕事として器械的に果たされるもの）、人の背は「好意」（自分を目的に向けられるもの）のたとえです。正解はこの対応をとらえています。文明批判と取るのは比喩を字面で読んだ誤り、「速さか道のりか」とするのは対応の取り違えです。職業人より家族を信頼するというのは言いすぎで、筆者は直後で医師や看護婦の義務にも好意が溶け込めば尊くなると述べています。"},{"g":"zuiso","p":"傍線部に表れた筆者の心情（態度）の説明として最も適当なものを選べ。","q":"（寒さで仕事が手につかず、子どもは泣き続け、金の相談や身の上話をしに来る客が続いた一日の晩である。筆者は湯から帰り、書斎で火鉢に当たっている。）妻が出て行ったらあとが急に静かになった。全くの雪の夜である。泣く子は幸いに寝たらしい。熱い蕎麦湯を啜りながら、あかるい洋灯の下で、継ぎ立ての切炭のぱちぱち鳴る音に耳を傾けていると、赤い火気が、囲われた灰の中で仄に揺れている。時々薄青い焔が炭の股から出る。自分はこの火の色に、《始めて一日の暖味を覚えた》。","s":"漱石『永日小品』","c":["湯に入って冷えきった体がようやく温まり、朝から悩まされていた胃の痛みも消えたことに、ほっとしている。","蕎麦湯を運んでくれた妻の心づかいに、その日初めて家族の温かさを感じ取り、妻への感謝をかみしめている。","たまっていた仕事をようやく片づけることができ、明日からは落ち着いて過ごせそうだと、胸をなで下ろしている。","寒さや子の泣き声、客の相談に追われ続けた一日の終わりに、静けさの中でようやく身も心もくつろいでいる。"],"a":3,"e":"「始めて」は、一日じゅう寒さと煩わしさに縮こまっていたことを受けています。静けさ・子の寝息・火の色がそろった所で、やっと心まで温まったのです。湯で体が温まったのは火を見る前のことで、傍線部の「始めて」と合いません。妻の心づかいは場面の一部で、それを中心に据えるのはきっかけの取り違えです。仕事は結局手につかなかったので、片づいたとする選択肢は本文に反します。"},{"g":"zuiso","p":"傍線部で筆者が言おうとしていることとして最も適当なものを選べ。","q":"（筆者は、科学者は「あたま」がよくなくてはならないと同時に、「あたま」が悪くなくてはならない、と述べている。）頭のいい人は、言わば富士のすそ野まで来て、そこから頂上をながめただけで、それで富士の全体をのみ込んで東京へ引き返すという心配がある。《富士はやはり登ってみなければわからない》。","s":"寅彦『科学者とあたま』","c":["見通しのよさで全体を分かったつもりにならず、自ら確かめて初めて、物事は本当に分かるということ。","頭のよさは科学にとって害でしかなく、頭の悪い人のほうが必ず科学者として優れた仕事をするということ。","すそ野で満足せずに、頂上という高い目標を目指して努力し続けることが、科学者には欠かせないということ。","遠くから眺めて得た大まかな全体像こそが、細部にとらわれない正しい理解をもたらすということ。"],"a":0,"e":"すそ野から眺めて「のみ込んだ」つもりになるのが頭のいい人の危うさで、「登ってみる」は実際に手を動かして確かめることのたとえです。頭のよさを害でしかないとするのは言いすぎで、筆者は二つの命題がともに「ほんとう」だと述べています。頂上を「目標」と読むのは比喩の対応の取り違えです。遠くからの全体像を良しとするのは、傍線部と向きが逆です。"},{"g":"zuiso","p":"傍線部で筆者が言おうとしていることとして最も適当なものを選べ。","q":"（筆者は、災害の記念碑が忘れられ、一代前の言い置きも顧みられなくなった世の中を心細く思っている。）しかし困ったことには「自然」は過去の習慣に忠実である。地震や津浪は新思想の流行などには委細かまわず、頑固に、保守的に執念深くやって来るのである。紀元前二十世紀にあったことが紀元二十世紀にも全く同じように行われるのである。科学の方則とは畢竟「自然の記憶の覚え書き」である。《自然ほど伝統に忠実なものはないのである》。","s":"寅彦『津浪と人間』","c":["自然が古いしきたりを守るように、人間も新しい思想を退けて、昔ながらの暮らし方に立ち返るべきだということ。","自然災害は過去と同じ時期に同じ規模で起こるので、記録を調べれば起こる日時まで正確に予知できるということ。","人間が過去の教訓を忘れても、自然は昔と同じ災害を、同じように執念深く繰り返すということ。","科学の法則は過去の記録を書き留めたものにすぎないので、未来の災害を防ぐ力は持っていないということ。"],"a":2,"e":"自然を「伝統に忠実」と人になぞらえ、新しさを追って過去を忘れる人間と対比した皮肉です。自然は流行にかまわず同じ災害を繰り返す、というのが傍線部の中身です。新思想を退け昔に戻れというのは言いすぎで、筆者が求めているのは暮らし方ではなく災害の記憶です。日時まで予知できるとするのは「全く同じように」を字面で読んだ誤りです。科学に力がないとするのは、科学知識の普及を説く筆者の考えと逆です。"},{"g":"zuiso","p":"傍線部はどういうことを言おうとしているか。最も適当なものを選べ。","q":"（筆者は、日常生活の世界と詩歌の世界との境界を、一枚のガラス板にたとえている。）二つの世界の間の通路としては、通例、ただ小さな狭い穴が一つ明いているだけである。しかし、始終ふたつの世界に出入していると、この穴はだんだん大きくなる。しかしまた、この穴は、しばらく出入しないでいると、自然にだんだん狭くなって来る。……穴を見つけても通れない人もある。それは、《あまりからだが肥り過ぎているために》……。しかし、そんな人でも、病気をしたり、貧乏したりしてやせたために、通り抜けられるようになることはある。","s":"寅彦『柿の種』","c":["詩歌の世界を軽んじて、日々の暮らしだけが大切だと初めから思い込んでいるために。","暮らしの豊かさや世間での満足に心が満ち足りていて、日常を離れてものを感じる余地がないために。","毎日の仕事に追われて忙しすぎて、詩歌の世界への入り口に目を向けるゆとりを持てないために。","体が弱く病気がちで、狭い穴をくぐり抜けるだけの力が足りないために。"],"a":1,"e":"手がかりは直後の「病気をしたり、貧乏したりしてやせた」です。やせる原因が病気と貧乏なので、「肥る」は健康や富に満ち足りた状態のたとえです。病気がちで力が足りないとするのは、病気になると通れるようになるという本文と向きが逆です。暮らしだけが大切だと思い込む人や忙しい人は、本文では穴を「捜そうともしない」人として別に挙げられており、「見つけても通れない」人と混同しています。"},{"g":"zuiso","p":"傍線部で筆者が言おうとしていることとして最も適当なものを選べ。","q":"（筆者は長い病気のため、何年も床についたまま暮らしている。）病床六尺、これが我世界である。しかもこの六尺の病床が《余には広過ぎるのである》。僅かに手を延ばして畳に触れる事はあるが、蒲団の外へまで足を延ばして体をくつろぐ事も出来ない。甚だしい時は極端の苦痛に苦しめられて五分も一寸も体の動けない事がある。","s":"子規『病牀六尺』","c":["病床を自分の世界と定めて満足しており、これより広い世界を少しも望んではいないということ。","一人で寝るには病床が広すぎて、見舞いに来る人も少ない寂しさが身にしみるということ。","病床にいても新聞や雑誌を通して、六尺をはるかに超える広い世間を知ることができるということ。","狭い病床さえ使い切れないほど体が動かず、身動きもままならない苦しい病状にあるということ。"],"a":3,"e":"六尺（約1.8メートル）の狭い床が「広過ぎる」というのは逆説で、直後の「蒲団の外へまで足を延ばして…出来ない」「体の動けない」がその中身です。「我世界」を言葉どおり満足と取るのは、逆説や冗談めいた言い方を本心と取り違えた誤りです。寂しさは本文に根拠がありません。新聞雑誌の話はこのあとに出てきますが、傍線部の「広過ぎる」の説明ではありません。"},{"g":"zuiso","p":"傍線部で筆者が言おうとしていることとして最も適当なものを選べ。","q":"（筆者は、友人から、武蔵野を描くなら東京の町外れも題目にすべきだ、という手紙を受け取った。）ことに東京市の町外れを題目とせよとの注意はすこぶる同意であって、自分もかねて思いついていたことである。町外ずれを「武蔵野」の一部に入れるといえば、すこしおかしく聞こえるが、じつは不思議はないので、《海を描くに波打ちぎわを描くも同じことである》。","s":"独歩『武蔵野』","c":["町外れこそが武蔵野の中心であり、林や野よりも町外れを描かなければ武蔵野は描けないということ。","武蔵野の趣は都会と接する境目にもよく表れるので、町外れを描くことも武蔵野を描くことになるということ。","武蔵野は海のように果てしなく広いので、その端にある町外れまで含めて描き尽くすべきだということ。","武蔵野を描くには、海辺から描き始めるように、近い所から順に遠くへと描き進めるのがよいということ。"],"a":1,"e":"海の姿は陸と接する波打ちぎわにもよく表れます。同じように、武蔵野の趣は東京と接する町外れにも表れる、というたとえです。町外れを「中心」とするのは言いすぎで、筆者は「一部に入れる」と言っています。広さのたとえと取るのは、比喩の似ている点を取り違えた誤りです。描く順序の話と取るのは、この直後の「後廻わし」に引かれた誤りです。"},{"g":"zuiso","p":"傍線部で筆者が言おうとしていることとして最も適当なものを選べ。","q":"（筆者は信州の小さな町で教師をしながら、近くの農夫たちの暮らしを見つめている。）見たところ、Openで、質素で、簡単で、半ば野外にさらけ出されたようなのが、彼等の生活だ。しかし彼等に近づけば近づくほど、隠れた、複雑な生活を営んでいることを思う。同じような服装を着け、同じような農具を携え、同じような耕作に従っている農夫等。譬えば、彼等の生活は極く地味な灰色だ。《その灰色に幾通りあるか知れない》。","s":"藤村『千曲川のスケッチ』","c":["農夫の暮らしは貧しく暗いものだが、その苦しさにもさまざまな種類があって、一概には言えないということ。","農夫たちは同じ服装で同じ農具を使っているので、外から見ただけではだれがだれか見分けられないということ。","一様で単純に見える農夫の暮らしも、近づいてみれば一人一人が異なる複雑な内実を持っているということ。","都会の人の目には地味に見える農夫の暮らしにも、実は都会にはない華やかな楽しみが数多くあるということ。"],"a":2,"e":"「灰色」は地味で一様に見えることのたとえ、「幾通りあるか知れない」はその中の違いの多さです。直前の「近づけば近づくほど、隠れた、複雑な生活」が根拠です。灰色を「暗い・苦しい」と取るのは、現代の連想に引き寄せた誤読です。見分けがつかないとするのは、前の文の「同じような」だけを読んだ誤りです。華やかな楽しみは本文になく、灰色（地味）であることを否定してしまっています。"},{"g":"ichibun","p":"傍線部「ここに」が指す内容として最も適当なものを選べ。","q":"人の世を作ったものは神でもなければ鬼でもない。やはり向う三軒両隣りにちらちらするただの人である。ただの人が作った人の世が住みにくいからとて、越す国はあるまい。あれば人でなしの国へ行くばかりだ。人でなしの国は人の世よりもなお住みにくかろう。越す事のならぬ世が住みにくければ、住みにくい所をどれほどか、寛容て、束の間の命を、束の間でも住みよくせねばならぬ。《ここに》詩人という天職が出来て、ここに画家という使命が降る。","s":"漱石『草枕』","c":["住みにくい世を逃れて人でなしの国へ移っても、そこはなお住みにくいという事情。","人の世を作ったのは神でも鬼でもなく、向こう三軒両隣のただの人だという事情。","逃れることのできない住みにくい世を、少しでも住みよくしなければならないという事情。","住みにくさが高じて、住みよい所へ引き越したいと強く願うようになったという事情。"],"a":2,"e":"「ここに」は直前の一文、「越す事のならぬ世」を「束の間でも住みよくせねばならぬ」という事情を指します。だから芸術家は「人の世を長閑にし」て尊いのです。人でなしの国の話や、人の世を作ったのはただの人だという話は、その前の段階の内容で、範囲を前に取りすぎています。引き越したいと願う気持ちは、筆者がむしろ「越す国はあるまい」と打ち消している内容です。"},{"g":"ichibun","p":"傍線部はどういうことか。最も適当なものを選べ。","q":"（画工の「余」は、自然や人を絵の中の景色のように眺める旅に出て、山中で雨に降られた。）茫々たる薄墨色の世界を、幾条の銀箭が斜めに走るなかを、ひたぶるに濡れて行くわれを、《われならぬ人の姿と思えば》、詩にもなる、句にも咏まれる。有体なる己れを忘れ尽して純客観に眼をつくる時、始めてわれは画中の人物として、自然の景物と美しき調和を保つ。","s":"漱石『草枕』","c":["雨に濡れて歩く自分を、自分としてではなく、絵や詩の中の人物のように外から眺めるならば。","雨の中を濡れて歩いて行く見知らぬ旅人の姿を、自分の目で実際に眺めるならば。","雨に打たれて疲れ果て、自分がもはや人間でなくなったかのように感じるならば。","雨に濡れて歩く自分の姿を、ほかの人がどのように見ているかを気にするならば。"],"a":0,"e":"長い一文の骨組みは「濡れて行くわれを、われならぬ人の姿と思えば、詩にもなる」です。見られているのはあくまで「われ（自分）」で、それを他人の姿のように眺めるということです。次の文の「己れを忘れ尽して純客観に眼をつくる」が言い換えです。実際に他人を見るとするのは主体の取り違え、人間でなくなると感じるのは「われならぬ」を字面で読んだ誤りです。人目を気にするのは、客観に徹する態度と逆です。"},{"g":"ichibun","p":"傍線部はどういうことか。最も適当なものを選べ。","q":"（筆者は、若いころ英文学を学びながら、何をすればよいか分からず不安だった経験を語っている。）今までは全く他人本位で、根のない萍のように、そこいらをでたらめに漂よっていたから、駄目であったという事にようやく気がついたのです。私のここに他人本位というのは、《自分の酒を人に飲んでもらって、後からその品評を聴いて、それを理が非でもそうだとしてしまう》いわゆる人真似を指すのです。","s":"漱石『私の個人主義』","c":["自分の作ったものを人に見せて批評を受け、その意見を素直に取り入れて改善していくこと。","他人の作ったものを借りてきて、自分が作ったかのように人前で発表してしまうこと。","自分の意見を人に聞かせ、相手が同意するまで理屈をこねて言い張ってしまうこと。","自分で味わって判断することをせず、他人の下した評価を、そのまま自分の意見にしてしまうこと。"],"a":3,"e":"自分の酒なのに自分では味わわず、人の品評を「理が非でも（道理に合っていてもいなくても）」正しいとしてしまう、つまり他人の評価の受け売りです。後の「人真似」「鵜呑」が言い換えです。批評を取り入れて改善するというのは、現代のよい意味に引き寄せた誤りです。他人の作品を借りて発表するのは、判断ではなく作品の盗用の話になっています。言い張るのは「理が非でも」の主体を自分に取り違えています。"},{"g":"ichibun","p":"傍線部「それ」が指す内容として最も適当なものを選べ。","q":"近頃流行るベルグソンでもオイケンでもみんな向うの人がとやかくいうので日本人もその尻馬に乗って騒ぐのです。ましてその頃は西洋人のいう事だと云えば何でもかでも盲従して威張ったものです。だからむやみに片仮名を並べて人に吹聴して得意がった男が比々皆是なりと云いたいくらいごろごろしていました。他の悪口ではありません。こういう私が現に《それ》だったのです。","s":"漱石『私の個人主義』","c":["西洋人の説に盲従する風潮を、冷ややかに批判して眺めていた人間。","西洋人の説を片仮名まじりで人に吹聴して、得意になっていた人間。","ベルグソンやオイケンの哲学を、原書で深く読み込んでいた人間。","他人の悪口を言うことで、自分を偉く見せようとしていた人間。"],"a":1,"e":"「それ」は二つ前の文の「むやみに片仮名を並べて人に吹聴して得意がった男」です。筆者は、自分もその一人だったと打ち明けています。すぐ前の「他の悪口ではありません」に引かれて悪口を言う人間とするのは、直前の語句だけを取った誤りです。風潮を批判していた人間とするのは向きが逆です。ベルグソンらの名は例として挙がっただけで、原書を深く読んだことは本文にありません。"},{"g":"ichibun","p":"傍線部はどういうことか。最も適当なものを選べ。","q":"（筆者は、明治以降の日本の開化は、西洋の開化とちがって、外からの力でやむをえず進められた「外発的」なものだと述べている。）新らしい波はとにかく、今しがたようやくの思で脱却した旧い波の特質やら真相やらも弁えるひまのないうちにもう棄てなければならなくなってしまった。食膳に向って皿の数を味い尽すどころか《元来どんな御馳走が出たかハッキリと眼に映じない前にもう膳を引いて新らしいのを並べられた》と同じ事であります。","s":"漱石『現代日本の開化』","c":["前の段階の文化を十分に理解しないうちに、次々と新しい西洋の文化を受け入れさせられるということ。","新しい西洋の文化を十分に味わう間もなく、古い日本の文化へと無理に引き戻されてしまうということ。","国が豊かになり、次々と新しい西洋の文化を楽しむことができるようになった喜びを表すということ。","西洋の文化を急いで取り入れたために、日本人の食事や作法が西洋風に変わってしまったということ。"],"a":0,"e":"「膳」は開化の各段階のたとえです。前の文の「旧い波の特質やら真相やらも弁えるひまのないうちにもう棄てなければならなくなってしまった」をたとえで言い直しています。古い文化へ引き戻されるとするのは、移っていく向きの取り違えです。楽しめる喜びとするのは、直後の「空虚の感」と合わず、筆者の嘆きと向きが逆です。食事や作法の変化とするのは、たとえを字面のまま読んだ誤りです。"},{"g":"ichibun","p":"傍線部「それ」が指す内容として最も適当なものを選べ。","q":"こういう開化の影響を受ける国民はどこかに空虚の感がなければなりません。またどこかに不満と不安の念を懐かなければなりません。それをあたかもこの開化が内発的ででもあるかのごとき顔をして得意でいる人のあるのは宜しくない。それはよほどハイカラです、宜しくない。虚偽でもある。軽薄でもある。自分はまだ煙草を喫っても碌に味さえ分らない子供の癖に、煙草を喫ってさも旨そうな風をしたら生意気でしょう。《それ》をあえてしなければ立ち行かない日本人はずいぶん悲酸な国民と云わなければならない。","s":"漱石『現代日本の開化』","c":["開化が内発的であるかのような顔をして得意でいる人を、よろしくないと批判すること。","外から押しつけられた開化に、空虚の感を覚え、不満と不安の念をいだくこと。","西洋の開化を受け入れず、日本古来の風俗をかたくなに守り続けようとすること。","まだ十分に身についていない西洋の開化を、すっかり身についたもののようにふるまうこと。"],"a":3,"e":"「それ」は直前の煙草のたとえを受けますが、「あえてしなければ立ち行かない日本人」とあるので、たとえの中身、つまり身についていない開化を分かったふりでこなすことを指します。得意でいる人を批判することとするのは、前の「それはよほどハイカラです」の「それ」と取り違えた誤りで、日本人が「あえてしなければ立ち行かない」ことにはなりません。空虚や不満を感じることは、前の段落の内容で範囲を取り違えています。古来の風俗を守るというのは、筆者の言う日本の現状と逆です。"},{"g":"ichibun","p":"傍線部「そこ」が指す内容として最も適当なものを選べ。","q":"（三四郎は、大学の先輩の野々宮さんや、高等学校の教師の広田先生の家をしばしば訪ねている。）野々宮さんも広田先生と同じく世外の趣はあるが、世外の功名心のために、流俗の嗜欲を遠ざけているかのように思われる。だから野々宮さんを相手に二人ぎりで話していると、自分もはやく一人前の仕事をして、学海に貢献しなくては済まないような気が起こる。いらついてたまらない。そこへゆくと広田先生は太平である。先生は高等学校でただ語学を教えるだけで、ほかになんの芸もない――といっては失礼だが、ほかになんらの研究も公けにしない。しかも泰然と取り澄ましている。《そこ》に、こののん気の源は伏在しているのだろうと思う。","s":"漱石『三四郎』","c":["世間を離れて功名心を燃やし、人々の好む楽しみを遠ざけて研究に打ち込んでいること。","高等学校でただ語学を教えるだけで、ほかにとりたてて芸のない平凡な教師であること。","語学を教えるほかに研究を公にしていないのに、少しもあせらず、落ち着き払っていること。","早く一人前の仕事をして、学問の世界に貢献しなければと、いつも自分を励ましていること。"],"a":2,"e":"「そこ」は直前の「研究も公けにしない。しかも泰然と取り澄ましている」を指し、「しかも」で結ばれた両方を含めてとらえます。仕事がないのに泰然としている、その落ち着きが「のん気の源」です。功名心から楽しみを遠ざけるのは野々宮さんの様子で、人物の取り違えです。語学を教えるだけの平凡な教師とするのは、「泰然」を落として範囲を狭く取っています。自分を励ますのは、野々宮さんと話すときの三四郎の気持ちです。"},{"g":"ichibun","p":"傍線部「それ」が指す内容として最も適当なものを選べ。","q":"（「私」とＫは、同じ下宿のお嬢さんを思っている。Ｋは、道のためにはすべてを犠牲にすべきだと信じ、恋さえ道の妨げと考えてきた男である。「私」はＫに「精神的に向上心のないものは馬鹿だ」と言い放った。）こういう過去を二人の間に通り抜けて来ているのですから、精神的に向上心のないものは馬鹿だという言葉は、Ｋに取って痛いに違いなかったのです。しかし前にもいった通り、私はこの一言で、彼が折角積み上げた過去を蹴散らしたつもりではありません。かえって《それ》を今まで通り積み重ねて行かせようとしたのです。それが道に達しようが、天に届こうが、私は構いません。私はただＫが急に生活の方向を転換して、私の利害と衝突するのを恐れたのです。","s":"漱石『こころ』","c":["「精神的に向上心のないものは馬鹿だ」という、Ｋがかつて口にした言葉。","道のためにはすべてを犠牲にするという、Ｋがこれまで貫いてきた生き方。","お嬢さんへの思いを胸に秘めながら、Ｋに反対してきた「私」の過去。","恋のために生活の方向を変えようとする、Ｋのあらたな決意。"],"a":1,"e":"「それ」は直前の「彼が折角積み上げた過去」、つまり道のために恋さえ退けてきたＫの生き方です。「私」はＫがその生き方を続け、恋をあきらめることを望みました。「この一言」に引かれて言葉そのものとするのは、指示語の近くの語句だけを取った誤りです。「私」の過去とするのは、主体の取り違えです。生活の方向を変えることは、「私」が恐れて食い止めようとした内容で、向きが逆です。"},{"g":"ichibun","p":"傍線部の説明として最も適当なものを選べ（だれが、どうなったと考えているか）。","q":"（Ｋの死後、お嬢さんと結婚した「私」は、妻にもＫのことを打ち明けられず、孤独のうちに暮らしている。）しかし段々落ち付いた気分で、同じ現象に向ってみると、そう容易くは解決が着かないように思われて来ました。現実と理想の衝突、――それでもまだ不充分でした。私はしまいに《Ｋが私のようにたった一人で淋しくって仕方がなくなった結果、急に所決した》のではなかろうかと疑い出しました。そうしてまた慄としたのです。","s":"漱石『こころ』","c":["「私」が、だれとも心の通わない孤独に耐えられなくなって、Ｋと同じように自ら死のうと急に決めたのではないか。","Ｋは、失恋した上に「私」にも見捨てられて、淋しさのあまり下宿を出ていこうと急に決めたのではないか。","Ｋは、理想と現実の衝突に苦しみ、「私」のように割り切ることができずに、自ら死を選んだのではないか。","Ｋもまた、今の「私」と同じく、だれとも心の通わない孤独に耐えられなくなって、自ら死を選んだのではないか。"],"a":3,"e":"骨組みは「Ｋが…所決した」で、主語はＫです。「私のように」は比べる相手で、Ｋの孤独を今の「私」の孤独になぞらえています。「所決」は自ら命を絶つことです。主語を「私」とするのは典型的な取り違えで、「私」が慄としたのは、自分もＫと同じ道をたどるという予感からです。下宿を出るとするのは「所決」の意味の取り違えです。理想と現実の衝突は、筆者が「まだ不充分」と退けた説です。"},{"g":"ichibun","p":"傍線部はどういうことか。最も適当なものを選べ。","q":"（「僕」は、下宿で隣り合わせた学生の岡田と、岡田が散歩の途中で窓越しに顔見知りになった女お玉との話を語っている。二人はついに言葉を交わす機会を得ないまま終わる。）西洋の子供の読む本に、釘一本と云う話がある。僕は好くは記憶していぬが、なんでも車の輪の釘が一本抜けていたために、それに乗って出た百姓の息子が種々の難儀に出会うと云う筋であった。僕のし掛けたこの話では、《青魚の未醤煮が丁度釘一本と同じ効果をなすのである》。","s":"鷗外『雁』","c":["鯖の味噌煮の嫌な臭いが、釘のように「僕」の記憶に深く刺さって、今でも抜けずに残っているということ。","「僕」の嫌いな鯖の味噌煮が夕食に出たという小さな出来事が、物語の成り行きを決めるきっかけになるということ。","百姓の息子と同じように、「僕」自身が鯖の味噌煮のせいで、数々の難儀に出会うことになるということ。","鯖の味噌煮のような身近な食べ物を通して、明治の下宿生活の貧しさを読者に伝えようとしているということ。"],"a":1,"e":"「釘一本」の話は、小さな欠けが大きな難儀を招くという筋です。この物語では「青魚の未醤煮」（鯖の味噌煮）が夕食に出たことが、その小さなきっかけに当たります。結末で語り手は、このために岡田とお玉が二度と会えなくなったと明かします。記憶に刺さるとするのは、釘を字面のまま読んだ誤りです。難儀に出会うのが「僕」だとするのは、たとえの主体の取り違えです。下宿の貧しさは、この比喩の要点ではありません。"},{"g":"shinjo","p":"傍線部における「私」の心情の説明として最も適当なものを選べ。","q":"（ある夜ふと目を覚ました「私」は、隣の部屋でＫが自ら命を絶っているのを見つけた。「私」はＫと同じお嬢さんを思い、Ｋを出し抜いてお嬢さんとの結婚の約束を取りつけていた。）その時私の受けた第一の感じは、Ｋから突然恋の自白を聞かされた時のそれとほぼ同じでした。私の眼は彼の室の中を一目見るや否や、あたかも硝子で作った義眼のように、動く能力を失いました。私は棒立ちに立ち竦みました。それが疾風のごとく私を通過したあとで、私はまたああ失策ったと思いました。《もう取り返しが付かないという黒い光が、私の未来を貫いて、一瞬間に私の前に横たわる全生涯を物凄く照らしました》。","s":"漱石『こころ』","c":["Ｋの苦しみにもっと早く気づいていればＫを救えたのにと、過ぎ去った日々の自分の鈍さを一瞬のうちに悔やんでいる。","Ｋを追いつめた自分の罪はもう償えず、その重荷をこの先の一生背負っていくほかないと一瞬で悟って、おののいている。","Ｋが死を選んだのは失恋のためだと一瞬で確信し、自分もいつか同じ道をたどるに違いないと、死の覚悟を固めている。","突然目の前に起きた出来事に頭がついていかず、何が起こったのかも分からないまま、ただぼうぜんと立ちつくしている。"],"a":1,"e":"「取り返しが付かない」は、Ｋを追いつめた自分の行いがもう償えないという自覚で、それが「未来を貫いて」「全生涯」を照らすとは、この罪を一生背負うと悟ったことです。過去の鈍さを悔やむとするのは、心が向いている時間の向き（過去か未来か）を取り違えています。失恋が原因と確信し死を覚悟するとするのは言いすぎで、後の展開の先取りです。何も分からず呆然とするのは、「ああ失策った」と事態を悟っている本文と合いません。"},{"g":"shinjo","p":"傍線部における「私」の心情の説明として最も適当なものを選べ。","q":"（Ｋの死後、お嬢さんと結婚した「私」は、Ｋを裏切った自分も、かつて自分を欺いた叔父と同じ人間だと思い知り、自分にも愛想を尽かしている。そのことを妻には打ち明けられずにいる。）母は死にました。私と妻はたった二人ぎりになりました。妻は私に向って、これから世の中で頼りにするものは一人しかなくなったといいました。自分自身さえ頼りにする事のできない私は、妻の顔を見て思わず涙ぐみました。そうして《妻を不幸な女だと思いました》。","s":"漱石『こころ』","c":["母を亡くして身寄りのなくなった妻の孤独を思いやり、これからは自分が妻を守り抜こうと心に誓っている。","自分に頼るばかりで何一つ自分では決められない妻の弱さを情けなく思い、内心ではうとましく感じている。","自分自身さえ信じられない自分を、ただ一人の頼りとして生きていくほかない妻の身の上を、哀れに思っている。","自分の過去の罪がいつか妻に知られてしまうと恐れ、そのとき妻が受ける苦しみを思って悲しんでいる。"],"a":2,"e":"決め手は「自分自身さえ頼りにする事のできない私は」です。妻が「一人しかない」頼りとするのは、自分でさえ信じられない自分なので、その妻を不幸だと思って涙ぐんだのです。母を失った妻の孤独を思い、守り抜こうと誓うとするのは、きっかけを母の死だけにした上に言いすぎです。妻の弱さをうとましく思うのは、哀れみを反発へと向きを変えています。過去が知られる恐れは、この場面の本文に根拠がありません。"},{"g":"shinjo","p":"傍線部における三四郎の心情の説明として最も適当なものを選べ。","q":"（熊本の高等学校を出て東京の大学に向かう三四郎は、汽車で乗り合わせた髭の男に「日本は滅びるね」と言われて面くらった。熊本でそんなことを言えば、国賊扱いされかねない。）「熊本より東京は広い。東京より日本は広い。日本より……」でちょっと切ったが、三四郎の顔を見ると耳を傾けている。「日本より頭の中のほうが広いでしょう」と言った。「とらわれちゃだめだ。いくら日本のためを思ったって贔屓の引き倒しになるばかりだ」この言葉を聞いた時、三四郎は《真実に熊本を出たような心持ちがした》。同時に熊本にいた時の自分は非常に卑怯であったと悟った。","s":"漱石『三四郎』","c":["東京が熊本よりはるかに広い都会であることを思い知らされ、田舎から出てきた自分の世間知らずを恥ずかしく感じた。","日本は滅びるという男の考えに全面的に共感し、国を思う熊本の人々を狭い考えの持ち主として軽蔑するようになった。","故郷の熊本を遠く離れてしまった寂しさが今になってこみ上げてきて、熊本の友人たちのことをなつかしく思い出した。","周りの空気に合わせて自分の頭で考えずにいた故郷の狭さに気づき、ようやく心の上でも熊本を離れたように感じた。"],"a":3,"e":"男の言う「広さ」は土地ではなく「頭の中」の広さで、「とらわれちゃだめだ」がその中心です。三四郎は、周囲の空気に合わせて考えを閉ざしていた自分を「卑怯」と悟り、心の上で初めて熊本を出たと感じました。都会の広さに気おくれするのは、「広い」を土地の広さで読んだ誤りです。男に全面的に共感し熊本の人々を軽蔑するのは言いすぎです。故郷を恋しく思うのは、心情の向きが逆です。"},{"g":"shinjo","p":"傍線部における宗助の心情の説明として最も適当なものを選べ。","q":"（宗助と御米は、かつて宗助の友人安井を裏切って結ばれた夫婦で、その過去を背負ってひっそりと暮らしている。最近、安井と顔を合わせるおそれが生じたが、それはひとまず去った。）宗助は家へ帰って御米にこの鶯の問答を繰り返して聞かせた。御米は障子の硝子に映る麗かな日影をすかして見て、「本当にありがたいわね。ようやくの事春になって」と云って、晴れ晴れしい眉を張った。宗助は縁に出て長く延びた爪を剪りながら、「《うん、しかしまたじき冬になるよ》」と答えて、下を向いたまま鋏を動かしていた。","s":"漱石『門』","c":["季節の移り変わりがあまりに早いことを嘆き、春を楽しむ余裕さえない毎日の忙しさに、すっかりうんざりしている。","春の訪れに浮かれる御米をたしなめ、安心するのはまだ早いのだから油断せずに暮らすよう、きびしく戒めている。","春を喜ぶ御米に調子を合わせながらも、今の穏やかさは一時のもので、いつかまた苦しい時がめぐってくるという思いをぬぐえずにいる。","安井が再び目の前に現れることはもう避けられないと悟り、そのことを御米に打ち明けようと、ひそかに覚悟を固めている。"],"a":2,"e":"「うん」で御米に合わせつつ、「しかしまたじき冬になる」と続け、下を向いたまま顔を上げません。過去を背負う夫婦にとって、今の平穏は一時のもので、苦しい時はまた来るという不安が消えないのです。忙しさへのうんざりは、きっかけの取り違えです。御米をきびしく戒めるとするのは、自分の内にしまった不安を相手への説教に向け変えています。安井が必ず現れると悟り打ち明ける覚悟とするのは、本文にない言いすぎです。"},{"g":"shinjo","p":"傍線部における健三の心情の説明として最も適当なものを選べ。","q":"（健三は、幼いころの養父から金をせびられ続けていたが、金を渡して、今後は関わらないという証文を受け取った。）「安心するかね」「ええ安心よ。すっかり片付いちゃったんですもの」「まだなかなか片付きゃしないよ」「どうして」「片付いたのは上部だけじゃないか。だから御前は形式張った女だというんだ」細君の顔には不審と反抗の色が見えた。「じゃどうすれば本当に片付くんです」「世の中に片付くなんてものは殆んどありゃしない。一遍起った事は何時までも続くのさ。ただ色々な形に変るから他にも自分にも解らなくなるだけの事さ」《健三の口調は吐き出すように苦々しかった》。","s":"漱石『道草』","c":["養父がまた金をせびりに来るのは確実だと見て取り、紙切れ一枚の証文では何の役にも立たないことに腹を立てている。","証文一枚ですべて済んだと安心する妻にいらだちつつ、過去からは結局逃れられない自分の生の重さを、苦くかみしめている。","自分の苦労を少しも分かろうとしない妻に失望し、この先妻と心を通わせることは二度とできないと絶望している。","形式を重んじる妻の考えのほうが賢明だと内心では認めつつ、いつまでも心配しすぎる自分自身をあざけっている。"],"a":1,"e":"妻は証文という形で「片付いた」と安心しますが、健三は「一遍起った事は何時までも続く」と考えます。妻の形式的な安心へのいらだちと、過去から逃れられない人生への苦い思いが「吐き出すように苦々しかった」に表れています。養父が必ず来ると確信して腹を立てるとするのは、きっかけを狭くした言いすぎです。妻とは二度と通じ合えないと絶望するのも言いすぎです。妻を賢明と認めるのは、心情の向きが逆です。"},{"g":"shinjo","p":"傍線部から読み取れるお玉の心情の説明として最も適当なものを選べ。","q":"（お玉は、父親を楽にさせたい一心で末造の妾になった。ところが、肴屋のおかみの言葉から、末造が世間に嫌われる高利貸であることを初めて知った。）一体お玉の持っている悔やしいと云う概念には、世を怨み人を恨む意味が甚だ薄い。強いて何物をか怨む意味があるとするなら、《それは我身の運命を怨むのだとでも云おうか》。自分が何の悪い事もしていぬのに、余所から迫害を受けなくてはならぬようになる。それを苦痛として感ずる。悔やしいとはこの苦痛を斥すのである。","s":"鷗外『雁』","c":["自分に高利貸であることを隠して妾にした末造を責め、だまされた仕返しをいつか必ずしてやりたいと、ひそかに思っている。","高利貸の妾になってしまったのは自分の考えが足りなかったせいだと、世間知らずな自分自身をきびしく責め、悔やんでいる。","肴屋のおかみの心ない言葉に腹を立て、自分を見下した世間の人々をいつか見返してやろうと、強く心に決めている。","何も悪いことをしていないのに、世間にさげすまれる身の上に置かれてしまったことを、だれを責めるでもなく、ただつらく思っている。"],"a":3,"e":"本文は、お玉の「悔やしい」には人を恨む意味が薄く、強いて言えば「我身の運命」を恨むのだと説明しています。何の罪もないのに迫害を受ける苦痛です。末造への仕返しは、人を恨む気持ちに向きを変えています。自分の考えの足りなさを責めるとするのは、「運命を怨む」を「自分を責める」と取り違えた誤りです。世間を見返す決意は言いすぎです。高利貸が世間から強く嫌われていたという時代の常識が背景にあります。"},{"g":"shinjo","p":"傍線部におけるお玉の心情の説明として最も適当なものを選べ。","q":"（お玉は、旦那の末造が世間に嫌われる高利貸だと知り、そのつらさを打ち明けようと父親を訪ねた。しかし、娘のおかげで暮らしが楽になったと安心している父親を見て、打ち明けるのをやめ、話をそらした。）「さあ。それはそんな物かも知れないな。だが、なんだかお前、檀那を信用していないような、物の言いようをするじゃないか」お玉はにっこりした。「《わたくしこれで段々えらくなってよ。これからは人に馬鹿にせられてばかりはいない積なの》。豪気でしょう」","s":"鷗外『雁』","c":["父を心配させまいと明るくふるまいながら、つらさを一人で抱えて生きていこうという、芽生えはじめた強さを口にしている。","旦那が高利貸だと父に打ち明けて胸のつかえが取れ、これからは旦那にも言いなりにならないと、父に宣言している。","妾になって暮らしが豊かになったことを誇り、貧しかったころに自分を見下していた人々を見返せると得意になっている。","父の穏やかな暮らしを見て、もう父には頼らず、旦那とも別れて一人で生きていくと決めたことを、遠回しに伝えている。"],"a":0,"e":"お玉は打ち明けるつもりで来たのに、父の安心を乱すまいとつらさを隠しました。「にっこり」して冗談めかしながら、人に頼らず自分で耐えていく強さを口にしています。語り手もこのあと、お玉が「独立したような気」になったと述べます。父に打ち明けたとするのは、前置きの事実と逆のきっかけの取り違えです。暮らしを誇って得意になるのは、心情の向きの取り違えです。旦那と別れる決意は本文になく、言いすぎです。"},{"g":"shinjo","p":"傍線部「ある勇気」の説明として最も適当なものを選べ。","q":"（主人から暇を出され、飢え死にするか盗人になるかで迷っていた下人は、羅生門の楼上で死人の髪を抜く老婆を捕らえた。老婆は、生きるために仕方なくしたことなら、この死人も大目に見てくれるだろう、と語った。）下人は、太刀を鞘におさめて、その太刀の柄を左の手でおさえながら、冷然として、この話を聞いていた。勿論、右の手では、赤く頬に膿を持った大きな面皰を気にしながら、聞いているのである。しかし、これを聞いている中に、下人の心には、《ある勇気》が生まれて来た。それは、さっき門の下で、この男には欠けていた勇気である。そうして、またさっきこの門の上へ上って、この老婆を捕えた時の勇気とは、全然、反対な方向に動こうとする勇気である。","s":"芥川『羅生門』","c":["老婆のような悪を許さないという正義の気持ちがいっそう強まり、老婆を懲らしめて罰を与えようとする気持ち。","飢え死にしてもかまわないと覚悟を決めて、どんなことがあっても盗人にだけはならずに生きようとする気持ち。","生きるための悪は許されるという老婆の理屈を逆手に取り、自分が盗人になることをためらわずに選ぼうとする気持ち。","生きるために悪事をはたらく老婆の身の上に同情し、老婆を助けてこの先いっしょに生きていこうとする気持ち。"],"a":2,"e":"「門の下で欠けていた勇気」は、盗人になる勇気です。また「老婆を捕えた時」の勇気は悪を憎む気持ちで、それと「反対な方向」とあるので、悪を肯定する方へ動く心だと分かります。下人は老婆の理屈を自分に当てはめ、盗人になることを正当化しました。悪を罰する正義感は、捕えた時の勇気そのもので向きが逆です。飢え死にの覚悟も逆です。老婆への同情は本文になく、下人は「冷然として」聞いています。"},{"g":"shinjo","p":"傍線部における内供の心情の説明として最も適当なものを選べ。","q":"（長い鼻を気に病んでいた内供は、療治で鼻を短くしたが、かえって周りの人々から以前よりあからさまに笑われるようになり、日ごとに機嫌が悪くなっていた。）内供は慌てて鼻へ手をやった。手にさわるものは、昨夜の短い鼻ではない。上唇の上から顋の下まで、五六寸あまりもぶら下っている、昔の長い鼻である。内供は鼻が一夜の中に、また元の通り長くなったのを知った。そうしてそれと同時に、《鼻が短くなった時と同じような、はればれした心もちが、どこからともなく帰って来るのを感じた》。","s":"芥川『鼻』","c":["短い鼻を以前とは違う意地の悪さで笑われる苦しさから解き放たれ、これでもう笑われずに済むと、ほっとしている。","長い鼻こそが自分の本来の姿だと悟り、見た目にこだわって人目を気にしてきた心から、すっかり解き放たれている。","周りの人々が自分を笑う本当の理由を見抜いたので、もう人の目など気にしなくてよいのだと、開き直っている。","元の長い鼻に戻ってしまったことを悲しみながらも、くよくよせずに前向きに生きていこうと、自分を励ましている。"],"a":0,"e":"短い鼻になって以来、内供は前とは違う笑われ方に苦しんできました。鼻が元に戻ったことで「もう誰も哂うものはない」と安心したのが、はればれした気持ちです。容貌へのこだわりから解放されたとするのは、本文に根拠のない言いすぎです。笑われる理由を見抜いたとするのは誤りで、本文には「理由を知らないながらも」とあります。悲しみつつ自分を励ますとするのは、心情の向きが逆です。"},{"g":"shinjo","p":"傍線部における「私」の心情の説明として最も適当なものを選べ。","q":"（疲れと退屈を抱えて汽車に乗っていた「私」は、向かいの席の田舎者らしい小娘を、うとましく思っていた。トンネルの手前で小娘が窓を開けたため、「私」は煙を浴びていらだっていた。）小娘は、恐らくはこれから奉公先へ赴かうとしてゐる小娘は、その懐に蔵してゐた幾顆の蜜柑を窓から投げて、わざわざ踏切りまで見送りに来た弟たちの労に報いたのである。　暮色を帯びた町はづれの踏切りと、小鳥のやうに声を挙げた三人の子供たちと、さうしてその上に乱落する鮮な蜜柑の色と――すべては汽車の窓の外に、瞬く暇もなく通り過ぎた。が、私の心の上には、切ない程はつきりと、この光景が焼きつけられた。さうしてそこから、《或得体の知れない朗な心もちが湧き上つて来る》のを意識した。私は昂然と頭を挙げて、まるで別人を見るやうにあの小娘を注視した。","s":"芥川『蜜柑』","c":["小娘が窓を開けた理由がやっと分かって自分の誤解が解けたことにほっとし、冷たい目で見ていた小娘に心から謝りたいと思い始めている。","奉公に出るらしい小娘が弟たちに蜜柑を投げて報いた姿に打たれ、退屈だと思っていた人生にも温かさを感じて、心が晴れていく。","貧しい町はずれの子どもたちの姿に胸を痛め、それにくらべて恵まれている自分の境遇をありがたく思い、ひそかに満足を覚えている。","夕暮れの景色と鮮やかな蜜柑の色の美しさにすっかり見とれ、長い汽車の旅の疲れも退屈も忘れて、ひととき楽しい気分に浸っている。"],"a":1,"e":"「私」は一瞬の光景から、小娘が奉公に出る身で、見送りの弟たちに蜜柑で報いたと悟ります。その健気さが、人生を退屈で下等と見ていた「私」の心を明るくしました。謝りたいと思うのは、本文にない言いすぎです。自分の境遇に満足するのは、心の動きの向きの取り違えです。景色の美しさに見とれたとするのは、心を動かしたきっかけを取り違えています。当時、貧しい家の娘が年若くして奉公に出るのは珍しくありませんでした。"}];
+  var GUIDES = {"kango":"## 漢語は「字の意味」だけで決めない\n\n近代の小説・随想には、今はあまり使わない二字の漢語がたくさん出てきます。入試の語句の問題でよく出るのは、**字を見ると意味が分かった気になるのに、実は違う**語です。\n\n| 語 | 正しい意味 | よくある取り違え |\n|---|---|---|\n| 憮然 | がっかりしてぼんやりする | 腹を立てる |\n| 逡巡 | ためらって先へ進まない | あちこち巡り歩く |\n| 無聊 | 退屈でしかたがない | 仕事がない・さびしい |\n| 周旋 | 間に立って世話をする | 自分で探し回る |\n| 不得要領 | 要点がはっきりしない | 手際が悪い |\n| 了見 | 考え・つもり | 許す心（「了見してくれ」の意味） |\n\n## 取り違えの型は三つ\n\n1. **字面からの推測**：「巡」だから歩き回る、「無」だから何かが無い、と一字ずつ意味をつなげてしまう。\n2. **現代の使い方に引き寄せる**：「憮然」を「むっとする」、「要領」を「手際」と読むのは、今の日常語の感覚です。\n3. **文脈だけで決める**：前後の場面に合いそうな意味を選んでしまう。場面には合っても、その語の辞書的な意味から外れていれば誤りです。\n\n## 入試の設問の解き方\n\n共通テストの語句の問題は「**辞書的な意味を外さず、しかも文脈に合う**」ものが正解です。次の順で考えましょう。\n\n1. まず傍線部だけを見て、知っている辞書的な意味を思い出す（分からなければ、その語を使った別の言い方を思い浮かべる）。\n2. 選択肢のうち、辞書的な意味から外れるものを消す。**文脈にぴったり合っていても、語の意味が違えば消す**。\n3. 残ったものを本文に当てはめ、人物の気持ちや場面と矛盾しないか確かめる。\n\n「場面に合うからこれだ」と一回で決めず、**語の意味→文脈**の二段階で確かめるのがこつです。漢語は字の組み立て（逡＝しりごみ、巡＝ぐずぐずする）も手がかりになりますが、最後は用例で覚えるのがいちばん確実です。\n","wago":"## 和語・慣用句は「知っているつもり」が危ない\n\n和語や慣用句は、ふだんの会話にも出てくるので、読めてしまいます。ところが明治・大正の文章では、**今と逆の意味や、今はほとんど使わない意味**で出てくることがあります。入試で問われるのは、まさにそういうところです。\n\n| 語句 | 本来の意味 | よくある取り違え |\n|---|---|---|\n| 気が置ける | 打ち解けられず、遠慮される | 「気が置けない」と混同して気楽 |\n| まんじりともしない | 少しも眠らない | 少しも動かない |\n| すげない | 愛想がない・そっけない | すんなり・すらすら |\n| よんどころない | やむをえない | 根拠がない |\n| 心安い | 親しい・気がねがない | 安心だ |\n| まじまじ | （目がさえて）眠れないさま | じっと見つめるさま |\n| 虫が好かない | なんとなく気に入らない | 「虫がいい（身勝手）」と混同 |\n\n## 取り違えの型\n\n1. **字面から組み立てる**：「心安い」を「心が安らか」、「よんどころ」を「よりどころ」と読んでしまう。\n2. **似た言い方と混ぜる**：「気が置ける／気が置けない」「虫が好かない／虫がいい」のように、形の似た句で意味が入れ替わる。\n3. **今の使い方だけで読む**：「まじまじ」は今は「見る」とセットで覚えていますが、近代の文章では「眠れずに目がさえている」意味でも使います。\n4. **場面の気分で決める**：悲しい場面だから涙ぐんだ、怒っている場面だから腹を立てた、と語の意味を離れて選んでしまう。\n\n## 入試の設問の解き方\n\n- まず**語句そのものの意味**を思い出します。否定の形（〜ない）を含む句は、何を否定しているのか（「気を置く」ことが無いのか、あるのか）を確かめます。\n- 次に、本文の**前後の具体的な描写**と照らします。「寝つこうとしても寝つかれない」「翌る朝まで」のような言葉が、意味を決める手がかりになります。\n- 「場面には合うが、その語句の意味ではない」選択肢を最後まで疑うこと。入試の誤答は、たいていこの形で作られています。\n","ateji":"## 当て字は「音」と「意味」を分けて考える\n\n明治・大正の文章には、今ならひらがなで書く言葉を漢字で書いたものがたくさんあります。**漢字の意味と言葉の意味が一致しない**（音だけ借りた）ものと、**意味で字を当てた**ものが混ざっているのが、読みにくさの原因です。\n\n| 表記 | 読み | 意味 | 注意 |\n|---|---|---|---|\n| 頗る | すこぶる | 非常に | 「すこし」ではない |\n| 却って | かえって | 予想と逆に | 「却下」の「却」 |\n| 無暗 | むやみ | あてもなく・やたらに | 「暗い」とは無関係 |\n| 兼て | かねて | 以前から | 「兼任」の「兼ねる」ではない |\n| 可成 | かなり | 相当に | 「なるべく」とも読むので文脈で |\n| 一寸 | ちょっと／いっすん | 少し／約3cm | 数や長さと並べば「いっすん」 |\n| 八釜しい | やかましい | うるさい | 音だけ借りた当て字 |\n| 所為 | せい | 原因 | 「しょい」と読めば「しわざ」 |\n| 真逆 | まさか | よもや | 「真逆様」は「まっさかさま」 |\n| 生憎 | あいにく | 都合悪く | 「憎い」の意味はない |\n\n## 取り違えの型\n\n1. **字の意味で読む**：「無暗」を暗い中、「生憎」を憎らしい、と漢字の意味から考えてしまう。\n2. **同じ字の別の読みと混ぜる**：「可成」（かなり／なるべく）、「一寸」（ちょっと／いっすん）、「所為」（せい／しょい）のように、読みが二つある語は、**どちらで読むと文が通るか**で決めます。\n3. **似た語と混ぜる**：「頗る」を「少し」、「却って」を「ますます」と取り違えると、文の意味が逆になります。\n\n## 入試の設問の解き方\n\n- **読みの問題**は、候補の読みを本文に入れて声に出してみます。「一寸長さ二尺」のように単位が並べば長さ、「一寸休茶屋の……」のように動作にかかれば「ちょっと」です。\n- **意味の問題**は、傍線部をひらがなに直してから考えます。「頗る強情」を「すこぶる強情」と読めれば、あとは現代語と同じです。\n- 当て字は、送り仮名もヒントになります。「却って」の「って」、「八釜しく」の「しく」は、ひらがなの語形（かえって・やかましく）を映しています。\n","bunmatsu":"## 近代の文章に残る「古文の文法」\n\n明治・大正の文章は口語で書かれていても、文末や助詞に**古文の助動詞・助詞がそのまま残って**います。短い一字で意味が逆になるので、入試ではここがよく問われます。\n\n| 形 | 意味 | よくある取り違え | 見分け方 |\n|---|---|---|---|\n| 〜ぬ（咲かぬ） | 打消「〜ない」 | 完了 | 未然形につく |\n| 〜ぬ（咲きぬ） | 完了「〜た」 | 打消 | 連用形につく |\n| 〜まい | 打消推量「〜ないだろう」／打消意志「〜ないようにしよう」 | 二つの入れ替え | 主語が自分で、自分の行動なら意志 |\n| 〜ん（む） | 推量・意志「〜う・〜よう」 | 打消の「ん」 | 「〜んとする」は「〜しようとする」 |\n| 〜ごとし | 比況「〜のようだ」 | 例示・仮定 | 「如」の字でも同じ |\n| 〜とて | 「〜といって」「〜としても」 | 理由「〜だから」 | 後ろに打消や反語が来やすい |\n| 〜ながら（も） | 逆接「〜けれども」 | 同時「〜しつつ」 | 前後が食い違っていれば逆接 |\n| 〜ねばならぬ | 「〜なければならない」 | 禁止「〜てはならない」 | 「ね」は打消「ず」の已然形 |\n| 〜ずにはいられない | 「どうしても〜してしまう」 | 「〜できない」 | 打消が二つで肯定 |\n\n## 取り違えやすいところ\n\n- **「ぬ」は上の語の形で決める。** 「咲きぬ」の「咲き」は連用形なので完了、「咲かぬ」なら打消。ただし「下りぬ」「晴れぬ」のように**未然形と連用形が同じ形の語**は、形では決まりません。前後の内容（その後どうなったか）で判断します。\n- **「まい」は主語と場面で決める。** 他人や物事について「〜まいと思う」なら推量、自分の行動について「〜まいと決心する」なら意志です。\n- **「ん」は二種類ある。** 「出来ん」の「ん」は打消（ぬ）、「暮れんとする」の「ん」は推量・意志（む）。「〜んとす」の形なら後者です。\n\n## 入試の設問の解き方\n\n1. 傍線部の助動詞・助詞に印をつけ、**何形についているか**を確かめる。\n2. 表の意味を当てはめて**現代語に直訳**する。\n3. 直訳した文を本文に戻し、前後と矛盾しないか確かめる。選択肢どうしは語尾だけが違うことが多いので、**語尾の一語**を丁寧に比べましょう。\n","gakusei":"## 学生と立身出世 ― 「学校を出て身を立てる」が当たり前ではなかった時代\n\n明治・大正の小説に出てくる若者の多くは、地方から東京（または京都）へ出て学ぶ「書生」です。今の大学生と同じように読むと、立場や悩みを取り違えます。\n\n### 学校の道すじ（男子の場合の大まかな形）\n\n| 段階 | 小説での呼び方 | 読むときのポイント |\n|---|---|---|\n| 中学校 | 中学 | 今の中学とは別物。進学できるのは一部 |\n| 高等学校 | 高等学校・一高・熊本の高等学校 | 大学へ進むための学校。今の高校とは違う |\n| 帝国大学 | 大学・法科・文科 | 卒業すれば「学士」。地位と収入が期待された |\n| 卒業後 | 口・地位・位置 | 勤め口は人の紹介で見つけることが多い |\n\n### 覚えておきたい言葉\n\n| 言葉 | この時代の意味 | よくある取り違え |\n|---|---|---|\n| 書生 | ①学生 ②他人の家に住み込み、用を手伝いながら学ぶ若者 | 会社の書記・事務員 |\n| 学資 | 学ぶための費用。多くは親や養家、郷里からの仕送り | 奨学金・ローン |\n| 口 | 勤め口。「好い口」「口が見付かる」 | 話・うわさ |\n| 洋行 | 西洋へ渡ること。留学や視察 | 気軽な海外旅行 |\n| 上京 | 地方から東京へ出ること | 単なる旅行 |\n| 下宿 | 下宿屋や素人の家の一間を借りて住む | ワンルームの一人暮らし |\n\n### 「大学を出たのに働かない」ことの重さ\n\n大学まで進める家はごく一部でした。郷里の親や親類は、学資を出した分だけ「相当の地位と収入」を期待します。卒業しても職に就かない息子は、親にとって世間への体面にかかわる問題でした。一方、親の財産で暮らし、職に就かずに本を読んで暮らす人もいました。のちに「高等遊民」と呼ばれる人たちで、漱石の小説によく出てきます。\n\n### 入試の読みにどう効くか\n\n- 「書生」が出たら、まず①学生か②住み込みかを文脈で決める。\n- 親が就職を急がせる場面は「お金」よりも「世間体・家の期待」が中心のことが多い。\n- 学資を「勝手に使えた」人物は裕福な家の出、「自分で稼ぐ」人物は苦学生。人物の出自がここで分かる。\n- 洋行帰りは、当時は学問や地位の箔になった。周りの人物がそれをどう見ているかに注目する。\n","ie":"## 家と結婚 ― 「個人」より先に「家」があった時代\n\n明治の民法（明治31年施行）では、人はまず「家」に属し、家には「戸主」という長がいました。結婚・養子・財産は、本人どうしの問題である前に「家」の問題です。これを知らないと、人物がなぜ悩むのか、なぜ争うのかが見えません。\n\n### 家の仕組み\n\n| 言葉 | この時代の意味 | よくある取り違え |\n|---|---|---|\n| 戸主 | 家の長。家の者を率い、家の財産を管理する | 建物の持ち主・稼ぎ手 |\n| 相続（家督相続） | 戸主の地位と家の財産を受け継ぐこと。原則として長男 | お金の遺産を分けること |\n| 廃嫡 | 跡継ぎの資格を取り上げること | 妻を離縁すること |\n| 勘当 | 親が子との縁を切り、家から追い出すこと | 強く叱ること |\n| 養子 | よその家に入って、その家の子となる。娘の夫として入る「婿養子」も多い | 身寄りのない幼子を育てること |\n| 復籍 | 養子の縁などを解き、もとの家の籍に戻ること | 学校への復学 |\n\n### 結婚をめぐる言葉\n\n| 言葉 | この時代の意味 | よくある取り違え |\n|---|---|---|\n| 縁談 | 家と家の間で持ち上がる結婚の話 | 本人どうしの恋愛 |\n| 許嫁 | 親や家が前もって決めておいた結婚の相手 | 恋人・婚約者（自分で選んだ） |\n| 妾 | 正式な妻とは別に、男が手当を出して囲う女性 | 後妻・妻 |\n\n※「妾」は「わたし」と読んで一人称に使うこともあります（『道草』の細君の言葉など）。前後で見分けます。\n\n### 次男と長男の違い\n\n家の財産は、原則として跡を継ぐ長男がまとめて受け継ぎました。次男以下は自分で身を立てるか、よその家へ養子に行くのが一つの道でした。『こころ』のＫや『道草』の健三のように、養子に出された人物が多いのはこのためです。\n\n### 入試の読みにどう効くか\n\n- 「相続」「財産」が出たら、まず誰が長男で誰が戸主かを確かめる。\n- 結婚話は「本人の気持ち」と「家の都合」がずれるところに葛藤がある。\n- 養家と実家の間で板ばさみになる人物は、学資や籍をめぐって縛られている。\n- 妾の立場の女性は、経済的に旦那に頼らざるを得ない。行動の理由をそこから考える。\n","kurashi":"## お金と暮らし・病 ― 登場人物の懐具合と体の具合を読む\n\n小説の人物がなぜ焦るのか、なぜ恥じるのか。その多くは、お金の出入りと病気に関わっています。今の感覚で読むと、苦しさの度合いを読み違えます。\n\n### お金の言葉\n\n| 言葉 | この時代の意味 | 読むときのポイント |\n|---|---|---|\n| 月給 | 勤め人が月ごとに受け取る給料 | 『坊っちゃん』の新任教師は四十円。人物の懐具合の目安になる |\n| 為替 | 郵便などで送られてくるお金（為替証書） | 学生は郷里からの為替で暮らす |\n| 質・質屋 | 品物を預けて金を借りる。期限内に返せば品は戻る | 着物を質に入れるのは、家計が苦しい証拠。人目をはばかった |\n| 高利貸 | 高い利子で金を貸す商売 | 世間から嫌われ、恐れられた |\n| 月賦 | 代金を月ごとに分けて払うこと | 余裕のなさの表れとして出てくる |\n\n金額の今の価値は時期によって大きく違うので、一円が今のいくら、と決めつけずに「月給の何か月分か」で比べると読みやすくなります。\n\n### 家の中で働く人\n\n| 言葉 | この時代の意味 | よくある取り違え |\n|---|---|---|\n| 下女・女中 | 住み込みで家事をする奉公人の女性 | 家族の一員・親類 |\n| 書生 | 住み込みで用を手伝いながら学ぶ若者 | 会社の書記 |\n| 車夫 | 人力車を引く人 | 自動車の運転手 |\n\n中流の家でも下女を置くのは普通でした。下女がいるから裕福、とは限りません。\n\n### 乗り物\n\n「車」とあれば、多くは人力車です。東京では明治の後半から路面電車が走り、勤め人の通勤の足になりました。\n\n### 病気と看病\n\n| 言葉 | この時代の意味 |\n|---|---|\n| 肺病 | 肺結核。特効薬がなく、若い人も多く命を落とした |\n| 吐血・喀血 | 血を吐くこと。重い病の徴として描かれる |\n| 看護婦会 | 看護婦を抱え、求めに応じて病人のもとへ送る組織 |\n| 病床（病牀） | 病人の寝床。多くは自宅の畳の上に敷いた蒲団 |\n\n正岡子規は結核による脊椎の病で寝たきりとなり、自宅の病床で『墨汁一滴』『病牀六尺』を書き続けました。漱石は伊豆の修善寺で大量に吐血し、一時は危篤となった体験を『思い出す事など』に書いています。\n\n### 入試の読みにどう効くか\n\n- 「質」「借金」が出たら、恥や体面の感情と結びつけて読む。\n- 月給の増減や勤めの整理は、人物の不安の源になる。\n- 熱や咳を人物がひどく恐れるのは、肺病が死に直結する病だったから。\n- 病床の随筆は、動けない体と、外へ向かう心の対比に注目する。\n","zuiso":"## 随想は「一人の人の考えごと」を読む\n\n随想（随筆）は、筆者が見たこと・思い出したことをきっかけに、考えを少しずつ広げていく文章です。評論のように「主張→根拠」がきっちり並んでいるわけではありません。だからこそ、**何をきっかけに、何を考え、最後にどんな気持ちに落ち着いたか**を順にたどることが大切です。\n\n## 読み方の手順\n\n1. **きっかけの出来事をおさえる**　猫の病気、雪の日の火鉢、津波の報道など、随想はたいてい具体的な出来事から始まります。まず「何を見て（聞いて）書き始めたか」を一言でまとめます。\n2. **話題が転じる所に印をつける**　「しかし」「それにしても」「思うに」「元来」などで、出来事の話から考えの話へ移る所があります。そこから後が筆者の考えの中心です。\n3. **比喩は「何を何にたとえたか」を表にする**　「富士山＝研究の対象」「ガラス板＝日常と詩の境目」のように、たとえるものとたとえられるものを対応させます。対応がずれると誤答を選びます。\n4. **最後の一文を読み直す**　随想の結びには、筆者の態度（笑い・あきらめ・静かな満足など）がよく出ます。\n\n## よくある取り違え\n\n- **謙遜や冗談を、言葉どおり受け取る**　「つまらない事を書いた」「馬鹿らしいと思って微笑する」は、へりくだりや照れを含んだ言い方です。本心まで「つまらない」「馬鹿らしい」と思っているとは限りません。子規の「病床が広過ぎる」のような逆説も、字面のまま「満足している」と読むと外れます。\n- **比喩を字面のまま読む**　「からだが肥り過ぎている」「海を描くに波打ちぎわ」など、比喩を文字どおりの意味で取った選択肢は誤答です。\n- **隣の段落の話と混ぜる**　随想は小さな話題が次々に出ます。傍線部と別の段落の考え（同じ筆者の考えではあっても）を答えにしないようにしましょう。\n- **言いすぎ**　「〜すべきだ」「必ず〜」「〜しかない」と強く言い切る選択肢は、筆者がそこまで言っているかを本文で確かめます。随想の筆者は、断定を避けて含みを残すことが多いのです。\n- **微笑・苦笑を「冷笑」と読む**　明治・大正の随想の「微笑」は、たいてい人を見下す笑いではなく、自分をも含めて距離を置いて眺める穏やかな笑いです。\n\n## 設問の解き方\n\n「傍線部で筆者が言おうとしていること」を問われたら、\n\n- まず傍線部を**自分の言葉で短く言い換え**てから選択肢を見る。\n- 選択肢を「前半（事実・前提）」と「後半（筆者の考え・気持ち）」に分け、**両方とも本文に根拠があるか**を確かめる。前半は正しいのに、後半の気持ちの向きだけが違う、という誤答がいちばん多い形です。\n- 迷ったら、傍線部の**直前・直後の一文**に戻る。随想では、答えの根拠はたいてい傍線部のすぐ近くにあります。\n","ichibun":"## 長い一文は「骨組み」から読む\n\n明治・大正の文章、とくに漱石の講演や小説には、読点でつながった長い一文がよく出てきます。長い文でつまずくのは、言葉が難しいからというより、**だれが（何が）・どうした**という骨組みを見失うからです。\n\n## 読み方の手順\n\n1. **文末の述語を先に見る**　「〜のです」「〜と悟った」「〜と思う」など、文の最後の述語を確かめ、それに対応する主語を探します。主語は文頭から遠く離れていることが多く、途中に別の人物の動作がはさまっていることもあります。\n2. **「〜が」「〜は」に印をつける**　一文の中に「私は」「彼は」「Ｋが」が何度も出るときは、どの述語につながるかを線で結んでみます。「Ｋが私のように」のように、比べる相手の名前がはさまると、主語を取り違えやすくなります。\n3. **比喩・たとえ話は「本題」に戻す**　「自分の酒を人に飲んでもらって」「食膳に向って」のような言い方は、そのあとに必ず本題（人真似、外発的な開化）が控えています。たとえの中の言葉のまま答えを選ばず、本題の言葉に置きかえて考えます。\n4. **指示語は「直前」から探し、代入して確かめる**　「それ」「そこ」「ここに」が指すものは、ふつう直前にあります。ただし、**すぐ前の語句だけでなく、前の文全体や段落の内容**を指すことも多いので、候補を当てはめて文意が通るかを必ず確かめます。\n\n## よくある取り違え\n\n- **主語の取り違え**　「私」と「彼」、語り手と登場人物、話し手と聞き手を入れかえた選択肢。文の中の「〜のように」「〜に対して」を主語と見誤るのが典型です。\n- **指示内容の範囲の取り違え**　指示語のすぐ前の語句だけを取る（狭すぎる）、一つ前の段落まで取る（広すぎる）、の両方があります。とくに「他の悪口ではありません。こういう私が現にそれだった」のように、指示語の直前に別の話がはさまるときは要注意です。\n- **たとえを字面のまま読む**　「釘一本と同じ効果」を「釘のように刺さる」と取るような誤りです。たとえ話は必ず「何の」たとえかを考えます。\n- **筆者が否定している内容を選ぶ**　「〜ではない」「〜つもりではありません」と打ち消された内容を、そのまま答えに選んでしまう誤りです。\n\n## 設問の解き方\n\n- 「傍線部の主語（主体）は何か」→ 傍線部の述語から逆にたどり、途中の人物名に惑わされない。\n- 「『それ』の指す内容」→ 候補を傍線部に**代入して読み直す**。文が自然に通るものが正解です。\n- 「傍線部はどういうことか」→ 傍線部をいくつかの部分に切り、それぞれを本文の別の言葉で言い換えた選択肢を選ぶ。**一部分だけ正しい**選択肢に注意します。\n- 講演（『私の個人主義』『現代日本の開化』）では、話し手が同じことを言い換えて繰り返すことが多いので、前後から言い換えを探すと、答えの根拠が見つかります。\n","shinjo":"## 心情は「きっかけ・心の動き・ふるまい」の三点セット\n\n共通テストの小説でいちばん多いのが「傍線部の心情の説明として最も適当なもの」です。心情はたいてい次の三つで説明できます。\n\n- **きっかけ**　何を見て・聞いて・知って心が動いたか\n- **心の動き**　どんな気持ちになったか（向き：うれしい／つらい、相手へ／自分へ）\n- **ふるまい**　その気持ちが、表情・言葉・動作にどう出たか（苦笑、下を向く、昂然と頭を挙げる など）\n\n選択肢もこの三つでできているので、**一つずつ本文と照らし合わせる**と、どこが誤りかが見えてきます。\n\n## 読み方の手順\n\n1. **傍線部の前にさかのぼって、きっかけを探す**　心情は、直前の出来事や他の人物の言葉に反応して生まれます。\n2. **「言葉」をおさえる**　「所決」「奉公」「妾」「高利貸」「書生」など、明治・大正の言葉や暮らしが分からないと、きっかけそのものを読み違えます。分からない語は辞典で確かめましょう。\n3. **時代背景を補う**　高利貸は世間から強く嫌われた職業でした。妾になることは、家族を支えるための選択でもありました。貧しい家の娘が年若くして住み込みで働きに出る（奉公）のも珍しくありませんでした。こうした常識があってはじめて、人物の気持ちの重さが分かります。\n4. **ふるまいの裏を読む**　漱石の人物は、苦しいときほど笑ったり、何でもない言葉を返したりします。「苦笑」「下を向いたまま」などは、言葉にされない気持ちの手がかりです。\n\n## よくある誤答のパターン\n\n- **心情の向きの取り違え**　悲しみを怒りに、自分へのやるせなさを相手への軽蔑に、不安を安心に、と方向を逆にした選択肢。\n- **きっかけの取り違え**　心が動いた原因を、場面にある別の出来事（妻の心づかい、景色の美しさ など）にすりかえた選択肢。前半の事実は本文どおりなので、だまされやすい形です。\n- **言いすぎ**　「決意した」「確信した」「すっかり」「二度と〜ない」など、本文に根拠のない強い断定。人物はそこまで思い切っていない、ということがよくあります。\n- **後の展開を先取りする**　小説全体の結末を知っていても、その場面の人物がまだ知らないことを心情に入れてはいけません。\n- **語り手の説明と人物の自覚の混同**　『鼻』の内供のように、語り手は理由を説明していても、人物自身は「理由を知らない」ことがあります。\n\n## 設問の解き方\n\n- 選択肢を読む前に、**「〜がきっかけで、〜という気持ちになり、〜した」と自分で一文にまとめる**。\n- 選択肢は、**きっかけ→心の動き→ふるまい**の順に区切り、どこか一つでも本文と合わなければ外す。\n- 二つに絞って迷ったら、**強い言葉（すべて・必ず・決意）が入っているほう**を疑う。\n- 正解は、本文の言葉をそのまま使わず、言い換えていることが多い。本文と同じ言葉が並んでいるだけの選択肢に飛びつかない。\n"};
+  var WORDS = [];
+
+  var els = {};
+  ["unit-groups","selected-unit-box","selected-unit-label","selected-unit-count",
+   "btn-make-quiz","btn-view-guide",
+   "error-banner","error-text","error-close",
+   "view-setup","view-quiz","view-result","view-guide","view-stats",
+   "quiz-count","quiz-score","quiz-unit","quiz-dots","quiz-prompt","quiz-question","quiz-source","quiz-choices",
+   "quiz-feedback","feedback-verdict","feedback-head","feedback-explanation","feedback-translation","feedback-translation-text","feedback-meta",
+   "btn-next-question",
+   "result-frac","result-message","btn-retry-quiz","btn-new-quiz","btn-guide-from-result","btn-change-unit",
+   "guide-content","btn-guide-back","btn-guide-quiz",
+   "stats-body","btn-stats","btn-stats-back","btn-stats-reset","btn-stats-from-result",
+   "btn-wrongbox","btn-wrong-only","range-from","range-to","btn-range"
+  ].forEach(function(id){ els[id.replace(/-([a-z])/g, function(_,c){return c.toUpperCase();})] = document.getElementById(id); });
+
+  var SET_SIZE = 10;
+  var quizData = [];
+  var currentIndex = 0;
+  var score = 0;
+  var results = [];
+  var selectedUnit = null;
+  var isWrongReview = false;
+
+  // 問題文と正解から安定したIDを作る（データの並び順が変わってもずれない）
+  function qid(text){
+    var h = 5381, s = String(text);
+    for(var i=0;i<s.length;i++){ h = ((h*33) ^ s.charCodeAt(i)) >>> 0; }
+    return h.toString(36);
+  }
+  var QID_MAP = {};
+  POOL.forEach(function(q){
+    q.id = qid(q.q + "|" + q.c[q.a]);
+    QID_MAP[q.id] = q;
+  });
+
+  // ===================== 学習記録（この端末のブラウザ内だけに保存） =====================
+  var RECENT_MAX = 60;
+  var DAYS_MAX  = 400;
+
+  function emptyStore(){ return { units:{}, wrong:[], recent:{}, days:[] }; }
+
+  var store = (function(){
+    try{
+      var raw = window.localStorage.getItem(CONFIG.storeKey);
+      if(!raw) return emptyStore();
+      var o = JSON.parse(raw);
+      return {
+        units:  o.units  || {},
+        wrong:  Array.isArray(o.wrong) ? o.wrong : [],
+        recent: o.recent || {},
+        days:   o.days   || []
+      };
+    }catch(e){ return emptyStore(); }
+  })();
+
+  var storageOK = true;
+  function saveStore(){
+    try{ window.localStorage.setItem(CONFIG.storeKey, JSON.stringify(store)); }
+    catch(e){ storageOK = false; }
+  }
+
+  function rangeUnit(from, to){
+    return { id: "r" + from + "-" + to, label: "No." + from + "〜" + to, from: from, to: to };
+  }
+
+  function findUnit(uid){
+    var found = null;
+    UNITS.forEach(function(g){
+      g.items.forEach(function(it){ if(it.id === uid) found = it; });
+    });
+    if(!found){
+      var m = /^r(\d+)-(\d+)$/.exec(uid);
+      if(m) found = rangeUnit(+m[1], +m[2]);
+    }
+    return found;
+  }
+  function unitLabelOf(uid){
+    var u = findUnit(uid);
+    return u ? u.label : uid;
+  }
+
+  function poolOf(unit){
+    if(unit.from){
+      return POOL.filter(function(q){ return q.no >= unit.from && q.no <= unit.to; });
+    }
+    return POOL.filter(function(q){ return q.g === unit.id; });
+  }
+
+  function todayKey(){
+    var d = new Date();
+    function p(n){ return (n<10?"0":"") + n; }
+    return d.getFullYear() + "-" + p(d.getMonth()+1) + "-" + p(d.getDate());
+  }
+
+  function recordAnswer(id, isCorrect){
+    var at = store.wrong.indexOf(id);
+    if(isCorrect){
+      if(at >= 0) store.wrong.splice(at, 1);   // 正解したら苦手ボックスから外す
+    } else if(at < 0){
+      store.wrong.push(id);
+    }
+  }
+
+  function recordQuizFinished(unitId, asked, correct){
+    var u = store.units[unitId] || { attempts:0, asked:0, correct:0, last:"" };
+    u.attempts += 1;
+    u.asked    += asked;
+    u.correct  += correct;
+    u.last      = todayKey();
+    store.units[unitId] = u;
+    if(store.days.indexOf(u.last) < 0){
+      store.days.push(u.last);
+      if(store.days.length > DAYS_MAX) store.days = store.days.slice(-DAYS_MAX);
+    }
+    saveStore();
+  }
+
+  function rememberAsked(unitId, questions){
+    var seen = store.recent[unitId] || [];
+    questions.forEach(function(q){
+      var at = seen.indexOf(q.id);
+      if(at >= 0) seen.splice(at, 1);
+      seen.push(q.id);
+    });
+    if(seen.length > RECENT_MAX) seen = seen.slice(-RECENT_MAX);
+    store.recent[unitId] = seen;
+    saveStore();
+  }
+
+  function wrongBoxQuestions(limit){
+    var out = [];
+    store.wrong.forEach(function(id){ if(QID_MAP[id]) out.push(QID_MAP[id]); });
+    return shuffleArray(out).slice(0, limit || SET_SIZE);
+  }
+  function wrongBoxCount(){
+    return store.wrong.filter(function(id){ return QID_MAP[id]; }).length;
+  }
+
+  function switchView(name){
+    ["setup","quiz","result","guide","stats"].forEach(function(v){
+      els["view"+v[0].toUpperCase()+v.slice(1)].hidden = (v !== name);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function showError(msg){
+    els.errorText.textContent = msg;
+    els.errorBanner.hidden = false;
+  }
+  function clearError(){ els.errorBanner.hidden = true; }
+  els.errorClose.addEventListener("click", clearError);
+
+  function escapeHTML(s){
+    return String(s).replace(/[&<>"']/g, function(ch){
+      return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[ch];
+    });
+  }
+  // 《》で囲んだ部分を傍線にする
+  function markup(s){
+    return escapeHTML(s).replace(/《(.+?)》/g, '<span class="bosen">$1</span>')
+      /* 先頭の（ ）は本文ではなく場面の説明。小さく分けて出す */
+      .replace(/^（([^）]*)）/, '<span class="maeoki">$1</span>');
+  }
+
+  // ---- 単元選び ----
+  function renderUnitGroups(){
+    els.unitGroups.innerHTML = "";
+    UNITS.forEach(function(group){
+      var wrap = document.createElement("div");
+      wrap.className = "unit-group";
+      var h3 = document.createElement("h3");
+      h3.textContent = group.chapter;
+      wrap.appendChild(h3);
+      var chips = document.createElement("div");
+      chips.className = "chips";
+      group.items.forEach(function(item){
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip";
+        btn.textContent = item.label;
+        btn.dataset.unitId = item.id;
+        btn.addEventListener("click", function(){ selectUnit(item); });
+        chips.appendChild(btn);
+      });
+      wrap.appendChild(chips);
+      els.unitGroups.appendChild(wrap);
+    });
+  }
+  renderUnitGroups();
+
+  function selectUnit(item){
+    selectedUnit = item;
+    Array.prototype.forEach.call(els.unitGroups.querySelectorAll(".chip"), function(chip){
+      chip.classList.toggle("active", chip.dataset.unitId === item.id);
+    });
+    els.selectedUnitLabel.textContent = item.label + (item.hint ? "（" + item.hint + "）" : "");
+    els.selectedUnitCount.textContent = " 全" + poolOf(item).length + "問";
+    els.selectedUnitBox.hidden = false;
+    els.btnMakeQuiz.disabled = false;
+    els.btnViewGuide.disabled = false;
+    clearError();
+  }
+
+  if(els.btnRange){
+    els.btnRange.addEventListener("click", function(){
+      var a = parseInt(els.rangeFrom.value, 10), b = parseInt(els.rangeTo.value, 10);
+      if(isNaN(a) || isNaN(b)){ showError("はじめとおわりの番号を数字で入れてください。"); return; }
+      if(a > b){ var t = a; a = b; b = t; }
+      a = Math.max(1, a); b = Math.min(CONFIG.maxNo, b);
+      var u = rangeUnit(a, b);
+      if(!poolOf(u).length){ showError("No." + a + "〜" + b + " には問題がありません。"); return; }
+      els.rangeFrom.value = a; els.rangeTo.value = b;
+      selectUnit(u);
+      els.selectedUnitBox.scrollIntoView({ block:"nearest" });
+    });
+  }
+
+  // ---- 出題 ----
+  function shuffleArray(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function shuffleChoices(q){
+    var order = shuffleArray(q.c.map(function(_, i){ return i; }));
+    var copy = {};
+    Object.keys(q).forEach(function(k){ copy[k] = q[k]; });
+    copy.c = order.map(function(i){ return q.c[i]; });
+    copy.a = order.indexOf(q.a);
+    return copy;
+  }
+
+  // 同じ語が1セットに重ならないように選ぶ（足りなければ重ねる）
+  function pickDistinct(list, n){
+    var used = {}, out = [], rest = [];
+    list.forEach(function(q){
+      if(out.length >= n){ return; }
+      if(q.w && used[q.w]){ rest.push(q); return; }
+      if(q.w) used[q.w] = true;
+      out.push(q);
+    });
+    return out.concat(rest).slice(0, n);
+  }
+
+  function pickQuizForUnit(unit){
+    var pool = poolOf(unit);
+    if(!pool.length) return null;
+    // 直近に出した問題をいったん後回しにして、同じ問題の再出現を減らす
+    var seen = store.recent[unit.id] || [];
+    var fresh = pool.filter(function(q){ return seen.indexOf(q.id) < 0; });
+    var picked;
+    if(fresh.length >= SET_SIZE){
+      picked = pickDistinct(shuffleArray(fresh), SET_SIZE);
+    } else {
+      // 未出題が足りなくなったら一巡したとみなし、記憶を流して全体から選び直す
+      picked = pickDistinct(shuffleArray(fresh).concat(
+        shuffleArray(pool.filter(function(q){ return fresh.indexOf(q) < 0; }))
+      ), SET_SIZE);
+      store.recent[unit.id] = [];
+    }
+    rememberAsked(unit.id, picked);
+    return picked.map(shuffleChoices);
+  }
+
+  function beginQuiz(questions, title){
+    quizData = questions;
+    currentIndex = 0; score = 0; results = [];
+    renderQuizDots();
+    els.quizUnit.textContent = title;
+    renderQuestion();
+    switchView("quiz");
+  }
+
+  function startQuizWith(questions, title){
+    if(!questions || !questions.length) return false;
+    isWrongReview = true;
+    beginQuiz(questions.map(shuffleChoices), title);
+    return true;
+  }
+
+  function startQuiz(){
+    clearError();
+    if(!selectedUnit) return;
+    isWrongReview = false;
+    var qs = pickQuizForUnit(selectedUnit);
+    if(!qs){
+      showError("「" + selectedUnit.label + "」の問題は準備中です。別の単元をお試しください。");
+      switchView("setup");
+      return;
+    }
+    beginQuiz(qs, CONFIG.unitWord + ": " + selectedUnit.label);
+  }
+
+  function renderQuizDots(){
+    els.quizDots.innerHTML = "";
+    quizData.forEach(function(){ els.quizDots.appendChild(document.createElement("span")); });
+    updateDots();
+  }
+  function updateDots(){
+    var dots = els.quizDots.children;
+    for(var i=0;i<dots.length;i++){
+      dots[i].className = "";
+      if(results[i] === "correct") dots[i].classList.add("done-correct");
+      else if(results[i] === "wrong") dots[i].classList.add("done-wrong");
+      else if(i === currentIndex) dots[i].classList.add("current");
+    }
+  }
+
+  function renderQuestion(){
+    var q = quizData[currentIndex];
+    els.quizCount.textContent = "問 " + (currentIndex+1) + " / " + quizData.length;
+    els.quizScore.textContent = "正解 " + score;
+    els.quizPrompt.textContent = q.p || "";
+    els.quizPrompt.hidden = !q.p;
+    els.quizQuestion.innerHTML = markup(q.q);
+    els.quizQuestion.classList.toggle("big", !!q.big);
+    els.quizSource.textContent = q.s || "";
+    els.quizSource.hidden = !q.s;
+    els.quizFeedback.hidden = true;
+    els.btnNextQuestion.hidden = true;
+    updateDots();
+
+    els.quizChoices.innerHTML = "";
+    var letters = ["A","B","C","D","E","F"];
+    q.c.forEach(function(choiceText, idx){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "choice";
+      btn.innerHTML = '<span class="badge">' + letters[idx] + '</span><span></span>';
+      btn.querySelector("span:last-child").textContent = choiceText;
+      btn.addEventListener("click", function(){ onChoose(idx); });
+      els.quizChoices.appendChild(btn);
+    });
+  }
+
+  function onChoose(idx){
+    var q = quizData[currentIndex];
+    var buttons = els.quizChoices.querySelectorAll(".choice");
+    Array.prototype.forEach.call(buttons, function(b){ b.disabled = true; });
+
+    var isCorrect = (idx === q.a);
+    buttons[idx].classList.add(isCorrect ? "correct" : "incorrect");
+    if(!isCorrect) buttons[q.a].classList.add("correct");
+
+    if(isCorrect) score++;
+    results[currentIndex] = isCorrect ? "correct" : "wrong";
+    recordAnswer(q.id, isCorrect);
+    saveStore();
+    if(window.Tsukumo) Tsukumo.answer(isCorrect);   // 付喪神（道場共通/tsukumo）
+    updateDots();
+    els.quizScore.textContent = "正解 " + score;
+
+    els.feedbackVerdict.textContent = isCorrect ? "○ 正解！" : "× 残念、不正解";
+    els.feedbackVerdict.className = "verdict " + (isCorrect ? "correct" : "incorrect");
+    els.feedbackHead.textContent = q.h || "";
+    els.feedbackHead.hidden = !q.h;
+    els.feedbackExplanation.textContent = q.e || "";
+    if(q.t){
+      els.feedbackTranslationText.innerHTML = markup(q.t);
+      els.feedbackTranslation.hidden = false;
+    } else {
+      els.feedbackTranslation.hidden = true;
+    }
+    els.feedbackMeta.textContent = q.m || "";
+    els.feedbackMeta.hidden = !q.m;
+    els.quizFeedback.hidden = false;
+    els.btnNextQuestion.hidden = false;
+    els.btnNextQuestion.textContent = (currentIndex === quizData.length-1) ? "結果を見る" : "次の問題へ";
+    // 解説とボタンが画面の外に出ないように寄せる
+    try{
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      els.btnNextQuestion.scrollIntoView({ block: "end", behavior: reduceMotion ? "auto" : "smooth" });
+    }catch(e){
+      els.btnNextQuestion.scrollIntoView(false);
+    }
+  }
+
+  els.btnNextQuestion.addEventListener("click", function(){
+    if(currentIndex < quizData.length-1){
+      currentIndex++;
+      renderQuestion();
+      els.quizCount.scrollIntoView({ block: "nearest" });
+    } else {
+      showResult();
+    }
+  });
+
+  function showResult(){
+    var total = quizData.length;
+    els.resultFrac.textContent = score + "/" + total;
+    var ratio = score/total;
+    var msg;
+    if(score === total) msg = "満点です！お見事な出来栄え。もう一つ別の範囲にも挑戦してみましょう。";
+    else if(ratio >= 0.7) msg = "よくできました。間違えた問題の解説を読み返して、仕上げていきましょう。";
+    else if(ratio >= 0.4) msg = "もう少しです。解説を読み直して、同じ範囲にもう一度挑戦してみましょう。";
+    else msg = CONFIG.lowScoreMessage;
+    els.resultMessage.textContent = msg;
+
+    if(window.Tsukumo) Tsukumo.finish(total, score);
+    if(selectedUnit && !isWrongReview){
+      recordQuizFinished(selectedUnit.id, total, score);
+    } else {
+      saveStore();
+    }
+
+    var wrongCount = results.filter(function(r){ return r === "wrong"; }).length;
+    els.btnWrongOnly.hidden = (wrongCount === 0);
+    if(wrongCount) els.btnWrongOnly.textContent = "間違えた" + wrongCount + "問だけもう一度";
+    els.btnGuideFromResult.hidden = !selectedUnit || isWrongReview;
+    els.btnNewQuiz.hidden = !selectedUnit || isWrongReview;
+
+    switchView("result");
+  }
+
+  els.btnRetryQuiz.addEventListener("click", function(){
+    beginQuiz(quizData.map(shuffleChoices), els.quizUnit.textContent);
+  });
+  els.btnNewQuiz.addEventListener("click", function(){ startQuiz(); });
+  els.btnChangeUnit.addEventListener("click", function(){ clearError(); refreshWrongBoxButton(); switchView("setup"); });
+  els.btnGuideFromResult.addEventListener("click", function(){ showGuide(); });
+  els.btnGuideBack.addEventListener("click", function(){ clearError(); refreshWrongBoxButton(); switchView("setup"); });
+  els.btnGuideQuiz.addEventListener("click", function(){ startQuiz(); });
+
+  // ---- 学習ガイド / 単語一覧 ----
+  function renderMarkdown(text){
+    try{
+      if(window.marked && typeof window.marked.parse === "function") return window.marked.parse(text);
+    }catch(e){}
+    return escapeHTML(text).replace(/\n/g, "<br>");
+  }
+
+  function wordListHTML(unit){
+    var rows = WORDS.filter(function(w){
+      return unit.from ? (w.no >= unit.from && w.no <= unit.to) : w.g === unit.id;
+    });
+    if(!rows.length) return "";
+    var html = '<h2>' + escapeHTML(unit.label) + ' の語</h2>'
+             + '<div style="overflow-x:auto"><table class="word-table"><thead><tr>'
+             + '<th>' + (unit.from ? "No." : "頁") + '</th><th>語</th><th>意味</th></tr></thead><tbody>';
+    rows.forEach(function(w){
+      html += '<tr><td class="no">' + (unit.from ? w.no : "p." + w.pg) + '</td>'
+           +  '<td class="w">' + escapeHTML(w.w) + (w.k ? '<small>' + escapeHTML(w.k) + (w.h ? "・" + escapeHTML(w.h) : "") + '</small>' : "") + '</td>'
+           +  '<td>' + escapeHTML(w.m) + (unit.from && w.pg ? ' <span style="color:var(--ink-soft);font-size:.78rem">p.' + w.pg + '</span>' : "") + '</td></tr>';
+    });
+    return html + '</tbody></table></div>';
+  }
+
+  function showGuide(){
+    clearError();
+    if(!selectedUnit) return;
+    var html = GUIDES[selectedUnit.id] ? renderMarkdown(GUIDES[selectedUnit.id]) : wordListHTML(selectedUnit);
+    els.guideContent.innerHTML = html || "<p>「" + escapeHTML(selectedUnit.label) + "」のガイドは準備中です。</p>";
+    switchView("guide");
+  }
+
+  // ===================== 記録画面 =====================
+  function pct(n, d){ return d ? Math.round(n / d * 100) : 0; }
+
+  function dayKey(d){
+    function p(x){ return (x<10?"0":"") + x; }
+    return d.getFullYear() + "-" + p(d.getMonth()+1) + "-" + p(d.getDate());
+  }
+  function streakDays(){
+    if(!store.days.length) return 0;
+    var set = {};
+    store.days.forEach(function(d){ set[d] = true; });
+    var n = 0, cur = new Date();
+    if(!set[dayKey(cur)]) cur.setDate(cur.getDate() - 1);   // 今日まだなら昨日から数える
+    while(set[dayKey(cur)]){ n++; cur.setDate(cur.getDate() - 1); }
+    return n;
+  }
+
+  function calendarHTML(){
+    var now = new Date();
+    var year = now.getFullYear(), month = now.getMonth();
+    var first = new Date(year, month, 1).getDay();
+    var last = new Date(year, month+1, 0).getDate();
+    var set = {};
+    store.days.forEach(function(d){ set[d] = true; });
+    var html = '<div class="cal">';
+    ["日","月","火","水","木","金","土"].forEach(function(w){ html += '<span class="head">' + w + '</span>'; });
+    for(var i=0;i<first;i++) html += '<span></span>';
+    for(var d=1; d<=last; d++){
+      var cls = [];
+      if(set[dayKey(new Date(year, month, d))]) cls.push("on");
+      if(d === now.getDate()) cls.push("today");
+      html += '<span class="' + cls.join(" ") + '">' + d + '</span>';
+    }
+    return html + '</div>';
+  }
+
+  function renderStats(){
+    var uids = Object.keys(store.units);
+    var totalAttempts = 0, totalAsked = 0, totalCorrect = 0;
+    uids.forEach(function(u){
+      totalAttempts += store.units[u].attempts;
+      totalAsked    += store.units[u].asked;
+      totalCorrect  += store.units[u].correct;
+    });
+
+    var html = "";
+    if(!storageOK){
+      html += '<p class="stats-empty">このブラウザでは記録を保存できない設定になっています（プライベートモードなど）。'
+           +  'その場合でも、いま解いている分の「間違えた問題だけもう一度」は使えます。</p>';
+    }
+    if(!totalAttempts){
+      html += '<p class="stats-empty">まだ記録がありません。範囲を選んで10問解くと、ここに正答率と学習した日が残ります。</p>';
+      els.statsBody.innerHTML = html;
+      return;
+    }
+
+    html += '<div class="stat-grid">'
+         +  '<div class="stat-tile"><span class="k">挑戦した回数</span><span class="v">' + totalAttempts + '<small>回</small></span></div>'
+         +  '<div class="stat-tile"><span class="k">解いた問題</span><span class="v">' + totalAsked + '<small>問</small></span></div>'
+         +  '<div class="stat-tile"><span class="k">通算の正答率</span><span class="v">' + pct(totalCorrect, totalAsked) + '<small>%</small></span></div>'
+         +  '<div class="stat-tile"><span class="k">連続学習日数</span><span class="v">' + streakDays() + '<small>日</small></span></div>'
+         +  '</div>';
+
+    var wn = wrongBoxCount();
+    html += '<div class="stats-section-title">苦手ボックス</div>';
+    if(wn){
+      html += '<div class="wrongbox-line"><span>間違えたまま正解していない問題が <strong>' + wn + '問</strong> あります。</span>'
+           +  '<button type="button" class="btn btn-primary" id="btn-wrongbox-2">ここから10問解く</button></div>';
+    } else {
+      html += '<p class="stats-empty">いまは空です。間違えた問題がここにたまり、正解すると消えます。</p>';
+    }
+
+    uids.sort(function(a,b){
+      return pct(store.units[a].correct, store.units[a].asked) - pct(store.units[b].correct, store.units[b].asked);
+    });
+    html += '<div class="stats-section-title">' + CONFIG.unitWord + 'ごとの成績（正答率の低い順）</div>';
+    html += '<div style="overflow-x:auto"><table class="stat-table"><thead><tr>'
+         +  '<th>' + CONFIG.unitWord + '</th><th class="num">挑戦</th><th class="num">正答率</th><th style="width:90px"></th><th class="num">最終</th>'
+         +  '</tr></thead><tbody>';
+    uids.forEach(function(uid){
+      var u = store.units[uid];
+      var r = pct(u.correct, u.asked);
+      var cls = r < 50 ? "low" : (r < 80 ? "mid" : "");
+      html += '<tr><td>' + escapeHTML(unitLabelOf(uid)) + '</td>'
+           +  '<td class="num">' + u.attempts + '回</td>'
+           +  '<td class="num">' + r + '%</td>'
+           +  '<td><span class="rate-bar"><i class="' + cls + '" style="width:' + r + '%"></i></span></td>'
+           +  '<td class="num">' + (u.last || "-").slice(5).replace("-", "/") + '</td></tr>';
+    });
+    html += '</tbody></table></div>';
+    html += '<div class="stats-section-title">今月の学習した日</div>' + calendarHTML();
+
+    els.statsBody.innerHTML = html;
+    var btn2 = document.getElementById("btn-wrongbox-2");
+    if(btn2) btn2.addEventListener("click", openWrongBox);
+  }
+
+  function openWrongBox(){
+    clearError();
+    var qs = wrongBoxQuestions(SET_SIZE);
+    if(!qs.length){
+      showError("苦手ボックスは空です。まずは範囲を選んで挑戦してみましょう。");
+      switchView("setup");
+      return;
+    }
+    startQuizWith(qs, "苦手ボックス(" + qs.length + "問)");
+  }
+
+  function showStats(){ clearError(); renderStats(); switchView("stats"); }
+
+  els.btnStats.addEventListener("click", showStats);
+  els.btnStatsFromResult.addEventListener("click", showStats);
+  els.btnStatsBack.addEventListener("click", function(){ clearError(); refreshWrongBoxButton(); switchView("setup"); });
+  els.btnWrongbox.addEventListener("click", openWrongBox);
+
+  els.btnStatsReset.addEventListener("click", function(){
+    if(!window.confirm("これまでの記録と苦手ボックスをすべて消します。よろしいですか？")) return;
+    store = emptyStore();
+    try{ window.localStorage.removeItem(CONFIG.storeKey); }catch(e){}
+    renderStats();
+  });
+
+  els.btnWrongOnly.addEventListener("click", function(){
+    var wrong = quizData.filter(function(_, i){ return results[i] === "wrong"; });
+    if(!wrong.length) return;
+    startQuizWith(wrong, "間違えた問題の解き直し(" + wrong.length + "問)");
+  });
+
+  function refreshWrongBoxButton(){
+    var n = wrongBoxCount();
+    els.btnWrongbox.textContent = n ? ("苦手ボックスから10問(" + n + "問たまっています)") : "苦手ボックスから10問";
+    els.btnWrongbox.disabled = (n === 0);
+  }
+  refreshWrongBoxButton();
+
+  els.btnMakeQuiz.addEventListener("click", function(){ startQuiz(); });
+  els.btnViewGuide.addEventListener("click", function(){ showGuide(); });
+})();
+</script>
+<script src="tsukumo.js" data-subject="gendai"></script>
+<script src="riyou.js" data-site="kindai"></script>
+</body>
+</html>
